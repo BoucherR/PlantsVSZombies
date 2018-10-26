@@ -1,6 +1,6 @@
 /**
  * @author Ryan Boucher
- * @version 1.0
+ * @version 1.1
  */
 
 import java.util.Scanner;
@@ -66,9 +66,11 @@ public class Main {
                     System.out.println("Where would you like to add a Peashooter? \n Format: [Column][Row] e.g 13 ");
                     System.out.print("Your selection: ");
                     String choice2 = scanner.next();
-                    if (((choice2.charAt(0)-48 >= 0) && (choice2.charAt(0)-48 < 8)) && ((choice2.charAt(1)-48 >= 0) && (choice2.charAt(1)-48 < 5))){ // ASCII numbers start at 48
-                        gb.add(new Coordinate(choice2.charAt(0)-48,choice2.charAt(1)-48), new Piece(PlantPieces.PEASHOOTER));
-                        runGame(gb);
+                    if(choice2.length() == 2) {
+                        if (((choice2.charAt(0) - 48 >= 0) && (choice2.charAt(0) - 48 < 8)) && ((choice2.charAt(1) - 48 >= 0) && (choice2.charAt(1) - 48 < 5))) {
+                            if(gb.add(new Coordinate(choice2.charAt(0) - 48, choice2.charAt(1) - 48), new Piece(PlantPieces.PEASHOOTER)))
+                                runGame(gb);
+                        }
                     }
                     else System.out.println("Error: Wrong input. Please try again.");
                     break;
@@ -76,9 +78,11 @@ public class Main {
                     System.out.println("Where would you like to add a Sunflower? \n Format: [Column][Row] -> 13 ");
                     System.out.print("Your selection: ");
                     String choice3 = scanner.next();
-                    if (((choice3.charAt(0)-48 >= 0) && (choice3.charAt(0)-48 < 8)) && ((choice3.charAt(1)-48 >= 0) && (choice3.charAt(1)-48 < 5))){
-                        gb.add(new Coordinate(choice3.charAt(0) - 48, choice3.charAt(1) - 48), new Piece(PlantPieces.SUNFLOWER));
-                        runGame(gb);
+                    if(choice3.length() == 2) {
+                        if (((choice3.charAt(0) - 48 >= 0) && (choice3.charAt(0) - 48 < 8)) && ((choice3.charAt(1) - 48 >= 0) && (choice3.charAt(1) - 48 < 5))) {
+                            if (gb.add(new Coordinate(choice3.charAt(0) - 48, choice3.charAt(1) - 48), new Piece(PlantPieces.SUNFLOWER)))
+                                runGame(gb);
+                        }
                     }
                     else System.out.println("Error: Wrong input. Please try again.");
                     break;
@@ -106,6 +110,7 @@ public class Main {
         gb.addingZombie();
         gb.hitUpdate();
         gb.removeUpdate();
+        gb.gameWon();
         gb.gameOver();
     }
 
