@@ -9,7 +9,7 @@
 |Ryan Boucher  | Documentation & Main.java          |
 |Ryan Gaudreault | Sequence Diagram, PlantPieces.java & Pieces.java|
 |Muneeb Nasir|UML, Coordinate.java and Square.java|
-|Youssef Saghbini|User Manual, ReadMe & GameBoard.java|
+|Youssef Saghbini|User Manual & GameBoard.java|
 
 ### Future Plans
 1. Optimize Code 
