@@ -22,25 +22,34 @@ The one-level based plants versus zombie game will consist of 5 by 8 board, wher
  
 ## Menu
 ![](https://lh3.googleusercontent.com/ybxdhRCZsANoTCLalVR8Lzy1Kjape9nTLqkrO8vrzL7Z22QeDUOBZfz_-EY4ziiX0kweVGXVpMhrxw "menu")
+
 As the game starts, you will be greeted with this menu. This menu will be with you until you lose, win or end the game. This menu will help you add plants, skip the round and exit the game at anytime. 
 
 ## Log 
 ![](https://lh3.googleusercontent.com/reP2awdH4ZiWgFqDRReI7Wknv0e4sOpM9U5Jz7iSJ7LRSwYG0BBIfarsogGpnQCehavHP96byvEIiQ "log")
+
 During the game, any event that occurs; will be recorded and displayed, so that the user will be notified on what is happening on the battlefield. Another word, any in-game activities will be logged and shown in the next round.
 
 # Instructions
+
 How to play the game. Each event will be shown in gif and described for better understanding.
 ## Start of the game 
+
 Once the game, you will be asked whether to start the game or press any key to exit out.
+
 ![Recordit GIF](http://g.recordit.co/oRQpxfTTVH.gif)
+
 If pressed 1, then it will generate a new game.
 
-![Recordit GIF](http://g.recordit.co/cKFGiO4bXo.gif)If pressed anything else then the program will be exited and close.
+![Recordit GIF](http://g.recordit.co/cKFGiO4bXo.gif)
+
+If pressed anything else then the program will be exited and close.
 
 
 ## Adding Peashooters or Sunflowers
 
 ![Recordit GIF](http://g.recordit.co/pU0pKRBDR2.gif)
+
 During in-game, the board and menu will always be presented to you to see the current state. As the menu is shown, you will be given the option to add a plant, whether its peashooter or sunflower, it is up to the user. Once chosen, it will prompt asking you where you would like to place your new plant. It is asking the user for a two digit value, where the first digit will be the column section and the second digit will be the row section. Another words, the two digits are coordinates pointing to a square where the plant will be added. Also, when adding a new plant is must follow three conditions;
 
  1. Must be two characters and two characters only
@@ -48,16 +57,21 @@ During in-game, the board and menu will always be presented to you to see the cu
  3. Must have enough money to purchase a new plant
 
 ## Skipping the round
+
 ![Recordit GIF](http://g.recordit.co/4eYLfOh0yI.gif)
+
 In some cases, the user will have little amount of money to with start or during in-game. When the user is at that state, they are limited to skipping the round or exiting the game. If the user contains sunflowers in the game, then each round skipped money will be generated and the user will be able to add plants onto the board. If no sunflowers were added onto the board, then the user can see then end result of the game when skipping the round or they can exit the game. 
+
 ## Attacking the frontlines
 
 ![Recordit GIF](http://g.recordit.co/Gpt8YmeQpB.gif)
+
 During the game, you will have zombies attack you, so you must defend yourself. The only way to defend yourself is to spawn peashooters. Peashooters are able to attack back, and have range. Once the zombie is within range of the peashooter, their health will drop dependant on the peashooter's attack. Also, whenever a plant or a zombie is attacking it will be logged. The log will help the user see which plant and or zombie is attacking and how much health is left.
 
 ## Multiple Sunflowers
 
 ![Recordit GIF](http://g.recordit.co/6E79V5x6Fo.gif)
+
 In-game, the sunflower is able to generate 5 units into the user's money pouch. The more sunflower on the board, the more units the user is receive in their money pouch.
 
 
@@ -70,9 +84,11 @@ In the menu, the last option the user is given is the exit option. Where the use
 ## Winning the game 
 
 ![Recordit GIF](http://g.recordit.co/iWyRksqoIY.gif)
+
 Since the objective of the game is preventing the zombies from reaching to your end of the board. Once all zombies have been destroyed then the user has won the game.
 
 
 ## Losing the game
 ![Recordit GIF](http://g.recordit.co/Lom3A6DoWy.gif)
+
 The objective of the game is to prevent zombies from reaching to your home, column 0. The game will check itself, every round, to see if any zombie has reached to the end. If one zombie has reached to column 0, then the user looses the game.
