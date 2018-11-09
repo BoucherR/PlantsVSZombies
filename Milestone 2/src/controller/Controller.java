@@ -40,8 +40,8 @@ public class Controller {
     private View view;
 
     private Coordinate clickedButtonLocation;
-    
-   private List<String> loggingList;
+
+    private List<String> loggingList;
 
     /**
      *  Will generate a brand new board with initial values. Board will consist of
@@ -62,8 +62,19 @@ public class Controller {
         reset();
     }
 
+    /**
+     * Main code for the "Controller" aspect of the MVC model that is required for this milestone.
+     * Adds action listeners to all buttons on the game board, and handles user-input on the
+     * pop-up menus that allow for the placing of plants in the game, through the use of action events
+     * on the popups.
+     * After plant is placed, runtime() is called to finish the turn, perform zombie logic, and award sun-points.
+     * Currently supports the placing of peashooters and sunflowers.
+     */
     public void actionListener(){
 
+        /**
+         * Placing Action listeners on each square of the board
+         */
         for(int i = 0; i < 5;i++) {
             for (int j = 0; j < 8; j++) {
                 view.getGameButtons()[j][i].addActionListener((ActionEvent event) -> {
@@ -73,32 +84,41 @@ public class Controller {
             }
         }
 
-
+        /**
+         * Using pop-ups on the board, generated on the click-location, to handle the placing of sunflowers.
+         */
         view.getSunflower().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Sunflower())) {
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/images/Sunflower.png")));
-                    runTime();
-                    getLogging();
+                    runTime(); // effectively ends turn
+                    getLogging(); // keep track of game
                 }
                 view.getPopupMenu().setVisible(false);
             }
         });
 
+        /**
+         * Using pop-ups on the board, generated on the click-location, to handle the placing of a peashooter.
+         */
         view.getPeashooter().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Peashooter())) {
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/images/Peashooter.png")));
-                    runTime();
-                    getLogging();
+                    runTime(); // effectively ends turn
+                    getLogging(); // keep track of game
                 }
                 view.getPopupMenu().setVisible(false);
             }
         });
     }
 
+    /**
+     * This method is used to call the other methods required to finish a turn, after the player has placed his/her
+     * plants.
+     */
     public void runTime(){
         movingZombie();
         addingZombie();
@@ -232,7 +252,7 @@ public class Controller {
                 }
             }
         }
-       // view.getGameButtons()[tempCol][tempRow].setIcon(new ImageIcon(getClass().getResource("/images/Zombie.png")));
+        // view.getGameButtons()[tempCol][tempRow].setIcon(new ImageIcon(getClass().getResource("/images/Zombie.png")));
     }
 
     /**
@@ -338,7 +358,7 @@ public class Controller {
         return board[c.getColumnNumber()][c.getRowNumber()];
     }
 
-   public void getLogging(){
+    public void getLogging(){
         view.getjTextArea().setText("");
         for(String log : loggingList){
             view.getjTextArea().append(log);
@@ -366,7 +386,7 @@ public class Controller {
             s += "\n";
         }
         s += "Money Pouch: " + moneyPouch + "\n";
-       // s += logging;
+        // s += logging;
         return s;
     }
 
