@@ -1,3 +1,4 @@
+package Model;
 /**
  * The Coordinate class is used to identify the rows and columns of the game.
  * @author Muneeb Nasir
@@ -46,10 +47,10 @@ public class Coordinate {
     public Coordinate(String coordinate) throws IllegalArgumentException
     {
         if (coordinate.length() != 2) throw new IllegalArgumentException ("getCoordinate is a 2-character string");
-        if ((coordinate.charAt(1)<'1')|| (coordinate.charAt(1)>'5')) throw new IndexOutOfBoundsException("row must be between 1 and 8,inclusive");
+        if ((coordinate.charAt(0)<'0')|| (coordinate.charAt(1)>'7')) throw new IndexOutOfBoundsException("row must be between 1 and 8,inclusive");
 
-        this.column = coordinate.charAt(0);
-        this.row = coordinate.charAt(1);
+        this.column = coordinate.charAt(0)-48;
+        this.row = coordinate.charAt(1)-48;
     }
 
     /**
@@ -76,4 +77,31 @@ public class Coordinate {
         return "(" + Integer.toString(getColumnNumber()) + "," + Integer.toString(getRowNumber()) + ")";
     }
 
+    /**
+     * The methods is used to check for the equality of two coordinates by comparing the fields
+     * @return True, if the two coordinate objects are same
+     */
+    @Override
+    public boolean equals(Object input){
+        if(input !=null && input instanceof Coordinate)
+        {
+            if(((Coordinate)input).row == this.row && ((Coordinate)input).column == this.column)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * The method is used to access the Coordinate
+     * @return Coordinate Location, The Coordinate and Row Position of the in String format
+     */
+    public String name(){return "" + this.getColumnNumber() + this.getRowNumber();}
+
+    public static void main(String[] args) {
+
+        Coordinate stringCoordinate1 = new Coordinate("13");
+        System.out.println(stringCoordinate1.toString());
+    }
 }

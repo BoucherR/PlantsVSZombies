@@ -1,10 +1,13 @@
+package Model;
+
+
 /**
  * Square Class stores information of the Pieces and Coordinates
  * @author Muneeb Nasir
  * @version  1.0
  */
 
-public class Square {
+public class Square{
 
     /**
      * The Coordinates of the square object
@@ -122,8 +125,37 @@ public class Square {
         if(isOccupied()){
             return "Square(" + Integer.toString(getColumnNumber()) + "," + Integer.toString(getRowNumber()) + "):" + gamePiece.toString();
         }
-        return "Square(" + Integer.toString(getColumnNumber()) + "," + Integer.toString(getRowNumber()) + "): ";
+        return "Square(" + Integer.toString(getColumnNumber()) + "," + Integer.toString(getRowNumber()) + ")";
 
+    }
+
+    /**
+     * The Equality of two objects is checked by comparing the object by the field values
+     * @return True, If the two objects are same
+     */
+    @Override
+    public boolean equals(Object input) {
+        if (input != null && input instanceof Square)
+        {
+            if (this.gamePiece == null && ((Square)input).gamePiece == null)
+            {
+                if (this.getCoordinate().equals(((Square)input).getCoordinate()))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if(this.gamePiece == null)
+                {
+                    return false;
+                }
+                if (this.getCoordinate().equals(((Square)input).getCoordinate()) && this.gamePiece.equals(((Square)input).getPiece())) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 }
