@@ -20,8 +20,10 @@ Zombies have landed onto your planet and want to take over the whole world. The 
 3. Add Title Page in the beginning of the game
 4. Add Win/Lose Pop-Up when necessary
 5. Add Redo/Undo Functionality
-6. Add more Plants/Zombie units
-7. Up date any documents
+6. Add Skip and Exit Functions (MenuBar)
+7. Add more Plants/Zombie units
+8. Up date any documents
+
 
 
 
