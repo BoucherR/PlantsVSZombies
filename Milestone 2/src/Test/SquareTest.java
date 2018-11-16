@@ -21,7 +21,7 @@ public class SquareTest {
     private Square testSquare4;
 
     /**
-     * The method is used to establish the Square Object that is to be used in the Test cases
+     * The method is used to establish the Square Object that is to be used in the test cases
      */
     @Before
     public void setUp() {
@@ -32,7 +32,7 @@ public class SquareTest {
     }
 
     /**
-     * The method is used to Test the constructor for the class whose parameter is the coordinate of the
+     * The method is used to test the constructor for the class whose parameter is the coordinate of the
      * square on the Game Board
      */
     @Test
@@ -42,29 +42,36 @@ public class SquareTest {
 
         assertEquals("The Column Number is 1",1,testSquare1.getColumnNumber());
         assertEquals("The Row Number is 2",2,testSquare1.getRowNumber());
-        assertTrue(testSquare1.equals(new Square(new Coordinate(1,2))));
+        assertNotEquals("The Column Number is 1",'0',testSquare1.getColumnNumber());
+        assertNotEquals("The Row Number is 2","3",testSquare1.getRowNumber());
+        assertEquals(testSquare1, new Square(new Coordinate(1, 2)));
+        assertNotEquals(testSquare1, new Square(new Coordinate("34"), new Zombie()));
 
         assertEquals("The Column Number is 4",4,testSquare2.getColumnNumber());
         assertEquals("The Row Number is 3",3,testSquare2.getRowNumber());
-        assertTrue(testSquare2.equals(new Square(new Coordinate(4,3))));
+        assertEquals(testSquare2, new Square(new Coordinate(4, 3)));
+        assertNotEquals(testSquare2, new Square(new Coordinate("44"), new Sunflower()));
     }
 
     /**
-     * The method is used to Test the constructor for the class with the user defined Coordinate and Game Piece
+     * The method is used to test the constructor for the class with the user defined Coordinate and Game Piece
      * of the square
      */
     @Test
     public void testConstructor(){
-        assertNotNull(testSquare3);
-        assertNotNull(testSquare4);
+        assertNotNull("The Square has given coordinates",testSquare3);
+        assertNotNull("The Square has given coordinates",testSquare4);
 
         assertEquals("The Column Number is 1",1,testSquare3.getColumnNumber());
         assertEquals("The Row Number is 1",1,testSquare3.getRowNumber());
-        assertTrue(testSquare3.equals(new Square((new Coordinate(1,1)),new Sunflower())));
+        assertEquals(testSquare3, new Square((new Coordinate(1, 1)), new Sunflower()));
 
         assertEquals("The Column Number is 5",5,testSquare4.getColumnNumber());
         assertEquals("The Row Number is 2",2,testSquare4.getRowNumber());
-        assertTrue(testSquare4.equals(new Square((new Coordinate(5,2)),new Zombie())));
+        assertEquals(testSquare4, new Square((new Coordinate(5, 2)), new Zombie()));
+
+        assertNotEquals("The Column Number is 1",'9',testSquare3.getColumnNumber());
+        assertNotEquals("The Row Number is 2","02",testSquare4.getRowNumber());
 
     }
 
@@ -74,17 +81,23 @@ public class SquareTest {
     @Test
     public void testSetPosition(){
         testSquare1.setPosition(new Coordinate(3,3));
-        assertNotNull(testSquare1.getCoordinate());
-        assertTrue(testSquare1.getCoordinate().equals(new Coordinate(3,3)));
+        assertNotNull("The Square has given coordinates",testSquare1.getCoordinate());
+        assertEquals("The Square has given coordinates set to 3,3",testSquare1.getCoordinate(),new Coordinate(3,3));
+        assertNotEquals("The Coordinates are 3,3",new Coordinate("44"),testSquare1.getCoordinate());
+        assertNotEquals("The Coordinates are 3,3","1,2",testSquare1.getCoordinate());
 
 
         testSquare2.setPosition(new Coordinate(1,2));
-        assertNotNull(testSquare2.getCoordinate());
-        assertTrue(testSquare2.getCoordinate().equals(new Coordinate(1,2)));
+        assertNotNull("The Square has given coordinates",testSquare2.getCoordinate());
+        assertEquals("The Coordinates are 1,2",testSquare2.getCoordinate(),new Coordinate(1,2));
+        assertNotEquals("The Coordinates are 1,2",new Coordinate("21"),testSquare2.getCoordinate());
+        assertNotEquals("The Coordinates are 1,2","4,3",testSquare2.getCoordinate());
 
         testSquare3.setPosition(new Coordinate(2,2));
-        assertNotNull(testSquare3.getCoordinate());
-        assertTrue(testSquare3.getCoordinate().equals(new Coordinate(2,2)));
+        assertNotNull("The Square has given coordinates",testSquare3.getCoordinate());
+        assertEquals("The Coordinates are 2,2",testSquare3.getCoordinate(),new Coordinate(2,2));
+        assertNotEquals("The Coordinates are 2,2",new Coordinate("12"),testSquare3.getCoordinate());
+        assertNotEquals("The Coordinates are 2,2",'2',testSquare3.getCoordinate());
     }
 
     /**
@@ -95,11 +108,14 @@ public class SquareTest {
         testSquare1.setPiece(new Zombie());
         testSquare2.setPiece(new Peashooter());
 
-        assertNotNull(testSquare1.getPiece());
-        assertNotNull(testSquare2.getPiece());
+        assertNotNull("The Piece is Zombie",testSquare1.getPiece());
+        assertNotNull("The Piece is Peashooter",testSquare2.getPiece());
 
         assertEquals("Game Piece => ZOMBIE ","ZOMBIE",testSquare1.getPiece().getName());
+        assertNotEquals("Game Piece=> Zombie",1234,testSquare1.getPiece().getName());
+
         assertEquals("Game Piece => PEASHOOTER","PEASHOOTER",testSquare2.getPiece().getName());
+        assertNotEquals("Game Piece=> PEASHOOTER","XOSHOOT",testSquare1.getPiece().getName());
     }
 
     /**
@@ -107,21 +123,22 @@ public class SquareTest {
      */
     @Test
     public void testGetColumnNumber(){
-        assertNotNull(testSquare1.getColumnNumber());
-        assertNotNull(testSquare2.getColumnNumber());
-        assertNotNull(testSquare3.getColumnNumber());
-        assertNotNull(testSquare4.getColumnNumber());
+        assertNotEquals("The Column Number is 1","0",testSquare1.getColumnNumber());
+        assertNotEquals("The Column Number is 4",-1,testSquare2.getColumnNumber());
+        assertNotEquals("The Column Number is 1",-1,testSquare3.getColumnNumber());
+        assertNotEquals("The Column Number is 5",-1,testSquare4.getColumnNumber());
 
-        assertNotEquals(3,testSquare1.getColumnNumber());//As the Set Position Test changes the Original Position
+        assertNotEquals("The Column Number is 1",3,testSquare1.getColumnNumber());//As the Set Position Test changes the Original Position
         assertEquals("The Column Number is 1",1,testSquare1.getColumnNumber());
 
-        assertNotEquals("The Column Number is 4",2,testSquare2.getColumnNumber());//As the Set Position Test changes the Original Position
+        assertNotEquals("The Column Number is 4","55",testSquare2.getColumnNumber());//As the Set Position Test changes the Original Position
         assertEquals("The Column Number is 4",4,testSquare2.getColumnNumber());
 
-        assertNotEquals("The Column Number is 1",2,testSquare3.getColumnNumber());//As the Set Position Test changes the Original Position
+        assertNotEquals("The Column Number is 1",'2',testSquare3.getColumnNumber());//As the Set Position Test changes the Original Position
         assertEquals("The Column Number is 1",1,testSquare3.getColumnNumber());
 
         assertEquals("The Column Number is 5",5,testSquare4.getColumnNumber());
+        assertNotEquals("The Column Number is 5","05",testSquare4.getColumnNumber());
     }
 
     /**
@@ -129,21 +146,22 @@ public class SquareTest {
      */
     @Test
     public void testGetRowNumber(){
-        assertNotNull(testSquare1.getRowNumber());
-        assertNotNull(testSquare2.getRowNumber());
-        assertNotNull(testSquare3.getRowNumber());
-        assertNotNull(testSquare4.getRowNumber());
+        assertNotEquals("The Row Number is 2",-2,testSquare1.getRowNumber());
+        assertNotEquals("The Row Number is 3",-1,testSquare2.getRowNumber());
+        assertNotEquals("The Row Number is 1",-1,testSquare3.getRowNumber());
+        assertNotEquals("The Row Number is 2",-1,testSquare4.getRowNumber());
 
-        assertNotEquals("The ",3,testSquare1.getRowNumber());//As the Set Position Test changes the Original Position
+        assertNotEquals("The Row Number is 2",'5'-48,testSquare1.getRowNumber());
         assertEquals("The Row Number is 2",2,testSquare1.getRowNumber());
 
-        assertNotEquals(1,testSquare2.getRowNumber());//As the Set Position Test changes the Original Position
+        assertNotEquals("The Row Number is 3","03",testSquare2.getRowNumber());
         assertEquals("The Row Number is 3",3,testSquare2.getRowNumber());
 
-        assertNotEquals(2,testSquare3.getRowNumber());//As the Set Position Test changes the Original Position
+        assertNotEquals("The Row Number is 1",'1',testSquare3.getRowNumber());
         assertEquals("The Row Number is 1",1,testSquare3.getRowNumber());
 
         assertEquals("The Row Number is 2",2,testSquare4.getRowNumber());
+        assertNotEquals("The Row Number is 2","20",testSquare4.getRowNumber());
     }
 
     /**
@@ -151,21 +169,27 @@ public class SquareTest {
      */
     @Test
     public void testGetCoordinate(){
-        assertNotNull(testSquare1.getCoordinate());
-        assertNotNull(testSquare2.getCoordinate());
-        assertNotNull(testSquare3.getCoordinate());
-        assertNotNull(testSquare4.getCoordinate());
+        assertNotNull("The Square Position is Set",testSquare1.getCoordinate());
+        assertNotNull("The Square Position is Set to 3,4",testSquare2.getCoordinate());
+        assertNotNull("The Square Position is Set",testSquare3.getCoordinate());
+        assertNotNull("The Square Position is Set",testSquare4.getCoordinate());
 
-        assertTrue(testSquare1.getCoordinate().equals(new Coordinate(1,2)));
+        assertEquals("The Square Position is Set to 1,2",testSquare1.getCoordinate(),new Coordinate(1,2));
 
         assertEquals("The Row Number is 3",3,testSquare2.getRowNumber());
         assertEquals("The Column Number is 4",4,testSquare2.getColumnNumber());
+        assertNotEquals("The Row Number is 3",'3',testSquare2.getRowNumber());
+        assertNotEquals("The Row Number is 4","4",testSquare2.getColumnNumber());
 
         assertEquals("The Row Number is 1",1,testSquare3.getRowNumber());
         assertEquals("The Column Number is 1",1,testSquare3.getColumnNumber());
+        assertNotEquals("The Row Number is 3","01",testSquare3.getRowNumber());
+        assertNotEquals("The Row Number is 4","04",testSquare3.getColumnNumber());
 
         Square temp = new Square ((new Coordinate(5,2)),new Zombie());
-        assertTrue("The Coordinates are 5,2",testSquare4.equals(temp));
+        assertEquals("The Coordinates are 5,2",testSquare4,temp);
+        temp.setPosition(new Coordinate("55"));
+        assertNotEquals("The Coordinates are 5,2",testSquare4,temp);
     }
 
     /**
@@ -175,12 +199,16 @@ public class SquareTest {
     public void testGetPiece(){
         assertNull("The Square should be empty",testSquare1.getPiece());
         assertNull("The Square should be empty",testSquare2.getPiece());
+        assertNotEquals("The Square not occupied",new Zombie(),testSquare2.getPiece());
 
         assertNotNull("The Square should NOT be empty",testSquare3.getPiece());
         assertNotNull("The Square should NOT be empty",testSquare4.getPiece());
 
         assertEquals("Actual Value is SUNFLOWER","SUNFLOWER",testSquare3.getPiece().getName());
         assertEquals("Actual Value is ZOMBIE","ZOMBIE",testSquare4.getPiece().getName());
+
+        assertNotEquals("Actual Value is SUNFLOWER","FLOW",testSquare3.getPiece().getName());
+        assertNotEquals("Actual Value is ZOMBIE","ZZZ",testSquare4.getPiece().getName());
     }
 
     /**
@@ -196,6 +224,12 @@ public class SquareTest {
 
         assertEquals("The Game Piece is PEASHOOTER","PEASHOOTER",testSquare1.getPiece().getName());
         assertEquals("The Game Piece is ZOMBIE","ZOMBIE",testSquare2.getPiece().getName());
+
+        assertNotEquals("The Game Piece is PEASHOOTER","PSHOOTER",testSquare1.getPiece().getName());
+        assertNotEquals("The Game Piece is ZOMBIE","BIE",testSquare2.getPiece().getName());
+
+        testSquare3.addPiece(new Zombie());
+        assertEquals("The Game Piece is ZOMBIE","ZOMBIE",testSquare3.getPiece().getName());
     }
 
     /**
@@ -230,6 +264,11 @@ public class SquareTest {
         assertFalse(testSquare2.isOccupied());
         assertTrue(testSquare3.isOccupied());
         assertTrue(testSquare4.isOccupied());
+
+        testSquare1.addPiece(new Zombie());
+        assertTrue(testSquare1.isOccupied());
+        testSquare1.deletePiece();
+        assertFalse(testSquare1.isOccupied());
     }
 
     /**
@@ -255,25 +294,25 @@ public class SquareTest {
      */
     @Test
     public void testEqual(){
-        assertTrue("Square entry doesn't match",testSquare1.equals(new Square(new Coordinate(1,2))));
-        assertFalse("Square entry not NULL",testSquare1.equals(null));
-        assertFalse("Square: R-1,C-2,P-None",testSquare1.equals(new Square(new Coordinate(4,2),new Peashooter())));
-        assertFalse("Square: R-1,C-2,P-None",testSquare1.equals(new Square(new Coordinate(2,3),new Peashooter())));
+        assertEquals("Square entry doesn't match", testSquare1, new Square(new Coordinate(1, 2)));
+        assertNotEquals("Square entry not NULL", null, testSquare1);
+        assertNotEquals("Square: R-1,C-2,P-None",true,testSquare1.equals(new Square(new Coordinate(4,2),new Peashooter())));
+        assertNotEquals("Square: R-1,C-2,P-None", testSquare1, new Square(new Coordinate(2, 3), new Peashooter()));
 
 
-        assertTrue("Square entry doesn't match",testSquare2.equals(new Square(new Coordinate(4,3))));
-        assertFalse("Square entry not NULL",testSquare2.equals(null));
-        assertFalse("Square: R-4,C-3,P-PeaShooter",testSquare2.equals(new Square(new Coordinate(4,4),new Sunflower())));
-        assertFalse("Square: R-4,C-3,P-PeaShooter",testSquare2.equals(new Square(new Coordinate(2,1),new Sunflower())));
+        assertEquals("Square entry doesn't match", testSquare2, new Square(new Coordinate(4, 3)));
+        assertNotEquals("Square entry not NULL", null, testSquare2);
+        assertNotEquals("Square: R-4,C-3,P-PeaShooter",true,testSquare2.equals(new Square(new Coordinate(4,4),new Sunflower())));
+        assertNotEquals("Square: R-4,C-3,P-PeaShooter",true,testSquare2.equals(new Square(new Coordinate(2,1),new Sunflower())));
 
         assertTrue("Square entry doesn't match",testSquare3.equals(new Square((new Coordinate(1,1)), new Sunflower())));
-        assertFalse("Square entry not NULL",testSquare3.equals(null));
-        assertFalse("Square: R-1,C-1,P-SunFlower",testSquare3.equals(new Square((new Coordinate(1,4)), new Zombie())));
-        assertFalse("Square: R-1,C-1,P-SunFlower",testSquare3.equals(new Square(new Coordinate(4,4),new Sunflower())));
+        assertNotEquals("Square entry not NULL", null, testSquare3);
+        assertNotEquals("Square: R-1,C-1,P-SunFlower",true,testSquare3.equals(new Square((new Coordinate(1,4)), new Zombie())));
+        assertNotEquals("Square: R-1,C-1,P-SunFlower",true,testSquare3.equals(new Square(new Coordinate(4,4),new Sunflower())));
 
         assertTrue("Square entry doesn't match",testSquare4.equals(new Square((new Coordinate(5,2)), new Zombie())));
-        assertFalse("Square entry not NULL",testSquare4.equals(null));
-        assertFalse("Square: R-5,C-2,P-Zombie",testSquare4.equals(new Square((new Coordinate(3,2)), new Peashooter())));
-        assertFalse("Square: R-1,C-1,P-Zombie",testSquare4.equals(new Square(new Coordinate(1,4),new Sunflower())));
+        assertNotEquals("Square entry not NULL", null, testSquare4);
+        assertNotEquals("Square: R-5,C-2,P-Zombie",true,testSquare4.equals(new Square((new Coordinate(3,2)), new Peashooter())));
+        assertNotEquals("Square: R-1,C-1,P-Zombie",true,testSquare4.equals(new Square(new Coordinate(1,4),new Sunflower())));
     }
 }
