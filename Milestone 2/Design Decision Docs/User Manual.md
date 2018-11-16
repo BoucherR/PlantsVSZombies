@@ -78,7 +78,7 @@ As the progresses, this board will follow through the whole.  It will automatica
 
 ![Recordit GIF](http://g.recordit.co/kwvJP6YNoy.gif)
 
-In the developer's view, you are able to see the board and the money pouch. The objective of the game is preventing the zombies from reaching to your end of the board. Once all zombies have been destroyed then the user has won the game. Another words, once all the 'Z' from the board disappears the user has won the game and or level.
+In the developer's View, you are able to see the board and the money pouch. The objective of the game is preventing the zombies from reaching to your end of the board. Once all zombies have been destroyed then the user has won the game. Another words, once all the 'Z' from the board disappears the user has won the game and or level.
 
 
 ## Losing the game
