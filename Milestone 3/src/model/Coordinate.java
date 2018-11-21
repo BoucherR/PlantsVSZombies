@@ -1,4 +1,4 @@
-package Model;
+package model;
 /**
  * The Coordinate class is used to identify the rows and columns of the game.
  * @author Muneeb Nasir
