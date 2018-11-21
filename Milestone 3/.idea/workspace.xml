@@ -3,9 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="a5a61a38-b725-4559-b416-ae6db9e53f11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Model/Coordinate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Model/Coordinate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Model/Peashooter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Model/Peashooter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Model/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Model/Piece.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Model/PlantPieces.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Model/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Model/Square.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Model/Sunflower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Model/Sunflower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Model/Zombie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Model/Zombie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/CoordinateTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/CoordinateTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/PeashooterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/PeashooterTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/PieceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/PieceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/SquareTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/SquareTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/SunflowerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/SunflowerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/ZombieTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/ZombieTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/View/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/View/View.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ZombieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ZombieTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +39,8 @@
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -36,13 +55,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="334" />
+          <entry key="java" value="378" />
           <entry key="txt" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="334" />
+          <entry key="JAVA" value="378" />
           <entry key="PLAIN_TEXT" value="61" />
         </counts>
       </usages-collector>
@@ -53,8 +72,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="22">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
+            <state relative-caret-position="176">
               <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
             </state>
           </provider>
@@ -74,8 +93,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="235" column="37" lean-forward="true" selection-start-line="235" selection-start-column="37" selection-end-line="235" selection-end-column="37" />
+            <state relative-caret-position="-374">
+              <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#16309#16310#0" expanded="true" />
@@ -88,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/ZombieTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            <state relative-caret-position="110">
+              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -199,7 +218,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542838540528" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542838693097" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -242,6 +261,7 @@
       <updated>1542826920078</updated>
       <workItem from="1542826921495" duration="60000" />
       <workItem from="1542832322050" duration="6080000" />
+      <workItem from="1542839502214" duration="636000" />
     </task>
     <task id="LOCAL-00001" summary="Testing IDEA commit">
       <created>1542833941047</created>
@@ -261,7 +281,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6140000" />
+    <option name="totallyTimeSpent" value="6776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -327,9 +347,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="9" selection-start-column="9" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -347,13 +364,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/PlantPieces.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/PlantPieces.java" />
     <entry file="file://$PROJECT_DIR$/src/model/Sunflower.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -398,18 +409,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/ZombieTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        <state relative-caret-position="22">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -418,15 +419,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
+        <state relative-caret-position="176">
           <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/ZombieTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="235" column="37" lean-forward="true" selection-start-line="235" selection-start-column="37" selection-end-line="235" selection-end-column="37" />
+        <state relative-caret-position="-374">
+          <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#16309#16310#0" expanded="true" />

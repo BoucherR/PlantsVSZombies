@@ -211,8 +211,8 @@ public class Controller {
      *  When piece is within range of attack, it will affect the other piece's health.
      */
     public void hitUpdate(){
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col < 8; col++) {
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getHealth() > 0){
                         if (board[col][row].getPiece().getShortName() == 'P') {
