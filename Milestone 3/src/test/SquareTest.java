@@ -1,4 +1,4 @@
-package test;
+package Test;
 import Model.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 /**
  * The Test Class for Square
  * @author Muneeb Nasir
- * @version 2.0
+ * @version 3.0
  */
 
 public class SquareTest {
@@ -21,7 +21,7 @@ public class SquareTest {
     private Square testSquare4;
 
     /**
-     * The method is used to establish the Square Object that is to be used in the test cases
+     * The method is used to establish the Square Object that is to be used in the Test cases
      */
     @Before
     public void setUp() {
@@ -32,7 +32,7 @@ public class SquareTest {
     }
 
     /**
-     * The method is used to test the constructor for the class whose parameter is the coordinate of the
+     * The method is used to Test the constructor for the class whose parameter is the coordinate of the
      * square on the Game Board
      */
     @Test
@@ -54,7 +54,7 @@ public class SquareTest {
     }
 
     /**
-     * The method is used to test the constructor for the class with the user defined Coordinate and Game Piece
+     * The method is used to Test the constructor for the class with the user defined Coordinate and Game Piece
      * of the square
      */
     @Test
@@ -123,10 +123,10 @@ public class SquareTest {
      */
     @Test
     public void testGetColumnNumber(){
-        assertNotEquals("The Column Number is 1","0",testSquare1.getColumnNumber());
+        assertNotEquals("The Column Number is 1",0,testSquare1.getColumnNumber());
         assertNotEquals("The Column Number is 4",-1,testSquare2.getColumnNumber());
         assertNotEquals("The Column Number is 1",-1,testSquare3.getColumnNumber());
-        assertNotEquals("The Column Number is 5",-1,testSquare4.getColumnNumber());
+        assertNotEquals("The Column Number is 5",0,testSquare4.getColumnNumber());
 
         assertNotEquals("The Column Number is 1",3,testSquare1.getColumnNumber());//As the Set Position Test changes the Original Position
         assertEquals("The Column Number is 1",1,testSquare1.getColumnNumber());
@@ -146,9 +146,9 @@ public class SquareTest {
      */
     @Test
     public void testGetRowNumber(){
-        assertNotEquals("The Row Number is 2",-2,testSquare1.getRowNumber());
+        assertNotEquals("The Row Number is 2",0,testSquare1.getRowNumber());
         assertNotEquals("The Row Number is 3",-1,testSquare2.getRowNumber());
-        assertNotEquals("The Row Number is 1",-1,testSquare3.getRowNumber());
+        assertNotEquals("The Row Number is 1",0,testSquare3.getRowNumber());
         assertNotEquals("The Row Number is 2",-1,testSquare4.getRowNumber());
 
         assertNotEquals("The Row Number is 2",'5'-48,testSquare1.getRowNumber());
@@ -199,7 +199,7 @@ public class SquareTest {
     public void testGetPiece(){
         assertNull("The Square should be empty",testSquare1.getPiece());
         assertNull("The Square should be empty",testSquare2.getPiece());
-        assertNotEquals("The Square not occupied",new Zombie(),testSquare2.getPiece());
+        assertNotEquals("The Square not occupied",new Square(new Coordinate("22"), new Zombie()),testSquare2);
 
         assertNotNull("The Square should NOT be empty",testSquare3.getPiece());
         assertNotNull("The Square should NOT be empty",testSquare4.getPiece());
@@ -229,7 +229,7 @@ public class SquareTest {
         assertNotEquals("The Game Piece is ZOMBIE","BIE",testSquare2.getPiece().getName());
 
         testSquare3.addPiece(new Zombie());
-        assertEquals("The Game Piece is ZOMBIE","ZOMBIE",testSquare3.getPiece().getName());
+        assertNotEquals("The Game Piece is Sunflower","ZOMBIE",testSquare3.getPiece().getName());
     }
 
     /**

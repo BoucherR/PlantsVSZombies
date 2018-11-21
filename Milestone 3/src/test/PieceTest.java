@@ -1,4 +1,4 @@
-package test;
+package Test;
 import Model.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 /**
  * The TEST Class for the Piece
  * @author Muneeb Nasir
- * @version 2.0
+ * @version 3.0
  */
 
 public class PieceTest {
@@ -21,7 +21,7 @@ public class PieceTest {
     private Piece testPiece4;
 
     /**
-     * The method is used to establish the Piece Objects that is to be used in the test cases
+     * The method is used to establish the Piece Objects that is to be used in the Test cases
      */
     @Before
     public void setUp(){
@@ -104,8 +104,8 @@ public class PieceTest {
     public void testGetHealth() {
         assertNotEquals("The SunFlower Health is 5",-1,testPiece1.getHealth());
         assertNotEquals("The Zombie Health is 5",0,testPiece2.getHealth());
-        assertNotEquals("The PeaShooter Health  is 5",-5,testPiece3.getHealth());
-        assertNotEquals("The Zombie Health is 10",-10,testPiece4.getHealth());
+        assertNotEquals("The PeaShooter Health  is 5",-1,testPiece3.getHealth());
+        assertNotEquals("The Zombie Health is 10",-1,testPiece4.getHealth());
 
         assertEquals("The SunFlower Health is 5",5,testPiece1.getHealth());
         assertEquals("The Zombie Health  is 5",5,testPiece2.getHealth());
@@ -136,7 +136,7 @@ public class PieceTest {
         assertNotEquals("The SunFlower Attack Power is 0","0",testPiece1.getAttack());
         assertNotEquals("The Zombie Attack Power is 2",'2',testPiece2.getAttack());
         assertNotEquals("The PeaShooter Attack Power is 2","002",testPiece3.getAttack());
-        assertNotEquals("The Zombie Health  Attack Power 10", "1",testPiece4.getAttack());
+        assertNotEquals("The Zombie Health  Attack Power 10",(float) 10,testPiece4.getAttack());
     }
 
     /**
@@ -216,8 +216,8 @@ public class PieceTest {
         assertEquals("Incomplete Game Piece Information","P -> Health: 5",testPiece3.toString());
         assertEquals("Incomplete Game Piece Information","Z -> Health: 10",testPiece4.toString());
 
-        assertNotEquals("Incomplete Game Piece Information","S ->  5",testPiece1.toString());
-        assertNotEquals("Incomplete Game Piece Information","Health: 1",testPiece2.toString());
+        assertNotEquals("Incomplete Game Piece Information","S -> lth: 5",testPiece1.toString());
+        assertNotEquals("Incomplete Game Piece Information","Health: 1q",testPiece2.toString());
         assertNotEquals("Incomplete Game Piece Information","P -> 10",testPiece3.toString());
         assertNotEquals("Incomplete Game Piece Information","Z -> H:: 10",testPiece4.toString());
     }

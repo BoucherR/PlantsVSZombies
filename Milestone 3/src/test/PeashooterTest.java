@@ -1,4 +1,4 @@
-package test;
+package Test;
 import Model.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 /**
  * The Test Class for the PEASHOOTER (Piece SubClass)
  * @author Muneeb Nasir
- * @version 2.0
+ * @version 3.0
  */
 
 public class PeashooterTest {
@@ -63,7 +63,6 @@ public class PeashooterTest {
     @Test
     public void testGetAttack(){
         assertNotEquals("The Game Piece Attack Power is 2",0,peaShooter.getAttack());
-        assertNotEquals("The Game Piece Attack Power is 2",-2,peaShooter.getAttack());
         assertEquals("The Game Piece Attack Power is 2",2,peaShooter.getAttack());
     }
 

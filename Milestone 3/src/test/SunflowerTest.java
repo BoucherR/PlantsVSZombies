@@ -1,15 +1,13 @@
-package test;
-import Model.Piece;
-import Model.Sunflower;
+package Test;
+import Model.*;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 /**
  * The Test Class for SUNFLOWER (Piece SubClass)
  * @author Muneeb Nasir
- * @version 2.0
+ * @version 3.0
  */
 
 public class SunflowerTest {

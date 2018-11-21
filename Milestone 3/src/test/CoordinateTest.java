@@ -1,4 +1,4 @@
-package test;
+package Test;
 import Model.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 /**
  * The Test Class for the Coordinate
  * @author Muneeb Nasir
- * @version 2.0
+ * @version 3.0
  */
 
 public class CoordinateTest {
@@ -20,7 +20,7 @@ public class CoordinateTest {
     private Coordinate stringCoordinate1;
     private Coordinate stringCoordinate2;
     /**
-     * The method is used to establish the Square Object that is to be used in the test cases
+     * The method is used to establish the Square Object that is to be used in the Test cases
      */
     @Before
     public void setUp(){
@@ -72,10 +72,10 @@ public class CoordinateTest {
      */
     @Test
     public void testGetColumnNumber() {
-        assertNotEquals("The Column No: 2",-1,testcoodinate1.getColumnNumber());
-        assertNotEquals("The Column No: 7",-1,testcoodinate2.getColumnNumber());
-        assertNotEquals("The Column No: 1",-1,stringCoordinate1.getColumnNumber());
-        assertNotEquals("The Column No: 4",-1,stringCoordinate1.getColumnNumber());
+        assertNotEquals("The Column No: 2",0,testcoodinate1.getColumnNumber());
+        assertNotEquals("The Column No: 7",0,testcoodinate2.getColumnNumber());
+        assertNotEquals("The Column No: 1",0,stringCoordinate1.getColumnNumber());
+        assertNotEquals("The Column No: 4",0,stringCoordinate1.getColumnNumber());
 
         assertEquals("The Column No: 2",2,testcoodinate1.getColumnNumber());
         assertEquals("The Column No: 7",7,testcoodinate2.getColumnNumber());
@@ -94,20 +94,20 @@ public class CoordinateTest {
      */
     @Test
     public void testGetRowNumber() {
-        assertNotEquals("The Row No: 3",-1,testcoodinate1.getRowNumber());
-        assertNotEquals("The Row No: 2",-1,testcoodinate2.getRowNumber());
-        assertNotEquals("The Row No: 1",-2,stringCoordinate1.getRowNumber());
-        assertNotEquals("The Row No: 4",-2,stringCoordinate1.getRowNumber());
+        assertNotEquals("The Row No: 3",0,testcoodinate1.getRowNumber());
+        assertNotEquals("The Row No: 2",0,testcoodinate2.getRowNumber());
+        assertNotEquals("The Row No: 1",0,stringCoordinate1.getRowNumber());
+        assertNotEquals("The Row No: 4",0,stringCoordinate1.getRowNumber());
 
         assertEquals("The Row No: 3",3,testcoodinate1.getRowNumber());
         assertEquals("The Row No: 2",2,testcoodinate2.getRowNumber());
         assertEquals("The Row No: 1",1,stringCoordinate1.getRowNumber());
         assertEquals("The Row No: 4",4,stringCoordinate2.getRowNumber());
 
-        assertNotEquals("Column Entry should not match Type",3.0001, testcoodinate1.getRowNumber());
+        assertNotEquals("Column Entry should not match Type",(float) 3, testcoodinate1.getRowNumber());
         assertNotEquals("Column Entry should not match",Integer.toString(2), testcoodinate2.getRowNumber());
         assertNotEquals("Column Entry should not match",'1', stringCoordinate1.getRowNumber());
-        assertNotEquals("Column Entry should not match",4.00, stringCoordinate2.getRowNumber());
+        assertNotEquals("Column Entry should not match",(double) 4, stringCoordinate2.getRowNumber());
     }
 
     /**

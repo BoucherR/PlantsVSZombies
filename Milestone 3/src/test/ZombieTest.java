@@ -1,5 +1,5 @@
-package test;
-import model.*;
+package Test;
+import Model.*;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 /**
  * The Test Class for ZOMBIE (Piece SubClass)
  * @author Muneeb Nasir
- * @version 2.0
+ * @version 3.0
  */
 
 public class ZombieTest {
