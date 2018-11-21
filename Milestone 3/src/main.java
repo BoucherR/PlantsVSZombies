@@ -1,5 +1,5 @@
-import Controller.Controller;
-import View.*;
+import controller.*;
+import view.*;
 
 public class main {
     public static void main(String args[]) {

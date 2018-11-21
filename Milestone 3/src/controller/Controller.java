@@ -1,7 +1,7 @@
 package controller;
 
-import View.*;
-import Model.*;
+import view.*;
+import model.*;
 
 import javax.swing.*;
 import javax.swing.event.MenuEvent;
