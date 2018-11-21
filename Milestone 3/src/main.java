@@ -6,5 +6,6 @@ public class main {
         View view = new View();
         Controller controller = new Controller(view);
         controller.actionListener();
+        System.out.print("Test ");
     }
 }
