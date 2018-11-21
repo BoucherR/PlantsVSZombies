@@ -1,4 +1,4 @@
-package Test;
+package test;
 import Model.Piece;
 import Model.Sunflower;
 import org.junit.Before;
