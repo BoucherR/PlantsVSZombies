@@ -39,12 +39,13 @@ public class ViewTest {
         assertEquals("The Size of the Game View is 1366 x 768",new Dimension(1366,768),testFrame.getSize());
         assertNotEquals("The Size of the Game View is 1366 x 768",new Dimension(800,900),testFrame.getSize());
         assertTrue("The Text Area is established",testFrame.getTextArea().isDisplayable());
-        for(int i = 0; i < testFrame.getGameButtons().length;i++){
-            for(int j = 0; j < testFrame.getGameButtons()[0].length;j++){
-                assertNotNull("The Button is placed properly in horizontal & vertical position",testFrame.getGameButtons()[i][j]);
-                assertEquals("The Button Icon properly placed","./src/Images/Grass.png",testFrame.getGameButtons()[i][j].getIcon().toString());
-                assertNotNull("The Button Icon is established",testFrame.getGameButtons()[i][j].getIcon());
-                assertNotEquals("The Button Icon properly imported","./src/Images/Grass",testFrame.getGameButtons()[i][j].getIcon().toString());
+        assertTrue("The Top Panel contains sub-options: redo/undo",testFrame.getTopPanel().isDisplayable());
+        for(int i = 0; i < testFrame.getGameButtons()[0].length;i++){
+            for(int j = 0; j < testFrame.getGameButtons().length;j++){
+                assertNotNull("The Button is placed properly in horizontal & vertical position",testFrame.getGameButtons()[j][i]);
+                assertEquals("The Button Icon properly placed","./src/Images/Grass.png",testFrame.getGameButtons()[j][i].getIcon().toString());
+                assertNotNull("The Button Icon is established",testFrame.getGameButtons()[j][i].getIcon());
+                assertNotEquals("The Button Icon properly imported","./src/Images/Grass",testFrame.getGameButtons()[j][i].getIcon().toString());
             }
         }
     }
@@ -89,6 +90,31 @@ public class ViewTest {
         assertEquals("PeaShooter has no SUB-MENU Items",0,testFrame.getPeashooter().getComponentCount());
         assertNotEquals("PeaShooter has no SUB-MENU Items",2,testFrame.getPeashooter().getComponentCount());
         assertNotEquals("The option is Peashooter","Shooter",testFrame.getPeashooter().getName());
+    }
+
+    @Test
+    public void testGetTopPanel(){
+        assertNotEquals("The Top Menu Panel is placed properly",testFrame.getTopPanel());
+        assertTrue("The Top Panel contains sub-options: redo/undo",testFrame.getTopPanel().isValid());
+        assertTrue("The option is undo",testFrame.getTopPanel().isEnabled());
+    }
+
+    @Test
+    public void testGetSunMoney(){
+        assertTrue("The Sun is visible",testFrame.getSunMoney().isDisplayable());
+        assertNotEquals("The Sun money is not established prior to player's entrance","100",testFrame.getSunMoney().getText());
+    }
+
+    @Test
+    public void testGetRedoButton(){
+        assertTrue("The Redo Menu is visible",testFrame.getRedoButton().isDisplayable());
+        assertNotEquals("The game option is Redo","Replay",testFrame.getRedoButton().getText());
+    }
+
+    @Test
+    public void testGetUndoButton(){
+        assertTrue("The Undo Menu is visible",testFrame.getUndoButton().isDisplayable());
+        assertNotEquals("The game option is Undo","Exit",testFrame.getUndoButton().getText());
     }
 
     /**

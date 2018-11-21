@@ -5,7 +5,6 @@ package view;
  * @version 1.0
  */
 
-
 import model.*;
 import javax.swing.*;
 import java.awt.*;
