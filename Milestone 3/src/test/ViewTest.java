@@ -40,6 +40,8 @@ public class ViewTest {
         assertNotEquals("The Size of the Game View is 1366 x 768",new Dimension(800,900),testFrame.getSize());
         assertTrue("The Text Area is established",testFrame.getTextArea().isDisplayable());
         assertTrue("The Top Panel contains sub-options: redo/undo",testFrame.getTopPanel().isDisplayable());
+        assertNotNull("The Redo Menu Button is properly places",testFrame.getRedoButton());
+        assertNotNull("The Undo Menu Button is properly placed",testFrame.getUndoButton());
         for(int i = 0; i < testFrame.getGameButtons()[0].length;i++){
             for(int j = 0; j < testFrame.getGameButtons().length;j++){
                 assertNotNull("The Button is placed properly in horizontal & vertical position",testFrame.getGameButtons()[j][i]);
