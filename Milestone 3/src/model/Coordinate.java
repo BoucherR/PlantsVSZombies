@@ -98,10 +98,4 @@ public class Coordinate {
      * @return Coordinate Location, The Coordinate and Row Position of the in String format
      */
     public String name(){return "" + this.getColumnNumber() + this.getRowNumber();}
-
-    public static void main(String[] args) {
-
-        Coordinate stringCoordinate1 = new Coordinate("13");
-        System.out.println(stringCoordinate1.toString());
-    }
 }

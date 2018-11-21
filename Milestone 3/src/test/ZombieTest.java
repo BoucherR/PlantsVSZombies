@@ -1,4 +1,4 @@
-package test;
+package Test;
 import Model.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,6 +33,8 @@ public class ZombieTest {
         assertNotNull(zombie.getName());
         assertNotEquals("The Game Piece is ZOMBIE all Capitalised","Zombie",zombie.getName());
         assertEquals("The Game Piece is ZOMBIE","ZOMBIE",zombie.getName());
+        assertNotEquals("The Game Piece is ZOMBIE","ZBI",zombie.getName());
+        assertNotEquals("The Game Piece is ZOMBIE",'I',zombie.getName());
     }
 
     /**
@@ -40,9 +42,10 @@ public class ZombieTest {
      */
     @Test
     public void testGetShortName(){
-        assertNotNull(zombie.getShortName());
+        assertNotEquals("The Game Piece Short Name is Z",' ',zombie.getShortName());
         assertEquals("The Game Piece Short Name is Z",'Z',zombie.getShortName());
-
+        assertNotEquals("The Game Piece is Short Name is Z",'I',zombie.getShortName());
+        assertNotEquals("The Game Piece is Short Name is Z",123,zombie.getShortName());
     }
 
     /**
@@ -50,8 +53,9 @@ public class ZombieTest {
      */
     @Test
     public void testGetHealth(){
-        assertNotNull(zombie.getHealth());
         assertEquals("The Game Piece Health is 5",5,zombie.getHealth());
+        assertNotEquals("The Game Piece Health is 5","%5",zombie.getHealth());
+        assertNotEquals("The Game Piece Health is 5","05",zombie.getHealth());
     }
 
     /**
@@ -59,7 +63,7 @@ public class ZombieTest {
      */
     @Test
     public void testGetAttack(){
-        assertNotNull(zombie.getAttack());
+        assertNotEquals("The Game Piece Attack Power is 2",-1,zombie.getAttack());
         assertEquals("The Game Piece Attack Power is 2",2,zombie.getAttack());
     }
 
@@ -68,7 +72,8 @@ public class ZombieTest {
      */
     @Test
     public void testGetCost(){
-        assertNotNull(zombie.getCost());
+        assertNotEquals("The Game Piece Zombie Cost is 0",-3,zombie.getCost());
+        assertNotEquals("The Game Piece Zombie Cost is 0","$0",zombie.getCost());
         assertEquals("The Game Piece Zombie Cost is 0",0,zombie.getCost());
     }
 }

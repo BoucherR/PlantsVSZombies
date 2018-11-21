@@ -1,7 +1,9 @@
-package test;
-import Model.*;
+package Test;
+import Model.Piece;
+import Model.Sunflower;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
@@ -30,9 +32,10 @@ public class SunflowerTest {
      */
     @Test
     public void testGetName(){
-        assertNotNull(sunFlower.getName());
+        assertNotNull("The Game Piece is SUNFLOWER",sunFlower.getName());
         assertNotEquals("The Game Piece is SUNFLOWER all Capitalised","SunFlower",sunFlower.getName());
         assertEquals("The Game Piece is SUNFLOWER","SUNFLOWER",sunFlower.getName());
+        assertNotEquals("The Game Piece is SUNFLOWER","SFA",sunFlower.getName());
     }
 
     /**
@@ -40,9 +43,9 @@ public class SunflowerTest {
      */
     @Test
     public void testGetShortName(){
-        assertNotNull(sunFlower.getShortName());
+        assertNotEquals("The Game Piece Short Name is S",' ',sunFlower.getShortName());
         assertEquals("The Game Piece Short Name is S",'S',sunFlower.getShortName());
-
+        assertNotEquals("The Game Piece Short Name is S","SSS",sunFlower.getShortName());
     }
 
     /**
@@ -50,8 +53,8 @@ public class SunflowerTest {
      */
     @Test
     public void testGetHealth(){
-        assertNotNull(sunFlower.getHealth());
         assertEquals("The Game Piece Health is 5",5,sunFlower.getHealth());
+        assertNotEquals("The Game Piece Health is 5","^5",sunFlower.getHealth());
     }
 
     /**
@@ -59,7 +62,8 @@ public class SunflowerTest {
      */
     @Test
     public void testGetAttack(){
-        assertNotNull(sunFlower.getAttack());
+        assertNotEquals("The Game Piece Attack Power is 0","0",sunFlower.getAttack());
+        assertNotEquals("The Game Piece Attack Power is 0","001",sunFlower.getHealth());
         assertEquals("The Game Piece Attack Power is 0",0,sunFlower.getAttack());
     }
 
@@ -68,7 +72,8 @@ public class SunflowerTest {
      */
     @Test
     public void testGetCost(){
-        assertNotNull(sunFlower.getCost());
+        assertNotEquals("The Game Piece Zombie Cost is 10","$10",sunFlower.getCost());
         assertEquals("The Game Piece Zombie Cost is 10",10,sunFlower.getCost());
+        assertNotEquals("The Game Piece Zombie Cost is 10",'2',sunFlower.getCost());
     }
 }

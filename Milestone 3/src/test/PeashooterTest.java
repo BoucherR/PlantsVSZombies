@@ -1,4 +1,4 @@
-package test;
+package Test;
 import Model.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,6 +33,7 @@ public class PeashooterTest {
         assertNotNull(peaShooter.getName());
         assertNotEquals("The Game Piece is PEASHOOTER all Capitalised","PeaShooter",peaShooter.getName());
         assertEquals("The Game Piece is PEASHOOTER","PEASHOOTER",peaShooter.getName());
+        assertNotEquals("The Game Piece is PEASHOOTER","PS",peaShooter.getName());
     }
 
     /**
@@ -40,7 +41,8 @@ public class PeashooterTest {
      */
     @Test
     public void testGetShortName(){
-        assertNotNull(peaShooter.getShortName());
+        assertNotEquals("The Game Piece Short Name is P",' ',peaShooter.getShortName());
+        assertNotEquals("The Game Piece Short Name is P","P1",peaShooter.getShortName());
         assertEquals("The Game Piece Short Name is P",'P',peaShooter.getShortName());
 
     }
@@ -50,8 +52,9 @@ public class PeashooterTest {
      */
     @Test
     public void testGetHealth(){
-        assertNotNull(peaShooter.getHealth());
+        assertNotEquals("The Game Piece Health is 5",'5',peaShooter.getHealth());
         assertEquals("The Game Piece Health is 5",5,peaShooter.getHealth());
+        assertNotEquals("The Game Piece Health is 5","55",peaShooter.getHealth());
     }
 
     /**
@@ -59,7 +62,8 @@ public class PeashooterTest {
      */
     @Test
     public void testGetAttack(){
-        assertNotNull(peaShooter.getAttack());
+        assertNotEquals("The Game Piece Attack Power is 2",0,peaShooter.getAttack());
+        assertNotEquals("The Game Piece Attack Power is 2",-2,peaShooter.getAttack());
         assertEquals("The Game Piece Attack Power is 2",2,peaShooter.getAttack());
     }
 
@@ -68,7 +72,8 @@ public class PeashooterTest {
      */
     @Test
     public void testGetCost(){
-        assertNotNull(peaShooter.getCost());
+        assertNotEquals("The Game Piece PeaShooter Cost is 20","20",peaShooter.getCost());
+        assertNotEquals("The Game Piece PeaShooter Cost is 20","$$",peaShooter.getCost());
         assertNotEquals("The Game Piece PeaShooter Cost is 20",10,peaShooter.getCost());
         assertEquals("The Game Piece PeaShooter Cost is 20",20,peaShooter.getCost());
     }

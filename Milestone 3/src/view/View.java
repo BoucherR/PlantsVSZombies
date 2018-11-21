@@ -1,8 +1,10 @@
+package View;
+
 /**
  * @author Youssef Saghbini
  * @version 1.0
  */
-package View;
+
 
 import Model.Coordinate;
 import javax.swing.*;
@@ -13,12 +15,12 @@ public class View extends JFrame {
     /**
      *  A JPanel for the buttons to be presented on the GUI
      */
-    private JPanel jButtonPanel;
+    private JPanel topPanel;
 
     /**
      *  A JPanel for the JTextArea to be presented on the GUI
      */
-    private JPanel jTextPanel;
+    private JPanel bottomPanel;
 
     /**
      *  A dual-array JButtons to keep record on where the pieces are being placed on the board
@@ -33,7 +35,7 @@ public class View extends JFrame {
     /**
      *  A JTextArea for in-game logs
      */
-    private JTextArea jTextArea;
+    private JTextArea textArea;
 
     /**
      *  A JScrollPane for any excess logs on the JTextArea, allowing the scroll feature
@@ -50,28 +52,47 @@ public class View extends JFrame {
      */
     private JMenuItem peashooter;
 
+    JLabel sunLabel;
+    JLabel sunMoney;
+    JMenu redoButton;
+    JMenu undoButton;
+    JMenuBar menuBar;
+
     /**
      *  Setting up the GUI using the fields that were chosen
      */
     public View(){
+
         /*
             Initializing JScroll, JPanel and JTextArea
          */
-        jTextArea = new JTextArea(15,50);
-        jButtonPanel = new JPanel();
-        jTextPanel = new JPanel();
-        jScrollPane = new JScrollPane(jTextArea);
+        textArea = new JTextArea(15,50);
+        topPanel = new JPanel();
+        bottomPanel = new JPanel();
+        jScrollPane = new JScrollPane(textArea);
+        sunLabel = new JLabel(new ImageIcon("./src/Images/Sun.png"));
+        sunMoney = new JLabel();
+        redoButton = new JMenu("Redo");
+        undoButton = new JMenu("Undo");
+        menuBar = new JMenuBar();
 
         /*
             Setting up the size of the game board and where the JTextArea,
             JScrollPane and JPanels will be placed on the JFrame
          */
         setSize(1366,768);
-        jButtonPanel.setLayout(new GridLayout(5,8));
-        jTextPanel.setLayout(new GridLayout(1,1));
-        add(jButtonPanel, BorderLayout.CENTER);
-        jTextPanel.add(jScrollPane);
-        add(jTextPanel, BorderLayout.SOUTH);
+        topPanel.setLayout(new GridLayout(5,8));
+        bottomPanel.setLayout(new FlowLayout());
+        add(topPanel, BorderLayout.CENTER);
+        sunLabel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        bottomPanel.add(sunLabel);
+        sunLabel.add(sunMoney);
+        bottomPanel.add(jScrollPane);
+        add(bottomPanel, BorderLayout.SOUTH);
+
+        menuBar.add(undoButton);
+        menuBar.add(redoButton);
+        setJMenuBar(menuBar);
 
         /*
             Initializing all JButtons and organizing them with coordinates.
@@ -82,10 +103,10 @@ public class View extends JFrame {
         gameButtons = new JButton[8][5];
         for(int i = 0; i < 5;i++){
             for(int j = 0; j < 8;j++){
-                gameButtons[j][i]= new JButton(new Coordinate(j,i).name());
-                jButtonPanel.add(gameButtons[j][i]);
-                gameButtons[j][i].setEnabled(true);
-                gameButtons[j][i].setBackground(Color.lightGray);
+                gameButtons[j][i] = new JButton(new Coordinate(j,i).name(), new ImageIcon("./src/Images/Grass.png"));
+                gameButtons[j][i].setBorderPainted(false);
+                topPanel.add(gameButtons[j][i]);
+
             }
         }
 
@@ -94,11 +115,11 @@ public class View extends JFrame {
             Adding options to the pop-up menu, also setting up the size of the
             pop-up menu.
          */
-        jTextArea.setEditable(false);
+        textArea.setEditable(false);
         popupMenu = new JPopupMenu("Select Plant");
-        popupMenu.setPopupSize(100,80);
-        sunflower = new JMenuItem("Sunflower");
-        peashooter = new JMenuItem("Peashooter");
+        popupMenu.setPopupSize(120,100);
+        sunflower = new JMenuItem("Sunflower", new ImageIcon("./src/Images/SunflowerSmall.png"));
+        peashooter = new JMenuItem("Peashooter", new ImageIcon("./src/Images/PeashooterSmall.png"));
         popupMenu.add(sunflower);
         popupMenu.add(peashooter);
 
@@ -115,8 +136,8 @@ public class View extends JFrame {
      *  Getter for the JPanel filled with JButtons
      *  @return JPanel filled with JButtons
      */
-    public JPanel getjButtonPanel() {
-        return jButtonPanel;
+    public JPanel getTopPanel() {
+        return topPanel;
     }
 
     /**
@@ -155,7 +176,19 @@ public class View extends JFrame {
      *  Getting the JTextArea for in-game logging
      *  @return JTextArea for Logging
      */
-    public JTextArea getjTextArea() {
-        return jTextArea;
+    public JTextArea getTextArea() {
+        return textArea;
+    }
+
+    public JLabel getSunMoney(){
+        return sunMoney;
+    }
+
+    public JMenu getRedoButton() {
+        return redoButton;
+    }
+
+    public JMenu getUndoButton() {
+        return undoButton;
     }
 }

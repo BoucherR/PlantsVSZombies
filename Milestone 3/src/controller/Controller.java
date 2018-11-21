@@ -4,10 +4,8 @@ import View.*;
 import Model.*;
 
 import javax.swing.*;
-import javax.swing.event.MenuKeyEvent;
-import javax.swing.event.MenuKeyListener;
-import javax.swing.event.PopupMenuEvent;
-import javax.swing.event.PopupMenuListener;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -63,7 +61,7 @@ public class Controller {
     }
 
     /**
-     * Main code for the "Controller" aspect of the MVC model that is required for this milestone.
+     * Main code for the "Controller" aspect of the MVC Model that is required for this milestone.
      * Adds action listeners to all buttons on the game board, and handles user-input on the
      * pop-up menus that allow for the placing of plants in the game, through the use of action events
      * on the popups.
@@ -72,6 +70,40 @@ public class Controller {
      */
     public void actionListener(){
 
+        view.getRedoButton().addMenuListener(new MenuListener() {
+
+            public void menuSelected(MenuEvent e) {
+                loggingList.add("Redo Clicked! \n");
+            }
+
+            @Override
+            public void menuDeselected(MenuEvent e) {
+
+            }
+
+            @Override
+            public void menuCanceled(MenuEvent e) {
+
+            }
+        });
+
+        view.getUndoButton().addMenuListener(new MenuListener() {
+
+            public void menuSelected(MenuEvent e) {
+                loggingList.add("Undo Clicked! \n");
+            }
+
+            @Override
+            public void menuDeselected(MenuEvent e) {
+
+            }
+
+            @Override
+            public void menuCanceled(MenuEvent e) {
+
+            }
+        });
+
         /**
          * Placing Action listeners on each square of the board
          */
@@ -79,7 +111,7 @@ public class Controller {
             for (int j = 0; j < 8; j++) {
                 view.getGameButtons()[j][i].addActionListener((ActionEvent event) -> {
                     clickedButtonLocation = new Coordinate(((JButton) event.getSource()).getLabel());
-                    view.getPopupMenu().show(view.getjButtonPanel(), ((JButton) event.getSource()).getX(), ((JButton) event.getSource()).getY());
+                    view.getPopupMenu().show(view.getTopPanel(), ((JButton) event.getSource()).getX(), ((JButton) event.getSource()).getY());
                 });
             }
         }
@@ -91,7 +123,8 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Sunflower())) {
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/images/Sunflower.png")));
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/Images/Sunflower.png")));
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
                 }
@@ -106,7 +139,9 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Peashooter())) {
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/images/Peashooter.png")));
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Peashooter.png")));
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
                 }
@@ -127,6 +162,7 @@ public class Controller {
         sunflowerMoney();
         gameOver();
         gameWon();
+        view.getSunMoney().setText(Integer.toString(moneyPouch));
         System.out.println(toString());
     }
 
@@ -230,7 +266,8 @@ public class Controller {
             Random ran = new Random();
             int y = ran.nextInt(5);
             add(new Coordinate(7, y), new Zombie());
-            view.getGameButtons()[7][y].setIcon(new ImageIcon(getClass().getResource("/images/Zombie.png")));
+            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
+            view.getGameButtons()[7][y].setEnabled(false);
             zombieLimit--;
         }
     }
@@ -243,16 +280,21 @@ public class Controller {
             for (int col = 0; col < 8; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getShortName() == 'Z') {
-                        view.getGameButtons()[col][row].setIcon(null);
-                        if(move(new Coordinate(col, row), new Coordinate(col-1, row)))
-                            view.getGameButtons()[col-1][row].setIcon(new ImageIcon(getClass().getResource("/images/Zombie.png")));
-                        else
-                            view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/images/Zombie.png")));
+                        view.getGameButtons()[col][row].setIcon(new ImageIcon("./src/Images/Grass.png"));
+                        view.getGameButtons()[col][row].setEnabled(true);
+                        if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
+                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
+                            view.getGameButtons()[col - 1][row].setEnabled(false);
+                        }
+                        else {
+                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
+                            view.getGameButtons()[col][row].setEnabled(false);
+                        }
                     }
                 }
             }
         }
-        // view.getGameButtons()[tempCol][tempRow].setIcon(new ImageIcon(getClass().getResource("/images/Zombie.png")));
+        // View.getGameButtons()[tempCol][tempRow].setIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
     }
 
     /**
@@ -263,7 +305,8 @@ public class Controller {
             for (int col = 0; col < 8; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getHealth() <= 0) {
-                        view.getGameButtons()[col][row].setIcon(null);
+                        view.getGameButtons()[col][row].setEnabled(true);
+                        view.getGameButtons()[col][row].setIcon(new ImageIcon("./src/Images/Grass.png"));
                         board[col][row].deletePiece();
                     }
                 }
@@ -309,7 +352,10 @@ public class Controller {
         for (int rowsBoard = 0; rowsBoard < 5; rowsBoard++) {
             for (int columnsBoard = 0; columnsBoard < 8; columnsBoard++) {
                 board[columnsBoard][rowsBoard] = new Square(new Coordinate(columnsBoard, rowsBoard));
-                view.getGameButtons()[columnsBoard][rowsBoard].setIcon(null);
+                view.getGameButtons()[columnsBoard][rowsBoard].setIcon(new ImageIcon("./src/Images/Grass.png"));
+                view.getGameButtons()[columnsBoard][rowsBoard].setContentAreaFilled(false);
+                view.getGameButtons()[columnsBoard][rowsBoard].setRolloverEnabled(true);
+                view.getGameButtons()[columnsBoard][rowsBoard].setRolloverIcon(new ImageIcon("./src/Images/GrassHighlighted.png"));
             }
         }
     }
@@ -330,7 +376,7 @@ public class Controller {
                     }
                 }
             }
-            System.out.println(this.toString() + "\nYou have won the game! Thank you for playing.");
+            JOptionPane.showMessageDialog(null, "You have won the game! Thank you for playing.");
             System.exit(0);
         }
     }
@@ -342,7 +388,7 @@ public class Controller {
         for (int row = 0; row < 5; row++) {
             if (board[0][row].getPiece() != null) {
                 if (board[0][row].getPiece().getShortName() == 'Z') {
-                    System.out.println(this.toString() + "\nYou have lost. Thank you for playing.");
+                    JOptionPane.showMessageDialog(null,"You have lost. Thank you for playing.");
                     System.exit(0);
                 }
             }
@@ -359,9 +405,9 @@ public class Controller {
     }
 
     public void getLogging(){
-        view.getjTextArea().setText("");
+        view.getTextArea().setText("");
         for(String log : loggingList){
-            view.getjTextArea().append(log);
+            view.getTextArea().append(log);
         }
     }
 
