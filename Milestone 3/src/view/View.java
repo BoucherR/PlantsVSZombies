@@ -52,10 +52,29 @@ public class View extends JFrame {
      */
     private JMenuItem peashooter;
 
-    JLabel sunLabel;
+    /**
+     *  To display a JLabel logo of the Sun, representing the money of the user
+     */
+    JLabel sunPicture;
+
+    /**
+     *  JLabel String of the user's money pouch
+     */
     JLabel sunMoney;
+
+    /**
+     *  JMenu Title to redo an user-command
+     */
     JMenu redoButton;
+
+    /**
+     *  JMenu Title to undo an user-command
+     */
     JMenu undoButton;
+
+    /**
+     *  MenuBar for the MenuItems to be placed
+     */
     JMenuBar menuBar;
 
     /**
@@ -64,13 +83,13 @@ public class View extends JFrame {
     public View(){
 
         /*
-            Initializing JScroll, JPanel and JTextArea
+            Initializing JScroll, JPanel, JMenuBar and JTextArea
          */
         textArea = new JTextArea(15,50);
         topPanel = new JPanel();
         bottomPanel = new JPanel();
         jScrollPane = new JScrollPane(textArea);
-        sunLabel = new JLabel(new ImageIcon("./src/Images/Sun.png"));
+        sunPicture = new JLabel(new ImageIcon("./src/Images/Sun.png"));
         sunMoney = new JLabel();
         redoButton = new JMenu("Redo");
         undoButton = new JMenu("Undo");
@@ -78,18 +97,17 @@ public class View extends JFrame {
 
         /*
             Setting up the size of the game board and where the JTextArea,
-            JScrollPane and JPanels will be placed on the JFrame
+            JScrollPane, JMenuBars and JPanels will be placed on the JFrame
          */
         setSize(1366,768);
         topPanel.setLayout(new GridLayout(5,8));
         bottomPanel.setLayout(new FlowLayout());
         add(topPanel, BorderLayout.CENTER);
-        sunLabel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        bottomPanel.add(sunLabel);
-        sunLabel.add(sunMoney);
+        sunPicture.setLayout(new FlowLayout(FlowLayout.CENTER));
+        bottomPanel.add(sunPicture);
+        sunPicture.add(sunMoney);
         bottomPanel.add(jScrollPane);
         add(bottomPanel, BorderLayout.SOUTH);
-
         menuBar.add(undoButton);
         menuBar.add(redoButton);
         setJMenuBar(menuBar);
@@ -180,14 +198,26 @@ public class View extends JFrame {
         return textArea;
     }
 
+    /**
+     *  Getting the JLabel for money pouch of the user
+     *  @return JLabel for money pouch
+     */
     public JLabel getSunMoney(){
         return sunMoney;
     }
 
+    /**
+     *  Getting the JMenu for the Redo Button on the JMenuBar
+     *  @return JMenu for Redo
+     */
     public JMenu getRedoButton() {
         return redoButton;
     }
 
+    /**
+     *  Getting the JMenu for the Undo Button on the JMenuBar
+     *  @return JMenu for Undo
+     */
     public JMenu getUndoButton() {
         return undoButton;
     }
