@@ -128,7 +128,6 @@ public class Controller {
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
                 }
-                view.getPopupMenu().setVisible(false);
             }
         });
 
@@ -145,7 +144,6 @@ public class Controller {
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
                 }
-                view.getPopupMenu().setVisible(false);
             }
         });
     }
@@ -184,7 +182,6 @@ public class Controller {
             return false;
         }
         srcSquare.addPiece(piece);
-
         loggingList.add("Added Piece: " + piece.getName() + " @ Coordinates: " + coordinate.toString() + "\n");
         return true;
     }
@@ -216,33 +213,29 @@ public class Controller {
     public void hitUpdate(){
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 8; col++) {
-                Piece currentPiece = board[col][row].getPiece();
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getHealth() > 0){
                         if (board[col][row].getPiece().getShortName() == 'P') {
                             if (board[col + 1][row].getPiece() != null && board[col + 1][row].getPiece().getShortName() == 'Z') {
-                                int x = board[col + 1][row].getPiece().getHealth();
-                                x -= board[col][row].getPiece().getAttack();
-                                board[col + 1][row].getPiece().setHealth(x);
+                                board[col + 1][row].getPiece().setHealth(board[col + 1][row].getPiece().getHealth()-board[col][row].getPiece().getAttack());
                                 if(board[col + 1][row].getPiece().getHealth() <=0 ) {
-                                    loggingList.add( board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col + 1][row].getPiece().getName() + " Health: Dead @ " + board[col + 1][row].getCoordinate() + "\n");
+                                    loggingList.add("Peashooter Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col + 1][row].getPiece().getName() + " Health: Dead @ " + board[col + 1][row].getCoordinate() + "\n");
                                 } else {
-                                    loggingList.add( board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col + 1][row].getPiece().getName() + " Health: " + board[col + 1][row].getPiece().getHealth() + " @ " + board[col + 1][row].getCoordinate() + "\n");
+                                    loggingList.add("Peashooter Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col + 1][row].getPiece().getName() + " Health: " + board[col + 1][row].getPiece().getHealth() + " @ " + board[col + 1][row].getCoordinate() + "\n");
                                 }
                             }
                         }
                         if (board[col][row].getPiece().getShortName() == 'Z') {
-                            if (!(col - 1 == -1))
+                            if (!(col - 1 == -1)) {
                                 if (board[col - 1][row].getPiece() != null && board[col - 1][row].getPiece().getShortName() != 'Z') {
-                                    int x = board[col - 1][row].getPiece().getHealth();
-                                    x -= board[col][row].getPiece().getAttack();
-                                    board[col - 1][row].getPiece().setHealth(x);
-                                    if(board[col - 1][row].getPiece().getHealth() <=0 ) {
-                                        loggingList.add( board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
+                                    board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
+                                    if (board[col - 1][row].getPiece().getHealth() <= 0) {
+                                        loggingList.add("Zombie Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
                                     } else {
-                                        loggingList.add( board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
+                                        loggingList.add("Zombie Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
                                     }
                                 }
+                            }
                         }
                     }
                 }
@@ -286,7 +279,6 @@ public class Controller {
                 }
             }
         }
-        // View.getGameButtons()[tempCol][tempRow].setIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
     }
 
     /**

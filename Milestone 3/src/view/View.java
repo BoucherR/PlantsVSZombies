@@ -6,7 +6,7 @@ package view;
  */
 
 
-import Model.Coordinate;
+import model.*;
 import javax.swing.*;
 import java.awt.*;
 
