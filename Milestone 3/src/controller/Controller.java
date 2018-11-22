@@ -520,7 +520,7 @@ public class Controller {
         return board[c.getColumnNumber()][c.getRowNumber()];
     }
 
-    public void getLogging(){
+    private void getLogging(){
         view.getTextArea().setText("");
         for(String log : loggingList){
             view.getTextArea().append(log);
@@ -550,6 +550,14 @@ public class Controller {
         s += "Money Pouch: " + moneyPouch + "\n";
         // s += logging;
         return s;
+    }
+
+    public Square[][] getBoard() {
+        return board;
+    }
+
+    public Coordinate getClickedButtonLocation() {
+        return clickedButtonLocation;
     }
 
 }
