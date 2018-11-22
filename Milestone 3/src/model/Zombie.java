@@ -7,7 +7,7 @@ package model;
  * create a new object and passes it's designated parameters. 
  * 
  * @author RG
- * @version 2.0
+ * @version 3.0
  */
 public class Zombie extends Piece {
 

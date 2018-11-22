@@ -1,7 +1,5 @@
 package model;
 
-import javax.swing.*;
-
 /**
  *
  * The Piece class provides the PlantsVSZombie game with the appropriate pieces that populate squares on the game board and perform certain actions that help or hinder the player
@@ -9,15 +7,23 @@ import javax.swing.*;
  * a Piece given a char shortName of a PlantPiece. Additionally, this class includes getter and setters such as a getName(), getShortName(), getCost(), getHealth(), setHealth(),
  * and getAttack(). Piece also includes a toString() method.
  *
- * In version 2.0, Pieces include the "PEASHOOTER", "ZOMBIE" and "SUNFLOWER" PlantPieces name.
+ * In version 3.0, Pieces include the "PEASHOOTER", "ZOMBIE", "SUNFLOWER", "REPEATER", "THREEPEATER", "WALLNUT", "TWINSUNFLOWER", "GIANTSUNFLOWER", "BUCKETZOMBIE", and "CONEHEADZOMBIE".
  * Each piece includes a (int) cost, (int) health, (int) attack, (char) shortName and (PlantPieces) name.
  *
  * The PEASHOOTER Piece is a friendly offensive entity and can aide the player by damaging ZOMBIE entities that appear on the board.
+ * The REPEATER Piece is a friendly offensive entity, stronger than the PEASHOOTER, and can aide the player by damaging ZOMBIE entities that appear on the board.
+ * The THREEPEATER Piece is a friendly offensive entity, stronger than the REPEATER, and can aide the player by damaging ZOMBIE entities that appear on the board.
  * The SUNFLOWER Piece is a friendly non-offensive entity and can aide the player by granting money to the play per turn, which the play can use to buy more friendly entities.
- * The ZOMBIE Piece is an an offensive enemy entity that can move and will attack friendly pieces in its way until it reaches the end of the board, defeating the player.
- *
+ * The TWINSUNFLOWER Piece is a friendly non-offensive entity and can aide the player by granting money to the play per turn, more money than the SUNFLOWER, which the play can use to buy more friendly entities.
+ * The GIANTSUNFLOWER Piece is a friendly non-offensive entity and can aide the player by granting money to the play per turn, more money than the TWINSUNFLOWER, which the play can use to buy more friendly entities.
+ * 
+ * The ZOMBIE Piece is an offensive enemy entity that can move and will attack friendly pieces in its way until it reaches the end of the board, defeating the player.
+ * The CONEHEADZOMBIE is an offensive enemy entity, stronger than the ZOMBIE, that can move and will attack friendly pieces in its way until it reaches the end of the board, defeating the player.
+ * The BUCKETZOMBIE Piece is an offensive enemy entity, stronger than the CONEHEADZOMBIE, that can move and will attack friendly pieces in its way until it reaches the end of the board, defeating the player.
+ * 
+ * 
  * @author Ryan Gaudreault : 100968218
- * @version 2.0
+ * @version 3.0
  */
 
 public class Piece {
@@ -31,8 +37,6 @@ public class Piece {
     /**
      * A constructor for the class Piece that takes the String name, character shortName, integer health, 
      * integer attack, integer cost of a Piece object and creates it.
-     *
-     * In version 2.0, this name only includes "PEASHOOTER", "ZOMBIE" and "SUNFLOWER".
      *
      * @param name The name of the Piece in all caps, a string.
      * @param shortName The character of the Piece to be represented on the game board, a char.
@@ -50,7 +54,6 @@ public class Piece {
 
     /**
      * When getName() method is called, it returns the PlantPieces object called name, which is a String.
-     * In version 2.0, this name only includes "PEASHOOTER", "ZOMBIE" and "SUNFLOWER".
      *
      * @return name Plant string to return which is an enumerated class type.
      */
@@ -60,7 +63,6 @@ public class Piece {
 
     /**
      * When getShortName() method is called, it returns the character (char) that is associated with the PlantPieces object.
-     * In version 2.0, this char includes 'P', 'Z', 'S' which represents the Peashooter, Zombie and Sunflower respectively.
      *
      * @return shortName A char associated with the PlantPieces object. This char is represented on the board as the piece.
      */
@@ -72,8 +74,8 @@ public class Piece {
      * When getCost() method is called, it returns an integer (int) of how much the PlantPiece costs to place on the board.
      * This cost is then deducted from the players moneyPouch in the GameBoard class.
      * This method only pertains to the friendly entities on the board that the player can manipulate such as the "PEASHOOTER"
-     * and the "SUNFLOWER". The PlantPiece "ZOMBIE" doesn't include a cost due to the fact that it is not a friendly entity and
-     * therefore is not bought or placed by the player.
+     * and the "SUNFLOWER". The PlantPiece "ZOMBIE", "CONEHEADZOMBIE" and "BUCKETZOMBIE" doesn't include 
+     * a cost due to the fact that it is not a friendly entity and therefore is not bought or placed by the player.
      *
      * @return cost An int of the price of each friendly PlantPiece that can be placed on the board.
      */
@@ -141,8 +143,29 @@ public class Piece {
      * @return String A string representation of the current PlantPiece object health.
      */
     public String toString(){
-        if (this == null) throw new IllegalArgumentException("Invalid Entry");
-        return this.shortName + " -> Health: " + this.health;
+        switch(name){
+            case "PEASHOOTER":
+                return "P -> Health: " + this.getHealth();
+            case "REPEATER":
+            	return "R -> Health: " + this.getHealth();
+            case "THREEPEATER":
+            	return "T -> Health: " + this.getHealth();
+            case "SUNFLOWER":
+                return "S -> Health: " + this.getHealth();
+            case "TWINSUNFLOWER":
+                return "2S -> Health: " + this.getHealth();
+            case "GIANTSUNFLOWER":
+                return "G -> Health: " + this.getHealth();
+            case "WALLNUT":
+            	return "W -> Health: " + this.getHealth();
+            case "ZOMBIE":
+                return "Z -> Health: " + this.getHealth();
+            case "CONEHEADZOMBIE":
+                return "CZ -> Health: " + this.getHealth();
+            case "BUCKETZOMBIE":
+                return "BZ -> Health: " + this.getHealth();
+            default: throw new IllegalArgumentException("Error: Wrong Piece");
+        }
     }
 
     /**
@@ -158,10 +181,6 @@ public class Piece {
         if (!(o instanceof Piece) )
             return false;
         return this.shortName == ((Piece) o).shortName && this.name.equals(((Piece) o).name) && this.health == ((Piece) o).health && this.cost == ((Piece) o).cost && this.attack == ((Piece) o).attack;
-    }
-
-    public ImageIcon getImage(){
-        return new ImageIcon("./src/Images/" + this.getName().toLowerCase() + ".png");
     }
 
 }
