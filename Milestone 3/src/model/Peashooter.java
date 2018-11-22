@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 /**
  * The Peashooter class provides the PlantsVSZombie game with a single Piece type that

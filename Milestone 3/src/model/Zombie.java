@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 /**
  * The Zombie class provides the PlantsVSZombie game with a single Piece type that

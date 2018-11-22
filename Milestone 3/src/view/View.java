@@ -1,4 +1,4 @@
-package View;
+package view;
 
 /**
  * @author Youssef Saghbini
@@ -6,7 +6,7 @@ package View;
  */
 
 
-import Model.Coordinate;
+import model.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -149,7 +149,7 @@ public class View extends JFrame {
         repeater = new JMenuItem("Repeater", new ImageIcon("./src/Images/RepeaterSmall.png"));
         threepeater = new JMenuItem("Threepeater", new ImageIcon("./src/Images/ThreepeaterSmall.png"));
         giantsunflower = new JMenuItem("Giant Sunflower", new ImageIcon("./src/Images/GiantSunflowerSmall.png"));
-       	wallnut = new JMenuItem("Wallnut", new ImageIcon("./src/Images/WallnutSmall.png"));
+       	wallnut = new JMenuItem("Walnut", new ImageIcon("./src/Images/WallnutSmall.png"));
        	twinsunflower = new JMenuItem("Twin Sunflower", new ImageIcon("./src/Images/TwinSunflowerSmall.png"));
         popupMenu.add(sunflower);
         popupMenu.add(peashooter);
