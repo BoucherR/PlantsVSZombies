@@ -1,5 +1,7 @@
 package model;
 
+import javax.swing.*;
+
 /**
  *
  * The Piece class provides the PlantsVSZombie game with the appropriate pieces that populate squares on the game board and perform certain actions that help or hinder the player
@@ -156,6 +158,10 @@ public class Piece {
         if (!(o instanceof Piece) )
             return false;
         return this.shortName == ((Piece) o).shortName && this.name.equals(((Piece) o).name) && this.health == ((Piece) o).health && this.cost == ((Piece) o).cost && this.attack == ((Piece) o).attack;
+    }
+
+    public ImageIcon getImage(){
+        return new ImageIcon("./src/Images/" + this.getName().toLowerCase() + ".png");
     }
 
 }
