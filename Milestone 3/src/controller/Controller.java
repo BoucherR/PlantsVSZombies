@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
-import View.*;
-import Model.*;
+import view.*;
+import model.*;
 
 import javax.swing.*;
 import javax.swing.event.MenuEvent;
@@ -300,18 +300,14 @@ public class Controller {
                     if (board[col][row].getPiece().getHealth() > 0){
                         if (board[col][row].getPiece().getShortName() == 'P' || board[col][row].getPiece().getShortName() == 'T' || board[col][row].getPiece().getShortName() == 'R' ) {
                             if (board[col + 1][row].getPiece() != null && board[col + 1][row].getPiece().getShortName() == 'Z') {
-                                int x = board[col + 1][row].getPiece().getHealth();
-                                x -= board[col][row].getPiece().getAttack();
-                                board[col + 1][row].getPiece().setHealth(x);
+                                board[col + 1][row].getPiece().setHealth(board[col + 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
                                 if(board[col + 1][row].getPiece().getHealth() <=0 ) {
                                     loggingList.add( board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col + 1][row].getPiece().getName() + " Health: Dead @ " + board[col + 1][row].getCoordinate() + "\n");
                                 } else {
                                     loggingList.add( board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col + 1][row].getPiece().getName() + " Health: " + board[col + 1][row].getPiece().getHealth() + " @ " + board[col + 1][row].getCoordinate() + "\n");
                                 }
                             } else if (board[col + 2][row].getPiece() != null && board[col + 2][row].getPiece().getShortName() == 'Z') {
-                                int x = board[col + 2][row].getPiece().getHealth();
-                                x -= board[col][row].getPiece().getAttack();
-                                board[col + 2][row].getPiece().setHealth(x);
+                                board[col + 2][row].getPiece().setHealth(board[col + 2][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
                                 if(board[col + 2][row].getPiece().getHealth() <=0 ) {
                                     loggingList.add( board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col + 2][row].getPiece().getName() + " Health: Dead @ " + board[col + 2][row].getCoordinate() + "\n");
                                 } else {
