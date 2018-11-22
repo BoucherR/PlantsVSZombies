@@ -1,5 +1,7 @@
 package model;
 
+import javax.swing.*;
+
 /**
  *
  * The Piece class provides the PlantsVSZombie game with the appropriate pieces that populate squares on the game board and perform certain actions that help or hinder the player
@@ -143,29 +145,8 @@ public class Piece {
      * @return String A string representation of the current PlantPiece object health.
      */
     public String toString(){
-        switch(name){
-            case "PEASHOOTER":
-                return "P -> Health: " + this.getHealth();
-            case "REPEATER":
-            	return "R -> Health: " + this.getHealth();
-            case "THREEPEATER":
-            	return "T -> Health: " + this.getHealth();
-            case "SUNFLOWER":
-                return "S -> Health: " + this.getHealth();
-            case "TWINSUNFLOWER":
-                return "2S -> Health: " + this.getHealth();
-            case "GIANTSUNFLOWER":
-                return "G -> Health: " + this.getHealth();
-            case "WALLNUT":
-            	return "W -> Health: " + this.getHealth();
-            case "ZOMBIE":
-                return "Z -> Health: " + this.getHealth();
-            case "CONEHEADZOMBIE":
-                return "CZ -> Health: " + this.getHealth();
-            case "BUCKETZOMBIE":
-                return "BZ -> Health: " + this.getHealth();
-            default: throw new IllegalArgumentException("Error: Wrong Piece");
-        }
+        if (this == null) throw new IllegalArgumentException("Invalid Entry");
+        return this.shortName + " -> Health: " + this.health;
     }
 
     /**
@@ -181,6 +162,10 @@ public class Piece {
         if (!(o instanceof Piece) )
             return false;
         return this.shortName == ((Piece) o).shortName && this.name.equals(((Piece) o).name) && this.health == ((Piece) o).health && this.cost == ((Piece) o).cost && this.attack == ((Piece) o).attack;
+    }
+
+    public ImageIcon getImage(){
+        return new ImageIcon("./src/Images/" + this.getName().toLowerCase() + ".png");
     }
 
 }
