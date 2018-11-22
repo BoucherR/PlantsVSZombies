@@ -1,6 +1,8 @@
 package model;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.io.IOException;
 
 /**
  *
@@ -165,7 +167,7 @@ public class Piece {
     }
 
     public ImageIcon getImage(){
-        return new ImageIcon("./src/Images/" + this.getName().toLowerCase() + ".png");
+        return new ImageIcon(getClass().getResource("/Images/" + this.getName().toLowerCase() + ".png"));
     }
 
 }
