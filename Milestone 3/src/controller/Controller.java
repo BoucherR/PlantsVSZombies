@@ -54,8 +54,8 @@ public class Controller {
         this.view = view;
         this.moneyPouch = 500;
         this.zombieLimit = 10;
-        for (int c=0; c<8; c++)
-            for (int r=0; r<5; r++)
+        for (int c = 0; c < board.length; c++)
+            for (int r = 0; r < board[0].length; r++)
                 board[c][r] = new Square(new Coordinate (c,r));
         reset();
     }
@@ -123,9 +123,6 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Sunflower())) {
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon("./src/Images/Sunflower.png"));
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
                 }
@@ -140,9 +137,6 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Peashooter())) {
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon("./src/Images/Peashooter.png"));
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
                 }
@@ -157,9 +151,6 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Repeater())) {
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon("./src/Images/Repeater.png"));
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
                 }
@@ -174,9 +165,6 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Threepeater())) {
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon("./src/Images/Threepeater.png"));
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
                 }
@@ -191,9 +179,6 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Wallnut())) {
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon("./src/Images/Wallnut.png"));
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
                 }
@@ -208,8 +193,6 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new TwinSunflower())) {
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon("./src/Images/TwinSunflower.png"));
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
                 }
@@ -221,8 +204,6 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new GiantSunflower())) {
-                    //view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon("./src/Images/GiantSunflower.png"));
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
                 }
@@ -267,6 +248,7 @@ public class Controller {
         srcSquare.addPiece(piece);
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setDisabledIcon(piece.getImage());
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setIcon(piece.getImage());
+        view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setRolloverEnabled(false);
         loggingList.add("Added Piece: " + piece.getName() + " @ Coordinates: " + coordinate.toString() + "\n");
         return true;
     }
@@ -298,12 +280,12 @@ public class Controller {
      *  When piece is within range of attack, it will affect the other piece's health.
      */
     public void hitUpdate(){
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col < 8; col++) {
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getHealth() > 0){
                         if (board[col][row].getPiece().getShortName() == 'P' || board[col][row].getPiece().getShortName() == 'T' || board[col][row].getPiece().getShortName() == 'R' ) {
-                            for(int i = ++col; i < 8; i++){// Author by Adnan
+                            for(int i = ++col; i < board.length; i++){// Author by Adnan
                                 if (board[i][row].getPiece() != null)
                                     if( board[i][row].getPiece().getShortName() == 'Z' || board[i][row].getPiece().getShortName() == 'B' || board[i][row].getPiece().getShortName() == 'C') {
                                     board[i][row].getPiece().setHealth(board[i][row].getPiece().getHealth() - board[i][row].getPiece().getAttack());
@@ -360,8 +342,8 @@ public class Controller {
      *  Used for the zombies to move one square forward after every round.
      */
     public void movingZombie(){
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col < 8; col++) {
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getShortName() == 'Z' || board[col][row].getPiece().getShortName() == 'B' || board[col][row].getPiece().getShortName() == 'C') {
                         view.getGameButtons()[col][row].setIcon(new ImageIcon("./src/Images/Grass.png"));
@@ -382,8 +364,8 @@ public class Controller {
      *  It will remove pieces when health is equal to zero and below.
      */
     public void removeUpdate(){
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col < 8; col++) {
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getHealth() <= 0) {
                         view.getGameButtons()[col][row].setEnabled(true);
@@ -400,8 +382,8 @@ public class Controller {
      *  add money into the user's money pouch.
      */
     public void sunflowerMoney(){
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col < 8; col++) {
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getShortName() == 'S') {
                         moneyPouch += 5;
@@ -438,8 +420,8 @@ public class Controller {
     public void reset(){
         //Creating two arrays to align with a 2 dimension array
         board = new Square[8][5];
-        for (int rowsBoard = 0; rowsBoard < 5; rowsBoard++) {
-            for (int columnsBoard = 0; columnsBoard < 8; columnsBoard++) {
+        for (int rowsBoard = 0; rowsBoard < board[0].length; rowsBoard++) {
+            for (int columnsBoard = 0; columnsBoard < board.length; columnsBoard++) {
                 board[columnsBoard][rowsBoard] = new Square(new Coordinate(columnsBoard, rowsBoard));
                 view.getGameButtons()[columnsBoard][rowsBoard].setIcon(new ImageIcon("./src/Images/Grass.png"));
                 view.getGameButtons()[columnsBoard][rowsBoard].setContentAreaFilled(false);
@@ -456,8 +438,8 @@ public class Controller {
      */
     public void gameWon(){
         if(zombieLimit == 0){
-            for (int row = 0; row < 5; row++) {
-                for (int col = 0; col < 8; col++) {
+            for (int row = 0; row < board[0].length; row++) {
+                for (int col = 0; col < board.length; col++) {
                     if (board[col][row].getPiece() != null) {
                         if (board[col][row].getPiece().getShortName() == 'Z' || board[col][row].getPiece().getShortName() == 'C' || board[col][row].getPiece().getShortName() == 'B') {
                             return;
@@ -474,7 +456,7 @@ public class Controller {
      *  Will end the game, if any zombies have reached at the end of the gameboard.
      */
     public void gameOver(){
-        for (int row = 0; row < 5; row++) {
+        for (int row = 0; row < board[0].length; row++) {
             if (board[0][row].getPiece() != null) {
                 if (board[0][row].getPiece().getShortName() == 'Z' || board[0][row].getPiece().getShortName() == 'C' || board[0][row].getPiece().getShortName() == 'B') {
                     JOptionPane.showMessageDialog(null,"You have lost. Thank you for playing.");
@@ -508,9 +490,9 @@ public class Controller {
         Piece shortNamePiece;
         String s = "";
         s += "\n   0 1 2 3 4 5 6 7\n";
-        for (int row = 0; row < 5; row++) {
+        for (int row = 0; row < board[0].length; row++) {
             s += row +" |";
-            for (int col = 0; col < 8; col++) {
+            for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
                     shortNamePiece = board[col][row].getPiece();
                     s += shortNamePiece.getShortName() + "|";
