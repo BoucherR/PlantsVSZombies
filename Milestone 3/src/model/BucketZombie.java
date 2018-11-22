@@ -1,6 +1,5 @@
 package model;
 
-import Model.Piece;
 
 /**
  * The BucketZombie class provides the PlantsVSZombie game with a single Piece type that

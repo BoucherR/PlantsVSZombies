@@ -1,7 +1,5 @@
 package model;
 
-import Model.Piece;
-
 /**
  * The GiantSunflower class provides the PlantsVSZombie game with a single Piece type that
  * once called can create a GiantSunflower Piece in of itself. This class only contains a
