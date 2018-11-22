@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 /**
  *
@@ -7,7 +7,7 @@ package model;
  * a Piece given a char shortName of a PlantPiece. Additionally, this class includes getter and setters such as a getName(), getShortName(), getCost(), getHealth(), setHealth(),
  * and getAttack(). Piece also includes a toString() method.
  *
- * In version 1.0, Pieces include the "PEASHOOTER", "ZOMBIE" and "SUNFLOWER" PlantPieces name.
+ * In version 2.0, Pieces include the "PEASHOOTER", "ZOMBIE" and "SUNFLOWER" PlantPieces name.
  * Each piece includes a (int) cost, (int) health, (int) attack, (char) shortName and (PlantPieces) name.
  *
  * The PEASHOOTER Piece is a friendly offensive entity and can aide the player by damaging ZOMBIE entities that appear on the board.
@@ -15,7 +15,7 @@ package model;
  * The ZOMBIE Piece is an an offensive enemy entity that can move and will attack friendly pieces in its way until it reaches the end of the board, defeating the player.
  *
  * @author Ryan Gaudreault : 100968218
- * @version 1.0
+ * @version 2.0
  */
 
 public class Piece {
@@ -27,30 +27,30 @@ public class Piece {
     private int cost;
 
     /**
-     * A constructor for the class Piece that takes the parameter name and then creates the Piece.
-     * This constructor also sets the default cost, health, attack and shortName of the Piece.
+     * A constructor for the class Piece that takes the String name, character shortName, integer health, 
+     * integer attack, integer cost of a Piece object and creates it.
      *
      * In version 2.0, this name only includes "PEASHOOTER", "ZOMBIE" and "SUNFLOWER".
      *
-     * @param N
-     * @param shortN
-     * @param health
-     * @param attack
-     * @param cost
+     * @param name The name of the Piece in all caps, a string.
+     * @param shortName The character of the Piece to be represented on the game board, a char.
+     * @param health The health points of the Piece, an int.
+     * @param attack The attack points of the Piece that it can afflict on other Pieces, an int.
+     * @param cost The cost of purchasing the Piece, an int.
      */
-    public Piece(String N, char shortN, int health, int attack, int cost){
-        this.name = N;
-        this.shortName = shortN;
+    public Piece(String name, char shortName, int health, int attack, int cost){
+        this.name = name;
+        this.shortName = shortName;
         this.cost = cost;
         this.health = health;
         this.attack = attack;
     }
 
     /**
-     * When getName() method is called, it returns the PlantPieces object called name, which is an enumerated type.
-     * In version 1.0, this name only includes "PEASHOOTER", "ZOMBIE" and "SUNFLOWER".
+     * When getName() method is called, it returns the PlantPieces object called name, which is a String.
+     * In version 2.0, this name only includes "PEASHOOTER", "ZOMBIE" and "SUNFLOWER".
      *
-     * @return name PlantPieces object to return which is an enumerated class type.
+     * @return name Plant string to return which is an enumerated class type.
      */
     public String getName(){
         return this.name;
@@ -58,7 +58,7 @@ public class Piece {
 
     /**
      * When getShortName() method is called, it returns the character (char) that is associated with the PlantPieces object.
-     * In version 1.0, this char includes 'P', 'Z', 'S' which represents the Peashooter, Zombie and Sunflower respectively.
+     * In version 2.0, this char includes 'P', 'Z', 'S' which represents the Peashooter, Zombie and Sunflower respectively.
      *
      * @return shortName A char associated with the PlantPieces object. This char is represented on the board as the piece.
      */
@@ -138,12 +138,38 @@ public class Piece {
      *
      * @return String A string representation of the current PlantPiece object health.
      */
-    public String toString() throws IllegalArgumentException {
-        if (this == null) throw new IllegalArgumentException("Invalid Entry");
-
-        return this.shortName + " -> Health: " + this.health;
+    public String toString(){
+        switch(name){
+            case "PEASHOOTER":
+                return "P -> Health: " + this.getHealth();
+            case "REPEATER":
+            	return "R -> Health: " + this.getHealth();
+            case "THREEPEATER":
+            	return "T -> Health: " + this.getHealth();
+            case "SUNFLOWER":
+                return "S -> Health: " + this.getHealth();
+            case "TWINSUNFLOWER":
+                return "2S -> Health: " + this.getHealth();
+            case "GIANTSUNFLOWER":
+                return "G -> Health: " + this.getHealth();
+            case "WALLNUT":
+            	return "W -> Health: " + this.getHealth();
+            case "ZOMBIE":
+                return "Z -> Health: " + this.getHealth();
+            case "CONEHEADZOMBIE":
+                return "CZ -> Health: " + this.getHealth();
+            case "BUCKETZOMBIE":
+                return "BZ -> Health: " + this.getHealth();
+            default: throw new IllegalArgumentException("Error: Wrong Piece");
+        }
     }
 
+    /**
+     * When equals() method is called, it returns a true boolean condition if Object o and this Object are the same piece or have the same values. 
+     * This method returns false if Object o is a null value or if it is not a Piece at all.
+     * @param o The object to be analyzed.
+     * @return boolean
+     */
     @Override
     public boolean equals(Object o){
         if (this == o)return true;
