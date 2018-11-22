@@ -214,7 +214,6 @@ public class ControllerTest {
             testController.add(new Coordinate(row,column),new Peashooter());
         }
         testController.add(new Coordinate(7,1),new Zombie());
-        while (true);
     }
 
     /**
