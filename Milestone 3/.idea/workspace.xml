@@ -3,8 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/ViewTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/ViewTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestAll.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,24 +49,24 @@
     <session id="291584363">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="920" />
-          <entry key="txt" value="307" />
+          <entry key="java" value="1083" />
+          <entry key="txt" value="329" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="920" />
-          <entry key="PLAIN_TEXT" value="307" />
+          <entry key="JAVA" value="1083" />
+          <entry key="PLAIN_TEXT" value="329" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="22" />
+          <entry key="java" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="22" />
+          <entry key="JAVA" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -97,15 +107,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Piece.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3300">
-              <caret line="168" column="5" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Square.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
@@ -141,11 +142,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="270" column="120" selection-start-line="270" selection-start-column="120" selection-end-line="270" selection-end-column="120" />
+            <state relative-caret-position="286">
+              <caret line="118" column="10" selection-start-line="118" selection-start-column="10" selection-end-line="118" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#20034#20035#0" expanded="true" />
@@ -153,6 +154,27 @@
                 <element signature="e#21149#21150#0" expanded="true" />
                 <element signature="e#21177#21178#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/TestAll.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/ControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-88">
+              <caret line="104" selection-start-line="104" selection-end-line="104" />
             </state>
           </provider>
         </entry>
@@ -167,6 +189,13 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -198,6 +227,7 @@
         <option value="$PROJECT_DIR$/src/model/Piece.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/test/TestAll.java" />
       </list>
     </option>
   </component>
@@ -232,6 +262,12 @@
               <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -242,7 +278,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542862144679" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542917039278" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Plants_Vs_Zombies" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -265,9 +301,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Test/SunflowerTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/main.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/SunflowerTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ControllerTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/TestAll.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ViewTest.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -275,21 +311,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/META-INF/Milestone 3.kotlin_module</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/BucketZombieTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/ConeheadZombieTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/GiantSunflowerTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/RepeaterTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/ThreepeaterTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/TwinSunflowerTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/WallnutTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/BucketZombieTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ConeheadZombieTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/GiantSunflowerTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/RepeaterTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ThreepeaterTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/TwinSunflowerTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/WallnutTest.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -390,7 +411,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.TestAll">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="Milestone 3" />
@@ -398,8 +419,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Milestone 3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestAll" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.main" />
+      <item itemvalue="JUnit.TestAll" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestAll" />
         <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
@@ -418,7 +458,7 @@
       <workItem from="1542846988438" duration="6373000" />
       <workItem from="1542854352557" duration="3722000" />
       <workItem from="1542861156012" duration="983000" />
-      <workItem from="1542905050644" duration="3813000" />
+      <workItem from="1542905050644" duration="5757000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit">
       <created>1542841373541</created>
@@ -525,17 +565,42 @@
       <option name="project" value="LOCAL" />
       <updated>1542913142520</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="move() Fixed">
+      <created>1542914549113</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1542914549113</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added TestAll.java">
+      <created>1542916600669</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1542916600669</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="TestAll - 2018.11.22 at 14h 53m 48s.xml">
+      <configuration name="TestAll" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestAll - 2018.11.22 at 14h 55m 53s.xml">
+      <configuration name="TestAll" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestAll - 2018.11.22 at 15h 04m 05s.xml">
+      <configuration name="TestAll" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15110000" />
+    <option name="totallyTimeSpent" value="17054000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -544,7 +609,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286334" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -588,7 +653,9 @@
     <MESSAGE value="Controller Refactored and removeUpdate() Fix" />
     <MESSAGE value="Main edited" />
     <MESSAGE value="hitUpdate() Fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="hitUpdate() Fixed" />
+    <MESSAGE value="move() Fixed" />
+    <MESSAGE value="added TestAll.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="added TestAll.java" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/out/artifacts/Milestone_2_jar/Milestone 2.jar!/org/junit/Assert.class">
@@ -723,16 +790,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/ControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-88">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="270" column="120" selection-start-line="270" selection-start-column="120" selection-end-line="270" selection-end-column="120" />
+        <state relative-caret-position="286">
+          <caret line="118" column="10" selection-start-line="118" selection-start-column="10" selection-end-line="118" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#20034#20035#0" expanded="true" />
             <element signature="e#20101#20102#0" expanded="true" />
             <element signature="e#21149#21150#0" expanded="true" />
             <element signature="e#21177#21178#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/TestAll.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

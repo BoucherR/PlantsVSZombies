@@ -116,6 +116,8 @@ public class Controller {
             }
         }
 
+        //view.getPopupMenu().add
+
         /**
          * Using pop-ups on the board, generated on the click-location, to handle the placing of sunflowers.
          */
