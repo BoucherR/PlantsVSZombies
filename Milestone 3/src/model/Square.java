@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 
 /**
@@ -88,9 +88,11 @@ public class Square{
      * @param newPiece, user specified game piece object that is to be added
      */
     public void addPiece(Piece newPiece){
-        if(!isOccupied()){
+        if(isOccupied()){
+            Piece temp = this.gamePiece;
             this.gamePiece = newPiece;
         }
+        this.gamePiece = newPiece;
     }
 
     /**
@@ -98,7 +100,7 @@ public class Square{
      */
     public void deletePiece(){
         if(isOccupied()){
-            //Piece temp = this.gamePiece;
+            Piece temp = this.gamePiece;
             this.gamePiece = null;
         }
     }
@@ -133,12 +135,14 @@ public class Square{
      */
     @Override
     public boolean equals(Object input) {
-        if (input instanceof Square)
+        if (input != null && input instanceof Square)
         {
-            Square test = (Square) input;
-            if (this.gamePiece == null && test.gamePiece == null)
+            if (this.gamePiece == null && ((Square)input).gamePiece == null)
             {
-                return (this.getCoordinate().equals(test.getCoordinate()));
+                if (this.getCoordinate().equals(((Square)input).getCoordinate()))
+                {
+                    return true;
+                }
             }
             else
             {
@@ -146,7 +150,9 @@ public class Square{
                 {
                     return false;
                 }
-                return (this.getCoordinate().equals(test.getCoordinate()) && this.gamePiece.equals(test.getPiece()));
+                if (this.getCoordinate().equals(((Square)input).getCoordinate()) && this.gamePiece.equals(((Square)input).getPiece())) {
+                    return true;
+                }
             }
         }
         return false;

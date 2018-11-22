@@ -1,4 +1,4 @@
-package model;
+package Model;
 /**
  * The Coordinate class is used to identify the rows and columns of the game.
  * @author Muneeb Nasir
@@ -49,8 +49,8 @@ public class Coordinate {
         if (coordinate.length() != 2) throw new IllegalArgumentException ("getCoordinate is a 2-character string");
         if ((coordinate.charAt(0)<'0')|| (coordinate.charAt(1)>'7')) throw new IndexOutOfBoundsException("row must be between 1 and 8,inclusive");
 
-        this.column = Character.getNumericValue(coordinate.charAt(0));
-        this.row = Character.getNumericValue(coordinate.charAt(1));
+        this.column = coordinate.charAt(0)-48;
+        this.row = coordinate.charAt(1)-48;
     }
 
     /**
@@ -83,11 +83,12 @@ public class Coordinate {
      */
     @Override
     public boolean equals(Object input){
-        if(input instanceof Coordinate)
+        if(input !=null && input instanceof Coordinate)
         {
-            Coordinate test;
-            test = (Coordinate) input;
-            return (test.row == this.row && test.column == this.column);
+            if(((Coordinate)input).row == this.row && ((Coordinate)input).column == this.column)
+            {
+                return true;
+            }
         }
         return false;
     }
@@ -97,5 +98,4 @@ public class Coordinate {
      * @return Coordinate Location, The Coordinate and Row Position of the in String format
      */
     public String name(){return "" + this.getColumnNumber() + this.getRowNumber();}
-
 }
