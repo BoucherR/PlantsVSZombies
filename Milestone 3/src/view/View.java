@@ -77,11 +77,31 @@ public class View extends JFrame {
      */
     private JMenuItem wallnut;
 
-    JLabel sunLabel;
+    /**
+     *  To display a JLabel logo of the Sun, representing the money of the user
+     */
+    JLabel sunPicture;
+
+    /**
+     *  JLabel String of the user's money pouch
+     */
     JLabel sunMoney;
+
+    /**
+     *  JMenu Title to redo an user-command
+     */
     JMenu redoButton;
+
+    /**
+     *  JMenu Title to undo an user-command
+     */
     JMenu undoButton;
+
+    /**
+     *  MenuBar for the MenuItems to be placed
+     */
     JMenuBar menuBar;
+
 
     /**
      *  Setting up the GUI using the fields that were chosen
@@ -95,7 +115,7 @@ public class View extends JFrame {
         topPanel = new JPanel();
         bottomPanel = new JPanel();
         jScrollPane = new JScrollPane(textArea);
-        sunLabel = new JLabel(new ImageIcon("./src/Images/Sun.png"));
+        sunPicture = new JLabel(new ImageIcon("./src/Images/Sun.png"));
         sunMoney = new JLabel();
         redoButton = new JMenu("Redo");
         undoButton = new JMenu("Undo");
@@ -110,12 +130,11 @@ public class View extends JFrame {
         topPanel.setLayout(new GridLayout(5,8));
         bottomPanel.setLayout(new FlowLayout());
         add(topPanel, BorderLayout.CENTER);
-        sunLabel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        bottomPanel.add(sunLabel);
-        sunLabel.add(sunMoney);
+        sunPicture.setLayout(new FlowLayout(FlowLayout.CENTER));
+        bottomPanel.add(sunPicture);
+        sunPicture.add(sunMoney);
         bottomPanel.add(jScrollPane);
         add(bottomPanel, BorderLayout.SOUTH);
-
         menuBar.add(undoButton);
         menuBar.add(redoButton);
         setJMenuBar(menuBar);
@@ -143,7 +162,7 @@ public class View extends JFrame {
          */
         textArea.setEditable(false);
         popupMenu = new JPopupMenu("Select Plant");
-        popupMenu.setPopupSize(120,100);
+        popupMenu.setPopupSize(120,200);
         sunflower = new JMenuItem("Sunflower", new ImageIcon("./src/Images/SunflowerSmall.png"));
         peashooter = new JMenuItem("Peashooter", new ImageIcon("./src/Images/PeashooterSmall.png"));
         repeater = new JMenuItem("Repeater", new ImageIcon("./src/Images/RepeaterSmall.png"));
@@ -256,14 +275,26 @@ public class View extends JFrame {
         return textArea;
     }
 
+    /**
+     *  Getting the JLabel for money pouch of the user
+     *  @return JLabel for money pouch
+     */
     public JLabel getSunMoney(){
         return sunMoney;
     }
 
+    /**
+     *  Getting the JMenu for the Redo Button on the JMenuBar
+     *  @return JMenu for Redo
+     */
     public JMenu getRedoButton() {
         return redoButton;
     }
 
+    /**
+     *  Getting the JMenu for the Undo Button on the JMenuBar
+     *  @return JMenu for Undo
+     */
     public JMenu getUndoButton() {
         return undoButton;
     }
