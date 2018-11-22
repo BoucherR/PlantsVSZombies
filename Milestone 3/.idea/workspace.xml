@@ -4,8 +4,9 @@
     <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Model/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Model/Piece.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/View/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/View/View.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,24 +41,24 @@
     <session id="291584363">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="39" />
-          <entry key="txt" value="49" />
+          <entry key="java" value="101" />
+          <entry key="txt" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="39" />
-          <entry key="PLAIN_TEXT" value="49" />
+          <entry key="JAVA" value="101" />
+          <entry key="PLAIN_TEXT" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="16" />
+          <entry key="java" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="16" />
+          <entry key="JAVA" value="17" />
         </counts>
       </usages-collector>
     </session>
@@ -76,13 +77,33 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-529">
-              <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+            <state relative-caret-position="2705">
+              <caret line="164" column="37" selection-start-line="164" selection-start-column="37" selection-end-line="164" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5679#5680#0" expanded="true" />
+                <element signature="e#5710#5711#0" expanded="true" />
+                <element signature="e#5920#5921#0" expanded="true" />
+                <element signature="e#5954#5955#0" expanded="true" />
+                <element signature="e#6096#6097#0" expanded="true" />
+                <element signature="e#6128#6129#0" expanded="true" />
+                <element signature="e#6313#6314#0" expanded="true" />
+                <element signature="e#6345#6346#0" expanded="true" />
+                <element signature="e#6533#6534#0" expanded="true" />
+                <element signature="e#6566#6567#0" expanded="true" />
+                <element signature="e#6752#6753#0" expanded="true" />
+                <element signature="e#6783#6784#0" expanded="true" />
+                <element signature="e#6978#6979#0" expanded="true" />
+                <element signature="e#7012#7013#0" expanded="true" />
+                <element signature="e#7191#7192#0" expanded="true" />
+                <element signature="e#7221#7222#0" expanded="true" />
+                <element signature="e#7422#7423#0" expanded="true" />
+                <element signature="e#7458#7459#0" expanded="true" />
+                <element signature="e#7662#7663#0" expanded="true" />
+                <element signature="e#7699#7700#0" expanded="true" />
                 <element signature="e#8020#8021#0" expanded="true" />
                 <element signature="e#8051#8052#0" expanded="true" />
                 <element signature="e#8196#8197#0" expanded="true" />
@@ -93,11 +114,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Piece.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+            <state relative-caret-position="2332">
+              <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#2263#2264#0" expanded="true" />
                 <element signature="e#2330#2331#0" expanded="true" />
                 <element signature="e#2644#2645#0" expanded="true" />
@@ -131,8 +162,8 @@
         <option value="$PROJECT_DIR$/src/model/TwinSunflower.java" />
         <option value="$PROJECT_DIR$/src/model/Wallnut.java" />
         <option value="$PROJECT_DIR$/src/model/Zombie.java" />
-        <option value="$PROJECT_DIR$/src/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/view/View.java" />
+        <option value="$PROJECT_DIR$/src/controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -177,6 +208,12 @@
               <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
               <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -194,7 +231,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542849444008" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542850308811" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -216,7 +253,11 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/Controller.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Model/Piece.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/Piece.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ControllerTest.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -349,7 +390,7 @@
       <option name="presentableId" value="Default" />
       <updated>1542841275897</updated>
       <workItem from="1542841277933" duration="235000" />
-      <workItem from="1542846988438" duration="2334000" />
+      <workItem from="1542846988438" duration="3070000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit">
       <created>1542841373541</created>
@@ -379,14 +420,22 @@
       <option name="project" value="LOCAL" />
       <updated>1542848638738</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Resized Popup Menu">
+      <created>1542849464728</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1542849464728</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2553000" />
+    <option name="totallyTimeSpent" value="3289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -397,7 +446,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286334" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -427,7 +476,8 @@
     <MESSAGE value="Fixed Package Error" />
     <MESSAGE value="Popup Menu Fix" />
     <MESSAGE value="Package Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Package Fix" />
+    <MESSAGE value="Resized Popup Menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Resized Popup Menu" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/out/artifacts/Milestone_2_jar/Milestone 2.jar!/org/junit/Assert.class">
@@ -466,13 +516,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Peashooter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="9" selection-start-column="9" selection-end-column="9" />
@@ -545,29 +588,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-          <folding>
-            <element signature="e#2263#2264#0" expanded="true" />
-            <element signature="e#2330#2331#0" expanded="true" />
-            <element signature="e#2644#2645#0" expanded="true" />
-            <element signature="e#2711#2712#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="440">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-529">
-          <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+        <state relative-caret-position="2705">
+          <caret line="164" column="37" selection-start-line="164" selection-start-column="37" selection-end-line="164" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#5710#5711#0" expanded="true" />
+            <element signature="e#5920#5921#0" expanded="true" />
+            <element signature="e#5954#5955#0" expanded="true" />
+            <element signature="e#6096#6097#0" expanded="true" />
+            <element signature="e#6128#6129#0" expanded="true" />
+            <element signature="e#6313#6314#0" expanded="true" />
+            <element signature="e#6345#6346#0" expanded="true" />
+            <element signature="e#6533#6534#0" expanded="true" />
+            <element signature="e#6566#6567#0" expanded="true" />
+            <element signature="e#6752#6753#0" expanded="true" />
+            <element signature="e#6783#6784#0" expanded="true" />
+            <element signature="e#6978#6979#0" expanded="true" />
+            <element signature="e#7012#7013#0" expanded="true" />
+            <element signature="e#7191#7192#0" expanded="true" />
+            <element signature="e#7221#7222#0" expanded="true" />
+            <element signature="e#7422#7423#0" expanded="true" />
+            <element signature="e#7458#7459#0" expanded="true" />
+            <element signature="e#7662#7663#0" expanded="true" />
+            <element signature="e#7699#7700#0" expanded="true" />
             <element signature="e#8020#8021#0" expanded="true" />
             <element signature="e#8051#8052#0" expanded="true" />
             <element signature="e#8196#8197#0" expanded="true" />
             <element signature="e#8229#8230#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2332">
+          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2263#2264#0" expanded="true" />
+            <element signature="e#2330#2331#0" expanded="true" />
+            <element signature="e#2644#2645#0" expanded="true" />
+            <element signature="e#2711#2712#0" expanded="true" />
           </folding>
         </state>
       </provider>
