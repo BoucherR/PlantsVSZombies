@@ -339,18 +339,17 @@ public class Controller {
     public void addingZombie(){
         if (zombieLimit != 0) {
             Random ran = new Random();
-            Random ranZ = new Random();
             int y = ran.nextInt(5);
             int t = ran.nextInt(4);
             if (t == 0 || t == 1) {
 	            add(new Coordinate(7, y), new Zombie());
-	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
+	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon("./src/Images/Zombie.png"));
 	        } else if (t == 2) {
 	        	add(new Coordinate(7, y), new ConeheadZombie());
-	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/ConeHeadZombie.png")));
+	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon("./src/Images/ConeHeadZombie.png"));
 	        } else if (t == 3) {
 	        	add(new Coordinate(7, y), new BucketZombie());
-	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/BucketZombie.png")));
+	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon("./src/Images/BucketZombie.png"));
 	        }
             view.getGameButtons()[7][y].setEnabled(false);
             zombieLimit--;
@@ -368,33 +367,33 @@ public class Controller {
                         view.getGameButtons()[col][row].setIcon(new ImageIcon("./src/Images/Grass.png"));
                         view.getGameButtons()[col][row].setEnabled(true);
                         if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
-                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
+                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon("./src/Images/Zombie.png"));
                             view.getGameButtons()[col - 1][row].setEnabled(false);
                         }
                         else {
-                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
+                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon("./src/Images/Zombie.png"));
                             view.getGameButtons()[col][row].setEnabled(false);
                         }
                     } else if (board[col][row].getPiece().getShortName() == 'B') {
                     	view.getGameButtons()[col][row].setIcon(new ImageIcon("./src/Images/Grass.png"));
                         view.getGameButtons()[col][row].setEnabled(true);
                         if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
-                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/BucketZombie.png")));
+                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon("./src/Images/BucketZombie.png"));
                             view.getGameButtons()[col - 1][row].setEnabled(false);
                         }
                         else {
-                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/BucketZombie.png")));
+                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon("./src/Images/BucketZombie.png"));
                             view.getGameButtons()[col][row].setEnabled(false);
                         }
                     } else if (board[col][row].getPiece().getShortName() == 'C' ) {
                     	view.getGameButtons()[col][row].setIcon(new ImageIcon("./src/Images/Grass.png"));
                         view.getGameButtons()[col][row].setEnabled(true);
                         if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
-                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/ConeHeadZombie.png")));
+                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon("./src/Images/ConeHeadZombie.png"));
                             view.getGameButtons()[col - 1][row].setEnabled(false);
                         }
                         else {
-                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/ConeHeadZombie.png")));
+                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon("./src/Images/ConeHeadZombie.png"));
                             view.getGameButtons()[col][row].setEnabled(false);
                         }
                     }
