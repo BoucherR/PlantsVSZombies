@@ -61,7 +61,7 @@ public class SunflowerTest {
     @Test
     public void testGetAttack(){
         assertNotEquals("The Game Piece Attack Power is 0","0",sunFlower.getAttack());
-        assertNotEquals("The Game Piece Attack Power is 0","001",sunFlower.getHealth());
+        assertNotEquals("The Game Piece Attack Power is 0","001",sunFlower.getAttack());
         assertEquals("The Game Piece Attack Power is 0",0,sunFlower.getAttack());
     }
 
