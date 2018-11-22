@@ -5,9 +5,7 @@ import view.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import javax.swing.*;
-
 import static org.junit.Assert.*;
 
 /**
@@ -85,7 +83,7 @@ public class ControllerTest {
             testController.getLogging();
         }
 
-        while (true);
+        //while (true);
     }
 
 
@@ -116,10 +114,55 @@ public class ControllerTest {
         guiView.getGameButtons()[3][1].setIcon(new ImageIcon("./src/Images/Zombie.png"));
         assertEquals("The Zombie Location changed",new Zombie(),testController.getBoard()[3][1].getPiece());
         assertTrue("The Game Piece placed is Zombie",testController.getBoard()[3][1].isOccupied());
+        testController.hitUpdate();
         testController.getLogging();
         assertEquals("The Logging Correctly diplays result","Added Piece: PEASHOOTER @ Coordinates: (2,1)\n" +
                 "Added Piece: REPEATER @ Coordinates: (2,3)\n" +"Added Piece: ZOMBIE @ Coordinates: (4,1)\n" +
-                "Moved ZOMBIE from (4,1) to (3,1)", guiView.getTextArea().getText().trim());
+                "Moved ZOMBIE from (4,1) to (3,1)\n" + "ZOMBIE Health: 3 @ (3,1) Attacked ZOMBIE Health: 3 @ (3,1)", guiView.getTextArea().getText().trim());
+        //while (true);
+    }
+
+    @Test
+    public void testGamePlay(){
+        testController.add(new Coordinate(2,0),new Threepeater());
+        guiView.getGameButtons()[2][0].setIcon(new ImageIcon("./src/Images/Threepeater.png"));
+        assertEquals("The Piece placed is Threepeater","./src/Images/Threepeater.png",guiView.getGameButtons()[2][0].getIcon().toString());
+        assertEquals("The Plant Piece placed correctly",new Coordinate(2,0),testController.getBoard()[2][0].getCoordinate());
+
+        testController.add(new Coordinate(2,1),new Threepeater());
+        testController.add(new Coordinate(2,2),new Threepeater());
+        guiView.getGameButtons()[2][1].setIcon(new ImageIcon("./src/Images/Threepeater.png"));
+        guiView.getGameButtons()[2][2].setIcon(new ImageIcon("./src/Images/Threepeater.png"));
+        assertEquals("The Piece placed is Threepeater","./src/Images/Threepeater.png",guiView.getGameButtons()[2][1].getIcon().toString());
+        assertEquals("The Piece placed is Threepeater","./src/Images/Threepeater.png",guiView.getGameButtons()[2][2].getIcon().toString());
+        assertNotNull("The Game Piece Location is for a Threepeater",guiView.getGameButtons()[2][2]);
+        assertEquals("The Game Piece Location is 1,2",new Coordinate(2,2),testController.getBoard()[2][2].getCoordinate());
+
+        testController.add(new Coordinate(1,3),new Sunflower());
+        testController.add(new Coordinate(2,3),new Threepeater());
+        guiView.getGameButtons()[1][3].setIcon(new ImageIcon("./src/Images/Sunflower.png"));
+        guiView.getGameButtons()[2][3].setIcon(new ImageIcon("./src/Images/Threepeater.png"));
+        assertEquals("The Piece placed is Sunflower","./src/Images/Sunflower.png",guiView.getGameButtons()[1][3].getIcon().toString());
+        assertEquals("The Piece placed is Threepeater","./src/Images/Threepeater.png",guiView.getGameButtons()[2][3].getIcon().toString());
+        assertNotNull("The Game Piece Location is for a Sunflower",testController.getBoard()[2][3].getCoordinate());
+        assertEquals("The Game Piece placed is Threepeater",new Threepeater(),testController.getBoard()[2][3].getPiece());
+
+        testController.add(new Coordinate(2,4),new Threepeater());
+        guiView.getGameButtons()[2][4].setIcon(new ImageIcon("./src/Images/Threepeater.png"));
+        assertNotNull("The Game Piece Location is for a (2,4)",testController.getBoard()[2][4].getPiece());
+        assertEquals("The Game Piece Located is Threepeater",new Threepeater(),testController.getBoard()[2][4].getPiece());
+        assertEquals("The Game Piece placed is Threepeater",new Coordinate(2,4),testController.getBoard()[2][4].getCoordinate());
+        int i = 0;
+        while (i < testController.getBoard().length + testController.getBoard()[0].length - 2){
+            testController.movingZombie();
+            testController.runTime();
+            testController.getLogging();
+            i++;
+        }
+        assertNotNull("The Game Piece Location is for a Threepeater",testController.getBoard()[2][2].getPiece());
+        assertNotEquals("The Game Piece Threepeater remains",new Zombie(),testController.getBoard()[2][2].getPiece());
+        assertEquals("The Game Piece Sunflower remains",5,testController.getBoard()[1][3].getPiece().getHealth());
+        assertNotEquals("The Game Piece Threepeater took little damage from zombies",5,testController.getBoard()[2][4].getPiece().getHealth());
     }
     /**
      * Default JUnit Test runner keeps GUI VIEW and CONTROLLER Object references for Tests. Tear Down Used to clear
