@@ -1,7 +1,7 @@
-package controller;
+package Controller;
 
-import view.*;
-import model.*;
+import View.*;
+import Model.*;
 
 import javax.swing.*;
 import javax.swing.event.MenuEvent;
@@ -511,7 +511,7 @@ public class Controller {
     public void gameOver(){
         for (int row = 0; row < 5; row++) {
             if (board[0][row].getPiece() != null) {
-                if (board[0][row].getPiece().getShortName() == 'Z') {
+                if (board[0][row].getPiece().getShortName() == 'Z' || board[0][row].getPiece().getShortName() == 'C' || board[0][row].getPiece().getShortName() == 'B') {
                     JOptionPane.showMessageDialog(null,"You have lost. Thank you for playing.");
                     System.exit(0);
                 }
