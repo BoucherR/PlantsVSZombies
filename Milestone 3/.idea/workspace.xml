@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="Piece Refactored and Added getImage()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -143,7 +142,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7201">
+            <state relative-caret-position="5947">
               <caret line="367" column="72" selection-start-line="367" selection-start-column="72" selection-end-line="367" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -204,7 +203,26 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -414,7 +432,7 @@
       <workItem from="1542846988438" duration="6373000" />
       <workItem from="1542854352557" duration="3722000" />
       <workItem from="1542861156012" duration="983000" />
-      <workItem from="1542905050644" duration="948000" />
+      <workItem from="1542905050644" duration="1138000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit">
       <created>1542841373541</created>
@@ -511,13 +529,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12245000" />
+    <option name="totallyTimeSpent" value="12435000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25746268" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -526,7 +543,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286334" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -698,7 +715,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7201">
+        <state relative-caret-position="5947">
           <caret line="367" column="72" selection-start-line="367" selection-start-column="72" selection-end-line="367" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
