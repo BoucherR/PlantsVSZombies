@@ -121,20 +121,20 @@ public class ControllerTest {
     @Test
     public void testGamePlay(){
         testController.add(new Coordinate(2,0),new Threepeater());
-        assertEquals("The Piece placed is Threepeater","/Images/threepeater.png",guiView.getGameButtons()[2][0].getIcon().toString());
+        assertEquals("The Piece placed is Threepeater", getClass().getResource("/Images/threepeater.png"),guiView.getGameButtons()[2][0].getIcon().toString());
         assertEquals("The Plant Piece placed correctly",new Coordinate(2,0),testController.getBoard()[2][0].getCoordinate());
 
         testController.add(new Coordinate(2,1),new Threepeater());
         testController.add(new Coordinate(2,2),new Threepeater());
-        assertEquals("The Piece placed is Threepeater","/Images/threepeater.png",guiView.getGameButtons()[2][1].getIcon().toString());
-        assertEquals("The Piece placed is Threepeater","/Images/threepeater.png",guiView.getGameButtons()[2][2].getIcon().toString());
+        assertEquals("The Piece placed is Threepeater",getClass().getResource("/Images/threepeater.png"),guiView.getGameButtons()[2][1].getIcon().toString());
+        assertEquals("The Piece placed is Threepeater",getClass().getResource("/Images/threepeater.png"),guiView.getGameButtons()[2][2].getIcon().toString());
         assertNotNull("The Game Piece Location is for a Threepeater",guiView.getGameButtons()[2][2]);
         assertEquals("The Game Piece Location is 1,2",new Coordinate(2,2),testController.getBoard()[2][2].getCoordinate());
 
         testController.add(new Coordinate(1,3),new Sunflower());
         testController.add(new Coordinate(2,3),new Threepeater());
-        assertEquals("The Piece placed is Sunflower","/Images/sunflower.png",guiView.getGameButtons()[1][3].getIcon().toString());
-        assertEquals("The Piece placed is Threepeater","/Images/threepeater.png",guiView.getGameButtons()[2][3].getIcon().toString());
+        assertEquals("The Piece placed is Sunflower",getClass().getResource("/Images/sunflower.png"),guiView.getGameButtons()[1][3].getIcon().toString());
+        assertEquals("The Piece placed is Threepeater",getClass().getResource("/Images/threepeater.png"),guiView.getGameButtons()[2][3].getIcon().toString());
         assertNotNull("The Game Piece Location is for a Sunflower",testController.getBoard()[2][3].getCoordinate());
         assertEquals("The Game Piece placed is Threepeater",new Threepeater(),testController.getBoard()[2][3].getPiece());
 

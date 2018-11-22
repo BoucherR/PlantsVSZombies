@@ -167,6 +167,7 @@ public class Piece {
     }
 
     public ImageIcon getImage(){
+        System.out.println(getClass().getResource("/Images/" + this.getName().toLowerCase() + ".png"));
         return new ImageIcon(getClass().getResource("/Images/" + this.getName().toLowerCase() + ".png"));
     }
 

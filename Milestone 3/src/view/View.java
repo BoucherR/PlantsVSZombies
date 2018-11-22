@@ -115,7 +115,7 @@ public class View extends JFrame {
         topPanel = new JPanel();
         bottomPanel = new JPanel();
         jScrollPane = new JScrollPane(textArea);
-        sunPicture = new JLabel(new ImageIcon("./src/Images/sun.png"));
+        sunPicture = new JLabel(new ImageIcon(getClass().getResource("./src/Images/sun.png")));
         sunMoney = new JLabel("500");
         redoButton = new JMenu("Redo");
         undoButton = new JMenu("Undo");
@@ -148,7 +148,7 @@ public class View extends JFrame {
         gameButtons = new JButton[8][5];
         for(int i = 0; i < 5;i++){
             for(int j = 0; j < 8;j++){
-                gameButtons[j][i] = new JButton(new Coordinate(j,i).name(), new ImageIcon("./src/Images/grass.png"));
+                gameButtons[j][i] = new JButton(new Coordinate(j,i).name(), new ImageIcon(getClass().getResource("./src/Images/grass.png")));
                 gameButtons[j][i].setBorderPainted(false);
                 topPanel.add(gameButtons[j][i]);
 
@@ -163,13 +163,13 @@ public class View extends JFrame {
         textArea.setEditable(false);
         popupMenu = new JPopupMenu("Select Plant");
         popupMenu.setPopupSize(150,250);
-        sunflower = new JMenuItem("Sunflower", new ImageIcon("./src/Icons/SunflowerSmall.png"));
-        peashooter = new JMenuItem("Peashooter", new ImageIcon("./src/Icons/PeashooterSmall.png"));
-        repeater = new JMenuItem("Repeater", new ImageIcon("./src/Icons/RepeaterSmall.png"));
-        threepeater = new JMenuItem("Threepeater", new ImageIcon("./src/Icons/ThreepeaterSmall.png"));
-        giantsunflower = new JMenuItem("Giant Sunflower", new ImageIcon("./src/Icons/GiantSunflowerSmall.png"));
-       	wallnut = new JMenuItem("Walnut", new ImageIcon("./src/Icons/WallnutSmall.png"));
-       	twinsunflower = new JMenuItem("Twin Sunflower", new ImageIcon("./src/Icons/TwinSunflowerSmall.png"));
+        sunflower = new JMenuItem("Sunflower", new ImageIcon(getClass().getResource("./src/Icons/SunflowerSmall.png")));
+        peashooter = new JMenuItem("Peashooter", new ImageIcon(getClass().getResource("./src/Icons/PeashooterSmall.png")));
+        repeater = new JMenuItem("Repeater", new ImageIcon(getClass().getResource("./src/Icons/RepeaterSmall.png")));
+        threepeater = new JMenuItem("Threepeater", new ImageIcon(getClass().getResource("./src/Icons/ThreepeaterSmall.png")));
+        giantsunflower = new JMenuItem("Giant Sunflower", new ImageIcon(getClass().getResource("./src/Icons/GiantSunflowerSmall.png")));
+       	wallnut = new JMenuItem("Walnut", new ImageIcon(getClass().getResource("./src/Icons/WallnutSmall.png")));
+       	twinsunflower = new JMenuItem("Twin Sunflower", new ImageIcon(getClass().getResource("./src/Icons/TwinSunflowerSmall.png")));
         popupMenu.add(sunflower);
         popupMenu.add(peashooter);
         popupMenu.add(repeater);

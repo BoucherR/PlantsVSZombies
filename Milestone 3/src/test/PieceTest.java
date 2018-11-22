@@ -254,13 +254,13 @@ public class PieceTest {
      */
     @Test
     public void testGetImage(){
-        assertNotEquals("The Image Path is complete","./src/Images/",testPiece1.getImage());
-        assertEquals("The Image Path is complete","./src/Images/sunflower.png",testPiece1.getImage().toString());
+        assertNotEquals("The Image Path is complete",getClass().getResource("/Images/"),testPiece1.getImage());
+        assertEquals("The Image Path is complete",getClass().getResource("/Images/sunflower.png").toString(),testPiece1.getImage().toString());
         assertNotNull("The Image File Path is correct",testPiece2.getImage());
-        assertEquals("The Image Path is complete","./src/Images/repeater.png",testPiece2.getImage().toString());
-        assertEquals("The Image Path is complete","./src/Images/peashooter.png",testPiece3.getImage().toString());
-        assertNotEquals("The Image Path is complete","./src/peashooter.png",testPiece3.getImage().toString());
-        assertEquals("The Image Path is complete","./src/Images/zombie.png",testPiece4.getImage().toString());
-        assertNotEquals("The Image Path is complete","./src/zombie",testPiece4.getImage().toString());
+        assertEquals("The Image Path is complete",getClass().getResource("/Images/repeater.png").toString(),testPiece2.getImage().toString());
+        assertEquals("The Image Path is complete",getClass().getResource("/Images/peashooter.png").toString(),testPiece3.getImage().toString());
+        assertNotEquals("The Image Path is complete",getClass().getResource("/peashooter.png"),testPiece3.getImage().toString());
+        assertEquals("The Image Path is complete",getClass().getResource("/Images/zombie.png").toString(),testPiece4.getImage().toString());
+        assertNotEquals("The Image Path is complete",getClass().getResource("/zombie"),testPiece4.getImage().toString());
     }
 }
