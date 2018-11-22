@@ -37,7 +37,9 @@ public class ControllerTest {
         testController = new Controller(guiView);
     }
 
-
+    /**
+     * The Tests is used to check the proper construction of the Controller
+     */
     @Test
     public void testController(){
         assertNotNull("The controller is established",testController);
@@ -79,6 +81,9 @@ public class ControllerTest {
     }
 
 
+    /**
+     * The Test is used to check the MOVE functionality of the controller
+     */
     @Test
     public void testMove(){
         testController.add(new Coordinate(2,1),new Peashooter());
@@ -110,6 +115,9 @@ public class ControllerTest {
         //while (true);
     }
 
+    /**
+     * The Test is used to check the GAME LOGIC functionality of the Controller
+     */
     @Test
     public void testGamePlay(){
         testController.add(new Coordinate(2,0),new Threepeater());
@@ -135,7 +143,7 @@ public class ControllerTest {
         assertEquals("The Game Piece Located is Threepeater",new Threepeater(),testController.getBoard()[2][4].getPiece());
         assertEquals("The Game Piece placed is Threepeater",new Coordinate(2,4),testController.getBoard()[2][4].getCoordinate());
         int i = 0;
-        while (i < testController.getBoard().length + testController.getBoard()[0].length - 2){
+        while (i < testController.getBoard().length){
             testController.updateView();
             i++;
         }
@@ -145,6 +153,9 @@ public class ControllerTest {
         assertNotEquals("The Game Piece Threepeater took little damage from zombies",5,testController.getBoard()[2][4].getPiece().getHealth());
     }
 
+    /**
+     * The Test is used to check the Logging of the Game Moves
+     */
     @Test
     public void testGetLogging() {
         testController.add(new Coordinate(2, 0), new Threepeater());
@@ -158,6 +169,9 @@ public class ControllerTest {
                 "Added Piece: PEASHOOTER @ Coordinates: (2,2)", guiView.getTextArea().getText().trim());
     }
 
+    /**
+     * The Test is used to check the Attack Logic of the controller
+     */
    @Test
    public void testHitUpdate(){
        testController.add(new Coordinate(2,1),new Threepeater());
@@ -178,13 +192,16 @@ public class ControllerTest {
            testController.hitUpdate();
            testController.removeUpdate();
        }
-       //while (true);
+
        assertNotEquals("The BucketZombie Health decreased, attacked by Peashooter",5,testController.getBoard()[3][2].getPiece().getHealth());
        assertNull("The Threepeater got killed by BucketZombie",testController.getBoard()[2][2].getPiece());
        assertEquals("The Threepeater kills zombie before zombie attacks",10,(testController.getBoard()[2][1].getPiece()).getHealth());
        assertNull("The Zombie Killed by Peashooter",testController.getBoard()[7][1].getPiece());
     }
 
+    /**
+     * The Test is used to check the Movement of the Zombies along the board
+     */
     @Test
     public void testMovingZombie(){
         testController.add(new Coordinate(7,3),new BucketZombie());
@@ -203,17 +220,20 @@ public class ControllerTest {
         assertNull("The Location of the ConeheadZombie is changed",testController.getBoard()[7][4].getPiece());
     }
 
+
     @Test
     public void testGameActionPerformed(){
         Random ran = new Random();
         for(int i = 0; i < 2;i++)
         {
-            int row = ran.nextInt(3);
-            int column = ran.nextInt(5);
-            guiView.getGameButtons()[row][column].doClick();
-            testController.add(new Coordinate(row,column),new Peashooter());
+            int row = ran.nextInt(4);
+            int column = ran.nextInt(7);
+            guiView.getGameButtons()[column][row].doClick();
+            testController.add(new Coordinate(column,row),new Peashooter());
+            assertTrue("The Game Piece was displayable",testController.getBoard()[column][row].isOccupied());
+            assertEquals("The Game Piece is placed",new Peashooter(),testController.getBoard()[column][row].getPiece());
+            assertNotNull("The Game Piece placed using Random",testController.getBoard()[column][row].getPiece());
         }
-        testController.add(new Coordinate(7,1),new Zombie());
     }
 
     /**
