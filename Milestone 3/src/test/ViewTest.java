@@ -47,7 +47,7 @@ public class ViewTest {
                 assertNotNull("The Button is placed properly in horizontal & vertical position",testFrame.getGameButtons()[j][i]);
                 assertEquals("The Button Icon properly placed","./src/Images/grass.png",testFrame.getGameButtons()[j][i].getIcon().toString());
                 assertNotNull("The Button Icon is established",testFrame.getGameButtons()[j][i].getIcon());
-                assertNotEquals("The Button Icon properly imported","./src/Images/Grass",testFrame.getGameButtons()[j][i].getIcon().toString());
+                assertNotEquals("The Button Icon properly imported","./Images/grass",testFrame.getGameButtons()[j][i].getIcon().toString());
             }
         }
     }
