@@ -88,11 +88,11 @@ public class Square{
      * @param newPiece, user specified game piece object that is to be added
      */
     public void addPiece(Piece newPiece){
-        if(isOccupied()){
-            Piece temp = this.gamePiece;
+        if(!isOccupied()){
+            //Piece temp = this.gamePiece;
             this.gamePiece = newPiece;
         }
-        this.gamePiece = newPiece;
+        //this.gamePiece = newPiece;
     }
 
     /**

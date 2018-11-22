@@ -45,7 +45,7 @@ public class ViewTest {
         for(int i = 0; i < testFrame.getGameButtons()[0].length;i++){
             for(int j = 0; j < testFrame.getGameButtons().length;j++){
                 assertNotNull("The Button is placed properly in horizontal & vertical position",testFrame.getGameButtons()[j][i]);
-                assertEquals("The Button Icon properly placed","./src/Images/Grass.png",testFrame.getGameButtons()[j][i].getIcon().toString());
+                assertEquals("The Button Icon properly placed","./src/Images/grass.png",testFrame.getGameButtons()[j][i].getIcon().toString());
                 assertNotNull("The Button Icon is established",testFrame.getGameButtons()[j][i].getIcon());
                 assertNotEquals("The Button Icon properly imported","./src/Images/Grass",testFrame.getGameButtons()[j][i].getIcon().toString());
             }
@@ -74,7 +74,7 @@ public class ViewTest {
     public void testGetSunflower(){
         assertNotNull("The Popup Menu Option are functional",testFrame.getSunflower());
         assertNotNull("The Sunflower Image Label Icon is set",testFrame.getSunflower().getIcon());
-        assertEquals("The Image Icon properly placed","./src/Images/SunflowerSmall.png",testFrame.getSunflower().getIcon().toString());
+        assertEquals("The Image Icon properly placed","./src/Icons/SunflowerSmall.png",testFrame.getSunflower().getIcon().toString());
         assertNotEquals("The Image properly extracted from correct file path","./src/Images/Sunflower",testFrame.getSunflower().getIcon().toString());
         assertEquals("The Popup Menu option: Sunflower","Sunflower",testFrame.getSunflower().getText());
         assertEquals("Sunflower has no SUB-MENU Items",0,testFrame.getSunflower().getComponentCount());
@@ -86,7 +86,7 @@ public class ViewTest {
     public void testGetPeashooter(){
         assertNotNull("The Popup Menu Option are functional",testFrame.getPeashooter());
         assertNotNull("The Peashooter Image Label Icon is set",testFrame.getPeashooter().getIcon());
-        assertEquals("The Image Icon properly placed","./src/Images/PeashooterSmall.png",testFrame.getPeashooter().getIcon().toString());
+        assertEquals("The Image Icon properly placed","./src/Icons/PeashooterSmall.png",testFrame.getPeashooter().getIcon().toString());
         assertNotEquals("The Image properly extracted from correct file path","./Images/Pea",testFrame.getPeashooter().getIcon().toString());
         assertEquals("The Popup Menu option: Peashooter","Peashooter",testFrame.getPeashooter().getText());
         assertEquals("PeaShooter has no SUB-MENU Items",0,testFrame.getPeashooter().getComponentCount());
@@ -109,14 +109,57 @@ public class ViewTest {
 
     @Test
     public void testGetRedoButton(){
-        assertTrue("The Redo Menu is visible",testFrame.getRedoButton().isDisplayable());
+        assertTrue("The Redo Menu Item is visible",testFrame.getRedoButton().isDisplayable());
         assertNotEquals("The game option is Redo","Replay",testFrame.getRedoButton().getText());
     }
 
     @Test
     public void testGetUndoButton(){
-        assertTrue("The Undo Menu is visible",testFrame.getUndoButton().isDisplayable());
+        assertTrue("The Undo Menu Item is visible",testFrame.getUndoButton().isDisplayable());
         assertNotEquals("The game option is Undo","Exit",testFrame.getUndoButton().getText());
+    }
+
+    @Test
+    public void testGetRepeater(){
+        assertNotNull("The Repeater Piece Popup Menu Option are functional",testFrame.getRepeater());
+        assertNotNull("The Repeater Image Label Icon is set",testFrame.getRepeater().getIcon());
+        assertEquals("The Image Icon properly placed","./src/Icons/RepeaterSmall.png",testFrame.getRepeater().getIcon().toString());
+        assertNotEquals("The Image properly extracted from correct file path","./Images",testFrame.getRepeater().getIcon().toString());
+    }
+
+    @Test
+    public void testGetThreepeater(){
+        assertNotNull("The Threepeater Piece Valid Game Piece",testFrame.getThreepeater());
+        assertEquals("The Popup Menu option: Threepeater","Threepeater",testFrame.getThreepeater().getText());
+        assertEquals("PeaShooter has no SUB-MENU Items",0,testFrame.getThreepeater().getComponentCount());
+        assertNotEquals("The option is Threepeater","peater",testFrame.getThreepeater().getName());
+    }
+
+    @Test
+    public void testGetWallnut(){
+        assertNotNull("The Wallnut Piece Valid Game Piece",testFrame.getWallnut());
+        assertEquals("The Popup Menu option: Walnut","Walnut",testFrame.getWallnut().getText());
+        assertEquals("Wallnut has no SUB-MENU Items",0,testFrame.getWallnut().getComponentCount());
+        assertNotEquals("The option is Wallnut","W",testFrame.getWallnut().getName());
+        assertNotEquals("The Image properly extracted from correct file path","./src/Images/.png",testFrame.getRepeater().getIcon().toString());
+    }
+
+    @Test
+    public void testGetTwinSunflower(){
+        assertNotNull("The Twin Sunflower Piece Valid Game Piece",testFrame.getTwinSunflower());
+        assertEquals("The Popup Menu option: Twin Sunflower","Twin Sunflower",testFrame.getTwinSunflower().getText());
+        assertEquals("Twin Sunflower has no SUB-MENU Items",0,testFrame.getTwinSunflower().getComponentCount());
+        assertNotNull("The Twin Sunflower Image Label Icon is set",testFrame.getTwinSunflower().getIcon());
+        assertEquals("The Image Icon properly placed","./src/Icons/TwinSunflowerSmall.png",testFrame.getTwinSunflower().getIcon().toString());
+    }
+
+    @Test
+    public void testGetGiantSunflower(){
+        assertNotNull("The Giant Sunflower Piece Valid Game Piece",testFrame.getGiantSunflower());
+        assertEquals("The Popup Menu option: Giant Sunflower","Giant Sunflower",testFrame.getGiantSunflower().getText());
+        assertEquals("Giant Sunflower has no SUB-MENU Items",0,testFrame.getGiantSunflower().getComponentCount());
+        assertNotNull("The Giant Sunflower Image Label Icon is set",testFrame.getGiantSunflower().getIcon());
+        assertEquals("The Image Icon properly placed","./src/Icons/GiantSunflowerSmall.png",testFrame.getGiantSunflower().getIcon().toString());
     }
 
     /**
