@@ -116,7 +116,7 @@ public class View extends JFrame {
         bottomPanel = new JPanel();
         jScrollPane = new JScrollPane(textArea);
         sunPicture = new JLabel(new ImageIcon("./src/Images/sun.png"));
-        sunMoney = new JLabel();
+        sunMoney = new JLabel("500");
         redoButton = new JMenu("Redo");
         undoButton = new JMenu("Undo");
         menuBar = new JMenuBar();
