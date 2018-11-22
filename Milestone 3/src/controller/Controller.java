@@ -517,7 +517,7 @@ public class Controller {
         return board[c.getColumnNumber()][c.getRowNumber()];
     }
 
-    private void getLogging(){
+    public void getLogging(){
         view.getTextArea().setText("");
         for(String log : loggingList){
             view.getTextArea().append(log);

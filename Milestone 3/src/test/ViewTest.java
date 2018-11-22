@@ -66,7 +66,7 @@ public class ViewTest {
     public void testGetPopupMenu(){
         assertNotNull("The Popup Menu are functional",testFrame.getPopupMenu());
         assertEquals("The Popup Menu option is Select Plant","Select Plant",testFrame.getPopupMenu().getLabel());
-        assertEquals("The Popup Menu contains Sunflower and PeaShooter Option",2,testFrame.getPopupMenu().getComponentCount());
+        assertEquals("The Popup Menu contains Numerous Piece Options",7,testFrame.getPopupMenu().getComponentCount());
         assertNotEquals("The Popup Menu shows selection option","Plant",testFrame.getPopupMenu().getName());
     }
 
