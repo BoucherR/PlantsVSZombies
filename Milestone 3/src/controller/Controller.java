@@ -269,8 +269,8 @@ public class Controller {
         view.getGameButtons()[dest.getColumnNumber()][dest.getRowNumber()].setDisabledIcon(p.getImage());
         view.getGameButtons()[dest.getColumnNumber()][dest.getRowNumber()].setIcon(p.getImage());
         srcSquare.deletePiece();
-        view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("./src/Images/grass.png")));
-        view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("./src/Images/grass.png")));
+        view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
+        view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
         loggingList.add("Moved " + p.getName() + " from " + src.toString() + " to " + dest.toString() + "\n");
         return true;
     }
@@ -343,7 +343,7 @@ public class Controller {
             for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getShortName() == 'Z' || board[col][row].getPiece().getShortName() == 'B' || board[col][row].getPiece().getShortName() == 'C') {
-                        view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("./src/Images/Grass.png")));
+                        view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
                         view.getGameButtons()[col][row].setEnabled(true);
                         if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
                             view.getGameButtons()[col - 1][row].setEnabled(false);
@@ -366,8 +366,8 @@ public class Controller {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getHealth() <= 0) {
                         view.getGameButtons()[col][row].setEnabled(true);
-                        view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("./src/Images/Grass.png")));
-                        view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("./src/Images/Grass.png")));
+                        view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
+                        view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
                         board[col][row].deletePiece();
                     }
                 }
@@ -421,10 +421,10 @@ public class Controller {
         for (int rowsBoard = 0; rowsBoard < board[0].length; rowsBoard++) {
             for (int columnsBoard = 0; columnsBoard < board.length; columnsBoard++) {
                 board[columnsBoard][rowsBoard] = new Square(new Coordinate(columnsBoard, rowsBoard));
-                view.getGameButtons()[columnsBoard][rowsBoard].setIcon(new ImageIcon(getClass().getResource("./src/Images/Grass.png")));
+                view.getGameButtons()[columnsBoard][rowsBoard].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
                 view.getGameButtons()[columnsBoard][rowsBoard].setContentAreaFilled(false);
                 view.getGameButtons()[columnsBoard][rowsBoard].setRolloverEnabled(true);
-                view.getGameButtons()[columnsBoard][rowsBoard].setRolloverIcon(new ImageIcon(getClass().getResource("./src/Images/GrassHighlighted.png")));
+                view.getGameButtons()[columnsBoard][rowsBoard].setRolloverIcon(new ImageIcon(getClass().getResource("/Images/GrassHighlighted.png")));
             }
         }
     }
