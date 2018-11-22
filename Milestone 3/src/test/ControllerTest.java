@@ -40,15 +40,20 @@ public class ControllerTest {
 
     @Test
     public void testController(){
-        testController.actionListener();
+
         assertNotNull("The controller is established",testController);
+        testController.add(new Coordinate(2,0),new Peashooter());
+        guiView.getGameButtons()[2][0].setIcon(new ImageIcon("./src/Images/Peashooter.png"));
+
+
         testController.add(new Coordinate(1,1),new Sunflower());
-        testController.add(new Coordinate(2,1),new Peashooter());
+        testController.getBoard()[1][1].addPiece(new Peashooter());
         guiView.getGameButtons()[1][1].setIcon(new ImageIcon("./src/Images/Sunflower.png"));
         guiView.getGameButtons()[2][1].setIcon(new ImageIcon("./src/Images/Peashooter.png"));
         assertEquals("The Piece placed is Sunflower","./src/Images/Sunflower.png",guiView.getGameButtons()[1][1].getIcon().toString());
         assertEquals("The Piece placed is Peashooter","./src/Images/Peashooter.png",guiView.getGameButtons()[2][1].getIcon().toString());
         assertNotEquals("The Game Piece Location is","0,0",guiView.getGameButtons()[1][1].getLocation());
+
         testController.add(new Coordinate(1,2),new TwinSunflower());
         testController.add(new Coordinate(2,2),new Threepeater());
         guiView.getGameButtons()[1][2].setIcon(new ImageIcon("./src/Images/TwinSunflower.png"));
@@ -56,6 +61,7 @@ public class ControllerTest {
         assertEquals("The Piece placed is TwinSunflower","./src/Images/TwinSunflower.png",guiView.getGameButtons()[1][2].getIcon().toString());
         assertEquals("The Piece placed is Threepeater","./src/Images/Threepeater.png",guiView.getGameButtons()[2][2].getIcon().toString());
         assertNotNull("The Game Piece Location is for a Threepeater",guiView.getGameButtons()[2][2]);
+
         testController.add(new Coordinate(1,3),new Wallnut());
         testController.add(new Coordinate(2,3),new Repeater());
         guiView.getGameButtons()[1][3].setIcon(new ImageIcon("./src/Images/Wallnut.png"));
@@ -63,7 +69,15 @@ public class ControllerTest {
         assertEquals("The Piece placed is Wallnut","./src/Images/Wallnut.png",guiView.getGameButtons()[1][3].getIcon().toString());
         assertEquals("The Piece placed is Repeater","./src/Images/Repeater.png",guiView.getGameButtons()[2][3].getIcon().toString());
         assertNotNull("The Game Piece Location is for a Wallnut",guiView.getGameButtons()[2][3]);
-        guiView.getGameButtons()[3][3].setIcon(new ImageIcon("./src/Images/Zombie.png"));
+        testController.add(new Coordinate(2,4),new Peashooter());
+        guiView.getGameButtons()[2][4].setIcon(new ImageIcon("./src/Images/Peashooter.png"));
+        for(int i = 0; i < testController.getBoard().length;i++)
+        {
+            testController.runTime();
+            testController.getLogging();
+        }
+
+        while (true);
     }
 
 
