@@ -107,8 +107,8 @@ public class Controller {
         /**
          * Placing Action listeners on each square of the board
          */
-        for(int i = 0; i < 5;i++) {
-            for (int j = 0; j < 8; j++) {
+        for(int i = 0; i < board[0].length;i++) {
+            for (int j = 0; j < board.length; j++) {
                 view.getGameButtons()[j][i].addActionListener((ActionEvent event) -> {
                     clickedButtonLocation = new Coordinate(((JButton) event.getSource()).getLabel());
                     view.getPopupMenu().show(view.getTopPanel(), ((JButton) event.getSource()).getX(), ((JButton) event.getSource()).getY());
@@ -123,10 +123,8 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Sunflower())) {
-                    runTime(); // effectively ends turn
-                    getLogging(); // keep track of game
+                    updateView();
                 }
-                view.getPopupMenu().setVisible(false);
             }
         });
 
@@ -137,10 +135,8 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Peashooter())) {
-                    runTime(); // effectively ends turn
-                    getLogging(); // keep track of game
+                    updateView();
                 }
-                view.getPopupMenu().setVisible(false);
             }
         });
         
@@ -151,10 +147,8 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Repeater())) {
-                    runTime(); // effectively ends turn
-                    getLogging(); // keep track of game
+                    updateView();
                 }
-                view.getPopupMenu().setVisible(false);
             }
         });
         
@@ -165,10 +159,8 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Threepeater())) {
-                    runTime(); // effectively ends turn
-                    getLogging(); // keep track of game
+                    updateView();
                 }
-                view.getPopupMenu().setVisible(false);
             }
         });
         
@@ -179,10 +171,8 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Wallnut())) {
-                    runTime(); // effectively ends turn
-                    getLogging(); // keep track of game
+                    updateView();
                 }
-                view.getPopupMenu().setVisible(false);
             }
         });
         
@@ -193,10 +183,9 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new TwinSunflower())) {
-                    runTime(); // effectively ends turn
-                    getLogging(); // keep track of game
+                    updateView();
+
                 }
-                view.getPopupMenu().setVisible(false);
             }
         });
         
@@ -204,12 +193,18 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new GiantSunflower())) {
-                    runTime(); // effectively ends turn
-                    getLogging(); // keep track of game
+                    updateView();
                 }
-                view.getPopupMenu().setVisible(false);
             }
         });
+    }
+
+    /**
+     *
+     */
+    public void updateView(){
+        runTime(); // effectively ends turn
+        getLogging(); // keep track of game
     }
 
     /**
@@ -370,6 +365,7 @@ public class Controller {
                     if (board[col][row].getPiece().getHealth() <= 0) {
                         view.getGameButtons()[col][row].setEnabled(true);
                         view.getGameButtons()[col][row].setIcon(new ImageIcon("./src/Images/Grass.png"));
+                        view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon("./src/Images/Grass.png"));
                         board[col][row].deletePiece();
                     }
                 }
