@@ -220,7 +220,10 @@ public class ControllerTest {
         assertNull("The Location of the ConeheadZombie is changed",testController.getBoard()[7][4].getPiece());
     }
 
-
+    /**
+     * The Test is used to check the JButton functionality. Random Function used to retrieve random number of row and
+     * column within the Game Frame.
+     */
     @Test
     public void testGameActionPerformed(){
         Random ran = new Random();
