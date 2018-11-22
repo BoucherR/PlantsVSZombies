@@ -1,9 +1,12 @@
 package test;
-import Controller.*;
-import View.*;
+import controller.*;
+import view.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.swing.*;
+
 import static org.junit.Assert.*;
 
 /**
@@ -37,7 +40,9 @@ public class ControllerTest {
     @Test
     public void testController(){
         assertNotNull(testController);
-
+        guiView.getGameButtons()[1][1].setIcon(new ImageIcon(getClass().getResource("/Images/Peashooter.png")));
+        while (true);
+        //assertNotNull(guiView.getGameButtons()[0][1].getIcon());
     }
 
 
@@ -45,11 +50,11 @@ public class ControllerTest {
      * Default JUnit Test runner keeps GUI VIEW and CONTROLLER Object references for Tests. Tear Down Used to clear
      * the objects after completion of tests
      */
-    @After
+    /*@After
     public void tearDown() {
         if (this.testController != null) {
             guiView.dispose();
             this.testController = null;
         }
-    }
+    }*/
 }
