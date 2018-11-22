@@ -280,24 +280,22 @@ public class Controller {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getHealth() > 0){
                         if (board[col][row].getPiece().getShortName() == 'P' || board[col][row].getPiece().getShortName() == 'T' || board[col][row].getPiece().getShortName() == 'R' ) {
-                            for(int i = ++col; i < board.length; i++){// Author by Adnan
-                                if (board[i][row].getPiece() != null)
+                            for(int i = col + 1; i < board.length; i++){
+                                if (board[i][row].getPiece() != null){
                                     if( board[i][row].getPiece().getShortName() == 'Z' || board[i][row].getPiece().getShortName() == 'B' || board[i][row].getPiece().getShortName() == 'C') {
-                                    board[i][row].getPiece().setHealth(board[i][row].getPiece().getHealth() - board[i][row].getPiece().getAttack());
-                                    if (board[i][row].getPiece().getHealth() <= 0) {
-                                        loggingList.add(board[i][row].getPiece().getName() + " Health: " + board[i][row].getPiece().getHealth() + " @ " + board[i][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: Dead @ " + board[i][row].getCoordinate() + "\n");
-                                    } else {
-                                        loggingList.add(board[i][row].getPiece().getName() + " Health: " + board[i][row].getPiece().getHealth() + " @ " + board[i][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: " + board[i][row].getPiece().getHealth() + " @ " + board[i][row].getCoordinate() + "\n");
+                                        board[i][row].getPiece().setHealth(board[i][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
+                                        if (board[i][row].getPiece().getHealth() <= 0) {
+                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: Dead @ " + board[i][row].getCoordinate() + "\n");
+                                        } else {
+                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: " + board[i][row].getPiece().getHealth() + " @ " + board[i][row].getCoordinate() + "\n");
+                                        }
                                     }
                                 }
                             }
                         }
-                        else if (board[col][row].getPiece().getShortName() == 'Z'
-                        		|| board[col][row].getPiece().getShortName() == 'B' || board[col][row].getPiece().getShortName() == 'C') {
+                        else if (board[col][row].getPiece().getShortName() == 'Z' || board[col][row].getPiece().getShortName() == 'B' || board[col][row].getPiece().getShortName() == 'C') {
                             if (!(col - 1 == -1)){
-                                if (board[col - 1][row].getPiece() != null && board[col - 1][row].getPiece().getShortName() != 'Z'
-                                        && board[col - 1][row].getPiece().getShortName() != 'B'
-                                        && board[col - 1][row].getPiece().getShortName() != 'C') {
+                                if (board[col - 1][row].getPiece() != null && board[col - 1][row].getPiece().getShortName() != 'Z' && board[col - 1][row].getPiece().getShortName() != 'B' && board[col - 1][row].getPiece().getShortName() != 'C') {
                                     board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
                                     if (board[col - 1][row].getPiece().getHealth() <= 0) {
                                         loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");

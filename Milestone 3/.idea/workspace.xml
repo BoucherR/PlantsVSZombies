@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="Piece Refactored and Added getImage()">
+    <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,24 +38,24 @@
     <session id="291584363">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="771" />
-          <entry key="txt" value="276" />
+          <entry key="java" value="877" />
+          <entry key="txt" value="287" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="771" />
-          <entry key="PLAIN_TEXT" value="276" />
+          <entry key="JAVA" value="877" />
+          <entry key="PLAIN_TEXT" value="287" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="21" />
+          <entry key="java" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="21" />
+          <entry key="JAVA" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -74,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+            <state relative-caret-position="220">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,11 +143,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7201">
-              <caret line="367" column="72" selection-start-line="367" selection-start-column="72" selection-end-line="367" selection-end-column="72" />
+            <state relative-caret-position="269">
+              <caret line="289" column="171" selection-start-line="289" selection-start-column="171" selection-end-line="289" selection-end-column="171" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#20034#20035#0" expanded="true" />
+                <element signature="e#20101#20102#0" expanded="true" />
+                <element signature="e#21149#21150#0" expanded="true" />
+                <element signature="e#21177#21178#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/swing/JPopupMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="923" column="16" selection-start-line="923" selection-start-column="16" selection-end-line="923" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -166,7 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/test/ControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/ViewTest.java" />
         <option value="$PROJECT_DIR$/src/model/Coordinate.java" />
@@ -183,6 +195,7 @@
         <option value="$PROJECT_DIR$/src/model/BucketZombie.java" />
         <option value="$PROJECT_DIR$/src/view/View.java" />
         <option value="$PROJECT_DIR$/src/model/Piece.java" />
+        <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/controller/Controller.java" />
       </list>
     </option>
@@ -204,7 +217,26 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -414,7 +446,7 @@
       <workItem from="1542846988438" duration="6373000" />
       <workItem from="1542854352557" duration="3722000" />
       <workItem from="1542861156012" duration="983000" />
-      <workItem from="1542905050644" duration="948000" />
+      <workItem from="1542905050644" duration="2402000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit">
       <created>1542841373541</created>
@@ -507,11 +539,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542905598259</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Main edited">
+      <created>1542911723135</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1542911723135</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12245000" />
+    <option name="totallyTimeSpent" value="13699000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -568,7 +607,8 @@
     <MESSAGE value="Controller Refactored and Removed Lucky Numbers" />
     <MESSAGE value="Piece Refactored and Added getImage()" />
     <MESSAGE value="Controller Refactored and removeUpdate() Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controller Refactored and removeUpdate() Fix" />
+    <MESSAGE value="Main edited" />
+    <option name="LAST_COMMIT_MESSAGE" value="Main edited" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/out/artifacts/Milestone_2_jar/Milestone 2.jar!/org/junit/Assert.class">
@@ -641,16 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3300">
@@ -696,12 +726,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7201">
-          <caret line="367" column="72" selection-start-line="367" selection-start-column="72" selection-end-line="367" selection-end-column="72" />
+        <state relative-caret-position="220">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/swing/JPopupMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="923" column="16" selection-start-line="923" selection-start-column="16" selection-end-line="923" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="289" column="171" selection-start-line="289" selection-start-column="171" selection-end-line="289" selection-end-column="171" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#20034#20035#0" expanded="true" />
+            <element signature="e#20101#20102#0" expanded="true" />
+            <element signature="e#21149#21150#0" expanded="true" />
+            <element signature="e#21177#21178#0" expanded="true" />
           </folding>
         </state>
       </provider>
