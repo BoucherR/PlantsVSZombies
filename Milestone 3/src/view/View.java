@@ -162,7 +162,7 @@ public class View extends JFrame {
          */
         textArea.setEditable(false);
         popupMenu = new JPopupMenu("Select Plant");
-        popupMenu.setPopupSize(120,200);
+        popupMenu.setPopupSize(150,250);
         sunflower = new JMenuItem("Sunflower", new ImageIcon("./src/Images/SunflowerSmall.png"));
         peashooter = new JMenuItem("Peashooter", new ImageIcon("./src/Images/PeashooterSmall.png"));
         repeater = new JMenuItem("Repeater", new ImageIcon("./src/Images/RepeaterSmall.png"));
