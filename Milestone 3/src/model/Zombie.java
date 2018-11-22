@@ -1,7 +1,5 @@
 package model;
 
-import Model.Piece;
-
 /**
  * The Zombie class provides the PlantsVSZombie game with a single Piece type that
  * once called can create a Zombie Piece in of itself. This class only contains a
