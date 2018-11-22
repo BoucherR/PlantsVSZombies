@@ -123,7 +123,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Sunflower())) {
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/Images/Sunflower.png")));
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon("./src/Images/Sunflower.png"));
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
@@ -139,7 +139,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Peashooter())) {
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Peashooter.png")));
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon("./src/Images/Peashooter.png"));
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setEnabled(false);
                     runTime(); // effectively ends turn
@@ -156,7 +156,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Repeater())) {
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Repeater.png")));
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon("./src/Images/Repeater.png"));
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setEnabled(false);
                     runTime(); // effectively ends turn
@@ -173,7 +173,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Threepeater())) {
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Threepeater.png")));
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon("./src/Images/Threepeater.png"));
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setEnabled(false);
                     runTime(); // effectively ends turn
@@ -190,7 +190,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new Wallnut())) {
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Wallnut.png")));
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setDisabledIcon(new ImageIcon("./src/Images/Wallnut.png"));
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setEnabled(false);
                     runTime(); // effectively ends turn
@@ -207,7 +207,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new TwinSunflower())) {
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/Images/TwinSunflower.png")));
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon("./src/Images/TwinSunflower.png"));
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
@@ -220,7 +220,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(add(clickedButtonLocation, new GiantSunflower())) {
-                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/Images/GiantSunflower.png")));
+                    view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setIcon(new ImageIcon("./src/Images/GiantSunflower.png"));
                     view.getGameButtons()[clickedButtonLocation.getColumnNumber()][clickedButtonLocation.getRowNumber()].setRolloverEnabled(false);
                     runTime(); // effectively ends turn
                     getLogging(); // keep track of game
@@ -313,19 +313,18 @@ public class Controller {
                         }
                         if (board[col][row].getPiece().getShortName() == 'Z' 
                         		|| board[col][row].getPiece().getShortName() == 'B' || board[col][row].getPiece().getShortName() == 'C') {
-                            if (!(col - 1 == -1))
+                            if (!(col - 1 == -1)){
                                 if (board[col - 1][row].getPiece() != null && board[col - 1][row].getPiece().getShortName() != 'Z'
-                                		 && board[col - 1][row].getPiece().getShortName() != 'B' 
-                                		 && board[col - 1][row].getPiece().getShortName() != 'C') {
-                                    int x = board[col - 1][row].getPiece().getHealth();
-                                    x -= board[col][row].getPiece().getAttack();
-                                    board[col - 1][row].getPiece().setHealth(x);
-                                    if(board[col - 1][row].getPiece().getHealth() <=0 ) {
-                                        loggingList.add( board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
+                                        && board[col - 1][row].getPiece().getShortName() != 'B'
+                                        && board[col - 1][row].getPiece().getShortName() != 'C') {
+                                    board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
+                                    if (board[col - 1][row].getPiece().getHealth() <= 0) {
+                                        loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
                                     } else {
-                                        loggingList.add( board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
+                                        loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
                                     }
                                 }
+                            }
                         }
                     }
                 }
@@ -339,18 +338,17 @@ public class Controller {
     public void addingZombie(){
         if (zombieLimit != 0) {
             Random ran = new Random();
-            Random ranZ = new Random();
             int y = ran.nextInt(5);
             int t = ran.nextInt(4);
             if (t == 0 || t == 1) {
 	            add(new Coordinate(7, y), new Zombie());
-	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
+	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon("./src/Images/Zombie.png"));
 	        } else if (t == 2) {
 	        	add(new Coordinate(7, y), new ConeheadZombie());
-	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/ConeHeadZombie.png")));
+	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon("./src/Images/ConeHeadZombie.png"));
 	        } else if (t == 3) {
 	        	add(new Coordinate(7, y), new BucketZombie());
-	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/BucketZombie.png")));
+	            view.getGameButtons()[7][y].setDisabledIcon(new ImageIcon("./src/Images/BucketZombie.png"));
 	        }
             view.getGameButtons()[7][y].setEnabled(false);
             zombieLimit--;
@@ -368,33 +366,33 @@ public class Controller {
                         view.getGameButtons()[col][row].setIcon(new ImageIcon("./src/Images/Grass.png"));
                         view.getGameButtons()[col][row].setEnabled(true);
                         if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
-                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
+                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon("./src/Images/Zombie.png"));
                             view.getGameButtons()[col - 1][row].setEnabled(false);
                         }
                         else {
-                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
+                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon("./src/Images/Zombie.png"));
                             view.getGameButtons()[col][row].setEnabled(false);
                         }
                     } else if (board[col][row].getPiece().getShortName() == 'B') {
                     	view.getGameButtons()[col][row].setIcon(new ImageIcon("./src/Images/Grass.png"));
                         view.getGameButtons()[col][row].setEnabled(true);
                         if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
-                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/BucketZombie.png")));
+                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon("./src/Images/BucketZombie.png"));
                             view.getGameButtons()[col - 1][row].setEnabled(false);
                         }
                         else {
-                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/BucketZombie.png")));
+                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon("./src/Images/BucketZombie.png"));
                             view.getGameButtons()[col][row].setEnabled(false);
                         }
                     } else if (board[col][row].getPiece().getShortName() == 'C' ) {
                     	view.getGameButtons()[col][row].setIcon(new ImageIcon("./src/Images/Grass.png"));
                         view.getGameButtons()[col][row].setEnabled(true);
                         if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
-                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/ConeHeadZombie.png")));
+                            view.getGameButtons()[col - 1][row].setDisabledIcon(new ImageIcon("./src/Images/ConeHeadZombie.png"));
                             view.getGameButtons()[col - 1][row].setEnabled(false);
                         }
                         else {
-                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/ConeHeadZombie.png")));
+                            view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon("./src/Images/ConeHeadZombie.png"));
                             view.getGameButtons()[col][row].setEnabled(false);
                         }
                     }
@@ -402,7 +400,6 @@ public class Controller {
                 }
             }
         }
-        // View.getGameButtons()[tempCol][tempRow].setIcon(new ImageIcon(getClass().getResource("/Images/Zombie.png")));
     }
 
     /**
