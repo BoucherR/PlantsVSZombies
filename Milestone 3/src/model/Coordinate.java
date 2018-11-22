@@ -49,8 +49,9 @@ public class Coordinate {
         if (coordinate.length() != 2) throw new IllegalArgumentException ("getCoordinate is a 2-character string");
         if ((coordinate.charAt(0)<'0')|| (coordinate.charAt(1)>'7')) throw new IndexOutOfBoundsException("row must be between 1 and 8,inclusive");
 
-        this.column = coordinate.charAt(0)-48;
-        this.row = coordinate.charAt(1)-48;
+        this.column = Character.getNumericValue(coordinate.charAt(0));
+        this.row = Character.getNumericValue(coordinate.charAt(1));
+
     }
 
     /**
