@@ -6,7 +6,8 @@ import org.junit.runners.Suite.SuiteClasses;
 /**
  * @name AllTests
  * @author Youssef Saghbini
- **/
+ * @studentnumber 100996459
+ */
 
 /**
  * Running all tests combined
