@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -38,14 +39,14 @@
     <session id="291584363">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="877" />
-          <entry key="txt" value="287" />
+          <entry key="java" value="920" />
+          <entry key="txt" value="307" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="877" />
-          <entry key="PLAIN_TEXT" value="287" />
+          <entry key="JAVA" value="920" />
+          <entry key="PLAIN_TEXT" value="307" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -143,8 +144,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="289" column="171" selection-start-line="289" selection-start-column="171" selection-end-line="289" selection-end-column="171" />
+            <state relative-caret-position="330">
+              <caret line="270" column="120" selection-start-line="270" selection-start-column="120" selection-end-line="270" selection-end-column="120" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#20034#20035#0" expanded="true" />
@@ -264,42 +265,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$3.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$4.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Model/Peashooter.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Model/Piece.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Model/Square.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Test/CoordinateTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Test/PeashooterTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Test/PieceTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Test/SquareTest.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Test/SunflowerTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Test/ViewTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Test/ZombieTest.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/View/View.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$5.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$8.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$9.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/model/BucketZombie.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/model/ConeheadZombie.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/model/GiantSunflower.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/model/Repeater.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/model/Threepeater.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/model/TwinSunflower.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/model/Wallnut.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/Square.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ControllerTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/CoordinateTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/PeashooterTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/PieceTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/SquareTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/main.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/SunflowerTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ViewTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ZombieTest.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -307,7 +275,21 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/META-INF/Milestone 3.kotlin_module</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/BucketZombieTest.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/ConeheadZombieTest.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/GiantSunflowerTest.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/RepeaterTest.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/ThreepeaterTest.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/TwinSunflowerTest.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/test/WallnutTest.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/BucketZombieTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ConeheadZombieTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/GiantSunflowerTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/RepeaterTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ThreepeaterTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/TwinSunflowerTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/WallnutTest.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -315,16 +297,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Images/11GrassHighlighted.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Images/1Grass.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Images/1GrassHighlighted.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Images/GiantSunflowerSmall.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Images/PeashooterSmall.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Images/RepeaterSmall.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Images/SunflowerSmall.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Images/ThreepeaterSmall.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Images/TwinSunflowerSmall.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/Milestone 3/Images/WallnutSmall.png</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -446,7 +418,7 @@
       <workItem from="1542846988438" duration="6373000" />
       <workItem from="1542854352557" duration="3722000" />
       <workItem from="1542861156012" duration="983000" />
-      <workItem from="1542905050644" duration="2402000" />
+      <workItem from="1542905050644" duration="3813000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit">
       <created>1542841373541</created>
@@ -546,17 +518,24 @@
       <option name="project" value="LOCAL" />
       <updated>1542911723135</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="hitUpdate() Fixed">
+      <created>1542913142520</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1542913142520</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13699000" />
+    <option name="totallyTimeSpent" value="15110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25746268" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -565,7 +544,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286334" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -608,7 +587,8 @@
     <MESSAGE value="Piece Refactored and Added getImage()" />
     <MESSAGE value="Controller Refactored and removeUpdate() Fix" />
     <MESSAGE value="Main edited" />
-    <option name="LAST_COMMIT_MESSAGE" value="Main edited" />
+    <MESSAGE value="hitUpdate() Fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="hitUpdate() Fixed" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/out/artifacts/Milestone_2_jar/Milestone 2.jar!/org/junit/Assert.class">
@@ -745,8 +725,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="289" column="171" selection-start-line="289" selection-start-column="171" selection-end-line="289" selection-end-column="171" />
+        <state relative-caret-position="330">
+          <caret line="270" column="120" selection-start-line="270" selection-start-column="120" selection-end-line="270" selection-end-column="120" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#20034#20035#0" expanded="true" />

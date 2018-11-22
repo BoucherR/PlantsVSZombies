@@ -265,8 +265,10 @@ public class Controller {
         Piece p = srcSquare.getPiece();
         destSquare.addPiece(p);
         view.getGameButtons()[dest.getColumnNumber()][dest.getRowNumber()].setDisabledIcon(p.getImage());
+        view.getGameButtons()[dest.getColumnNumber()][dest.getRowNumber()].setIcon(p.getImage());
         srcSquare.deletePiece();
-        view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setDisabledIcon(null);
+        view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setDisabledIcon(new ImageIcon("./src/Images/grass.png"));
+        view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setIcon(new ImageIcon("./src/Images/grass.png"));
         loggingList.add("Moved " + p.getName() + " from " + src.toString() + " to " + dest.toString() + "\n");
         return true;
     }
