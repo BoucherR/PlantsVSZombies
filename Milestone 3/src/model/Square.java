@@ -89,10 +89,8 @@ public class Square{
      */
     public void addPiece(Piece newPiece){
         if(!isOccupied()){
-            //Piece temp = this.gamePiece;
             this.gamePiece = newPiece;
         }
-        //this.gamePiece = newPiece;
     }
 
     /**
