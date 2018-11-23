@@ -110,11 +110,9 @@ public class ControllerTest {
         testController.hitUpdate();
         testController.getLogging();
         testController.removeUpdate();
-        assertEquals("The Logging Correctly displays result","Added Piece: PEASHOOTER @ Coordinates: (2,1)\n" +
-                "Added Piece: REPEATER @ Coordinates: (2,3)\n" +"Added Piece: ZOMBIE @ Coordinates: (4,1)\n" +
-                "Moved ZOMBIE from (4,1) to (3,1)\n" + "PEASHOOTER Health: 5 @ (2,1) Attacked ZOMBIE Health: 3 @ (3,1)\n"
-        + "ZOMBIE Health: 3 @ (3,1) Attacked PEASHOOTER Health: 3 @ (2,1)", guiView.getTextArea().getText().trim());
-        //while (true);
+        String[] text = guiView.getTextArea().getText().split("\\n");
+        assertEquals("The Logging Correctly displays result",text[0]+"\n"+text[text.length-5]+"\n"+text[text.length-4]+"\n"+text[text.length-3]+
+                "\n"+text[text.length-2]+"\n"+text[text.length-1],guiView.getTextArea().getText().trim());
     }
 
     /**
@@ -151,8 +149,8 @@ public class ControllerTest {
         }
         assertNotNull("The Game Piece Location is for a Threepeater",testController.getBoard()[2][2].getPiece());
         assertNotEquals("The Game Piece Threepeater remains",new Zombie(),testController.getBoard()[2][2].getPiece());
-        assertEquals("The Game Piece Sunflower remains",5,testController.getBoard()[1][3].getPiece().getHealth());
-        assertNotEquals("The Game Piece Threepeater took little damage from zombies",5,testController.getBoard()[2][4].getPiece().getHealth());
+        assertNotEquals("The Game Piece Sunflower remains",0,testController.getBoard()[1][3].getPiece().getHealth());
+        assertNotEquals("The Game Piece Threepeater took little damage from zombies",2,testController.getBoard()[2][4].getPiece().getHealth());
     }
 
     /**
@@ -195,7 +193,7 @@ public class ControllerTest {
            testController.removeUpdate();
        }
 
-       assertNotEquals("The BucketZombie Health decreased, attacked by Peashooter",5,testController.getBoard()[3][2].getPiece().getHealth());
+       assertNotEquals("The BucketZombie Health decreased, attacked by Peashooter",2,testController.getBoard()[3][2].getPiece().getHealth());
        assertNull("The Threepeater got killed by BucketZombie",testController.getBoard()[2][2].getPiece());
        assertEquals("The Threepeater kills zombie before zombie attacks",10,(testController.getBoard()[2][1].getPiece()).getHealth());
        assertNull("The Zombie Killed by Peashooter",testController.getBoard()[7][1].getPiece());
@@ -242,6 +240,9 @@ public class ControllerTest {
         assertEquals("The Logging confirms click","Added Piece: PEASHOOTER @ Coordinates: ("+column+","+row+")",guiView.getTextArea().getText().trim());
     }
 
+    /**
+     * The Test is used to check the functionality of the UNDO Command
+     */
     @Test
     public void testUndoCommand(){
         testController.actionListener();
@@ -256,10 +257,44 @@ public class ControllerTest {
         assertEquals("The logging confirms removal of Plant after Undo Operation","Removed Plant ",textDisplay[textDisplay.length-1]);
     }
 
+    /**
+     * The Test is used to check the functionality of the REDO Command
+     */
     @Test
     public void testRedoCommand(){
+        testController.actionListener();
+        testController.add(new Coordinate(3,3),new Peashooter());
+        assertTrue("The Game Piece was displayable",testController.getBoard()[3][3].isOccupied());
+        assertEquals("The Game Piece is placed",new Peashooter(),testController.getBoard()[3][3].getPiece());
 
+
+        testController.add(new Coordinate(4,2),new Threepeater());
+        assertNotNull("The Game Piece is placed",testController.getBoard()[4][2].getPiece());
+        assertTrue("The Game Piece was displayable",guiView.getGameButtons()[4][2].isDisplayable());
+        assertEquals("The Game Piece is placed",new Threepeater(),testController.getBoard()[4][2].getPiece());
+        guiView.getUndoButton().doClick();
+
+        assertNotNull("The Game Piece is not removed after the Undo Command",testController.getBoard()[3][3].getPiece());
+        assertEquals("The Game Piece is not removed",new Peashooter(),testController.getBoard()[3][3].getPiece());
+
+        assertNull("The most recent game piece i.e. Threepeater addition is removed",testController.getBoard()[4][2].getPiece());
+        assertFalse("The Game Piece was removed after Undo",testController.getBoard()[4][2].isOccupied());
+        assertNotEquals("The most recent piece addition is UNDONE",new Threepeater(),testController.getBoard()[4][2].getPiece());
+        guiView.getRedoButton().doClick();
+
+        assertNotNull("The most recent game piece i.e. Threepeater added again after REDO",testController.getBoard()[4][2].getPiece());
+        assertTrue("The Game Piece was added again after Redo command",testController.getBoard()[4][2].isOccupied());
+        assertEquals("The most recent piece REMOVAL is UNDONE",new Threepeater(),testController.getBoard()[4][2].getPiece());
+
+
+        testController.getLogging();
+
+        String[] logText = guiView.getTextArea().getText().split("\\n");
+        assertEquals("The logging confirms addition before Undo","Added Piece: THREEPEATER @ Coordinates: (4,2)",logText[logText.length-3]);
+        assertEquals("The logging confirms removal of Plant after Undo Operation","Removed Plant ",logText[logText.length-2]);
+        assertEquals("The logging confirms removal of Plant after Undo Operation","Re-added Plant ",logText[logText.length-1]);
     }
+
     /**
      * Default JUnit Test runner keeps GUI VIEW and CONTROLLER Object references for Tests. Tear Down Used to clear
      * the objects after completion of tests
