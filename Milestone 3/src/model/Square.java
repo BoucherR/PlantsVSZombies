@@ -156,21 +156,41 @@ public class Square{
         return false;
     }
 
+    /**
+     * The Method is used to check the current piece type Game piece: ZOMBIE
+     * @return True, if the current piece located is a Zombie else false
+     */
     public boolean isZombie(){
+        if(gamePiece==null) { return false; }
         return gamePiece.getShortName() == 'Z' || gamePiece.getShortName() == 'C' || gamePiece.getShortName() == 'B';
     }
 
+    /**
+     * The Method is used to check the current piece type of Game piece: PLANT
+     * @return True, if the current piece located is a PLANT else false
+     */
     public boolean isPlant(){
+        if(gamePiece==null) { return false; }
         return gamePiece.getShortName() == 'S' || gamePiece.getShortName() == '2' || gamePiece.getShortName() == 'G'
                 || gamePiece.getShortName() == 'W' || gamePiece.getShortName() == 'P' || gamePiece.getShortName() == 'T'
                 || gamePiece.getShortName() == 'R';
     }
 
+    /**
+     * The Method is used to check the current piece type of Game piece: PLANT SHOOTER
+     * @return True, if the current piece located is a PLANT SHOOTER else false
+     */
     public boolean isShooter(){
+        if(gamePiece==null) { return false; }
         return gamePiece.getShortName() == 'P' || gamePiece.getShortName() == 'T' || gamePiece.getShortName() == 'R';
     }
 
+    /**
+     * The Method is used to check the current piece type of Game piece: PLANT SUNFLOWER
+     * @return True, if the current piece located is a PLANT SUNFLOWER else false
+     */
     public boolean isSunflower(){
+        if(gamePiece==null) { return false; }
         return gamePiece.getShortName() == 'S' || gamePiece.getShortName() == '2' || gamePiece.getShortName() == 'G';
     }
 

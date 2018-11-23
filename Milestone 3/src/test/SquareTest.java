@@ -315,4 +315,50 @@ public class SquareTest {
         assertNotEquals("Square: R-5,C-2,P-Zombie",true,testSquare4.equals(new Square((new Coordinate(3,2)), new Peashooter())));
         assertNotEquals("Square: R-1,C-1,P-Zombie",true,testSquare4.equals(new Square(new Coordinate(1,4),new Sunflower())));
     }
+
+    /**
+     * The Test is used to check a functionality of the method to check the Type of the Game Piece (Plant OR Zombie)
+     */
+    @Test
+    public void testIsZombie(){
+        assertFalse("The Piece located is not a Zombie",testSquare1.isZombie());
+        testSquare1.addPiece(new ConeheadZombie());
+        assertTrue("The Piece Located is Zombie",testSquare1.isZombie());
+        testSquare1.deletePiece();
+        assertFalse("The Zombie Located was removed",testSquare1.isZombie());
+
+        testSquare2.addPiece(new Threepeater());
+        assertFalse("The Piece is not Zombie",testSquare2.isZombie());
+
+        assertFalse("The Game Piece is not a Zombie",testSquare3.isZombie());
+        assertTrue("The Game Piece located a Zombie",testSquare4.isZombie());
+    }
+
+    /**
+     * The Test is used to check a functionality of the method to check the Type of the Game Piece (Plant OR Zombie)
+     */
+    @Test
+    public void testIsPlant(){
+        assertFalse("There is no piece located",testSquare1.isPlant());
+        testSquare2.addPiece(new Repeater());
+        assertTrue("The Piece instance is Repeater Plant",testSquare2.isPlant());
+        assertTrue("The Piece instance is Sunflower Plant",testSquare3.isPlant());
+        assertFalse("The Piece instance is Repeater",testSquare4.isPlant());
+    }
+
+    @Test
+    public void testIsShooter(){
+        testSquare1.addPiece(new Sunflower());
+        assertFalse("The Plant Piece is a shooter",testSquare1.isShooter());
+        testSquare1.deletePiece();
+        testSquare1.addPiece(new BucketZombie());
+        assertFalse("The Piece object is Zombie",testSquare1.isShooter());
+
+        testSquare2.addPiece(new Repeater());
+        assertTrue("The Plant Piece is a shooter",testSquare2.isShooter());
+
+
+
+
+    }
 }
