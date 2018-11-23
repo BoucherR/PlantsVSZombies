@@ -3,21 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Model/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Model/Piece.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/ViewTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/ViewTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/View/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/View/View.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$9.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,14 +50,14 @@
     <session id="291584363">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1290" />
-          <entry key="txt" value="379" />
+          <entry key="java" value="1674" />
+          <entry key="txt" value="389" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1290" />
-          <entry key="PLAIN_TEXT" value="379" />
+          <entry key="JAVA" value="1674" />
+          <entry key="PLAIN_TEXT" value="389" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -132,8 +118,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+            <state relative-caret-position="198">
+              <caret line="265" column="34" lean-forward="true" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -237,7 +223,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542991353994" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542993898478" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -363,7 +349,7 @@
       <workItem from="1542932522034" duration="24000" />
       <workItem from="1542933499442" duration="11000" />
       <workItem from="1542938513413" duration="245000" />
-      <workItem from="1542984832132" duration="774000" />
+      <workItem from="1542984832132" duration="2321000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit">
       <created>1542841373541</created>
@@ -519,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1542984956645</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Commenting">
+      <created>1542991570984</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1542991570984</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -555,7 +548,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25028000" />
+    <option name="totallyTimeSpent" value="26575000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -621,7 +614,8 @@
     <MESSAGE value="Refactored" />
     <MESSAGE value="Removed line of code" />
     <MESSAGE value="Redo and Undo Functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Redo and Undo Functionality" />
+    <MESSAGE value="Commenting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commenting" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/out/artifacts/Milestone_2_jar/Milestone 2.jar!/org/junit/Assert.class">
@@ -820,8 +814,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+        <state relative-caret-position="198">
+          <caret line="265" column="34" lean-forward="true" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

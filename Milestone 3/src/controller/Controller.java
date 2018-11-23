@@ -260,7 +260,7 @@ public class Controller {
             return false;
         }
         if(!purchasePiece(piece)){
-            loggingList.add("Piece not added due to lack to money.\n");
+            JOptionPane.showMessageDialog(null,"Not enough Money");
             return false;
         }
         srcSquare.addPiece(piece);
