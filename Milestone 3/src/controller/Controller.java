@@ -41,6 +41,10 @@ public class Controller {
 
     private List<String> loggingList;
 
+    private List<Square> undoList;
+
+    private List<Square> redoList;
+
     /**
      *  Will generate a brand new board with initial values. Board will consist of
      *  a dual array of squares, and each square would contain a specific coordinate and
@@ -51,6 +55,8 @@ public class Controller {
     public Controller(View view){
         this.board = new Square[8][5];
         this.loggingList = new ArrayList<>();
+        undoList = new ArrayList<>();
+        redoList = new ArrayList<>();
         this.view = view;
         this.moneyPouch = 500;
         this.zombieLimit = 10;
@@ -70,37 +76,31 @@ public class Controller {
      */
     public void actionListener(){
 
-        view.getRedoButton().addMenuListener(new MenuListener() {
-
-            public void menuSelected(MenuEvent e) {
-                loggingList.add("Redo Clicked! \n");
-            }
-
-            @Override
-            public void menuDeselected(MenuEvent e) {
-
-            }
-
-            @Override
-            public void menuCanceled(MenuEvent e) {
-
+        view.getRedoButton().addActionListener((ActionEvent event) -> {
+            if(redoList.size() > 0) {
+                Square tempSquare = redoList.get(redoList.size() - 1);
+                undoList.add(tempSquare);
+                board[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].addPiece(tempSquare.getPiece());
+                view.getGameButtons()[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].setDisabledIcon(tempSquare.getPiece().getImage());
+                view.getGameButtons()[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].setIcon(tempSquare.getPiece().getImage());
+                redoList.remove(redoList.size() - 1);
+                loggingList.add("Re-added Plant \n");
+            } else {
+                JOptionPane.showMessageDialog(null, "No more possible Redos.");
             }
         });
 
-        view.getUndoButton().addMenuListener(new MenuListener() {
-
-            public void menuSelected(MenuEvent e) {
-                loggingList.add("Undo Clicked! \n");
-            }
-
-            @Override
-            public void menuDeselected(MenuEvent e) {
-
-            }
-
-            @Override
-            public void menuCanceled(MenuEvent e) {
-
+        view.getUndoButton().addActionListener((ActionEvent event) -> {
+            if(undoList.size() > 0) {
+                Square tempSquare = undoList.get(undoList.size() - 1);
+                redoList.add(new Square(tempSquare.getCoordinate(),tempSquare.getPiece()));
+                board[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].deletePiece();
+                view.getGameButtons()[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
+                view.getGameButtons()[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
+                undoList.remove(undoList.size() - 1);
+                loggingList.add("Removed Plant \n");
+            } else {
+                JOptionPane.showMessageDialog(null, "No more possible Undos.");
             }
         });
 
@@ -243,6 +243,14 @@ public class Controller {
             return false;
         }
         srcSquare.addPiece(piece);
+        if (board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'P'
+                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'T'
+                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'R'
+                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'S'
+                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == '2'
+                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'G') {
+            undoList.add(srcSquare);
+        }
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setDisabledIcon(piece.getImage());
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setIcon(piece.getImage());
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setRolloverEnabled(false);

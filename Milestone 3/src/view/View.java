@@ -90,18 +90,19 @@ public class View extends JFrame {
     /**
      *  JMenu Title to redo an user-command
      */
-    JMenu redoButton;
+    JMenuItem redoButton;
 
     /**
      *  JMenu Title to undo an user-command
      */
-    JMenu undoButton;
+    JMenuItem undoButton;
 
     /**
      *  MenuBar for the MenuItems to be placed
      */
     JMenuBar menuBar;
 
+    JMenu menu;
 
     /**
      *  Setting up the GUI using the fields that were chosen
@@ -117,9 +118,10 @@ public class View extends JFrame {
         jScrollPane = new JScrollPane(textArea);
         sunPicture = new JLabel(new ImageIcon(getClass().getResource("/Images/sun.png")));
         sunMoney = new JLabel("500");
-        redoButton = new JMenu("Redo");
-        undoButton = new JMenu("Undo");
+        redoButton = new JMenuItem("Redo");
+        undoButton = new JMenuItem("Undo");
         menuBar = new JMenuBar();
+        menu = new JMenu("Edit");
 
         /*
             Setting up the size of the game board and where the JTextArea,
@@ -135,8 +137,9 @@ public class View extends JFrame {
         sunPicture.add(sunMoney);
         bottomPanel.add(jScrollPane);
         add(bottomPanel, BorderLayout.SOUTH);
-        menuBar.add(undoButton);
-        menuBar.add(redoButton);
+        menuBar.add(menu);
+        menu.add(redoButton);
+        menu.add(undoButton);
         setJMenuBar(menuBar);
 
         /*
@@ -287,7 +290,7 @@ public class View extends JFrame {
      *  Getting the JMenu for the Redo Button on the JMenuBar
      *  @return JMenu for Redo
      */
-    public JMenu getRedoButton() {
+    public JMenuItem getRedoButton() {
         return redoButton;
     }
 
@@ -295,7 +298,7 @@ public class View extends JFrame {
      *  Getting the JMenu for the Undo Button on the JMenuBar
      *  @return JMenu for Undo
      */
-    public JMenu getUndoButton() {
+    public JMenuItem getUndoButton() {
         return undoButton;
     }
 }
