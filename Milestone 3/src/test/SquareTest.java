@@ -346,6 +346,9 @@ public class SquareTest {
         assertFalse("The Piece instance is Repeater",testSquare4.isPlant());
     }
 
+    /**
+     * The Test is used to check a functionality of the method to check the Shooter Type of the Plant Piece (Sunflower OR Shooter)
+     */
     @Test
     public void testIsShooter(){
         testSquare1.addPiece(new Sunflower());
@@ -356,9 +359,25 @@ public class SquareTest {
 
         testSquare2.addPiece(new Repeater());
         assertTrue("The Plant Piece is a shooter",testSquare2.isShooter());
+        assertFalse("The Plant Piece is not a Shooter",testSquare3.isShooter());
+        assertFalse("The Piece object is a Zombie",testSquare4.isShooter());
+    }
 
+    /**
+     * The Test is used to check a functionality of the method to check the Sunflower Type of the Plant Piece (Sunflower OR Shooter)
+     */
+    @Test
+    public void testIsSunflower(){
+        testSquare1.addPiece(new GiantSunflower());
+        assertTrue("The Plant Piece is a Sunflower",testSquare1.isSunflower());
+        testSquare1.deletePiece();
+        testSquare1.addPiece(new BucketZombie());
+        assertFalse("The Piece object is not a Sunflower",testSquare1.isSunflower());
 
+        testSquare2.addPiece(new Sunflower());
+        assertTrue("The Plant Piece is a Sunflower",testSquare3.isSunflower());
 
-
+        testSquare3.deletePiece();
+        assertFalse("The Sunflower piece has been removed",testSquare3.isSunflower());
     }
 }
