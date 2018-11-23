@@ -67,8 +67,8 @@ Zombies have landed onto your planet and want to take over the whole world. The 
 |||||Updated User Manual|
 
 ### Future Plans and Known Issues
-~~1. Optimize/Refactor Code ~~
-~~2. Capture any "Smelly" code~~
+1. Optimize/Refactor Code -> DONE
+2. Capture any "Smelly" code -> DONE
 3. Add Title Page in the beginning of the game
 ~~4. Add Win/Lose Pop-Up when necessary~~
 ~~5. Add Redo/Undo Functionality~~
