@@ -296,6 +296,24 @@ public class ControllerTest {
     }
 
     /**
+     * The Test is used to check the functionality of the RESET option
+     */
+    @Test
+    public void testReset(){
+        testController.add(new Coordinate(2,1),new Peashooter());
+        assertNotNull("The Game Piece Location is for a (2,1)",testController.getBoard()[2][1].getPiece());
+        testController.add(new Coordinate(3,1),new Repeater());
+        assertNotNull("The Game Piece Location is for a (3,1)",testController.getBoard()[3][1].getPiece());
+        testController.add(new Coordinate(4,1),new Threepeater());
+        assertEquals("The Game Piece Location is for a (4,1)",new Threepeater(),testController.getBoard()[4][1].getPiece());
+
+        testController.reset();
+        assertNull("The Game is Reset, No Pieces",testController.getBoard()[2][1].getPiece());
+        assertFalse("The Game Piece is not present",testController.getBoard()[4][1].isOccupied());
+        assertNotEquals("The Game is RESET, no Game Piece",new Threepeater(),testController.getBoard()[3][1]);
+    }
+
+    /**
      * Default JUnit Test runner keeps GUI VIEW and CONTROLLER Object references for Tests. Tear Down Used to clear
      * the objects after completion of tests
      */

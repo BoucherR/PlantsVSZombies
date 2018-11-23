@@ -547,10 +547,18 @@ public class Controller {
         return s;
     }
 
+    /**
+     * The Getter method for the Square Board
+     * @return board, The Game Board
+     */
     public Square[][] getBoard() {
         return board;
     }
 
+    /**
+     * The Getter method for the clicked button coordinate values
+     * @return Coordinate, The Coordinate Values of the clicked buttons
+     */
     public Coordinate getClickedButtonLocation() {
         return clickedButtonLocation;
     }
