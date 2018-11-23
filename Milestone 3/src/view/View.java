@@ -102,6 +102,9 @@ public class View extends JFrame {
      */
     JMenuBar menuBar;
 
+    /**
+     * Menu List for the JMenuItems like undo and redo
+     */
     JMenu menu;
 
     /**
@@ -110,7 +113,7 @@ public class View extends JFrame {
     public View(){
 
         /*
-            Initializing JScroll, JPanel and JTextArea
+            Initializing JScroll, JPanel, JMenu and JTextArea
          */
         textArea = new JTextArea(15,50);
         topPanel = new JPanel();
@@ -125,7 +128,8 @@ public class View extends JFrame {
 
         /*
             Setting up the size of the game board and where the JTextArea,
-            JScrollPane and JPanels will be placed on the JFrame
+            JScrollPane and JPanels will be placed on the JFrame,
+            adding JMenu with JMenuItems
          */
         setSize(1366,768);
         setTitle("Plants VS. Zombies");
@@ -138,6 +142,7 @@ public class View extends JFrame {
         bottomPanel.add(jScrollPane);
         add(bottomPanel, BorderLayout.SOUTH);
         menuBar.add(menu);
+        menuBar.add(redoButton);
         menu.add(redoButton);
         menu.add(undoButton);
         setJMenuBar(menuBar);

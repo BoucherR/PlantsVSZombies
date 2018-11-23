@@ -35,14 +35,29 @@ public class Controller {
      */
     private int zombieLimit;
 
+    /**
+     *  Displaying the game, and is able to manipulate
+     */
     private View view;
 
+    /**
+     *  Used for detecting on where the mouse has been clicked
+     */
     private Coordinate clickedButtonLocation;
 
+    /**
+     *  Keeping recording on what is happening in-game
+     */
     private List<String> loggingList;
 
+    /**
+     *  Undo move
+     */
     private List<Square> undoList;
 
+    /**
+     * Redo move
+     */
     private List<Square> redoList;
 
     /**
@@ -76,6 +91,9 @@ public class Controller {
      */
     public void actionListener(){
 
+        /**
+         * When a plant is removed from the board, the user will be able to add it with this function
+         */
         view.getRedoButton().addActionListener((ActionEvent event) -> {
             if(redoList.size() > 0) {
                 Square tempSquare = redoList.get(redoList.size() - 1);
@@ -90,6 +108,9 @@ public class Controller {
             }
         });
 
+        /**
+         * When a plant is placed on the board, the user will be able to remove it with this function
+         */
         view.getUndoButton().addActionListener((ActionEvent event) -> {
             if(undoList.size() > 0) {
                 Square tempSquare = undoList.get(undoList.size() - 1);
