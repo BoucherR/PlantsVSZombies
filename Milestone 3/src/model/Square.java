@@ -156,4 +156,22 @@ public class Square{
         return false;
     }
 
+    public boolean isZombie(){
+        return gamePiece.getShortName() == 'Z' || gamePiece.getShortName() == 'C' || gamePiece.getShortName() == 'B';
+    }
+
+    public boolean isPlant(){
+        return gamePiece.getShortName() == 'S' || gamePiece.getShortName() == '2' || gamePiece.getShortName() == 'G'
+                || gamePiece.getShortName() == 'W' || gamePiece.getShortName() == 'P' || gamePiece.getShortName() == 'T'
+                || gamePiece.getShortName() == 'R';
+    }
+
+    public boolean isShooter(){
+        return gamePiece.getShortName() == 'P' || gamePiece.getShortName() == 'T' || gamePiece.getShortName() == 'R';
+    }
+
+    public boolean isSunflower(){
+        return gamePiece.getShortName() == 'S' || gamePiece.getShortName() == '2' || gamePiece.getShortName() == 'G';
+    }
+
 }

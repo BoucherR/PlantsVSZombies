@@ -95,13 +95,17 @@ public class Controller {
          * When a plant is removed from the board, the user will be able to add it with this function
          */
         view.getRedoButton().addActionListener((ActionEvent event) -> {
+            validateList(redoList);
             if(redoList.size() > 0) {
                 Square tempSquare = redoList.get(redoList.size() - 1);
                 undoList.add(tempSquare);
-                board[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].addPiece(tempSquare.getPiece());
-                view.getGameButtons()[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].setDisabledIcon(tempSquare.getPiece().getImage());
-                view.getGameButtons()[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].setIcon(tempSquare.getPiece().getImage());
-                redoList.remove(redoList.size() - 1);
+                if(add(tempSquare.getCoordinate(),tempSquare.getPiece())) {
+                    view.getGameButtons()[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].setDisabledIcon(tempSquare.getPiece().getImage());
+                    view.getGameButtons()[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].setIcon(tempSquare.getPiece().getImage());
+                    redoList.remove(redoList.size() - 1);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Can't undo since space is occupied.");
+                }
                 loggingList.add("Re-added Plant \n");
             } else {
                 JOptionPane.showMessageDialog(null, "No more possible Redos.");
@@ -112,6 +116,7 @@ public class Controller {
          * When a plant is placed on the board, the user will be able to remove it with this function
          */
         view.getUndoButton().addActionListener((ActionEvent event) -> {
+            validateList(undoList);
             if(undoList.size() > 0) {
                 Square tempSquare = undoList.get(undoList.size() - 1);
                 redoList.add(new Square(tempSquare.getCoordinate(),tempSquare.getPiece()));
@@ -136,8 +141,6 @@ public class Controller {
                 });
             }
         }
-
-        //view.getPopupMenu().add
 
         /**
          * Using pop-ups on the board, generated on the click-location, to handle the placing of sunflowers.
@@ -269,7 +272,8 @@ public class Controller {
                 || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'R'
                 || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'S'
                 || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == '2'
-                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'G') {
+                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'G'
+                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'W') {
             undoList.add(srcSquare);
         }
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setDisabledIcon(piece.getImage());
@@ -305,6 +309,16 @@ public class Controller {
     }
 
     /**
+     * Checking in the Redo/Undo List for any plants that are dead to make sure only plants who have health are stored
+     */
+    public void validateList(List<Square> list){
+        for(int i = 0; i < list.size(); i ++){
+            if(list.get(i).getPiece().getHealth() <= 0)
+                list.remove(i);
+        }
+    }
+
+    /**
      *  When piece is within range of attack, it will affect the other piece's health.
      */
     public void hitUpdate(){
@@ -312,10 +326,10 @@ public class Controller {
             for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getHealth() > 0){
-                        if (board[col][row].getPiece().getShortName() == 'P' || board[col][row].getPiece().getShortName() == 'T' || board[col][row].getPiece().getShortName() == 'R' ) {
+                        if (board[col][row].isShooter()) {
                             for(int i = col + 1; i < board.length; i++){
                                 if (board[i][row].getPiece() != null){
-                                    if( board[i][row].getPiece().getShortName() == 'Z' || board[i][row].getPiece().getShortName() == 'B' || board[i][row].getPiece().getShortName() == 'C') {
+                                    if( board[i][row].isZombie()) {
                                         board[i][row].getPiece().setHealth(board[i][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
                                         if (board[i][row].getPiece().getHealth() <= 0) {
                                             loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: Dead @ " + board[i][row].getCoordinate() + "\n");
@@ -326,9 +340,9 @@ public class Controller {
                                 }
                             }
                         }
-                        else if (board[col][row].getPiece().getShortName() == 'Z' || board[col][row].getPiece().getShortName() == 'B' || board[col][row].getPiece().getShortName() == 'C') {
+                        else if (board[col][row].isZombie()) {
                             if (!(col - 1 == -1)){
-                                if (board[col - 1][row].getPiece() != null && board[col - 1][row].getPiece().getShortName() != 'Z' && board[col - 1][row].getPiece().getShortName() != 'B' && board[col - 1][row].getPiece().getShortName() != 'C') {
+                                if (board[col - 1][row].isPlant()) {
                                     board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
                                     if (board[col - 1][row].getPiece().getHealth() <= 0) {
                                         loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
@@ -371,7 +385,7 @@ public class Controller {
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
-                    if (board[col][row].getPiece().getShortName() == 'Z' || board[col][row].getPiece().getShortName() == 'B' || board[col][row].getPiece().getShortName() == 'C') {
+                    if (board[col][row].isZombie()) {
                         view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
                         view.getGameButtons()[col][row].setEnabled(true);
                         if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
@@ -468,7 +482,7 @@ public class Controller {
             for (int row = 0; row < board[0].length; row++) {
                 for (int col = 0; col < board.length; col++) {
                     if (board[col][row].getPiece() != null) {
-                        if (board[col][row].getPiece().getShortName() == 'Z' || board[col][row].getPiece().getShortName() == 'C' || board[col][row].getPiece().getShortName() == 'B') {
+                        if (board[col][row].isZombie()) {
                             return;
                         }
                     }
@@ -485,7 +499,7 @@ public class Controller {
     public void gameOver(){
         for (int row = 0; row < board[0].length; row++) {
             if (board[0][row].getPiece() != null) {
-                if (board[0][row].getPiece().getShortName() == 'Z' || board[0][row].getPiece().getShortName() == 'C' || board[0][row].getPiece().getShortName() == 'B') {
+                if (board[0][row].isZombie()) {
                     JOptionPane.showMessageDialog(null,"You have lost. Thank you for playing.");
                     System.exit(0);
                 }

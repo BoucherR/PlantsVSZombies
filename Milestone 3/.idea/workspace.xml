@@ -3,7 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/View/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/View/View.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Square.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,24 +61,24 @@
     <session id="291584363">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1674" />
-          <entry key="txt" value="389" />
+          <entry key="java" value="2784" />
+          <entry key="txt" value="411" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1674" />
-          <entry key="PLAIN_TEXT" value="389" />
+          <entry key="JAVA" value="2784" />
+          <entry key="PLAIN_TEXT" value="411" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="37" />
+          <entry key="java" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="37" />
+          <entry key="JAVA" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -106,7 +117,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2874">
+            <state relative-caret-position="-550">
               <caret line="131" column="40" selection-start-line="131" selection-start-column="40" selection-end-line="131" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -118,8 +129,33 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="265" column="34" lean-forward="true" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="34" />
+            <state relative-caret-position="1276">
+              <caret line="344" column="65" selection-start-line="344" selection-start-column="65" selection-end-line="344" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#23386#23387#0" expanded="true" />
+                <element signature="e#23453#23454#0" expanded="true" />
+                <element signature="e#24501#24502#0" expanded="true" />
+                <element signature="e#24529#24530#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Square.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="169" column="82" selection-start-line="169" selection-start-column="82" selection-end-line="169" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Piece.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="174" column="5" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -159,14 +195,14 @@
         <option value="$PROJECT_DIR$/src/model/GiantSunflower.java" />
         <option value="$PROJECT_DIR$/src/model/ConeheadZombie.java" />
         <option value="$PROJECT_DIR$/src/model/BucketZombie.java" />
-        <option value="$PROJECT_DIR$/src/model/Piece.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
-        <option value="$PROJECT_DIR$/src/model/Square.java" />
         <option value="$PROJECT_DIR$/src/model/Coordinate.java" />
         <option value="$PROJECT_DIR$/src/test/ViewTest.java" />
         <option value="$PROJECT_DIR$/src/test/ControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/TestAll.java" />
         <option value="$PROJECT_DIR$/src/view/View.java" />
+        <option value="$PROJECT_DIR$/src/model/Piece.java" />
+        <option value="$PROJECT_DIR$/src/model/Square.java" />
         <option value="$PROJECT_DIR$/src/controller/Controller.java" />
       </list>
     </option>
@@ -211,6 +247,12 @@
               <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
               <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -223,7 +265,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542993898478" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542994889783" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -349,7 +391,7 @@
       <workItem from="1542932522034" duration="24000" />
       <workItem from="1542933499442" duration="11000" />
       <workItem from="1542938513413" duration="245000" />
-      <workItem from="1542984832132" duration="2321000" />
+      <workItem from="1542984832132" duration="4138000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit">
       <created>1542841373541</created>
@@ -512,7 +554,14 @@
       <option name="project" value="LOCAL" />
       <updated>1542991570984</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Not enough money popup">
+      <created>1542993932021</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1542993932021</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -548,7 +597,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26575000" />
+    <option name="totallyTimeSpent" value="28392000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -615,7 +664,8 @@
     <MESSAGE value="Removed line of code" />
     <MESSAGE value="Redo and Undo Functionality" />
     <MESSAGE value="Commenting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commenting" />
+    <MESSAGE value="Not enough money popup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Not enough money popup" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/out/artifacts/Milestone_2_jar/Milestone 2.jar!/org/junit/Assert.class">
@@ -673,13 +723,6 @@
     <entry file="file://$PROJECT_DIR$/src/Icons/SunflowerSmall.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Piece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="169" column="35" selection-start-line="169" selection-start-column="35" selection-end-line="169" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/ControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3718">
@@ -708,13 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -804,7 +840,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2874">
+        <state relative-caret-position="-550">
           <caret line="131" column="40" selection-start-line="131" selection-start-column="40" selection-end-line="131" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -812,12 +848,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="265" column="34" lean-forward="true" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="34" />
+        <state relative-caret-position="382">
+          <caret line="174" column="5" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="169" column="82" selection-start-line="169" selection-start-column="82" selection-end-line="169" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1276">
+          <caret line="344" column="65" selection-start-line="344" selection-start-column="65" selection-end-line="344" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#23386#23387#0" expanded="true" />
+            <element signature="e#23453#23454#0" expanded="true" />
+            <element signature="e#24501#24502#0" expanded="true" />
+            <element signature="e#24529#24530#0" expanded="true" />
           </folding>
         </state>
       </provider>

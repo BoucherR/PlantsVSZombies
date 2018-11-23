@@ -173,5 +173,4 @@ public class Piece {
     public ImageIcon getImage(){
         return new ImageIcon(getClass().getResource("/Images/" + this.getName().toLowerCase() + ".png"));
     }
-
 }
