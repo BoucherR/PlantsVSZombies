@@ -133,7 +133,8 @@ public class ViewTest {
      */
     @Test
     public void testGetRedoButton(){
-        assertTrue("The Redo Menu Item is visible",testFrame.getRedoButton().isDisplayable());
+        assertTrue("The Redo Menu Item is functional command",testFrame.getRedoButton().isEnabled());
+        assertEquals("The Redo Menu Item is functional menu item","Redo",testFrame.getRedoButton().getText());
         assertNotEquals("The game option is Redo","Replay",testFrame.getRedoButton().getText());
     }
 
@@ -142,7 +143,8 @@ public class ViewTest {
      */
     @Test
     public void testGetUndoButton(){
-        assertTrue("The Undo Menu Item is visible",testFrame.getUndoButton().isDisplayable());
+        assertTrue("The Undo Menu Item is functional command",testFrame.getUndoButton().isEnabled());
+        assertEquals("The Redo Menu Item is functional menu item","Undo",testFrame.getUndoButton().getText());
         assertNotEquals("The game option is Undo","Exit",testFrame.getUndoButton().getText());
     }
 

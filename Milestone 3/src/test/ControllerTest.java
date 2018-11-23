@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
 import static org.junit.Assert.*;
@@ -226,19 +228,38 @@ public class ControllerTest {
      */
     @Test
     public void testGameActionPerformed(){
+        testController.actionListener();
         Random ran = new Random();
-        for(int i = 0; i < 2;i++)
-        {
-            int row = ran.nextInt(4);
-            int column = ran.nextInt(7);
-            guiView.getGameButtons()[column][row].doClick();
-            testController.add(new Coordinate(column,row),new Peashooter());
-            assertTrue("The Game Piece was displayable",testController.getBoard()[column][row].isOccupied());
-            assertEquals("The Game Piece is placed",new Peashooter(),testController.getBoard()[column][row].getPiece());
-            assertNotNull("The Game Piece placed using Random",testController.getBoard()[column][row].getPiece());
-        }
+        int row = ran.nextInt(4);
+        int column = ran.nextInt(7);
+        guiView.getGameButtons()[column][row].doClick();
+        Coordinate temp = testController.getClickedButtonLocation();
+        testController.add(temp,new Peashooter());
+        testController.getLogging();
+        assertTrue("The Game Piece was displayable",testController.getBoard()[column][row].isOccupied());
+        assertEquals("The Game Piece is placed",new Peashooter(),testController.getBoard()[column][row].getPiece());
+        assertNotNull("The Game Piece placed using Random",testController.getBoard()[column][row].getPiece());
+        assertEquals("The Logging confirms click","Added Piece: PEASHOOTER @ Coordinates: ("+column+","+row+")",guiView.getTextArea().getText().trim());
     }
 
+    @Test
+    public void testUndoCommand(){
+        testController.actionListener();
+        testController.add(new Coordinate(3,3),new Peashooter());
+        assertTrue("The Game Piece was displayable",testController.getBoard()[3][3].isOccupied());
+        assertEquals("The Game Piece is placed",new Peashooter(),testController.getBoard()[3][3].getPiece());
+        guiView.getUndoButton().doClick();
+        testController.getLogging();
+        String[] textDisplay = guiView.getTextArea().getText().split("\\n");
+        assertEquals("The logging confirms addition before Undo","Added Piece: PEASHOOTER @ Coordinates: (3,3)",textDisplay[0]);
+        assertFalse("The Game Piece was removed after Undo",testController.getBoard()[3][3].isOccupied());
+        assertEquals("The logging confirms removal of Plant after Undo Operation","Removed Plant ",textDisplay[textDisplay.length-1]);
+    }
+
+    @Test
+    public void testRedoCommand(){
+
+    }
     /**
      * Default JUnit Test runner keeps GUI VIEW and CONTROLLER Object references for Tests. Tear Down Used to clear
      * the objects after completion of tests

@@ -552,4 +552,9 @@ public class Controller {
         return board;
     }
 
+    public Coordinate getClickedButtonLocation() {
+        return clickedButtonLocation;
+    }
+
+
 }
