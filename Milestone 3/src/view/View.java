@@ -298,8 +298,4 @@ public class View extends JFrame {
     public JMenu getUndoButton() {
         return undoButton;
     }
-
-    public static void main(String[] args) {
-        View test = new View();
-    }
 }
