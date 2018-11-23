@@ -99,12 +99,13 @@ public class Controller {
             if(redoList.size() > 0) {
                 Square tempSquare = redoList.get(redoList.size() - 1);
                 undoList.add(tempSquare);
-                if(add(tempSquare.getCoordinate(),tempSquare.getPiece())) {
+                if(board[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].getPiece() == null) {
+                    board[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].addPiece(tempSquare.getPiece());
                     view.getGameButtons()[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].setDisabledIcon(tempSquare.getPiece().getImage());
                     view.getGameButtons()[tempSquare.getColumnNumber()][tempSquare.getRowNumber()].setIcon(tempSquare.getPiece().getImage());
                     redoList.remove(redoList.size() - 1);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Can't undo since space is occupied.");
+                    JOptionPane.showMessageDialog(null, "Can't Redo since space is occupied.");
                 }
                 loggingList.add("Re-added Plant \n");
             } else {
@@ -116,7 +117,6 @@ public class Controller {
          * When a plant is placed on the board, the user will be able to remove it with this function
          */
         view.getUndoButton().addActionListener((ActionEvent event) -> {
-            validateList(undoList);
             if(undoList.size() > 0) {
                 Square tempSquare = undoList.get(undoList.size() - 1);
                 redoList.add(new Square(tempSquare.getCoordinate(),tempSquare.getPiece()));
@@ -245,6 +245,8 @@ public class Controller {
         sunflowerMoney();
         gameOver();
         gameWon();
+        validateList(redoList);
+        validateList(undoList);
         view.getSunMoney().setText(Integer.toString(moneyPouch));
         System.out.println(toString());
     }
@@ -267,13 +269,7 @@ public class Controller {
             return false;
         }
         srcSquare.addPiece(piece);
-        if (board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'P'
-                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'T'
-                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'R'
-                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'S'
-                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == '2'
-                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'G'
-                || board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].getPiece().getShortName() == 'W') {
+        if (board[srcSquare.getColumnNumber()][srcSquare.getRowNumber()].isPlant()) {
             undoList.add(srcSquare);
         }
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setDisabledIcon(piece.getImage());
@@ -313,8 +309,9 @@ public class Controller {
      */
     public void validateList(List<Square> list){
         for(int i = 0; i < list.size(); i ++){
-            if(list.get(i).getPiece().getHealth() <= 0)
-                list.remove(i);
+            if(list.get(i).getPiece() != null)
+                if(list.get(i).getPiece().getHealth() <= 0)
+                    list.remove(i);
         }
     }
 
@@ -342,12 +339,14 @@ public class Controller {
                         }
                         else if (board[col][row].isZombie()) {
                             if (!(col - 1 == -1)){
-                                if (board[col - 1][row].isPlant()) {
-                                    board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
-                                    if (board[col - 1][row].getPiece().getHealth() <= 0) {
-                                        loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
-                                    } else {
-                                        loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
+                                if(board[col - 1][row].getPiece() != null) {
+                                    if (board[col - 1][row].isPlant()) {
+                                        board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
+                                        if (board[col - 1][row].getPiece().getHealth() <= 0) {
+                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
+                                        } else {
+                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
+                                        }
                                     }
                                 }
                             }

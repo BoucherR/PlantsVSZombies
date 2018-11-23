@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="">
+    <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="Refactored More">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Milestone_3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Model/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Model/Square.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/ViewTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/ViewTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/View/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/View/View.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Square.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,14 +63,14 @@
     <session id="291584363">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2784" />
-          <entry key="txt" value="411" />
+          <entry key="java" value="2999" />
+          <entry key="txt" value="429" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2784" />
-          <entry key="PLAIN_TEXT" value="411" />
+          <entry key="JAVA" value="2999" />
+          <entry key="PLAIN_TEXT" value="429" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -129,14 +131,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1276">
-              <caret line="344" column="65" selection-start-line="344" selection-start-column="65" selection-end-line="344" selection-end-column="65" />
+            <state relative-caret-position="132">
+              <caret line="107" column="65" selection-start-line="107" selection-start-column="65" selection-end-line="107" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#23386#23387#0" expanded="true" />
-                <element signature="e#23453#23454#0" expanded="true" />
-                <element signature="e#24501#24502#0" expanded="true" />
-                <element signature="e#24529#24530#0" expanded="true" />
+                <element signature="e#22122#22123#0" expanded="true" />
+                <element signature="e#22189#22190#0" expanded="true" />
+                <element signature="e#23237#23238#0" expanded="true" />
+                <element signature="e#23265#23266#0" expanded="true" />
+                <element signature="e#23317#23318#0" expanded="true" />
+                <element signature="e#23361#23362#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,8 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Square.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="169" column="82" selection-start-line="169" selection-start-column="82" selection-end-line="169" selection-end-column="82" />
+            <state relative-caret-position="190">
+              <caret line="163" selection-start-line="163" selection-end-line="163" />
             </state>
           </provider>
         </entry>
@@ -177,6 +181,7 @@
       <find>reset</find>
       <find>zombie</find>
       <find>./src</find>
+      <find>valida</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -265,7 +270,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542994889783" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542998315220" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -273,6 +278,118 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/Controller.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ControllerTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/ViewTest.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -391,7 +508,7 @@
       <workItem from="1542932522034" duration="24000" />
       <workItem from="1542933499442" duration="11000" />
       <workItem from="1542938513413" duration="245000" />
-      <workItem from="1542984832132" duration="4138000" />
+      <workItem from="1542984832132" duration="5930000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit">
       <created>1542841373541</created>
@@ -561,7 +678,14 @@
       <option name="project" value="LOCAL" />
       <updated>1542993932021</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Refactored More">
+      <created>1542995674299</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1542995674299</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -597,13 +721,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28392000" />
+    <option name="totallyTimeSpent" value="30184000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25746268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -612,7 +736,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3275488" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3275488" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -640,7 +764,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing commit" />
     <MESSAGE value="View Test" />
     <MESSAGE value="Fixed Package Error" />
     <MESSAGE value="Popup Menu Fix" />
@@ -665,7 +788,8 @@
     <MESSAGE value="Redo and Undo Functionality" />
     <MESSAGE value="Commenting" />
     <MESSAGE value="Not enough money popup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Not enough money popup" />
+    <MESSAGE value="Refactored More" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored More" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/out/artifacts/Milestone_2_jar/Milestone 2.jar!/org/junit/Assert.class">
@@ -860,21 +984,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Square.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="169" column="82" selection-start-line="169" selection-start-column="82" selection-end-line="169" selection-end-column="82" />
+        <state relative-caret-position="190">
+          <caret line="163" selection-start-line="163" selection-end-line="163" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1276">
-          <caret line="344" column="65" selection-start-line="344" selection-start-column="65" selection-end-line="344" selection-end-column="65" />
+        <state relative-caret-position="132">
+          <caret line="107" column="65" selection-start-line="107" selection-start-column="65" selection-end-line="107" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#23386#23387#0" expanded="true" />
-            <element signature="e#23453#23454#0" expanded="true" />
-            <element signature="e#24501#24502#0" expanded="true" />
-            <element signature="e#24529#24530#0" expanded="true" />
+            <element signature="e#22122#22123#0" expanded="true" />
+            <element signature="e#22189#22190#0" expanded="true" />
+            <element signature="e#23237#23238#0" expanded="true" />
+            <element signature="e#23265#23266#0" expanded="true" />
+            <element signature="e#23317#23318#0" expanded="true" />
+            <element signature="e#23361#23362#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -919,7 +1045,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>9.0</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
