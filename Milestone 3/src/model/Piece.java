@@ -166,6 +166,10 @@ public class Piece {
         return this.shortName == ((Piece) o).shortName && this.name.equals(((Piece) o).name) && this.health == ((Piece) o).health && this.cost == ((Piece) o).cost && this.attack == ((Piece) o).attack;
     }
 
+    /**
+     * Retrieving the Pieces' Image
+     * @return Image of the Piece
+     */
     public ImageIcon getImage(){
         return new ImageIcon(getClass().getResource("/Images/" + this.getName().toLowerCase() + ".png"));
     }
