@@ -4,8 +4,6 @@ import view.*;
 import model.*;
 
 import javax.swing.*;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -191,7 +189,7 @@ public class Controller {
         });
         
         /**
-         * Using pop-ups on the board, generated on the click-location, to handle the placing of a threepeater.
+         * Using pop-ups on the board, generated on the click-location, to handle the placing of a Wallnut.
          */
         view.getWallnut().addActionListener(new ActionListener() {
             @Override
@@ -203,7 +201,7 @@ public class Controller {
         });
         
         /**
-         * Using pop-ups on the board, generated on the click-location, to handle the placing of sunflowers.
+         * Using pop-ups on the board, generated on the click-location, to handle the placing of twin sunflowers.
          */
         view.getTwinSunflower().addActionListener(new ActionListener() {
             @Override
@@ -214,7 +212,10 @@ public class Controller {
                 }
             }
         });
-        
+
+        /**
+         * Using pop-ups on the board, generated on the click-location, to handle the placing of Giant sunflowers.
+         */
         view.getGiantSunflower().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -237,7 +238,7 @@ public class Controller {
      * This method is used to call the other methods required to finish a turn, after the player has placed his/her
      * plants.
      */
-    public void runTime(){
+    private void runTime(){
         movingZombie();
         addingZombie();
         removeUpdate();
@@ -306,8 +307,9 @@ public class Controller {
 
     /**
      * Checking in the Redo/Undo List for any plants that are dead to make sure only plants who have health are stored
+     * @param list A list containing square objects to check the health of the piece associated with that square.
      */
-    public void validateList(List<Square> list){
+    private void validateList(List<Square> list){
         for(int i = 0; i < list.size(); i ++){
             if(list.get(i).getPiece() != null)
                 if(list.get(i).getPiece().getHealth() <= 0)
@@ -360,7 +362,7 @@ public class Controller {
     /**
      *  Adding zombies randomly at the end of the board.
      */
-    public void addingZombie(){
+    private void addingZombie(){
         if (zombieLimit != 0) {
             Random ran = new Random();
             int y = ran.nextInt(5);
@@ -421,7 +423,7 @@ public class Controller {
      *  Whenever there is a sunflower spawned in the game, it will
      *  add money into the user's money pouch.
      */
-    public void sunflowerMoney(){
+    private void sunflowerMoney(){
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
@@ -447,7 +449,7 @@ public class Controller {
      *  @param piece The piece wanting to purchase.
      *  @return The ability to purchase a piece.
      */
-    public boolean purchasePiece(Piece piece){
+    private boolean purchasePiece(Piece piece){
         if(moneyPouch < piece.getCost())
             return false;
         moneyPouch -= piece.getCost();
@@ -457,7 +459,7 @@ public class Controller {
     /**
      *  Will re-initialize the gameboard, where no piece has spawned.
      */
-    public void reset(){
+    private void reset(){
         //Creating two arrays to align with a 2 dimension array
         board = new Square[8][5];
         for (int rowsBoard = 0; rowsBoard < board[0].length; rowsBoard++) {
@@ -476,7 +478,7 @@ public class Controller {
      *  in the board; To see if any zombies are "alive". If there are zombies still
      *  alive then the game keeps going. If all are killed, then the game ends.
      */
-    public void gameWon(){
+    private void gameWon(){
         if(zombieLimit == 0){
             for (int row = 0; row < board[0].length; row++) {
                 for (int col = 0; col < board.length; col++) {
@@ -495,7 +497,7 @@ public class Controller {
     /**
      *  Will end the game, if any zombies have reached at the end of the gameboard.
      */
-    public void gameOver(){
+    private void gameOver(){
         for (int row = 0; row < board[0].length; row++) {
             if (board[0][row].getPiece() != null) {
                 if (board[0][row].isZombie()) {
