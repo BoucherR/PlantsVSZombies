@@ -70,9 +70,9 @@ Zombies have landed onto your planet and want to take over the whole world. The 
 1. Optimize/Refactor Code -> DONE
 2. Capture any "Smelly" code -> DONE
 3. Add Title Page in the beginning of the game
-~~4. Add Win/Lose Pop-Up when necessary~~
-~~5. Add Redo/Undo Functionality~~
-~~6. Add more Plants/Zombie units~~
+4. Add Win/Lose Pop-Up when necessary -> DONE
+5. Add Redo/Undo Functionality -> DONE
+6. Add more Plants/Zombie units -> DONE
 7. Up date any documents
 
 
