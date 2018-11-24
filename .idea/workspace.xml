@@ -148,7 +148,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543097204036" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543098281623" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -204,7 +204,7 @@
       <option name="presentableId" value="Default" />
       <updated>1542922896502</updated>
       <workItem from="1542922898575" duration="18978000" />
-      <workItem from="1543094259429" duration="2531000" />
+      <workItem from="1543094259429" duration="2755000" />
     </task>
     <task id="LOCAL-00001" summary="Deep-copy undo/redo feature of the Plants VS Zombies game. This version may or may not be compatible with a real-time version of the game, hence the separate branch.">
       <created>1543094930927</created>
@@ -234,15 +234,21 @@
       <option name="project" value="LOCAL" />
       <updated>1543096273338</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Deep-copy undo/redo feature of the Plants VS Zombies game. This version may or may not be compatible with a real-time version of the game, hence the separate branch.">
+      <created>1543097413364</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543097413364</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21509000" />
+    <option name="totallyTimeSpent" value="21733000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
