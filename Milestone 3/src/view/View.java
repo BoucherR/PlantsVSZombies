@@ -73,7 +73,7 @@ public class View extends JFrame {
     private JMenuItem twinsunflower;
     
     /**
-     *  A Wallnut option on the pop-up menu
+     *  A Walnut option on the pop-up menu
      */
     private JMenuItem wallnut;
 
@@ -90,12 +90,12 @@ public class View extends JFrame {
     /**
      *  JMenu Title to redo an user-command
      */
-    JMenu redoButton;
+    JMenuItem redoButton;
 
     /**
      *  JMenu Title to undo an user-command
      */
-    JMenu undoButton;
+    JMenuItem undoButton;
 
     /**
      *  MenuBar for the MenuItems to be placed
@@ -117,8 +117,8 @@ public class View extends JFrame {
         jScrollPane = new JScrollPane(textArea);
         sunPicture = new JLabel(new ImageIcon(getClass().getResource("/Images/sun.png")));
         sunMoney = new JLabel("500");
-        redoButton = new JMenu("Redo");
-        undoButton = new JMenu("Undo");
+        redoButton = new JMenuItem("Redo");
+        undoButton = new JMenuItem("Undo");
         menuBar = new JMenuBar();
 
         /*
@@ -244,8 +244,8 @@ public class View extends JFrame {
     }
 
     /**
-     *  Getting or Creating a Wallnut at the specific point of the game board
-     *  @return JMenuItem dedicated for Wallnut
+     *  Getting or Creating a Walnut at the specific point of the game board
+     *  @return JMenuItem dedicated for Walnut
      */
     public JMenuItem getWallnut() {
         return wallnut;
@@ -287,7 +287,7 @@ public class View extends JFrame {
      *  Getting the JMenu for the Redo Button on the JMenuBar
      *  @return JMenu for Redo
      */
-    public JMenu getRedoButton() {
+    public JMenuItem getRedoButton() {
         return redoButton;
     }
 
@@ -295,7 +295,7 @@ public class View extends JFrame {
      *  Getting the JMenu for the Undo Button on the JMenuBar
      *  @return JMenu for Undo
      */
-    public JMenu getUndoButton() {
+    public JMenuItem getUndoButton() {
         return undoButton;
     }
 

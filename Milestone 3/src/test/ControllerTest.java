@@ -61,11 +61,11 @@ public class ControllerTest {
         assertNotNull("The Game Piece Location is for a Threepeater",guiView.getGameButtons()[2][2]);
         assertEquals("The Game Piece Location is 1,2",new Coordinate(1,2),testController.getBoard()[1][2].getCoordinate());
 
-        testController.add(new Coordinate(1,3),new Wallnut());
+        testController.add(new Coordinate(1,3),new Walnut());
         testController.add(new Coordinate(2,3),new Repeater());
-        assertEquals("The Piece placed is Wallnut",getClass().getResource("/Images/wallnut.png").toString(),guiView.getGameButtons()[1][3].getIcon().toString());
+        assertEquals("The Piece placed is Walnut",getClass().getResource("/Images/wallnut.png").toString(),guiView.getGameButtons()[1][3].getIcon().toString());
         assertEquals("The Piece placed is Repeater",getClass().getResource("/Images/repeater.png").toString(),guiView.getGameButtons()[2][3].getIcon().toString());
-        assertNotNull("The Game Piece Location is for a Wallnut",testController.getBoard()[2][3].getCoordinate());
+        assertNotNull("The Game Piece Location is for a Walnut",testController.getBoard()[2][3].getCoordinate());
         assertEquals("The Game Piece placed is Repeater",new Repeater(),testController.getBoard()[2][3].getPiece());
 
         testController.add(new Coordinate(2,4),new Peashooter());

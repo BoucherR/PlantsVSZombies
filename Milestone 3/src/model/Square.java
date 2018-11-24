@@ -156,4 +156,12 @@ public class Square{
         return false;
     }
 
+    /**
+     * Used for a deep-copy in order to allow for proper undo/redo
+     * @return Deep copy of the square
+     */
+    public Square copy() {
+        return new Square (position, gamePiece == null ? null : gamePiece.copy());
+    }
+
 }

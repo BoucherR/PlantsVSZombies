@@ -8,9 +8,7 @@ import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author Youssef Saghbini
@@ -24,6 +22,16 @@ public class Controller {
      *  Dual-array gameboard to be played on.
      */
     private Square board[][];
+
+    /**
+     *
+     */
+    private Stack<Square[][]> undoBoard;
+    private Stack<Square[][]> redoBoard;
+
+
+    private static final int BOARD_LENGTH = 8;
+    private static final int BOARD_HEIGHT = 5;
 
     /**
      *  User's money pouch during the game.
@@ -49,7 +57,9 @@ public class Controller {
      *  amount of zombies allowed to be spawned into the board.
      */
     public Controller(View view){
-        this.board = new Square[8][5];
+        undoBoard = new Stack<>();
+        redoBoard = new Stack<>();
+        this.board = new Square[BOARD_LENGTH][BOARD_HEIGHT];
         this.loggingList = new ArrayList<>();
         this.view = view;
         this.moneyPouch = 500;
@@ -70,38 +80,14 @@ public class Controller {
      */
     public void actionListener(){
 
-        view.getRedoButton().addMenuListener(new MenuListener() {
-
-            public void menuSelected(MenuEvent e) {
-                loggingList.add("Redo Clicked! \n");
-            }
-
-            @Override
-            public void menuDeselected(MenuEvent e) {
-
-            }
-
-            @Override
-            public void menuCanceled(MenuEvent e) {
-
-            }
+        view.getRedoButton().addActionListener((e) -> {
+            redo();
+            loggingList.add("Redo Clicked! \n");
         });
 
-        view.getUndoButton().addMenuListener(new MenuListener() {
-
-            public void menuSelected(MenuEvent e) {
-                loggingList.add("Undo Clicked! \n");
-            }
-
-            @Override
-            public void menuDeselected(MenuEvent e) {
-
-            }
-
-            @Override
-            public void menuCanceled(MenuEvent e) {
-
-            }
+        view.getUndoButton().addActionListener((e) -> {
+            undo();
+            loggingList.add("Undo Clicked! \n");
         });
 
         /**
@@ -172,7 +158,7 @@ public class Controller {
         view.getWallnut().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(add(clickedButtonLocation, new Wallnut())) {
+                if(add(clickedButtonLocation, new Walnut())) {
                     updateView();
                 }
             }
@@ -202,6 +188,49 @@ public class Controller {
     }
 
     /**
+     * Copies the current state of the gameboard
+     * @return Square[][] object representing the board and all it's pieces
+     */
+    public Square[][] copyBoard() {
+        Square boardCopy[][] = new Square[BOARD_LENGTH][BOARD_HEIGHT];
+
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
+                boardCopy[col][row] = board[col][row].copy();
+            }
+        }
+        return boardCopy;
+    }
+
+    public void undo() {
+        System.out.println("IN THE UNDO METHOD");
+        if (undoBoard.isEmpty()) {
+            return;
+        }
+        System.out.println("undoboard is not empty");
+        redoBoard.push(board);
+        System.out.println("Redoboard has been pushed to");
+        long pieces1 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
+                .filter(square -> square.getPiece() != null)
+                .count();
+        board = undoBoard.pop();
+        System.out.println("undoBoard has been popped and set to board");
+        long pieces2 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
+                            .filter(square -> square.getPiece() != null)
+                            .count();
+        if(pieces1 == pieces2) System.out.println("We have a problem");
+        System.out.println(toString());
+    }
+
+    public void redo() {
+        if (redoBoard.isEmpty()) {
+            return;
+        }
+        undoBoard.push(board);
+        board = redoBoard.pop();
+    }
+
+    /**
      *
      */
     public void updateView(){
@@ -214,6 +243,8 @@ public class Controller {
      * plants.
      */
     public void runTime(){
+        undoBoard.push(copyBoard()); // pushing status of board to undo stack
+        System.out.println(undoBoard.size() + " items in the stack");
         movingZombie();
         addingZombie();
         removeUpdate();
@@ -247,6 +278,7 @@ public class Controller {
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setIcon(piece.getImage());
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setRolloverEnabled(false);
         loggingList.add("Added Piece: " + piece.getName() + " @ Coordinates: " + coordinate.toString() + "\n");
+
         return true;
     }
 
@@ -504,6 +536,30 @@ public class Controller {
         // s += logging;
         return s;
     }
+
+    public String toString(Square[][] board) {
+        //Printing in toString() format of the gameBoard
+        Piece shortNamePiece;
+        String s = "";
+        s += "\n   0 1 2 3 4 5 6 7\n";
+        for (int row = 0; row < board[0].length; row++) {
+            s += row +" |";
+            for (int col = 0; col < board.length; col++) {
+                if (board[col][row].getPiece() != null) {
+                    shortNamePiece = board[col][row].getPiece();
+                    s += shortNamePiece.getShortName() + "|";
+                } else {
+                    s += " |";
+                }
+            }
+            s += "\n";
+        }
+        s += "Money Pouch: " + moneyPouch + "\n";
+        // s += logging;
+        return s;
+    }
+
+
 
     public Square[][] getBoard() {
         return board;

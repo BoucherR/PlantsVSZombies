@@ -8,10 +8,20 @@ package model;
  * 
  * A ConeheadZombie doubles the health and attack damage of a typical zombie. 
  * @author RG
- * @version 3.0
+ * @author Ryan Boucher
+ * @version 4.0
  *
  */
 public class ConeheadZombie extends Piece{
+
+	private ConeheadZombie(String name, char shortName, int health, int attack, int cost)
+	{
+		super(name, shortName, health, attack, cost);
+	}
+
+	public ConeheadZombie copy() {
+		return new ConeheadZombie(getName(), getShortName(), getHealth(), getAttack(), getCost());
+	}
 
 	/**
 	 * Creates a ConeheadZombie with 10 health and 4 attack damage.

@@ -11,7 +11,7 @@ import java.io.IOException;
  * a Piece given a char shortName of a PlantPiece. Additionally, this class includes getter and setters such as a getName(), getShortName(), getCost(), getHealth(), setHealth(),
  * and getAttack(). Piece also includes a toString() method.
  *
- * In version 3.0, Pieces include the "PEASHOOTER", "ZOMBIE", "SUNFLOWER", "REPEATER", "THREEPEATER", "WALLNUT", "TWINSUNFLOWER", "GIANTSUNFLOWER", "BUCKETZOMBIE", and "CONEHEADZOMBIE".
+ * In version 3.0, Pieces include the "PEASHOOTER", "ZOMBIE", "SUNFLOWER", "REPEATER", "THREEPEATER", "WALNUT", "TWINSUNFLOWER", "GIANTSUNFLOWER", "BUCKETZOMBIE", and "CONEHEADZOMBIE".
  * Each piece includes a (int) cost, (int) health, (int) attack, (char) shortName and (PlantPieces) name.
  *
  * The PEASHOOTER Piece is a friendly offensive entity and can aide the player by damaging ZOMBIE entities that appear on the board.
@@ -30,7 +30,7 @@ import java.io.IOException;
  * @version 3.0
  */
 
-public class Piece {
+public abstract class Piece {
 
     private String name;
     private char shortName;
@@ -55,6 +55,13 @@ public class Piece {
         this.health = health;
         this.attack = attack;
     }
+
+
+    /**
+     * Used for a deep-copy in order to allow for proper undo/redo
+     * @return Deep copy of the pieces
+     */
+    public abstract Piece copy();
 
     /**
      * When getName() method is called, it returns the PlantPieces object called name, which is a String.
