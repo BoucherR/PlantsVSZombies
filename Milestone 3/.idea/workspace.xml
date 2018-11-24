@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Model/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Model/Square.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/ControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/Test/SquareTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/Test/SquareTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" afterDir="false" />
@@ -39,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="231" column="22" selection-start-line="231" selection-start-column="16" selection-end-line="231" selection-end-column="22" />
+            <state relative-caret-position="588">
+              <caret line="399" column="13" lean-forward="true" selection-start-line="399" selection-start-column="13" selection-end-line="399" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#22128#22129#0" expanded="true" />
@@ -49,6 +44,27 @@
                 <element signature="e#23549#23550#0" expanded="true" />
                 <element signature="e#23323#23324#0" expanded="true" />
                 <element signature="e#23367#23368#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Square.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1989">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Piece.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-229">
+              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,9 +161,9 @@
         <option value="$PROJECT_DIR$/src/test/TestAll.java" />
         <option value="$PROJECT_DIR$/src/model/Piece.java" />
         <option value="$PROJECT_DIR$/src/model/Square.java" />
-        <option value="$PROJECT_DIR$/src/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/test/ControllerTest.java" />
         <option value="$PROJECT_DIR$/src/view/View.java" />
+        <option value="$PROJECT_DIR$/src/controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -172,7 +188,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543102013594" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543103360345" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -482,7 +498,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543008331263</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Fixed Comments">
+      <created>1543102038652</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1543102038652</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -588,7 +611,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed Package Error" />
     <MESSAGE value="Popup Menu Fix" />
     <MESSAGE value="Package Fix" />
     <MESSAGE value="Resized Popup Menu" />
@@ -613,7 +635,8 @@
     <MESSAGE value="Not enough money popup" />
     <MESSAGE value="Refactored More" />
     <MESSAGE value="Refactored More, fixed comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored More, fixed comments." />
+    <MESSAGE value="Fixed Comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Comments" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/out/artifacts/Milestone_2_jar/Milestone 2.jar!/org/junit/Assert.class">
@@ -769,23 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Piece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="174" column="5" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="163" selection-start-line="163" selection-end-line="163" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/ControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-255">
@@ -841,10 +847,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Piece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-229">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1989">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="231" column="22" selection-start-line="231" selection-start-column="16" selection-end-line="231" selection-end-column="22" />
+        <state relative-caret-position="588">
+          <caret line="399" column="13" lean-forward="true" selection-start-line="399" selection-start-column="13" selection-end-line="399" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#22128#22129#0" expanded="true" />

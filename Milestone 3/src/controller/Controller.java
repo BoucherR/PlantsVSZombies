@@ -385,7 +385,6 @@ public class Controller {
     public void movingZombie(){
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
-                if (board[col][row].getPiece() != null) {
                     if (board[col][row].isZombie()) {
                         view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
                         view.getGameButtons()[col][row].setEnabled(true);
@@ -396,7 +395,6 @@ public class Controller {
                             view.getGameButtons()[col][row].setEnabled(false);
                         }
                     }
-                }
             }
         }
     }
