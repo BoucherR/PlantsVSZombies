@@ -227,7 +227,7 @@ public class Controller {
     }
 
     /**
-     *
+     * Updates the veiw by calling methods runtime and getLogging.
      */
     public void updateView(){
         runTime(); // effectively ends turn
@@ -459,7 +459,7 @@ public class Controller {
     /**
      *  Will re-initialize the gameboard, where no piece has spawned.
      */
-    private void reset(){
+    public void reset(){
         //Creating two arrays to align with a 2 dimension array
         board = new Square[8][5];
         for (int rowsBoard = 0; rowsBoard < board[0].length; rowsBoard++) {
@@ -497,7 +497,7 @@ public class Controller {
     /**
      *  Will end the game, if any zombies have reached at the end of the gameboard.
      */
-    private void gameOver(){
+    public void gameOver(){
         for (int row = 0; row < board[0].length; row++) {
             if (board[0][row].getPiece() != null) {
                 if (board[0][row].isZombie()) {
