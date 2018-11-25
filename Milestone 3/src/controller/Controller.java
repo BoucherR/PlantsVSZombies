@@ -217,7 +217,6 @@ public class Controller {
     }
 
     public void undo() {
-        System.out.println("IN THE UNDO METHOD");
         if (undoBoard.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No possible undos.");
             return;
