@@ -289,22 +289,11 @@ public class ControllerTest {
         assertTrue("The Game Piece was added again after Redo command",testController.getBoard()[4][2].isOccupied());
         assertEquals("The most recent piece REMOVAL is UNDONE",new Threepeater(),testController.getBoard()[4][2].getPiece());
 
-
         testController.getLogging();
-/*
-        Added Piece: ZOMBIE @ Coordinates: (7,0)
-        Added Piece: PEASHOOTER @ Coordinates: (3,3)
-        Added Piece: THREEPEATER @ Coordinates: (4,2)
-        Undo Clicked!
-                Redo Clicked!
-*/
 
-        //while (true);
-/*
         String[] logText = guiView.getTextArea().getText().split("\\n");
-        assertEquals("The logging confirms addition before Undo","Added Piece: THREEPEATER @ Coordinates: (4,2)",logText[logText.length-3]);
-        assertEquals("The logging confirms removal of Plant after Undo Operation","Removed Plant ",logText[logText.length-2]);
-        assertEquals("The logging confirms removal of Plant after Undo Operation","Re-added Plant ",logText[logText.length-1]);*/
+        assertEquals("The logging confirms UNDO command selection","Undo Clicked!",logText[logText.length-2].trim());
+        assertEquals("The logging confirms REDO command selection","Redo Clicked!",logText[logText.length-1].trim());
     }
 
     /**
