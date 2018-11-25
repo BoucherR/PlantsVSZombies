@@ -51,13 +51,8 @@ public class Controller {
      */
     private List<String> loggingList;
 
-    /**
-     *
-     */
     private Stack<Square[][]> undoBoard;
     private Stack<Square[][]> redoBoard;
-
-
     private static final int BOARD_LENGTH = 8;
     private static final int BOARD_HEIGHT = 5;
 
