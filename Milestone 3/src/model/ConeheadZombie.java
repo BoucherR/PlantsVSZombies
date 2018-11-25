@@ -24,10 +24,10 @@ public class ConeheadZombie extends Piece{
 	}
 
 	/**
-	 * Creates a ConeheadZombie with 10 health and 4 attack damage.
+	 * Creates a ConeheadZombie with 15 health and 4 attack damage.
 	 */
 	public ConeheadZombie() {
-		super("CONEHEADZOMBIE", 'C', 10, 4, 0);
+		super("CONEHEADZOMBIE", 'C', 15, 4, 0);
 	}
 
 }

@@ -351,11 +351,9 @@ public class Controller {
     public void hitUpdate(){
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
-                if (board[col][row].getPiece() != null) {
-                    if (board[col][row].getPiece().getHealth() > 0){
+                if (board[col][row].getPiece() != null && board[col][row].getPiece().getHealth() > 0) {
                         if (board[col][row].isShooter()) {
                             for(int i = col + 1; i < board.length; i++){
-                                if (board[i][row].getPiece() != null){
                                     if( board[i][row].isZombie()) {
                                         board[i][row].getPiece().setHealth(board[i][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
                                         if (board[i][row].getPiece().getHealth() <= 0) {
@@ -364,24 +362,19 @@ public class Controller {
                                             loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: " + board[i][row].getPiece().getHealth() + " @ " + board[i][row].getCoordinate() + "\n");
                                         }
                                     }
-                                }
+
                             }
                         }
-                        else if (board[col][row].isZombie()) {
-                            if (!(col - 1 == -1)){
-                                if(board[col - 1][row].getPiece() != null) {
-                                    if (board[col - 1][row].isPlant()) {
-                                        board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
-                                        if (board[col - 1][row].getPiece().getHealth() <= 0) {
-                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
-                                        } else {
-                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
-                                        }
-                                    }
-                                }
+
+                        else if (board[col][row].isZombie() && board[col - 1][row].isPlant() && !(col - 1 == -1)) {
+                            board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
+                            if (board[col - 1][row].getPiece().getHealth() <= 0) {
+                                loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
+                            } else {
+                                loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
                             }
                         }
-                    }
+
                 }
             }
         }
@@ -394,12 +387,12 @@ public class Controller {
         if (zombieLimit != 0) {
             Random ran = new Random();
             int y = ran.nextInt(5);
-            int t = ran.nextInt(4);
-            if (t == 0 || t == 1) {
+            int t = ran.nextInt(7);
+            if (t == 0 || t == 1 || t == 2 || t == 31) {
 	            add(new Coordinate(7, y), new Zombie());
-	        } else if (t == 2) {
+	        } else if (t == 4 || t == 5) {
 	        	add(new Coordinate(7, y), new ConeheadZombie());
-	        } else if (t == 3) {
+	        } else if (t == 6) {
 	        	add(new Coordinate(7, y), new BucketZombie());
 	        }
             view.getGameButtons()[7][y].setEnabled(false);
@@ -413,16 +406,14 @@ public class Controller {
     public void movingZombie(){
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
-                if (board[col][row].getPiece() != null) {
-                    if (board[col][row].isZombie()) {
-                        view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
-                        view.getGameButtons()[col][row].setEnabled(true);
-                        if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
-                            view.getGameButtons()[col - 1][row].setEnabled(false);
-                        }
-                        else {
-                            view.getGameButtons()[col][row].setEnabled(false);
-                        }
+                if (board[col][row].isZombie()) {
+                    view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
+                    view.getGameButtons()[col][row].setEnabled(true);
+                    if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
+                        view.getGameButtons()[col - 1][row].setEnabled(false);
+                    }
+                    else {
+                        view.getGameButtons()[col][row].setEnabled(false);
                     }
                 }
             }
@@ -510,10 +501,8 @@ public class Controller {
         if(zombieLimit == 0){
             for (int row = 0; row < board[0].length; row++) {
                 for (int col = 0; col < board.length; col++) {
-                    if (board[col][row].getPiece() != null) {
-                        if (board[col][row].isZombie()) {
-                            return;
-                        }
+                    if (board[col][row].isZombie()) {
+                        return;
                     }
                 }
             }
@@ -527,11 +516,9 @@ public class Controller {
      */
     public void gameOver(){
         for (int row = 0; row < board[0].length; row++) {
-            if (board[0][row].getPiece() != null) {
-                if (board[0][row].isZombie()) {
-                    JOptionPane.showMessageDialog(null,"You have lost. Thank you for playing.");
-                    System.exit(0);
-                }
+            if (board[0][row].isZombie()) {
+                JOptionPane.showMessageDialog(null,"You have lost. Thank you for playing.");
+                System.exit(0);
             }
         }
     }
