@@ -11,7 +11,7 @@ import java.io.IOException;
  * a Piece given a char shortName of a PlantPiece. Additionally, this class includes getter and setters such as a getName(), getShortName(), getCost(), getHealth(), setHealth(),
  * and getAttack(). Piece also includes a toString() method.
  *
- * In version 3.0, Pieces include the "PEASHOOTER", "ZOMBIE", "SUNFLOWER", "REPEATER", "THREEPEATER", "WALNUT", "TWINSUNFLOWER", "GIANTSUNFLOWER", "BUCKETZOMBIE", and "CONEHEADZOMBIE".
+ * In version 3.0, Pieces include the "PEASHOOTER", "ZOMBIE", "SUNFLOWER", "REPEATER", "THREEPEATER", "WALLNUT", "TWINSUNFLOWER", "GIANTSUNFLOWER", "BUCKETZOMBIE", and "CONEHEADZOMBIE".
  * Each piece includes a (int) cost, (int) health, (int) attack, (char) shortName and (PlantPieces) name.
  *
  * The PEASHOOTER Piece is a friendly offensive entity and can aide the player by damaging ZOMBIE entities that appear on the board.
@@ -55,7 +55,6 @@ public abstract class Piece {
         this.health = health;
         this.attack = attack;
     }
-
 
     /**
      * Used for a deep-copy in order to allow for proper undo/redo
@@ -173,8 +172,11 @@ public abstract class Piece {
         return this.shortName == ((Piece) o).shortName && this.name.equals(((Piece) o).name) && this.health == ((Piece) o).health && this.cost == ((Piece) o).cost && this.attack == ((Piece) o).attack;
     }
 
+    /**
+     * Retrieving the Pieces' Image
+     * @return Image of the Piece
+     */
     public ImageIcon getImage(){
         return new ImageIcon(getClass().getResource("/Images/" + this.getName().toLowerCase() + ".png"));
     }
-
 }

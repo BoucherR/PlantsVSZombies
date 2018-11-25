@@ -4,8 +4,6 @@ import view.*;
 import model.*;
 
 import javax.swing.*;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
@@ -24,6 +22,31 @@ public class Controller {
     private Square board[][];
 
     /**
+     *  User's money pouch during the game.
+     */
+    private int moneyPouch;
+
+    /**
+     *  The amount of zombies to be spawned within the board.
+     */
+    private int zombieLimit;
+
+    /**
+     *  Displaying the game, and is able to manipulate
+     */
+    private View view;
+
+    /**
+     *  Used for detecting on where the mouse has been clicked
+     */
+    private Coordinate clickedButtonLocation;
+
+    /**
+     *  Keeping recording on what is happening in-game
+     */
+    private List<String> loggingList;
+
+    /**
      *
      */
     private Stack<Square[][]> undoBoard;
@@ -34,22 +57,6 @@ public class Controller {
     private static final int BOARD_HEIGHT = 5;
 
     /**
-     *  User's money pouch during the game.
-     */
-    private int moneyPouch;
-
-    /**
-     *  The amount of zombies to be spawned within the board.
-     */
-    private int zombieLimit;
-
-    private View view;
-
-    private Coordinate clickedButtonLocation;
-
-    private List<String> loggingList;
-
-    /**
      *  Will generate a brand new board with initial values. Board will consist of
      *  a dual array of squares, and each square would contain a specific coordinate and
      *  piece when added and or removed. Logging is to keep track of every event happening.
@@ -57,10 +64,10 @@ public class Controller {
      *  amount of zombies allowed to be spawned into the board.
      */
     public Controller(View view){
+        this.loggingList = new ArrayList<>();
         undoBoard = new Stack<>();
         redoBoard = new Stack<>();
         this.board = new Square[BOARD_LENGTH][BOARD_HEIGHT];
-        this.loggingList = new ArrayList<>();
         this.view = view;
         this.moneyPouch = 500;
         this.zombieLimit = 10;
@@ -80,11 +87,17 @@ public class Controller {
      */
     public void actionListener(){
 
+        /**
+         * When a plant is removed from the board, the user will be able to add it with this function
+         */
         view.getRedoButton().addActionListener((e) -> {
             redo();
             loggingList.add("Redo Clicked! \n");
         });
 
+        /**
+         * When a plant is placed on the board, the user will be able to remove it with this function
+         */
         view.getUndoButton().addActionListener((e) -> {
             undo();
             loggingList.add("Undo Clicked! \n");
@@ -101,8 +114,6 @@ public class Controller {
                 });
             }
         }
-
-        //view.getPopupMenu().add
 
         /**
          * Using pop-ups on the board, generated on the click-location, to handle the placing of sunflowers.
@@ -216,19 +227,46 @@ public class Controller {
         board = undoBoard.pop();
         System.out.println("undoBoard has been popped and set to board");
         long pieces2 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
-                            .filter(square -> square.getPiece() != null)
-                            .count();
+                .filter(square -> square.getPiece() != null)
+                .count();
         if(pieces1 == pieces2) System.out.println("We have a problem");
         System.out.println(toString());
+        board2GUI();
     }
 
     public void redo() {
+        System.out.println("IN THE REDO METHOD");
         if (redoBoard.isEmpty()) {
             return;
         }
+        System.out.println("redoboard is not empty");
         undoBoard.push(board);
+        long pieces1 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
+                .filter(square -> square.getPiece() != null)
+                .count();
         board = redoBoard.pop();
+        long pieces2 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
+                .filter(square -> square.getPiece() != null)
+                .count();
+        if(pieces1 == pieces2) System.out.println("We have a problem");
+        System.out.println(toString());
+        board2GUI();
     }
+
+    public void board2GUI(){
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
+                if(board[col][row].getPiece() != null) {
+                    view.getGameButtons()[col][row].setDisabledIcon(board[col][row].getPiece().getImage());
+                    view.getGameButtons()[col][row].setIcon(board[col][row].getPiece().getImage());
+                } else {
+                    view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
+                    view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
+                }
+            }
+        }
+    }
+
 
     /**
      *
@@ -243,8 +281,7 @@ public class Controller {
      * plants.
      */
     public void runTime(){
-        undoBoard.push(copyBoard()); // pushing status of board to undo stack
-        System.out.println(undoBoard.size() + " items in the stack");
+        undoBoard.push(copyBoard());
         movingZombie();
         addingZombie();
         removeUpdate();
@@ -270,7 +307,7 @@ public class Controller {
             return false;
         }
         if(!purchasePiece(piece)){
-            loggingList.add("Piece not added due to lack to money.\n");
+            JOptionPane.showMessageDialog(null,"Not enough Money");
             return false;
         }
         srcSquare.addPiece(piece);
@@ -278,7 +315,6 @@ public class Controller {
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setIcon(piece.getImage());
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setRolloverEnabled(false);
         loggingList.add("Added Piece: " + piece.getName() + " @ Coordinates: " + coordinate.toString() + "\n");
-
         return true;
     }
 
@@ -315,10 +351,10 @@ public class Controller {
             for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getHealth() > 0){
-                        if (board[col][row].getPiece().getShortName() == 'P' || board[col][row].getPiece().getShortName() == 'T' || board[col][row].getPiece().getShortName() == 'R' ) {
+                        if (board[col][row].isShooter()) {
                             for(int i = col + 1; i < board.length; i++){
                                 if (board[i][row].getPiece() != null){
-                                    if( board[i][row].getPiece().getShortName() == 'Z' || board[i][row].getPiece().getShortName() == 'B' || board[i][row].getPiece().getShortName() == 'C') {
+                                    if( board[i][row].isZombie()) {
                                         board[i][row].getPiece().setHealth(board[i][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
                                         if (board[i][row].getPiece().getHealth() <= 0) {
                                             loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: Dead @ " + board[i][row].getCoordinate() + "\n");
@@ -329,14 +365,16 @@ public class Controller {
                                 }
                             }
                         }
-                        else if (board[col][row].getPiece().getShortName() == 'Z' || board[col][row].getPiece().getShortName() == 'B' || board[col][row].getPiece().getShortName() == 'C') {
+                        else if (board[col][row].isZombie()) {
                             if (!(col - 1 == -1)){
-                                if (board[col - 1][row].getPiece() != null && board[col - 1][row].getPiece().getShortName() != 'Z' && board[col - 1][row].getPiece().getShortName() != 'B' && board[col - 1][row].getPiece().getShortName() != 'C') {
-                                    board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
-                                    if (board[col - 1][row].getPiece().getHealth() <= 0) {
-                                        loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
-                                    } else {
-                                        loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
+                                if(board[col - 1][row].getPiece() != null) {
+                                    if (board[col - 1][row].isPlant()) {
+                                        board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
+                                        if (board[col - 1][row].getPiece().getHealth() <= 0) {
+                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
+                                        } else {
+                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
+                                        }
                                     }
                                 }
                             }
@@ -374,7 +412,7 @@ public class Controller {
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
-                    if (board[col][row].getPiece().getShortName() == 'Z' || board[col][row].getPiece().getShortName() == 'B' || board[col][row].getPiece().getShortName() == 'C') {
+                    if (board[col][row].isZombie()) {
                         view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
                         view.getGameButtons()[col][row].setEnabled(true);
                         if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
@@ -471,7 +509,7 @@ public class Controller {
             for (int row = 0; row < board[0].length; row++) {
                 for (int col = 0; col < board.length; col++) {
                     if (board[col][row].getPiece() != null) {
-                        if (board[col][row].getPiece().getShortName() == 'Z' || board[col][row].getPiece().getShortName() == 'C' || board[col][row].getPiece().getShortName() == 'B') {
+                        if (board[col][row].isZombie()) {
                             return;
                         }
                     }
@@ -488,7 +526,7 @@ public class Controller {
     public void gameOver(){
         for (int row = 0; row < board[0].length; row++) {
             if (board[0][row].getPiece() != null) {
-                if (board[0][row].getPiece().getShortName() == 'Z' || board[0][row].getPiece().getShortName() == 'C' || board[0][row].getPiece().getShortName() == 'B') {
+                if (board[0][row].isZombie()) {
                     JOptionPane.showMessageDialog(null,"You have lost. Thank you for playing.");
                     System.exit(0);
                 }
@@ -537,32 +575,21 @@ public class Controller {
         return s;
     }
 
-    public String toString(Square[][] board) {
-        //Printing in toString() format of the gameBoard
-        Piece shortNamePiece;
-        String s = "";
-        s += "\n   0 1 2 3 4 5 6 7\n";
-        for (int row = 0; row < board[0].length; row++) {
-            s += row +" |";
-            for (int col = 0; col < board.length; col++) {
-                if (board[col][row].getPiece() != null) {
-                    shortNamePiece = board[col][row].getPiece();
-                    s += shortNamePiece.getShortName() + "|";
-                } else {
-                    s += " |";
-                }
-            }
-            s += "\n";
-        }
-        s += "Money Pouch: " + moneyPouch + "\n";
-        // s += logging;
-        return s;
-    }
-
-
-
+    /**
+     * The Getter method for the Square Board
+     * @return board, The Game Board
+     */
     public Square[][] getBoard() {
         return board;
     }
+
+    /**
+     * The Getter method for the clicked button coordinate values
+     * @return Coordinate, The Coordinate Values of the clicked buttons
+     */
+    public Coordinate getClickedButtonLocation() {
+        return clickedButtonLocation;
+    }
+
 
 }

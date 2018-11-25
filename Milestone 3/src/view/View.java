@@ -102,14 +102,13 @@ public class View extends JFrame {
      */
     JMenuBar menuBar;
 
-
     /**
      *  Setting up the GUI using the fields that were chosen
      */
     public View(){
 
         /*
-            Initializing JScroll, JPanel and JTextArea
+            Initializing JScroll, JPanel, JMenu and JTextArea
          */
         textArea = new JTextArea(15,50);
         topPanel = new JPanel();
@@ -123,7 +122,8 @@ public class View extends JFrame {
 
         /*
             Setting up the size of the game board and where the JTextArea,
-            JScrollPane and JPanels will be placed on the JFrame
+            JScrollPane and JPanels will be placed on the JFrame,
+            adding JMenu with JMenuItems
          */
         setSize(1366,768);
         setTitle("Plants VS. Zombies");
@@ -135,8 +135,8 @@ public class View extends JFrame {
         sunPicture.add(sunMoney);
         bottomPanel.add(jScrollPane);
         add(bottomPanel, BorderLayout.SOUTH);
-        menuBar.add(undoButton);
         menuBar.add(redoButton);
+        menuBar.add(undoButton);
         setJMenuBar(menuBar);
 
         /*
@@ -297,9 +297,5 @@ public class View extends JFrame {
      */
     public JMenuItem getUndoButton() {
         return undoButton;
-    }
-
-    public static void main(String[] args) {
-        View test = new View();
     }
 }

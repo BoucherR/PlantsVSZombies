@@ -27,7 +27,7 @@ public class Walnut extends Piece{
 	 * Creates a Walnut with 30 health and 50 cost value.
 	 */
 	public Walnut() {
-		super("WALNUT", 'W', 30, 0, 50);
+		super("WALLNUT", 'W', 30, 0, 50);
 	}
 
 }
