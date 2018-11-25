@@ -52,7 +52,7 @@ public class ConeheadZombieTest {
     @Test
     public void testGetHealth(){
         assertEquals("The Game Piece Health is 15",15, coneheadZombie.getHealth());
-        assertNotEquals("The Game Piece Health is 10","^10", coneheadZombie.getHealth());
+        assertNotEquals("The Game Piece Health is 15","^15", coneheadZombie.getHealth());
     }
 
     /**

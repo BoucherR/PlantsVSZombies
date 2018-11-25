@@ -242,6 +242,8 @@ public class Controller {
                 if(board[col][row].getPiece() != null) {
                     view.getGameButtons()[col][row].setDisabledIcon(board[col][row].getPiece().getImage());
                     view.getGameButtons()[col][row].setIcon(board[col][row].getPiece().getImage());
+                    view.getGameButtons()[col][row].setEnabled(false);
+
                 } else {
                     view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
                     view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
