@@ -29,7 +29,7 @@ public class PieceTest {
         testPiece1 = new Sunflower();
         testPiece2 = new Repeater();
         testPiece3 = new Peashooter();
-        //testPiece4 = new Piece("ZOMBIE",'Z',10,10,0);
+        testPiece4 = new Zombie();
     }
 
     /**
