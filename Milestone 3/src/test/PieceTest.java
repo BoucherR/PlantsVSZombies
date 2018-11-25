@@ -37,10 +37,10 @@ public class PieceTest {
      */
     @Test
     public void testGetName() {
-        assertNotNull("The Game Piece Short Name is SUNFLOWER",testPiece1.getName());
-        assertNotNull("The Game Piece is REPEATER",testPiece2.getName());
-        assertNotNull("The Game Piece is PEASHOOTER",testPiece3.getName());
-        assertNotNull("The Game Piece is ZOMBIE",testPiece4.getName());
+        assertNotNull("The Game Piece is SUNFLOWER",testPiece1);
+        assertNotNull("The Game Piece is REPEATER",testPiece2);
+        assertNotNull("The Game Piece is PEASHOOTER",testPiece3);
+        assertNotNull("The Game Piece is ZOMBIE",testPiece4);
 
         assertEquals("The Game Piece is SUNFLOWER","SUNFLOWER",testPiece1.getName());
         assertNotEquals("The Game Piece is SUNFLOWER Capitalised","sunflower",testPiece1.getName());
@@ -111,7 +111,7 @@ public class PieceTest {
         assertEquals("The SunFlower Health is 5",5,testPiece1.getHealth());
         assertEquals("The Repeater Health  is 5",5,testPiece2.getHealth());
         assertEquals("The PeaShooter Health is 5",5,testPiece3.getHealth());
-        assertEquals("The Zombie Health is 10",10,testPiece4.getHealth());
+        assertEquals("The Zombie Health is 5",5,testPiece4.getHealth());
 
         assertNotEquals("The SunFlower Health is 5","5",testPiece1.getHealth());
         assertNotEquals("The Repeater Health  is 5",1010,testPiece2.getHealth());
@@ -132,7 +132,7 @@ public class PieceTest {
         assertEquals("The SunFlower Attack Power is 0",0,testPiece1.getAttack());
         assertEquals("The Repeater Attack Power is 4",4,testPiece2.getAttack());
         assertEquals("The PeaShooter Attack Power is 2",2,testPiece3.getAttack());
-        assertEquals("The Zombie Health  Attack Power 10",10,testPiece4.getAttack());
+        assertEquals("The Zombie Health  Attack Power 2",2,testPiece4.getAttack());
 
         assertNotEquals("The SunFlower Attack Power is 0","0",testPiece1.getAttack());
         assertNotEquals("The Repeater Attack Power is 4",'4',testPiece2.getAttack());
@@ -215,7 +215,7 @@ public class PieceTest {
         assertEquals("Incomplete Game Piece Information","S -> Health: 5",testPiece1.toString());
         assertEquals("Incomplete Game Piece Information","R -> Health: 5",testPiece2.toString());
         assertEquals("Incomplete Game Piece Information","P -> Health: 5",testPiece3.toString());
-        assertEquals("Incomplete Game Piece Information","Z -> Health: 10",testPiece4.toString());
+        assertEquals("Incomplete Game Piece Information","Z -> Health: 5",testPiece4.toString());
 
         assertNotEquals("Incomplete Game Piece Information","S -> lth: 5",testPiece1.toString());
         assertNotEquals("Incomplete Game Piece Information","Health: 1q",testPiece2.toString());
@@ -226,30 +226,28 @@ public class PieceTest {
     /**
      * The EQUALS method is used to compare two coordinate objects field by field
      */
-    /*
     @Test
     public void testEquals(){
         assertEquals("Game Piece entry matches", testPiece1, new Sunflower());
-        assertNotEquals("Game Piece: SUNFLOWER", testPiece1, new Piece("SUNFLOWER", 'S', 0, 2, 0));
+        assertNotEquals("Game Piece: SUNFLOWER", testPiece1, new Zombie());
         assertNotEquals("Coordinate entry not NULL", null, testPiece1);
         assertNotEquals("The Object should not be Game Piece", testPiece1, new Square(new Coordinate(2, 3)));
 
-        assertEquals("Game Piece entry matches", testPiece2, new Piece("REPEATER", 'R', 5, 4, 40));
+        assertEquals("Game Piece entry matches", testPiece2, new Repeater());
         assertNotEquals("Game Piece entry not NULL", null, testPiece2);
-        assertNotEquals("Game Piece: ZOMBIE",testPiece2.equals(new Piece("Bomber",'B',5,5,0)));
-        assertNotEquals("The Object should not be Game Piece",new Piece("NBomber",'T',5,5,0).equals(testPiece2));
+        assertNotEquals("Game Piece: ZOMBIE",testPiece2.equals(new Peashooter()));
+        assertNotEquals("The Object should not be Game Piece",new Zombie().equals(testPiece2));
 
         assertTrue("Game Piece entry matches",testPiece3.equals(new Peashooter()));
         assertNotEquals("Game Piece entry not NULL", null, testPiece3);
-        assertNotEquals("Game Piece: PEASHOOTER",true, new Piece("PS",'S',10,0,0).equals(testPiece3));
+        assertNotEquals("Game Piece: PEASHOOTER",true, new Threepeater().equals(testPiece3));
         assertNotEquals("The Object should not be Game Piece",true,new Zombie().equals(testPiece3));
 
-        assertTrue("Game Piece entry matches",testPiece4.equals(new Piece("ZOMBIE",'Z',10,10,0)));
+        assertTrue("Game Piece entry matches",testPiece4.equals(new Zombie()));
         assertNotEquals("Game Piece entry not NULL", null, testPiece4);
-        assertNotEquals("Game Piece: ZOMBIE",true,new Piece("Zombie Killer",'E',0,10,5).equals(testPiece4));
-        assertNotEquals("The Object should not be Game Piece",true,new Piece("ZOM",'K',10,10,0).equals(testPiece4));
+        assertNotEquals("Game Piece: ZOMBIE",true,new Wallnut().equals(testPiece4));
+        assertNotEquals("The Object should not be Game Piece",true,new BucketZombie().equals(testPiece4));
     }
-    */
 
     /**
      * The Test Case to check the Getter method for the Image Icon of the Game Pieces
