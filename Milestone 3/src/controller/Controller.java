@@ -6,9 +6,11 @@ import model.*;
 import javax.swing.*;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
+import java.util.List;
 
 /**
  * @author Youssef Saghbini
@@ -206,7 +208,6 @@ public class Controller {
      */
     public Square[][] copyBoard() {
         Square boardCopy[][] = new Square[BOARD_LENGTH][BOARD_HEIGHT];
-
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
                 boardCopy[col][row] = board[col][row].copy();
@@ -218,40 +219,21 @@ public class Controller {
     public void undo() {
         System.out.println("IN THE UNDO METHOD");
         if (undoBoard.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No possible undos.");
             return;
         }
-        System.out.println("undoboard is not empty");
         redoBoard.push(board);
-        System.out.println("Redoboard has been pushed to");
-        long pieces1 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
-                .filter(square -> square.getPiece() != null)
-                .count();
         board = undoBoard.pop();
-        System.out.println("undoBoard has been popped and set to board");
-        long pieces2 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
-                .filter(square -> square.getPiece() != null)
-                .count();
-        if(pieces1 == pieces2) System.out.println("We have a problem");
-        System.out.println(toString());
         board2GUI();
     }
 
     public void redo() {
-        System.out.println("IN THE REDO METHOD");
         if (redoBoard.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No possible redos.");
             return;
         }
-        System.out.println("redoboard is not empty");
         undoBoard.push(board);
-        long pieces1 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
-                .filter(square -> square.getPiece() != null)
-                .count();
         board = redoBoard.pop();
-        long pieces2 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
-                .filter(square -> square.getPiece() != null)
-                .count();
-        if(pieces1 == pieces2) System.out.println("We have a problem");
-        System.out.println(toString());
         board2GUI();
     }
 
@@ -271,7 +253,7 @@ public class Controller {
 
 
     /**
-     *
+     *  Updating the GUI of the game
      */
     public void updateView(){
         runTime(); // effectively ends turn
@@ -315,7 +297,7 @@ public class Controller {
         srcSquare.addPiece(piece);
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setDisabledIcon(piece.getImage());
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setIcon(piece.getImage());
-        view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setRolloverEnabled(false);
+        view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setEnabled(false);
         loggingList.add("Added Piece: " + piece.getName() + " @ Coordinates: " + coordinate.toString() + "\n");
         return true;
     }
@@ -392,7 +374,6 @@ public class Controller {
 	        } else if (t == 6) {
 	        	add(new Coordinate(7, y), new BucketZombie());
 	        }
-            view.getGameButtons()[7][y].setEnabled(false);
             zombieLimit--;
         }
     }
