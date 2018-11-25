@@ -245,6 +245,7 @@ public class Controller {
                 } else {
                     view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
                     view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
+                    view.getGameButtons()[col][row].setEnabled(true);
                 }
             }
         }
