@@ -6,9 +6,7 @@ import model.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author Youssef Saghbini
@@ -49,6 +47,7 @@ public class Controller {
     private List<String> loggingList;
 
     /**
+<<<<<<< HEAD
      *  Undo move
      */
     private List<Square> undoList;
@@ -57,6 +56,16 @@ public class Controller {
      * Redo move
      */
     private List<Square> redoList;
+=======
+     *
+     */
+    private Stack<Square[][]> undoBoard;
+    private Stack<Square[][]> redoBoard;
+
+
+    private static final int BOARD_LENGTH = 8;
+    private static final int BOARD_HEIGHT = 5;
+>>>>>>> ryanDeepCopyUndo
 
     /**
      *  Will generate a brand new board with initial values. Board will consist of
@@ -66,10 +75,15 @@ public class Controller {
      *  amount of zombies allowed to be spawned into the board.
      */
     public Controller(View view){
-        this.board = new Square[8][5];
         this.loggingList = new ArrayList<>();
+<<<<<<< HEAD
         undoList = new ArrayList<>();
         redoList = new ArrayList<>();
+=======
+        undoBoard = new Stack<>();
+        redoBoard = new Stack<>();
+        this.board = new Square[BOARD_LENGTH][BOARD_HEIGHT];
+>>>>>>> ryanDeepCopyUndo
         this.view = view;
         this.moneyPouch = 500;
         this.zombieLimit = 10;
@@ -92,6 +106,7 @@ public class Controller {
         /**
          * When a plant is removed from the board, the user will be able to add it with this function
          */
+<<<<<<< HEAD
         view.getRedoButton().addActionListener((ActionEvent event) -> {
             validateList(redoList);
             if(redoList.size() > 0) {
@@ -109,11 +124,17 @@ public class Controller {
             } else {
                 JOptionPane.showMessageDialog(null, "No more possible Redos.");
             }
+=======
+        view.getRedoButton().addActionListener((e) -> {
+            redo();
+            loggingList.add("Redo Clicked! \n");
+>>>>>>> ryanDeepCopyUndo
         });
 
         /**
          * When a plant is placed on the board, the user will be able to remove it with this function
          */
+<<<<<<< HEAD
         view.getUndoButton().addActionListener((ActionEvent event) -> {
             if(undoList.size() > 0) {
                 Square tempSquare = undoList.get(undoList.size() - 1);
@@ -126,6 +147,11 @@ public class Controller {
             } else {
                 JOptionPane.showMessageDialog(null, "No more possible Undos.");
             }
+=======
+        view.getUndoButton().addActionListener((e) -> {
+            undo();
+            loggingList.add("Undo Clicked! \n");
+>>>>>>> ryanDeepCopyUndo
         });
 
         /**
@@ -194,7 +220,7 @@ public class Controller {
         view.getWallnut().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(add(clickedButtonLocation, new Wallnut())) {
+                if(add(clickedButtonLocation, new Walnut())) {
                     updateView();
                 }
             }
@@ -227,7 +253,81 @@ public class Controller {
     }
 
     /**
+<<<<<<< HEAD
      * Updates the veiw by calling methods runtime and getLogging.
+=======
+     * Copies the current state of the gameboard
+     * @return Square[][] object representing the board and all it's pieces
+     */
+    public Square[][] copyBoard() {
+        Square boardCopy[][] = new Square[BOARD_LENGTH][BOARD_HEIGHT];
+
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
+                boardCopy[col][row] = board[col][row].copy();
+            }
+        }
+        return boardCopy;
+    }
+
+    public void undo() {
+        System.out.println("IN THE UNDO METHOD");
+        if (undoBoard.isEmpty()) {
+            return;
+        }
+        System.out.println("undoboard is not empty");
+        redoBoard.push(board);
+        System.out.println("Redoboard has been pushed to");
+        long pieces1 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
+                .filter(square -> square.getPiece() != null)
+                .count();
+        board = undoBoard.pop();
+        System.out.println("undoBoard has been popped and set to board");
+        long pieces2 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
+                .filter(square -> square.getPiece() != null)
+                .count();
+        if(pieces1 == pieces2) System.out.println("We have a problem");
+        System.out.println(toString());
+        board2GUI();
+    }
+
+    public void redo() {
+        System.out.println("IN THE REDO METHOD");
+        if (redoBoard.isEmpty()) {
+            return;
+        }
+        System.out.println("redoboard is not empty");
+        undoBoard.push(board);
+        long pieces1 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
+                .filter(square -> square.getPiece() != null)
+                .count();
+        board = redoBoard.pop();
+        long pieces2 = Arrays.stream(board).flatMap(row -> Arrays.stream(row))
+                .filter(square -> square.getPiece() != null)
+                .count();
+        if(pieces1 == pieces2) System.out.println("We have a problem");
+        System.out.println(toString());
+        board2GUI();
+    }
+
+    public void board2GUI(){
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
+                if(board[col][row].getPiece() != null) {
+                    view.getGameButtons()[col][row].setDisabledIcon(board[col][row].getPiece().getImage());
+                    view.getGameButtons()[col][row].setIcon(board[col][row].getPiece().getImage());
+                } else {
+                    view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
+                    view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
+                }
+            }
+        }
+    }
+
+
+    /**
+     *
+>>>>>>> ryanDeepCopyUndo
      */
     public void updateView(){
         runTime(); // effectively ends turn
@@ -238,7 +338,12 @@ public class Controller {
      * This method is used to call the other methods required to finish a turn, after the player has placed his/her
      * plants.
      */
+<<<<<<< HEAD
     private void runTime(){
+=======
+    public void runTime(){
+        undoBoard.push(copyBoard());
+>>>>>>> ryanDeepCopyUndo
         movingZombie();
         addingZombie();
         removeUpdate();
@@ -323,6 +428,7 @@ public class Controller {
     public void hitUpdate(){
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
+<<<<<<< HEAD
                 if (board[col][row].getPiece() != null && board[col][row].getPiece().getHealth() > 0) {
                     if (board[col][row].isShooter()) {
                         for(int i = col + 1; i < board.length; i++){
@@ -342,6 +448,37 @@ public class Controller {
                             loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
                         } else {
                             loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
+=======
+                if (board[col][row].getPiece() != null) {
+                    if (board[col][row].getPiece().getHealth() > 0){
+                        if (board[col][row].isShooter()) {
+                            for(int i = col + 1; i < board.length; i++){
+                                if (board[i][row].getPiece() != null){
+                                    if( board[i][row].isZombie()) {
+                                        board[i][row].getPiece().setHealth(board[i][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
+                                        if (board[i][row].getPiece().getHealth() <= 0) {
+                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: Dead @ " + board[i][row].getCoordinate() + "\n");
+                                        } else {
+                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: " + board[i][row].getPiece().getHealth() + " @ " + board[i][row].getCoordinate() + "\n");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else if (board[col][row].isZombie()) {
+                            if (!(col - 1 == -1)){
+                                if(board[col - 1][row].getPiece() != null) {
+                                    if (board[col - 1][row].isPlant()) {
+                                        board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
+                                        if (board[col - 1][row].getPiece().getHealth() <= 0) {
+                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
+                                        } else {
+                                            loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
+                                        }
+                                    }
+                                }
+                            }
+>>>>>>> ryanDeepCopyUndo
                         }
                     }
                 }
@@ -375,6 +512,10 @@ public class Controller {
     public void movingZombie(){
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
+<<<<<<< HEAD
+=======
+                if (board[col][row].getPiece() != null) {
+>>>>>>> ryanDeepCopyUndo
                     if (board[col][row].isZombie()) {
                         view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
                         view.getGameButtons()[col][row].setEnabled(true);
@@ -470,8 +611,15 @@ public class Controller {
         if(zombieLimit == 0){
             for (int row = 0; row < board[0].length; row++) {
                 for (int col = 0; col < board.length; col++) {
+<<<<<<< HEAD
                     if (board[col][row].isZombie()) {
                         return;
+=======
+                    if (board[col][row].getPiece() != null) {
+                        if (board[col][row].isZombie()) {
+                            return;
+                        }
+>>>>>>> ryanDeepCopyUndo
                     }
                 }
             }
@@ -485,9 +633,17 @@ public class Controller {
      */
     public void gameOver(){
         for (int row = 0; row < board[0].length; row++) {
+<<<<<<< HEAD
             if (board[0][row].isZombie()) {
                 JOptionPane.showMessageDialog(null,"You have lost. Thank you for playing.");
                 System.exit(0);
+=======
+            if (board[0][row].getPiece() != null) {
+                if (board[0][row].isZombie()) {
+                    JOptionPane.showMessageDialog(null,"You have lost. Thank you for playing.");
+                    System.exit(0);
+                }
+>>>>>>> ryanDeepCopyUndo
             }
         }
     }

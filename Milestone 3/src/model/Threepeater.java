@@ -8,9 +8,19 @@ package model;
  * 
  * A Threepeater triples the attack damage and cost of a typical peashooter while doubling health. 
  * @author RG
- * @version 3.0
+ * @author Ryan Boucher
+ * @version 4.0
  */
 public class Threepeater extends Piece {
+
+	private Threepeater(String name, char shortName, int health, int attack, int cost)
+	{
+		super(name, shortName, health, attack, cost);
+	}
+
+	public Threepeater copy() {
+		return new Threepeater(getName(), getShortName(), getHealth(), getAttack(), getCost());
+	}
 
 	/**
 	 * Creates a Threepeater with 10 health, 6 attack damage, and 60 cost value.

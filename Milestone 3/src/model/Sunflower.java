@@ -7,10 +7,19 @@ package model;
  * create a new object and passes it's designated parameters. 
  *  
  * @author RG
- * @version 3.0
+ * @author Ryan Boucher
+ * @version 4.0
  */
 public class Sunflower extends Piece {
 
+    private Sunflower(String name, char shortName, int health, int attack, int cost)
+    {
+        super(name, shortName, health, attack, cost);
+    }
+
+    public Sunflower copy() {
+        return new Sunflower(getName(), getShortName(), getHealth(), getAttack(), getCost());
+    }
 	/**
 	 * Creates a Sunflower with 5 health, 0 attack damage and 10 cost value.
 	 */

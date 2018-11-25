@@ -9,10 +9,20 @@ package model;
  * 
  * A BucketZombie has 5x the health of a typical zombie and 5x its attack damage. 
  * @author Ryan Gaudreault
- * @version 3.0
+ * @author Ryan Boucher
+ * @version 4.0
  *
  */
 public class BucketZombie extends Piece{
+
+	private BucketZombie(String name, char shortName, int health, int attack, int cost)
+	{
+		super(name, shortName, health, attack, cost);
+	}
+
+	public BucketZombie copy() {
+		return new BucketZombie(getName(), getShortName(), getHealth(), getAttack(), getCost());
+	}
 
 	/**
 	 * Creates a BucketZombie with 25 health with 10 attack damage.

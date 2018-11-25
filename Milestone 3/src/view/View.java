@@ -74,7 +74,7 @@ public class View extends JFrame {
     private JMenuItem twinsunflower;
     
     /**
-     *  A Wallnut option on the pop-up menu
+     *  A Walnut option on the pop-up menu
      */
     private JMenuItem wallnut;
 
@@ -103,11 +103,14 @@ public class View extends JFrame {
      */
     JMenuBar menuBar;
 
+<<<<<<< HEAD
     /**
      * Menu List for the JMenuItems like undo and redo
      */
     JMenu menu;
 
+=======
+>>>>>>> ryanDeepCopyUndo
     /**
      *  Setting up the GUI using the fields that were chosen
      */
@@ -142,10 +145,15 @@ public class View extends JFrame {
         sunPicture.add(sunMoney);
         bottomPanel.add(jScrollPane);
         add(bottomPanel, BorderLayout.SOUTH);
+<<<<<<< HEAD
         menuBar.add(menu);
         menuBar.add(redoButton);
         menu.add(redoButton);
         menu.add(undoButton);
+=======
+        menuBar.add(redoButton);
+        menuBar.add(undoButton);
+>>>>>>> ryanDeepCopyUndo
         setJMenuBar(menuBar);
 
         /*
@@ -253,8 +261,8 @@ public class View extends JFrame {
     }
 
     /**
-     *  Getting or Creating a Wallnut at the specific point of the game board
-     *  @return JMenuItem dedicated for Wallnut
+     *  Getting or Creating a Walnut at the specific point of the game board
+     *  @return JMenuItem dedicated for Walnut
      */
     public JMenuItem getWallnut() {
         return wallnut;
