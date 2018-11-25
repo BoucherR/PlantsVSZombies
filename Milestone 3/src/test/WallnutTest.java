@@ -5,35 +5,35 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * The Test Class for Walnut (Piece SubClass)
+ * The Test Class for Wallnut (Piece SubClass)
  * @author Ryan Gaudreault
  * @version 3.0
  */
 
-public class WalnutTest {
+public class WallnutTest {
 
     /**
-     * The Walnut Piece Object that is analysed
+     * The Wallnut Piece Object that is analysed
      */
     private Piece wallNut;
 
     /**
-     * Used to initialise and establish the Walnut Object that is used for the tests
+     * Used to initialise and establish the Wallnut Object that is used for the tests
      */
     @Before
     public void setUp() {
-        wallNut = new Walnut();
+        wallNut = new Wallnut();
     }
 
     /**
-     * The Test is used to check the Name of the SubClass of Piece (Walnut)
+     * The Test is used to check the Name of the SubClass of Piece (Wallnut)
      */
     @Test
     public void testGetName(){
-        assertNotNull("The Game Piece is WALNUT", wallNut.getName());
-        assertNotEquals("The Game Piece is WALNUT all Capitalised","Walnut", wallNut.getName());
-        assertEquals("The Game Piece is WALNUT","WALNUT", wallNut.getName());
-        assertNotEquals("The Game Piece is WALNUT","APA", wallNut.getName());
+        assertNotNull("The Game Piece is WALLNUT", wallNut.getName());
+        assertNotEquals("The Game Piece is WALLNUT all Capitalised","Wallnut", wallNut.getName());
+        assertEquals("The Game Piece is WALLNUT","WALLNUT", wallNut.getName());
+        assertNotEquals("The Game Piece is WALLNUT","APA", wallNut.getName());
     }
 
     /**
@@ -66,12 +66,12 @@ public class WalnutTest {
     }
 
     /**
-     * The Test is used to check the Specified Walnut Piece Cost
+     * The Test is used to check the Specified Wallnut Piece Cost
      */
     @Test
     public void testGetCost(){
-        assertNotEquals("The Game Piece Walnut Cost is 50","$50", wallNut.getCost());
-        assertEquals("The Game Piece Walnut Cost is 50",50, wallNut.getCost());
-        assertNotEquals("The Game Piece Walnut Cost is 50",'W', wallNut.getCost());
+        assertNotEquals("The Game Piece Wallnut Cost is 50","$50", wallNut.getCost());
+        assertEquals("The Game Piece Wallnut Cost is 50",50, wallNut.getCost());
+        assertNotEquals("The Game Piece Wallnut Cost is 50",'W', wallNut.getCost());
     }
 }

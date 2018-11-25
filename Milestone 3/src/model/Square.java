@@ -194,8 +194,6 @@ public class Square{
         return gamePiece.getShortName() == 'S' || gamePiece.getShortName() == '2' || gamePiece.getShortName() == 'G';
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Used for a deep-copy in order to allow for proper undo/redo
      * @return Deep copy of the square
@@ -205,5 +203,4 @@ public class Square{
     }
 
 
->>>>>>> ryanDeepCopyUndo
 }

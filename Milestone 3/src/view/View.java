@@ -10,7 +10,6 @@ import model.*;
 import javax.swing.*;
 import java.awt.*;
 
-
 public class View extends JFrame {
 
     /**
@@ -74,7 +73,7 @@ public class View extends JFrame {
     private JMenuItem twinsunflower;
     
     /**
-     *  A Walnut option on the pop-up menu
+     *  A Wallnut option on the pop-up menu
      */
     private JMenuItem wallnut;
 
@@ -103,14 +102,6 @@ public class View extends JFrame {
      */
     JMenuBar menuBar;
 
-<<<<<<< HEAD
-    /**
-     * Menu List for the JMenuItems like undo and redo
-     */
-    JMenu menu;
-
-=======
->>>>>>> ryanDeepCopyUndo
     /**
      *  Setting up the GUI using the fields that were chosen
      */
@@ -128,7 +119,6 @@ public class View extends JFrame {
         redoButton = new JMenuItem("Redo");
         undoButton = new JMenuItem("Undo");
         menuBar = new JMenuBar();
-        menu = new JMenu("Edit");
 
         /*
             Setting up the size of the game board and where the JTextArea,
@@ -145,15 +135,8 @@ public class View extends JFrame {
         sunPicture.add(sunMoney);
         bottomPanel.add(jScrollPane);
         add(bottomPanel, BorderLayout.SOUTH);
-<<<<<<< HEAD
-        menuBar.add(menu);
-        menuBar.add(redoButton);
-        menu.add(redoButton);
-        menu.add(undoButton);
-=======
         menuBar.add(redoButton);
         menuBar.add(undoButton);
->>>>>>> ryanDeepCopyUndo
         setJMenuBar(menuBar);
 
         /*
@@ -185,7 +168,7 @@ public class View extends JFrame {
         repeater = new JMenuItem("Repeater", new ImageIcon(getClass().getResource("/Icons/RepeaterSmall.png")));
         threepeater = new JMenuItem("Threepeater", new ImageIcon(getClass().getResource("/Icons/ThreepeaterSmall.png")));
         giantsunflower = new JMenuItem("Giant Sunflower", new ImageIcon(getClass().getResource("/Icons/GiantSunflowerSmall.png")));
-       	wallnut = new JMenuItem("Walnut", new ImageIcon(getClass().getResource("/Icons/WallnutSmall.png")));
+       	wallnut = new JMenuItem("Wallnut", new ImageIcon(getClass().getResource("/Icons/WallnutSmall.png")));
        	twinsunflower = new JMenuItem("Twin Sunflower", new ImageIcon(getClass().getResource("/Icons/TwinSunflowerSmall.png")));
         popupMenu.add(sunflower);
         popupMenu.add(peashooter);
@@ -261,8 +244,8 @@ public class View extends JFrame {
     }
 
     /**
-     *  Getting or Creating a Walnut at the specific point of the game board
-     *  @return JMenuItem dedicated for Walnut
+     *  Getting or Creating a Wallnut at the specific point of the game board
+     *  @return JMenuItem dedicated for Wallnut
      */
     public JMenuItem getWallnut() {
         return wallnut;
