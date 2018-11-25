@@ -2,77 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="Refactored">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Milestone_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Milestone_21.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/PlantsVSZombies.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/PlantsVSZombies1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Icons/GiantSunflowerSmall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Icons/PeashooterSmall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Icons/RepeaterSmall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Icons/SunflowerSmall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Icons/ThreepeaterSmall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Icons/TwinSunflowerSmall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Icons/WallnutSmall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/bucketzombie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/coneheadzombie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/giantsunflower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/grass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/grasshighlighted.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/peashooter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/repeater.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/sun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/sunflower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/threepeater.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/twinsunflower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/wallnut.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/Images/zombie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/controller/Controller$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/controller/Controller$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/controller/Controller$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/controller/Controller$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/controller/Controller$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/controller/Controller$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/controller/Controller$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/controller/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/BucketZombie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/ConeheadZombie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/Coordinate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/GiantSunflower.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/Peashooter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/Piece.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/Repeater.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/Square.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/Sunflower.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/Threepeater.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/TwinSunflower.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/Walnut.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/model/Zombie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/BucketZombieTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/ConeheadZombieTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/ControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/CoordinateTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/GiantSunflowerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/PeashooterTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/PieceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/RepeaterTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/SquareTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/SunflowerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/TestAll.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/ThreepeaterTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/TwinSunflowerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/ViewTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/WalnutTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/test/ZombieTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Milestone 3/view/View.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/Milestone 2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/Milestone 2.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,6 +12,20 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="291584363">
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -112,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3657">
-              <caret line="173" selection-start-line="173" selection-end-line="173" />
+            <state relative-caret-position="3283">
+              <caret line="156" selection-start-line="156" selection-end-line="156" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#getTwinSunflower#0;class#View#0" />
@@ -135,11 +81,31 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9680">
-              <caret line="557" column="57" selection-start-line="557" selection-start-column="57" selection-end-line="557" selection-end-column="57" />
+            <state relative-caret-position="-88">
+              <caret line="456" column="57" selection-start-line="456" selection-start-column="57" selection-end-line="456" selection-end-column="57" />
+              <folding>
+                <element signature="e#22603#22604#0" expanded="true" />
+                <element signature="e#22670#22671#0" expanded="true" />
+                <element signature="e#23817#23818#0" expanded="true" />
+                <element signature="e#23845#23846#0" expanded="true" />
+                <element signature="e#24051#24052#0" expanded="true" />
+                <element signature="e#24095#24096#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -196,9 +162,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1269" />
-    <option name="width" value="1302" />
-    <option name="height" value="1551" />
+    <option name="x" value="260" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -235,8 +202,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543118027134" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543118165270" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Milestone 2" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -602,13 +569,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30294000" />
+    <option name="totallyTimeSpent" value="30594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25604552" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.282516" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -617,7 +584,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.9019139" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.9013015" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39976275" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -626,7 +593,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3286334" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32535884" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.324295" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -857,8 +824,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3657">
-          <caret line="173" selection-start-line="173" selection-end-line="173" />
+        <state relative-caret-position="3283">
+          <caret line="156" selection-start-line="156" selection-end-line="156" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#getTwinSunflower#0;class#View#0" />
@@ -866,16 +833,6 @@
             <element signature="docComment;method#getSunMoney#0;class#View#0" />
             <element signature="docComment;method#getRedoButton#0;class#View#0" />
             <element signature="docComment;method#getUndoButton#0;class#View#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -906,8 +863,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9680">
-          <caret line="557" column="57" selection-start-line="557" selection-start-column="57" selection-end-line="557" selection-end-column="57" />
+        <state relative-caret-position="-88">
+          <caret line="456" column="57" selection-start-line="456" selection-start-column="57" selection-end-line="456" selection-end-column="57" />
+          <folding>
+            <element signature="e#22603#22604#0" expanded="true" />
+            <element signature="e#22670#22671#0" expanded="true" />
+            <element signature="e#23817#23818#0" expanded="true" />
+            <element signature="e#23845#23846#0" expanded="true" />
+            <element signature="e#24051#24052#0" expanded="true" />
+            <element signature="e#24095#24096#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -7,7 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="590e5f43-6118-4518-9124-e60374956e4f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/Milestone 2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/Milestone 2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/CoordinateTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/CoordinateTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/PeashooterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/PeashooterTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/PieceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/PieceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/SquareTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/SquareTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/SunflowerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/SunflowerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/ZombieTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/out/production/Milestone 2/Test/ZombieTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Milestone 3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 3/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,6 +48,15 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="684611371">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -53,7 +72,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -67,11 +86,14 @@
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -106,14 +128,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Google Drive/School/Year 4 (Carleton)/SYSC 3110/Labs/Lab 7/BuddyBookTesting" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543118186759" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -132,6 +153,20 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="PlantsVSZombies" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -146,17 +181,18 @@
       <workItem from="1541102713301" duration="71000" />
       <workItem from="1541432908466" duration="53000" />
       <workItem from="1541432990978" duration="9000" />
+      <workItem from="1543118180906" duration="19000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="787000" />
+    <option name="totallyTimeSpent" value="806000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -165,7 +201,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
