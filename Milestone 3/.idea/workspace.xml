@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d4021aa-cfa5-49e0-ab0a-821671adabc3" name="Default Changelist" comment="Refactored">
-      <change beforePath="$PROJECT_DIR$/../Milestone 2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Milestone 2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Milestone 2/Milestone 2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Milestone 2/Milestone 2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ConeheadZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ConeheadZombie.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,12 +16,22 @@
     <session id="291584363">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="1" />
+          <entry key="java" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="1" />
+          <entry key="JAVA" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="25" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="25" />
         </counts>
       </usages-collector>
     </session>
@@ -81,24 +90,33 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-88">
-              <caret line="456" column="57" selection-start-line="456" selection-start-column="57" selection-end-line="456" selection-end-column="57" />
+            <state relative-caret-position="506">
+              <caret line="389" column="33" selection-start-line="389" selection-start-column="33" selection-end-line="389" selection-end-column="33" />
               <folding>
-                <element signature="e#22603#22604#0" expanded="true" />
-                <element signature="e#22670#22671#0" expanded="true" />
-                <element signature="e#23817#23818#0" expanded="true" />
-                <element signature="e#23845#23846#0" expanded="true" />
-                <element signature="e#24051#24052#0" expanded="true" />
-                <element signature="e#24095#24096#0" expanded="true" />
+                <element signature="e#21892#21893#0" expanded="true" />
+                <element signature="e#21959#21960#0" expanded="true" />
+                <element signature="e#23106#23107#0" expanded="true" />
+                <element signature="e#23134#23135#0" expanded="true" />
+                <element signature="e#23340#23341#0" expanded="true" />
+                <element signature="e#23384#23385#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/ConeheadZombie.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="572">
+              <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="66">
@@ -162,10 +180,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -192,6 +209,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -202,7 +225,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543118165270" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543119686623" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Milestone 2" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -569,13 +592,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30594000" />
+    <option name="totallyTimeSpent" value="32004000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.282516" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.57986873" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -847,32 +870,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/ConeheadZombie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Square.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="163" column="19" lean-forward="true" selection-start-line="163" selection-start-column="19" selection-end-line="163" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="456" column="57" selection-start-line="456" selection-start-column="57" selection-end-line="456" selection-end-column="57" />
-          <folding>
-            <element signature="e#22603#22604#0" expanded="true" />
-            <element signature="e#22670#22671#0" expanded="true" />
-            <element signature="e#23817#23818#0" expanded="true" />
-            <element signature="e#23845#23846#0" expanded="true" />
-            <element signature="e#24051#24052#0" expanded="true" />
-            <element signature="e#24095#24096#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -882,6 +883,28 @@
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/ConeheadZombie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="389" column="33" selection-start-line="389" selection-start-column="33" selection-end-line="389" selection-end-column="33" />
+          <folding>
+            <element signature="e#21892#21893#0" expanded="true" />
+            <element signature="e#21959#21960#0" expanded="true" />
+            <element signature="e#23106#23107#0" expanded="true" />
+            <element signature="e#23134#23135#0" expanded="true" />
+            <element signature="e#23340#23341#0" expanded="true" />
+            <element signature="e#23384#23385#0" expanded="true" />
           </folding>
         </state>
       </provider>
