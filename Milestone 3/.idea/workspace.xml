@@ -7,6 +7,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 3/controller/Controller$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ConeheadZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ConeheadZombie.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="399" column="13" lean-forward="true" selection-start-line="399" selection-start-column="13" selection-end-line="399" selection-end-column="13" />
+            <state relative-caret-position="460">
+              <caret line="346" column="17" lean-forward="true" selection-start-line="346" selection-start-column="17" selection-end-line="346" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#22128#22129#0" expanded="true" />
@@ -50,10 +51,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/ConeheadZombie.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Square.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1989">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="425">
+              <caret line="163" column="19" lean-forward="true" selection-start-line="163" selection-start-column="19" selection-end-line="163" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -153,7 +163,6 @@
         <option value="$PROJECT_DIR$/src/model/Wallnut.java" />
         <option value="$PROJECT_DIR$/src/model/Zombie.java" />
         <option value="$PROJECT_DIR$/src/model/GiantSunflower.java" />
-        <option value="$PROJECT_DIR$/src/model/ConeheadZombie.java" />
         <option value="$PROJECT_DIR$/src/model/BucketZombie.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/model/Coordinate.java" />
@@ -163,6 +172,7 @@
         <option value="$PROJECT_DIR$/src/model/Square.java" />
         <option value="$PROJECT_DIR$/src/test/ControllerTest.java" />
         <option value="$PROJECT_DIR$/src/view/View.java" />
+        <option value="$PROJECT_DIR$/src/model/ConeheadZombie.java" />
         <option value="$PROJECT_DIR$/src/controller/Controller.java" />
       </list>
     </option>
@@ -183,12 +193,43 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Milestone 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543103360345" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543114318989" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -505,7 +546,21 @@
       <option name="project" value="LOCAL" />
       <updated>1543102038652</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Removed unnecessary if statements.">
+      <created>1543103494004</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1543103494004</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Removed unnecessary if statements.">
+      <created>1543111489049</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1543111489049</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -547,7 +602,7 @@
     <frame x="745" y="0" width="761" height="966" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25746268" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25604552" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -565,7 +620,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3286334" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3262159" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32535884" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -611,7 +666,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Popup Menu Fix" />
     <MESSAGE value="Package Fix" />
     <MESSAGE value="Resized Popup Menu" />
     <MESSAGE value="Fixed hitUpdate()" />
@@ -636,7 +690,8 @@
     <MESSAGE value="Refactored More" />
     <MESSAGE value="Refactored More, fixed comments." />
     <MESSAGE value="Fixed Comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Comments" />
+    <MESSAGE value="Removed unnecessary if statements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unnecessary if statements." />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/out/artifacts/Milestone_2_jar/Milestone 2.jar!/org/junit/Assert.class">
@@ -733,13 +788,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/ConeheadZombie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -857,17 +905,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/ConeheadZombie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Square.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1989">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="425">
+          <caret line="163" column="19" lean-forward="true" selection-start-line="163" selection-start-column="19" selection-end-line="163" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="399" column="13" lean-forward="true" selection-start-line="399" selection-start-column="13" selection-end-line="399" selection-end-column="13" />
+        <state relative-caret-position="460">
+          <caret line="346" column="17" lean-forward="true" selection-start-line="346" selection-start-column="17" selection-end-line="346" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#22128#22129#0" expanded="true" />
