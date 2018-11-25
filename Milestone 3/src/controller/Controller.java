@@ -373,7 +373,7 @@ public class Controller {
             Random ran = new Random();
             int y = ran.nextInt(5);
             int t = ran.nextInt(7);
-            if (t == 0 || t == 1 || t == 2 || t == 31) {
+            if (t == 0 || t == 1 || t == 2 || t == 3) {
 	            add(new Coordinate(7, y), new Zombie());
 	        } else if (t == 4 || t == 5) {
 	        	add(new Coordinate(7, y), new ConeheadZombie());
