@@ -46,6 +46,7 @@ Zombies have landed onto your planet and want to take over the whole world. The 
 - If no more sun points then game can not be continued
 - When plant is added on the last column on the right, zombie can't be spawned
 - Undos is up to n-1
+- Undo/Redos does not affect money
 
 ### Future Plans 
 - Implement Save/Load Functionality
