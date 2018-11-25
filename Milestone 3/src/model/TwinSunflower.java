@@ -8,10 +8,20 @@ package model;
  * 
  * A TwinSunFlower doubles the health and sun output of a sunflower while tripling its price. 
  * @author RG
- * @version 3.0
+ * @author Ryan Boucher
+ * @version 4.0
  *
  */
 public class TwinSunflower extends Piece {
+
+	private TwinSunflower(String name, char shortName, int health, int attack, int cost)
+	{
+		super(name, shortName, health, attack, cost);
+	}
+
+	public TwinSunflower copy() {
+		return new TwinSunflower(getName(), getShortName(), getHealth(), getAttack(), getCost());
+	}
 
 	/**
 	 * Creates a TwinSunFlower with 10 health, and 30 cost value.

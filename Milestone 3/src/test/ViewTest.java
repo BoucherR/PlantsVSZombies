@@ -171,14 +171,14 @@ public class ViewTest {
     }
 
     /**
-     * The Test is used to check the Getter method for the Wallnut Option for game piece
+     * The Test is used to check the Getter method for the Walnut Option for game piece
      */
     @Test
     public void testGetWallnut(){
-        assertNotNull("The Wallnut Piece Valid Game Piece",testFrame.getWallnut());
+        assertNotNull("The Walnut Piece Valid Game Piece",testFrame.getWallnut());
         assertEquals("The Popup Menu option: Walnut","Walnut",testFrame.getWallnut().getText());
-        assertEquals("Wallnut has no SUB-MENU Items",0,testFrame.getWallnut().getComponentCount());
-        assertNotEquals("The option is Wallnut","W",testFrame.getWallnut().getName());
+        assertEquals("Walnut has no SUB-MENU Items",0,testFrame.getWallnut().getComponentCount());
+        assertNotEquals("The option is Walnut","W",testFrame.getWallnut().getName());
         assertNotEquals("The Image properly extracted from correct file path","./src/Images/.png",testFrame.getRepeater().getIcon().toString());
     }
 

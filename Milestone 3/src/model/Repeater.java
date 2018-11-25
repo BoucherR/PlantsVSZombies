@@ -8,9 +8,19 @@ package model;
  * 
  * A Repeater plant doubles the attack damage and cost of a normal peashooter. 
  * @author RG
- * @version 3.0
+ * @author Ryan Boucher
+ * @version 4.0
  */
 public class Repeater extends Piece{
+
+	private Repeater(String name, char shortName, int health, int attack, int cost)
+	{
+		super(name, shortName, health, attack, cost);
+	}
+
+	public Repeater copy() {
+		return new Repeater(getName(), getShortName(), getHealth(), getAttack(), getCost());
+	}
 
 	/**
 	 * Creates a Repeater with 5 health, 4 attack damage with 40 cost value. 

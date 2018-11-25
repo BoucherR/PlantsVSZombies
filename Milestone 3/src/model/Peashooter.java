@@ -8,9 +8,19 @@ package model;
  * create a new object and passes it's designated parameters. 
  * 
  * @author RG
- * @version 3.0
+ * @author Ryan Boucher
+ * @version 4.0
  */
 public class Peashooter extends Piece {
+
+    private Peashooter(String name, char shortName, int health, int attack, int cost)
+    {
+        super(name, shortName, health, attack, cost);
+    }
+
+    public Peashooter copy() {
+        return new Peashooter(getName(), getShortName(), getHealth(), getAttack(), getCost());
+    }
 
 	/**
 	 * Creates a Peashooter with 5 health, 2 attack damage and 20 cost value.

@@ -30,7 +30,7 @@ import java.io.IOException;
  * @version 3.0
  */
 
-public class Piece {
+public abstract class Piece {
 
     private String name;
     private char shortName;
@@ -55,6 +55,12 @@ public class Piece {
         this.health = health;
         this.attack = attack;
     }
+
+    /**
+     * Used for a deep-copy in order to allow for proper undo/redo
+     * @return Deep copy of the pieces
+     */
+    public abstract Piece copy();
 
     /**
      * When getName() method is called, it returns the PlantPieces object called name, which is a String.

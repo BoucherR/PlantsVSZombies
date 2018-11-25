@@ -9,10 +9,20 @@ package model;
  * The GiantSunflower triples the amount of a signle sunflower piece and triples the health. 
  * 
  * @author RG
- * @version 3.0
+ * @author Ryan Boucher
+ * @version 4.0
  *
  */
 public class GiantSunflower extends Piece {
+
+	private GiantSunflower(String name, char shortName, int health, int attack, int cost)
+	{
+		super(name, shortName, health, attack, cost);
+	}
+
+	public GiantSunflower copy() {
+		return new GiantSunflower(getName(), getShortName(), getHealth(), getAttack(), getCost());
+	}
 
 	/**
 	 * Creates a Giantsunflower with 15 health with 60 cost value.
