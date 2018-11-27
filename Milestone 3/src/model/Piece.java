@@ -3,6 +3,7 @@ package model;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  *
@@ -30,7 +31,7 @@ import java.io.IOException;
  * @version 3.0
  */
 
-public abstract class Piece {
+public abstract class Piece implements Serializable {
 
     private String name;
     private char shortName;

@@ -9,7 +9,7 @@ import javax.swing.event.MenuListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
 import java.util.List;
 
@@ -19,7 +19,7 @@ import java.util.List;
  * @version 1.5
  */
 
-public class Controller {
+public class Controller implements Serializable{
 
     /**
      *  Dual-array gameboard to be played on.
@@ -86,6 +86,14 @@ public class Controller {
      * Currently supports the placing of peashooters and sunflowers.
      */
     public void actionListener(){
+
+        view.getSaveButton().addActionListener((e) -> {
+            save("GameSave.txt");
+        });
+
+        view.getLoadButton().addActionListener((e) -> {
+            load("GameSave.txt");
+        });
 
         /**
          * When a plant is removed from the board, the user will be able to add it with this function
@@ -212,6 +220,42 @@ public class Controller {
         return boardCopy;
     }
 
+    /**
+     * Import Serial file to receive AddressBook
+     * @param file
+     */
+    public void load(String file){
+        try{
+            ObjectInputStream oStream = new ObjectInputStream(new FileInputStream(file));
+            Square[][] tempBoard = (Square[][]) oStream.readObject();
+            oStream.close();
+            for (int row = 0; row < board[0].length; row++) {
+                for (int col = 0; col < board.length; col++) {
+                    board[col][row] = tempBoard[col][row];
+                }
+            }
+            board2GUI(board);
+            JOptionPane.showMessageDialog(null, "Game successfully loaded.");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error: Game save was not found");
+        }
+    }
+
+    /**
+     * Export AddressBook into Serialize Format
+     * @param file
+     */
+    public void save(String file){
+        try{
+            ObjectOutputStream oStream = new ObjectOutputStream(new FileOutputStream(file));
+            oStream.writeObject(copyBoard());
+            oStream.close();
+            JOptionPane.showMessageDialog(null, "Game successfully saved.");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error: Game save unsuccessful.");
+        }
+    }
+
     public void undo() {
         if (undoBoard.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No possible undos.");
@@ -219,7 +263,7 @@ public class Controller {
         }
         redoBoard.push(board);
         board = undoBoard.pop();
-        board2GUI();
+        board2GUI(board);
     }
 
     public void redo() {
@@ -229,17 +273,16 @@ public class Controller {
         }
         undoBoard.push(board);
         board = redoBoard.pop();
-        board2GUI();
+        board2GUI(board);
     }
 
-    public void board2GUI(){
+    public void board2GUI(Square[][] board){
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
                 if(board[col][row].getPiece() != null) {
                     view.getGameButtons()[col][row].setDisabledIcon(board[col][row].getPiece().getImage());
                     view.getGameButtons()[col][row].setIcon(board[col][row].getPiece().getImage());
                     view.getGameButtons()[col][row].setEnabled(false);
-
                 } else {
                     view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
                     view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));

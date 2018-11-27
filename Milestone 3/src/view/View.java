@@ -102,6 +102,10 @@ public class View extends JFrame {
      */
     JMenuBar menuBar;
 
+    JMenuItem saveButton;
+    JMenuItem loadButton;
+
+
     /**
      *  Setting up the GUI using the fields that were chosen
      */
@@ -118,6 +122,8 @@ public class View extends JFrame {
         sunMoney = new JLabel("500");
         redoButton = new JMenuItem("Redo");
         undoButton = new JMenuItem("Undo");
+        saveButton = new JMenuItem("Save");
+        loadButton = new JMenuItem("Load");
         menuBar = new JMenuBar();
 
         /*
@@ -135,6 +141,8 @@ public class View extends JFrame {
         sunPicture.add(sunMoney);
         bottomPanel.add(jScrollPane);
         add(bottomPanel, BorderLayout.SOUTH);
+        menuBar.add(loadButton);
+        menuBar.add(saveButton);
         menuBar.add(redoButton);
         menuBar.add(undoButton);
         setJMenuBar(menuBar);
@@ -297,5 +305,13 @@ public class View extends JFrame {
      */
     public JMenuItem getUndoButton() {
         return undoButton;
+    }
+
+    public JMenuItem getSaveButton() {
+        return saveButton;
+    }
+
+    public JMenuItem getLoadButton() {
+        return loadButton;
     }
 }
