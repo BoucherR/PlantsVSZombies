@@ -17,7 +17,9 @@ public class GameLevels {
     private int maxlevel;
     private int sunMoney;
 
+    public GameLevels(int level,int max,int zlimit,int money){
 
+    }
     public GameLevels(){
         currentlevel = 1;
         maxlevel = 5;
@@ -42,9 +44,9 @@ public class GameLevels {
         currentZombies = zombieLimit;
     }
 
-    public void checkZombieLimit(){
+    /*public void checkZombieLimit(){
         zombieLimit--;
-    }
+    }*/
 
     public void zombieKilled(){
         currentZombies--;
@@ -54,10 +56,10 @@ public class GameLevels {
         if(this.currentZombies==0)
         {
             nextLevel();
-            System.out.println(currentlevel + "Next Level reached" + sunMoney);
+            System.out.println( "Level No: " +currentlevel + "Next Level reached" + sunMoney);
             return true;
         }
-        System.out.println(currentZombies+"Next Level not reached" + sunMoney);
+        System.out.println("Zombies: "+currentZombies+"Next Level not reached" + sunMoney);
         return false;
     }
 
@@ -69,8 +71,8 @@ public class GameLevels {
         return (zombieLimit == count);
     }
 
-    public void setZombieLimit(int zombieLimit) {
-        this.zombieLimit = zombieLimit;
+    public void setCurrentZombies(int zombiesAlive) {
+        this.currentZombies = zombiesAlive;
     }
 
     public int getLevel() {
@@ -86,6 +88,8 @@ public class GameLevels {
     public void setMaxLevel(int level) {
         this.currentlevel = level;
     }
+
+    public int getMoney(){return this.sunMoney;}
 
     public void setMoney(int money){this.sunMoney = money; }
 
@@ -138,12 +142,21 @@ public class GameLevels {
         return loadGame;
     }
 
+    public void printData(){
+        System.out.println("Level: "+this.getLevel()+"zombies: "+this.currentZombies+"\n"+
+        "SunMoney: "+ this.sunMoney);
+    }
+
 
 
     public static void main(String[] args) {
         GameLevels test = new GameLevels();
         System.out.println(test.toXML());
+        test.setSunMoney(10);
+        test.setLevel(4);
         test.saveLevels();
         GameLevels input = test.loadLevels();
+        input.printData();
+
     }
 }

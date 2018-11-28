@@ -125,17 +125,17 @@ public class XMLParser extends DefaultHandler {
             return;
         }
         if("Level".equals(currentElement())){
-            GameLevels level = gameObjects.peek();
-            level.setLevel(Integer.valueOf(value));
+            //GameLevels level = gameObjects.peek();
+            outputLoad.setLevel(Integer.valueOf(value));
         }else if("ZombieCount".equals(currentElement())){
-            GameLevels level = gameObjects.peek();
-            level.setZombieLimit(Integer.valueOf(value));
+            //GameLevels level = gameObjects.peek();
+            outputLoad.setCurrentZombies(Integer.valueOf(value));
         }else if("SunMoney".equals(currentElement())){
-            GameLevels level = gameObjects.peek();
-            level.setSunMoney(Integer.valueOf(value));
+            //GameLevels level = gameObjects.peek();
+            outputLoad.setSunMoney(Integer.valueOf(value));
         }else if("MaxLevel".equals(currentElement())){
-            GameLevels level = gameObjects.peek();
-            level.setMaxLevel(Integer.valueOf(value));
+            //GameLevels level = gameObjects.peek();
+            outputLoad.setMaxLevel(Integer.valueOf(value));
         }
         if (level) {
             System.out.println("Level: "

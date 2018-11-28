@@ -34,7 +34,12 @@ public class Controller implements Serializable{
     /**
      *  The amount of zombies to be spawned within the board.
      */
-    private int zombieLimit;
+    private int zombies;
+
+    /**
+     * The Game Levels of the game
+     */
+    private GameLevels levels;
 
     /**
      *  Displaying the game, and is able to manipulate
@@ -69,8 +74,10 @@ public class Controller implements Serializable{
         redoBoard = new Stack<>();
         this.board = new Square[BOARD_LENGTH][BOARD_HEIGHT];
         this.view = view;
+        this.levels = new GameLevels();
         this.moneyPouch = 500;
-        this.zombieLimit = 10;
+        this.levels.setSunMoney(moneyPouch);
+        this.zombies = 10;
         for (int c = 0; c < board.length; c++)
             for (int r = 0; r < board[0].length; r++)
                 board[c][r] = new Square(new Coordinate (c,r));
@@ -227,6 +234,7 @@ public class Controller implements Serializable{
      * @param file
      */
     public void load(String file){
+        GameLevels temp;
         try{
             ObjectInputStream oStream = new ObjectInputStream(new FileInputStream(file));
             Square[][] tempBoard = (Square[][]) oStream.readObject();
@@ -238,6 +246,8 @@ public class Controller implements Serializable{
             }
             board2GUI(board);
             JOptionPane.showMessageDialog(null, "Game successfully loaded.");
+            temp = levels.loadLevels();
+            levels = temp;
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: Game save was not found");
         }
@@ -256,6 +266,7 @@ public class Controller implements Serializable{
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: Game save unsuccessful.");
         }
+        levels.saveLevels();
     }
 
     public void undo() {
@@ -316,8 +327,11 @@ public class Controller implements Serializable{
         sunflowerMoney();
         gameOver();
         gameWon();
-        view.getSunMoney().setText(Integer.toString(moneyPouch));
+        view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         System.out.println(toString());
+
+        levels.setSunMoney(moneyPouch);
+        if(levels.checkAllZombiesDead()){this.moneyPouch=levels.getMoney();}
     }
 
     /** Adding pieces around the generated gameBoard. Will use the addPiece()
@@ -414,7 +428,7 @@ public class Controller implements Serializable{
      *  Adding zombies randomly at the end of the board.
      */
     public void addingZombie(){
-        if (zombieLimit != 0) {
+        if (!levels.checkLimit(zombies)) {
             Random ran = new Random();
             int y = ran.nextInt(5);
             int t = ran.nextInt(7);
@@ -425,7 +439,10 @@ public class Controller implements Serializable{
 	        } else if (t == 6) {
 	        	add(new Coordinate(7, y), new BucketZombie());
 	        }
-            zombieLimit--;
+            zombies--;
+        }
+        else if(levels.checkAllZombiesDead()){
+            zombies =0;
         }
     }
 
@@ -436,6 +453,10 @@ public class Controller implements Serializable{
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
                 if (board[col][row].isZombie()) {
+                    if(board[col][row].getPiece().getHealth() <= 0)
+                    {
+                        levels.zombieKilled();
+                    }
                     view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
                     view.getGameButtons()[col][row].setEnabled(true);
                     if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
@@ -510,6 +531,7 @@ public class Controller implements Serializable{
     public void reset(){
         //Creating two arrays to align with a 2 dimension array
         board = new Square[8][5];
+        levels.restartLevels();
         for (int rowsBoard = 0; rowsBoard < board[0].length; rowsBoard++) {
             for (int columnsBoard = 0; columnsBoard < board.length; columnsBoard++) {
                 board[columnsBoard][rowsBoard] = new Square(new Coordinate(columnsBoard, rowsBoard));
@@ -528,7 +550,7 @@ public class Controller implements Serializable{
      *  alive then the game keeps going. If all are killed, then the game ends.
      */
     public void gameWon(){
-        if(zombieLimit == 0){
+        if(levels.getCurrentZombies() == 0 && levels.maxLevel()){
             for (int row = 0; row < board[0].length; row++) {
                 for (int col = 0; col < board.length; col++) {
                     if (board[col][row].isZombie()) {
@@ -589,7 +611,10 @@ public class Controller implements Serializable{
             }
             s += "\n";
         }
-        s += "Money Pouch: " + moneyPouch + "\n";
+        s += "Money Pouch: " + levels.getMoney() + "\n";
+        if(levels.checkAllZombiesDead()){
+            s+="Next Level is reached: "+levels.getLevel()+"Received $100"+levels.getMoney()+ "\n";
+        }
         // s += logging;
         return s;
     }
