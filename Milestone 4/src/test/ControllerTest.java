@@ -176,13 +176,13 @@ public class ControllerTest {
    public void testHitUpdate(){
        testController.add(new Coordinate(2,1),new Threepeater());
        testController.add(new Coordinate(7,1),new Zombie());
-       assertNotEquals("The Zombie Placed properly on board",".src/images",testController.getBoard()[2][1].getPiece().getImage().toString());
+       assertNotEquals("The Zombie Placed properly on board",".src/images",testController.getBoard()[2][1].getImage().toString());
        assertEquals("The Game Piece Located is Threepeater",new Threepeater(),testController.getBoard()[2][1].getPiece());
        assertEquals("The Game Piece Located is Zombie",new Zombie(),testController.getBoard()[7][1].getPiece());
 
        testController.add(new Coordinate(2,2),new Peashooter());
        testController.add(new Coordinate(3,2),new BucketZombie());
-       assertNotNull("The Peashooter Placed properly on board",testController.getBoard()[2][2].getPiece().getImage());
+       assertNotNull("The Peashooter Placed properly on board",testController.getBoard()[2][2].getImage());
        assertEquals("The Game Piece Located is Peashooter",new Peashooter(),testController.getBoard()[2][2].getPiece());
        assertEquals("The Game Piece Located is Zombie",new BucketZombie(),testController.getBoard()[3][2].getPiece());
 
@@ -325,4 +325,6 @@ public class ControllerTest {
             this.testController = null;
         }
     }
+
+
 }

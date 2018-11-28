@@ -1,6 +1,7 @@
 package model;
 
 
+import javax.swing.*;
 import java.io.Serializable;
 
 /**
@@ -204,5 +205,15 @@ public class Square implements Serializable {
         return new Square (position, gamePiece == null ? null : gamePiece.copy());
     }
 
+    /**
+     * Retrieving the Pieces' Image
+     * @return Image of the Piece
+     */
+    public ImageIcon getImage(){
+        if(position.getColumnNumber() == 7)
+            return new ImageIcon(getClass().getResource("/Images/" + this.getPiece().getName().toLowerCase() + "sidewalk.png"));
+        else
+            return new ImageIcon(getClass().getResource("/Images/" + this.getPiece().getName().toLowerCase() + ".png"));
+    }
 
 }

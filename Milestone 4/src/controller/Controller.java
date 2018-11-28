@@ -115,11 +115,13 @@ public class Controller implements Serializable{
          * Placing Action listeners on each square of the board
          */
         for(int i = 0; i < board[0].length;i++) {
-            for (int j = 0; j < board.length; j++) {
+            for (int j = 0; j < board.length - 1; j++) {
                 view.getGameButtons()[j][i].addActionListener((ActionEvent event) -> {
                     clickedButtonLocation = new Coordinate(((JButton) event.getSource()).getLabel());
                     view.getPopupMenu().show(view.getTopPanel(), ((JButton) event.getSource()).getX(), ((JButton) event.getSource()).getY());
                 });
+                view.getGameButtons()[j][i].setRolloverEnabled(true);
+                view.getGameButtons()[j][i].setRolloverIcon(new ImageIcon(getClass().getResource("/Images/grasshighlighted.png")));
             }
         }
 
@@ -280,8 +282,8 @@ public class Controller implements Serializable{
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
                 if(board[col][row].getPiece() != null) {
-                    view.getGameButtons()[col][row].setDisabledIcon(board[col][row].getPiece().getImage());
-                    view.getGameButtons()[col][row].setIcon(board[col][row].getPiece().getImage());
+                    view.getGameButtons()[col][row].setDisabledIcon(board[col][row].getImage());
+                    view.getGameButtons()[col][row].setIcon(board[col][row].getImage());
                     view.getGameButtons()[col][row].setEnabled(false);
                 } else {
                     view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
@@ -336,8 +338,8 @@ public class Controller implements Serializable{
             return false;
         }
         srcSquare.addPiece(piece);
-        view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setDisabledIcon(piece.getImage());
-        view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setIcon(piece.getImage());
+        view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setDisabledIcon(srcSquare.getImage());
+        view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setIcon(srcSquare.getImage());
         view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setEnabled(false);
         loggingList.add("Added Piece: " + piece.getName() + " @ Coordinates: " + coordinate.toString() + "\n");
         return true;
@@ -350,20 +352,24 @@ public class Controller implements Serializable{
      *  @param src the current coordinate in the piece is currently placed
      *  @param dest the potential new coordinate where the piece will be move to
      */
-    public boolean move(Coordinate src, Coordinate dest)
-    {
+    public boolean move(Coordinate src, Coordinate dest) {
         Square srcSquare = this.getSquare(src);
         Square destSquare = this.getSquare(dest);
-        if (destSquare.isOccupied()){
+        if (destSquare.isOccupied()) {
             return false;
         }
         Piece p = srcSquare.getPiece();
         destSquare.addPiece(p);
-        view.getGameButtons()[dest.getColumnNumber()][dest.getRowNumber()].setDisabledIcon(p.getImage());
-        view.getGameButtons()[dest.getColumnNumber()][dest.getRowNumber()].setIcon(p.getImage());
+        view.getGameButtons()[dest.getColumnNumber()][dest.getRowNumber()].setDisabledIcon(destSquare.getImage());
+        view.getGameButtons()[dest.getColumnNumber()][dest.getRowNumber()].setIcon(destSquare.getImage());
         srcSquare.deletePiece();
-        view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
-        view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
+        if (src.getColumnNumber() == 7){
+            view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/sidewalk.png")));
+            view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/Images/sidewalk.png")));
+        } else {
+            view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
+            view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
+        }
         loggingList.add("Moved " + p.getName() + " from " + src.toString() + " to " + dest.toString() + "\n");
         return true;
     }
@@ -507,10 +513,11 @@ public class Controller implements Serializable{
         for (int rowsBoard = 0; rowsBoard < board[0].length; rowsBoard++) {
             for (int columnsBoard = 0; columnsBoard < board.length; columnsBoard++) {
                 board[columnsBoard][rowsBoard] = new Square(new Coordinate(columnsBoard, rowsBoard));
-                view.getGameButtons()[columnsBoard][rowsBoard].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
+                if(columnsBoard == 7)
+                    view.getGameButtons()[columnsBoard][rowsBoard].setIcon(new ImageIcon(getClass().getResource("/Images/sidewalk.png")));
+                else
+                    view.getGameButtons()[columnsBoard][rowsBoard].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
                 view.getGameButtons()[columnsBoard][rowsBoard].setContentAreaFilled(false);
-                view.getGameButtons()[columnsBoard][rowsBoard].setRolloverEnabled(true);
-                view.getGameButtons()[columnsBoard][rowsBoard].setRolloverIcon(new ImageIcon(getClass().getResource("/Images/grasshighlighted.png")));
             }
         }
     }

@@ -252,6 +252,7 @@ public class PieceTest {
     /**
      * The Test Case to check the Getter method for the Image Icon of the Game Pieces
      */
+    /*
     @Test
     public void testGetImage(){
         assertNotEquals("The Image Path is complete",getClass().getResource("/Images/"),testPiece1.getImage());
@@ -263,4 +264,5 @@ public class PieceTest {
         assertEquals("The Image Path is complete",getClass().getResource("/Images/zombie.png").toString(),testPiece4.getImage().toString());
         assertNotEquals("The Image Path is complete",getClass().getResource("/zombie"),testPiece4.getImage().toString());
     }
+    */
 }
