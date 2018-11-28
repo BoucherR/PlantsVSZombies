@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.*;
 import java.util.List;
+import java.util.Timer;
 
 /**
  * @author Youssef Saghbini
@@ -20,6 +21,10 @@ import java.util.List;
  */
 
 public class Controller implements Serializable{
+
+    private int seconds;
+    private static Timer timer;
+
 
     /**
      *  Dual-array gameboard to be played on.
@@ -69,6 +74,9 @@ public class Controller implements Serializable{
      *  amount of zombies allowed to be spawned into the board.
      */
     public Controller(View view){
+        timer = new Timer();
+        seconds = 0;
+
         this.loggingList = new ArrayList<>();
         undoBoard = new Stack<>();
         redoBoard = new Stack<>();
@@ -138,9 +146,7 @@ public class Controller implements Serializable{
         view.getSunflower().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(add(clickedButtonLocation, new Sunflower())) {
-                    updateView();
-                }
+                add(clickedButtonLocation, new Sunflower());
             }
         });
 
@@ -150,9 +156,7 @@ public class Controller implements Serializable{
         view.getPeashooter().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(add(clickedButtonLocation, new Peashooter())) {
-                    updateView();
-                }
+                add(clickedButtonLocation, new Peashooter());
             }
         });
         
@@ -162,9 +166,7 @@ public class Controller implements Serializable{
         view.getRepeater().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(add(clickedButtonLocation, new Repeater())) {
-                    updateView();
-                }
+                add(clickedButtonLocation, new Repeater());
             }
         });
         
@@ -174,9 +176,7 @@ public class Controller implements Serializable{
         view.getThreepeater().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(add(clickedButtonLocation, new Threepeater())) {
-                    updateView();
-                }
+                add(clickedButtonLocation, new Threepeater());
             }
         });
         
@@ -186,9 +186,7 @@ public class Controller implements Serializable{
         view.getWallnut().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(add(clickedButtonLocation, new Wallnut())) {
-                    updateView();
-                }
+                add(clickedButtonLocation, new Wallnut());
             }
         });
         
@@ -198,21 +196,36 @@ public class Controller implements Serializable{
         view.getTwinSunflower().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(add(clickedButtonLocation, new TwinSunflower())) {
-                    updateView();
-
-                }
+                add(clickedButtonLocation, new TwinSunflower());
             }
         });
         
         view.getGiantSunflower().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(add(clickedButtonLocation, new GiantSunflower())) {
-                    updateView();
-                }
+                add(clickedButtonLocation, new GiantSunflower());
             }
         });
+
+        TimerTask task;
+        task = new TimerTask() {
+            private final int MAX_SECONDS = 10;
+
+            @Override
+            public void run() {
+                if (seconds < MAX_SECONDS) {
+                    runTime();
+                    getLogging();
+                    System.out.println("Seconds = " + seconds);
+                    seconds ++;
+                }
+                else {
+                    cancel();
+                }
+            }
+
+        };
+        timer.schedule(task, 0, 5000);
     }
 
     /**
