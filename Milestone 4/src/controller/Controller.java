@@ -76,7 +76,6 @@ public class Controller implements Serializable{
     public Controller(View view){
         timer = new Timer();
         seconds = 0;
-
         this.loggingList = new ArrayList<>();
         undoBoard = new Stack<>();
         redoBoard = new Stack<>();
@@ -101,30 +100,6 @@ public class Controller implements Serializable{
      * Currently supports the placing of peashooters and sunflowers.
      */
     public void actionListener(){
-
-        view.getSaveButton().addActionListener((e) -> {
-            save("GameSave.txt");
-        });
-
-        view.getLoadButton().addActionListener((e) -> {
-            load("GameSave.txt");
-        });
-
-        /**
-         * When a plant is removed from the board, the user will be able to add it with this function
-         */
-        view.getRedoButton().addActionListener((e) -> {
-            redo();
-            loggingList.add("Redo Clicked! \n");
-        });
-
-        /**
-         * When a plant is placed on the board, the user will be able to remove it with this function
-         */
-        view.getUndoButton().addActionListener((e) -> {
-            undo();
-            loggingList.add("Undo Clicked! \n");
-        });
 
         /**
          * Placing Action listeners on each square of the board
@@ -207,6 +182,31 @@ public class Controller implements Serializable{
             }
         });
 
+
+        view.getSaveButton().addActionListener((e) -> {
+            save("GameSave.txt");
+        });
+
+        view.getLoadButton().addActionListener((e) -> {
+            load("GameSave.txt");
+        });
+
+        /**
+         * When a plant is removed from the board, the user will be able to add it with this function
+         */
+        view.getRedoButton().addActionListener((e) -> {
+            redo();
+            loggingList.add("Redo Clicked! \n");
+        });
+
+        /**
+         * When a plant is placed on the board, the user will be able to remove it with this function
+         */
+        view.getUndoButton().addActionListener((e) -> {
+            undo();
+            loggingList.add("Undo Clicked! \n");
+        });
+
         TimerTask task;
         task = new TimerTask() {
             private final int MAX_SECONDS = 10;
@@ -215,7 +215,6 @@ public class Controller implements Serializable{
             public void run() {
                 if (seconds < MAX_SECONDS) {
                     runTime();
-                    getLogging();
                     System.out.println("Seconds = " + seconds);
                     seconds ++;
                 }
@@ -227,6 +226,200 @@ public class Controller implements Serializable{
         };
         timer.schedule(task, 0, 5000);
     }
+
+    /**
+     * This method is used to call the other methods required to finish a turn, after the player has placed his/her
+     * plants.
+     */
+    public void runTime(){
+        undoBoard.push(copyBoard());
+        movingZombie();
+        addingZombie();
+        removeUpdate();
+        hitUpdate();
+        sunflowerMoney();
+        gameOver();
+        gameWon();
+        getLogging();
+        view.getSunMoney().setText(Integer.toString(levels.getMoney()));
+        System.out.println(toString());
+        levels.setSunMoney(moneyPouch);
+        if(levels.checkAllZombiesDead()){this.moneyPouch=levels.getMoney();}
+    }
+
+    /** Adding pieces around the generated gameBoard. Will use the addPiece()
+     *  and removePiece() methods, when necessary.
+     *  @param coordinate receiving the coordinate at which the piece will be placed
+     *  @param piece receiving the type of piece to be added at specific coordinate
+     *  @return Whether if it is possible to add the piece within conditions
+     */
+    public boolean add(Coordinate coordinate, Piece piece)
+    {
+        Square srcSquare = this.getSquare(coordinate);
+        if(srcSquare.isOccupied()){
+            loggingList.add("Piece not added due to space occupied.\n");
+            return false;
+        }
+        if(!purchasePiece(piece)){
+            JOptionPane.showMessageDialog(null,"Not enough Money");
+            return false;
+        }
+        srcSquare.addPiece(piece);
+        board2GUI(board);
+        loggingList.add("Added Piece: " + piece.getName() + " @ Coordinates: " + coordinate.toString() + "\n");
+        return true;
+    }
+
+    /**
+     *  This method is to move a piece from one coordinate to another. It will
+     *  receive the current and new coordinate; in those coordinates, the method
+     *  will retrieve the piece and move them.
+     *  @param src the current coordinate in the piece is currently placed
+     *  @param dest the potential new coordinate where the piece will be move to
+     */
+    public boolean move(Coordinate src, Coordinate dest) {
+        Square srcSquare = this.getSquare(src);
+        Square destSquare = this.getSquare(dest);
+        if (destSquare.isOccupied()) {
+            return false;
+        }
+        Piece p = srcSquare.getPiece();
+        destSquare.addPiece(p);
+        srcSquare.deletePiece();
+        board2GUI(board);
+        loggingList.add("Moved " + p.getName() + " from " + src.toString() + " to " + dest.toString() + "\n");
+        return true;
+    }
+
+    /**
+     *  When piece is within range of attack, it will affect the other piece's health.
+     */
+    public void hitUpdate(){
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
+                if (board[col][row].getPiece() != null && board[col][row].getPiece().getHealth() > 0) {
+                    if (board[col][row].isShooter()) {
+                        for(int i = col + 1; i < board.length; i++){
+                            if( board[i][row].isZombie()) {
+                                board[i][row].getPiece().setHealth(board[i][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
+                                if (board[i][row].getPiece().getHealth() <= 0) {
+                                    loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: Dead @ " + board[i][row].getCoordinate() + "\n");
+                                } else {
+                                    loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: " + board[i][row].getPiece().getHealth() + " @ " + board[i][row].getCoordinate() + "\n");
+                                }
+                            }
+                        }
+                    }
+                    else if (board[col][row].isZombie()){
+                        if( !(col - 1 == -1)) {
+                            if (board[col - 1][row].isPlant()) {
+                                board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
+                                if (board[col - 1][row].getPiece().getHealth() <= 0) {
+                                    loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
+                                } else {
+                                    loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     *  Adding zombies randomly at the end of the board.
+     */
+    public void addingZombie(){
+        if (!levels.checkLimit(zombies)) {
+            Random ran = new Random();
+            int y = ran.nextInt(5);
+            int t = ran.nextInt(7);
+            if (t == 0 || t == 1 || t == 2 || t == 3) {
+	            add(new Coordinate(7, y), new Zombie());
+	        } else if (t == 4 || t == 5) {
+	        	add(new Coordinate(7, y), new ConeheadZombie());
+	        } else if (t == 6) {
+	        	add(new Coordinate(7, y), new BucketZombie());
+	        }
+            zombies--;
+        }
+        else if(levels.checkAllZombiesDead()){
+            zombies =0;
+        }
+    }
+
+    /**
+     *  Used for the zombies to move one square forward after every round.
+     */
+    public void movingZombie(){
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
+                if (board[col][row].isZombie()) {
+                    if(board[col][row].getPiece().getHealth() <= 0)
+                    {
+                        levels.zombieKilled();
+                    }
+                    if(move(new Coordinate(col, row), new Coordinate(col-1, row)))
+                        board2GUI(board);
+                }
+            }
+        }
+    }
+
+    /**
+     *  It will remove pieces when health is equal to zero and below.
+     */
+    public void removeUpdate(){
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
+                if (board[col][row].getPiece() != null) {
+                    if (board[col][row].getPiece().getHealth() <= 0) {
+                        board[col][row].deletePiece();
+                        board2GUI(board);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     *  Whenever there is a sunflower spawned in the game, it will
+     *  add money into the user's money pouch.
+     */
+    public void sunflowerMoney(){
+        for (int row = 0; row < board[0].length; row++) {
+            for (int col = 0; col < board.length; col++) {
+                if (board[col][row].getPiece() != null) {
+                    if (board[col][row].getPiece().getShortName() == 'S') {
+                        moneyPouch += 5;
+                        loggingList.add( "Model.Sunflower Model.Piece added 5 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
+                    }
+                    if (board[col][row].getPiece().getShortName() == '2') {
+                        moneyPouch += 10;
+                        loggingList.add( "Model.TwinSunflower Model.Piece added 10 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
+                    }
+                    if (board[col][row].getPiece().getShortName() == 'G') {
+                        moneyPouch += 15;
+                        loggingList.add( "Model.GiantSunflower Model.Piece added 15 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     *  To see if the user is able to purchase a new piece.
+     *  @param piece The piece wanting to purchase.
+     *  @return The ability to purchase a piece.
+     */
+    public boolean purchasePiece(Piece piece){
+        if(moneyPouch < piece.getCost())
+            return false;
+        moneyPouch -= piece.getCost();
+        return true;
+    }
+
 
     /**
      * Copies the current state of the gameboard
@@ -310,232 +503,18 @@ public class Controller implements Serializable{
                     view.getGameButtons()[col][row].setIcon(board[col][row].getImage());
                     view.getGameButtons()[col][row].setEnabled(false);
                 } else {
-                    view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
-                    view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
-                    view.getGameButtons()[col][row].setEnabled(true);
-                }
-            }
-        }
-    }
-
-
-    /**
-     *  Updating the GUI of the game
-     */
-    public void updateView(){
-        runTime(); // effectively ends turn
-        getLogging(); // keep track of game
-    }
-
-    /**
-     * This method is used to call the other methods required to finish a turn, after the player has placed his/her
-     * plants.
-     */
-    public void runTime(){
-        undoBoard.push(copyBoard());
-        movingZombie();
-        addingZombie();
-        removeUpdate();
-        hitUpdate();
-        sunflowerMoney();
-        gameOver();
-        gameWon();
-        view.getSunMoney().setText(Integer.toString(levels.getMoney()));
-        System.out.println(toString());
-
-        levels.setSunMoney(moneyPouch);
-        if(levels.checkAllZombiesDead()){this.moneyPouch=levels.getMoney();}
-    }
-
-    /** Adding pieces around the generated gameBoard. Will use the addPiece()
-     *  and removePiece() methods, when necessary.
-     *  @param coordinate receiving the coordinate at which the piece will be placed
-     *  @param piece receiving the type of piece to be added at specific coordinate
-     *  @return Whether if it is possible to add the piece within conditions
-     */
-    public boolean add(Coordinate coordinate, Piece piece)
-    {
-        Square srcSquare = this.getSquare(coordinate);
-        if(srcSquare.isOccupied()){
-            loggingList.add("Piece not added due to space occupied.\n");
-            return false;
-        }
-        if(!purchasePiece(piece)){
-            JOptionPane.showMessageDialog(null,"Not enough Money");
-            return false;
-        }
-        srcSquare.addPiece(piece);
-        view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setDisabledIcon(srcSquare.getImage());
-        view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setIcon(srcSquare.getImage());
-        view.getGameButtons()[coordinate.getColumnNumber()][coordinate.getRowNumber()].setEnabled(false);
-        loggingList.add("Added Piece: " + piece.getName() + " @ Coordinates: " + coordinate.toString() + "\n");
-        return true;
-    }
-
-    /**
-     *  This method is to move a piece from one coordinate to another. It will
-     *  receive the current and new coordinate; in those coordinates, the method
-     *  will retrieve the piece and move them.
-     *  @param src the current coordinate in the piece is currently placed
-     *  @param dest the potential new coordinate where the piece will be move to
-     */
-    public boolean move(Coordinate src, Coordinate dest) {
-        Square srcSquare = this.getSquare(src);
-        Square destSquare = this.getSquare(dest);
-        if (destSquare.isOccupied()) {
-            return false;
-        }
-        Piece p = srcSquare.getPiece();
-        destSquare.addPiece(p);
-        view.getGameButtons()[dest.getColumnNumber()][dest.getRowNumber()].setDisabledIcon(destSquare.getImage());
-        view.getGameButtons()[dest.getColumnNumber()][dest.getRowNumber()].setIcon(destSquare.getImage());
-        srcSquare.deletePiece();
-        if (src.getColumnNumber() == 7){
-            view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/sidewalk.png")));
-            view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/Images/sidewalk.png")));
-        } else {
-            view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
-            view.getGameButtons()[src.getColumnNumber()][src.getRowNumber()].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
-        }
-        loggingList.add("Moved " + p.getName() + " from " + src.toString() + " to " + dest.toString() + "\n");
-        return true;
-    }
-
-    /**
-     *  When piece is within range of attack, it will affect the other piece's health.
-     */
-    public void hitUpdate(){
-        for (int row = 0; row < board[0].length; row++) {
-            for (int col = 0; col < board.length; col++) {
-                if (board[col][row].getPiece() != null && board[col][row].getPiece().getHealth() > 0) {
-                    if (board[col][row].isShooter()) {
-                        for(int i = col + 1; i < board.length; i++){
-                            if( board[i][row].isZombie()) {
-                                board[i][row].getPiece().setHealth(board[i][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
-                                if (board[i][row].getPiece().getHealth() <= 0) {
-                                    loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: Dead @ " + board[i][row].getCoordinate() + "\n");
-                                } else {
-                                    loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[i][row].getPiece().getName() + " Health: " + board[i][row].getPiece().getHealth() + " @ " + board[i][row].getCoordinate() + "\n");
-                                }
-                            }
-                        }
-                    }
-                    else if (board[col][row].isZombie()){
-                        if( !(col - 1 == -1)) {
-                            if (board[col - 1][row].isPlant()) {
-                                board[col - 1][row].getPiece().setHealth(board[col - 1][row].getPiece().getHealth() - board[col][row].getPiece().getAttack());
-                                if (board[col - 1][row].getPiece().getHealth() <= 0) {
-                                    loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: Dead @ " + board[col - 1][row].getCoordinate() + "\n");
-                                } else {
-                                    loggingList.add(board[col][row].getPiece().getName() + " Health: " + board[col][row].getPiece().getHealth() + " @ " + board[col][row].getCoordinate() + " Attacked " + board[col - 1][row].getPiece().getName() + " Health: " + board[col - 1][row].getPiece().getHealth() + " @ " + board[col - 1][row].getCoordinate() + "\n");
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     *  Adding zombies randomly at the end of the board.
-     */
-    public void addingZombie(){
-        if (!levels.checkLimit(zombies)) {
-            Random ran = new Random();
-            int y = ran.nextInt(5);
-            int t = ran.nextInt(7);
-            if (t == 0 || t == 1 || t == 2 || t == 3) {
-	            add(new Coordinate(7, y), new Zombie());
-	        } else if (t == 4 || t == 5) {
-	        	add(new Coordinate(7, y), new ConeheadZombie());
-	        } else if (t == 6) {
-	        	add(new Coordinate(7, y), new BucketZombie());
-	        }
-            zombies--;
-        }
-        else if(levels.checkAllZombiesDead()){
-            zombies =0;
-        }
-    }
-
-    /**
-     *  Used for the zombies to move one square forward after every round.
-     */
-    public void movingZombie(){
-        for (int row = 0; row < board[0].length; row++) {
-            for (int col = 0; col < board.length; col++) {
-                if (board[col][row].isZombie()) {
-                    if(board[col][row].getPiece().getHealth() <= 0)
-                    {
-                        levels.zombieKilled();
-                    }
-                    view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
-                    view.getGameButtons()[col][row].setEnabled(true);
-                    if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
-                        view.getGameButtons()[col - 1][row].setEnabled(false);
-                    }
-                    else {
+                    if(col == 7){
+                        view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/sidewalk.png")));
+                        view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/sidewalk.png")));
                         view.getGameButtons()[col][row].setEnabled(false);
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     *  It will remove pieces when health is equal to zero and below.
-     */
-    public void removeUpdate(){
-        for (int row = 0; row < board[0].length; row++) {
-            for (int col = 0; col < board.length; col++) {
-                if (board[col][row].getPiece() != null) {
-                    if (board[col][row].getPiece().getHealth() <= 0) {
-                        view.getGameButtons()[col][row].setEnabled(true);
-                        view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
+                    } else {
                         view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
-                        board[col][row].deletePiece();
+                        view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
+                        view.getGameButtons()[col][row].setEnabled(true);
                     }
                 }
             }
         }
-    }
-
-    /**
-     *  Whenever there is a sunflower spawned in the game, it will
-     *  add money into the user's money pouch.
-     */
-    public void sunflowerMoney(){
-        for (int row = 0; row < board[0].length; row++) {
-            for (int col = 0; col < board.length; col++) {
-                if (board[col][row].getPiece() != null) {
-                    if (board[col][row].getPiece().getShortName() == 'S') {
-                        moneyPouch += 5;
-                        loggingList.add( "Model.Sunflower Model.Piece added 5 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
-                    }
-                    if (board[col][row].getPiece().getShortName() == '2') {
-                        moneyPouch += 10;
-                        loggingList.add( "Model.TwinSunflower Model.Piece added 10 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
-                    }
-                    if (board[col][row].getPiece().getShortName() == 'G') {
-                        moneyPouch += 15;
-                        loggingList.add( "Model.GiantSunflower Model.Piece added 15 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     *  To see if the user is able to purchase a new piece.
-     *  @param piece The piece wanting to purchase.
-     *  @return The ability to purchase a piece.
-     */
-    public boolean purchasePiece(Piece piece){
-        if(moneyPouch < piece.getCost())
-            return false;
-        moneyPouch -= piece.getCost();
-        return true;
     }
 
     /**
@@ -548,13 +527,10 @@ public class Controller implements Serializable{
         for (int rowsBoard = 0; rowsBoard < board[0].length; rowsBoard++) {
             for (int columnsBoard = 0; columnsBoard < board.length; columnsBoard++) {
                 board[columnsBoard][rowsBoard] = new Square(new Coordinate(columnsBoard, rowsBoard));
-                if(columnsBoard == 7)
-                    view.getGameButtons()[columnsBoard][rowsBoard].setIcon(new ImageIcon(getClass().getResource("/Images/sidewalk.png")));
-                else
-                    view.getGameButtons()[columnsBoard][rowsBoard].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
                 view.getGameButtons()[columnsBoard][rowsBoard].setContentAreaFilled(false);
             }
         }
+        board2GUI(board);
     }
 
     /**
@@ -607,6 +583,7 @@ public class Controller implements Serializable{
     /**
      *  @return String implementation of the gameboard. Also, containing logs and money pouch.
      */
+    @Override
     public String toString() {
         //Printing in toString() format of the gameBoard
         Piece shortNamePiece;
