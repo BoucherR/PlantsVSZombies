@@ -77,7 +77,7 @@ public class ControllerTest {
         for(int i = 0; i < testController.getBoard()[0].length;i++)
         {
             testController.movingZombie();
-            testController.updateView();
+            testController.runTime();
         }
 
     }
@@ -144,7 +144,7 @@ public class ControllerTest {
         assertEquals("The Game Piece placed is Threepeater",new Coordinate(2,4),testController.getBoard()[2][4].getCoordinate());
         int i = 0;
         while (i < testController.getBoard().length){
-            testController.updateView();
+            testController.runTime();
             i++;
         }
         assertNotNull("The Game Piece Location is for a Threepeater",testController.getBoard()[2][2].getPiece());
