@@ -11,15 +11,36 @@ import java.io.*;
  */
 public class GameLevels {
 
+    /**
+     * The Maximum numbers of the zombies for a given level
+     */
     private int zombieLimit;
+
+    /**
+     * The Current numbers of the zombies for a given level
+     */
     private int currentZombies;
+
+    /**
+     * The Current Level of the Game
+     */
     private int currentlevel;
+
+    /**
+     * The Maximum Level for the entire game
+     */
     private int maxlevel;
+
+    /**
+     * The Money that the player holds
+     */
     private int sunMoney;
 
-    public GameLevels(int level,int max,int zlimit,int money){
+    public GameLevels(int level,int max,int zlimit,int money){ }
 
-    }
+    /**
+     * The Game Level Default Constructor
+     */
     public GameLevels(){
         currentlevel = 1;
         maxlevel = 5;
@@ -27,73 +48,144 @@ public class GameLevels {
         currentZombies = 5;
     }
 
+    /**
+     * The method is used to restart the levels during the game reset
+     */
     public void restartLevels(){
         currentlevel = 1;
         maxlevel = 5;
         zombieLimit = 5;
+        sunMoney = 500;
     }
 
+    /**
+     * The Setter Method for the player money
+     * @param money, The Initial money of the player
+     */
     public void setSunMoney(int money) {
         this.sunMoney = money;
     }
 
-    public void nextLevel(){
+    /**
+     * The Getter method for the SunMoney
+     * @return Money, The Money account of the Player
+     */
+    public int getMoney(){
+        return this.sunMoney;
+    }
+
+    /**
+     * The Getter method for the current number of zombies
+     * @return currentZombies, The current number of zombies in the level
+     */
+    public int getCurrentZombies() {
+        return currentZombies;
+    }
+
+    /**
+     * The Getter method for the current level number
+     * @return Current Level, The current level number
+     */
+    public int getLevel() {
+        return currentlevel;
+    }
+
+
+    /**
+     * The Method is used to add the money earned by the player
+     * @param grant, The amount of money the player has earned
+     */
+    public void earnedMoney(int grant){
+        sunMoney+=grant;
+    }
+
+    /**
+     * The Method is used to take the player to the next level and it is also used to
+     * grant the money to the user
+     */
+    private void nextLevel(){
         currentlevel++;
         zombieLimit +=5;
         sunMoney+=100;
         currentZombies = zombieLimit;
     }
 
-    /*public void checkZombieLimit(){
-        zombieLimit--;
-    }*/
+    /**
+     * The Method is used to Buy a Game Piece
+     * @param price, The cost of the Game Piece
+     */
+    public void buyPiece(int price){
+        sunMoney-=price;
+    }
 
+    /**
+     * The Method is used to subtract the current number of zombies when a zombie is killed
+     */
     public void zombieKilled(){
         currentZombies--;
     }
 
+    /**
+     * The Method is used to check if next level is reached and check if current number of zombies are ZERO
+     * @return True, if next level is reached, else false
+     */
     public boolean checkAllZombiesDead(){
         if(this.currentZombies==0)
         {
             nextLevel();
-            System.out.println( "Level No: " +currentlevel + "Next Level reached" + sunMoney);
+            System.out.println( "Level No: " +currentlevel + " Next Level reached " + sunMoney);
             return true;
         }
-        System.out.println("Zombies: "+currentZombies+"Next Level not reached" + sunMoney);
+        System.out.println("Zombies: "+currentZombies+" Next Level not reached " + sunMoney);
         return false;
     }
 
-    public int getCurrentZombies() {
-        return currentZombies;
-    }
-
+    /**
+     * The Method is used check the zombies added with respect to zombies limit for a given level
+     * @param count, The current count of the zombies added on the Board
+     * @return True, if the count equals the limit for the zombies
+     */
     public boolean checkLimit(int count){
         return (zombieLimit == count);
     }
 
+    /**
+     * The Setter Method for the current number of zombies
+     * @param zombiesAlive, The current number of zombies alive in the level
+     */
     public void setCurrentZombies(int zombiesAlive) {
         this.currentZombies = zombiesAlive;
     }
 
-    public int getLevel() {
-        return currentlevel;
+    /**
+     * The method is used to check if the user has finished the maximum level
+     * @return True, if the user has played all the levels
+     */
+    public boolean maxLevel(){
+        return (this.currentlevel > this.maxlevel);
     }
 
-    public boolean maxLevel(){return (this.currentlevel == this.maxlevel);}
-
+    /**
+     * The Setter method for the current level
+     * @param level, The level number to be specified
+     */
     public void setLevel(int level) {
         this.currentlevel = level;
     }
 
-    public void setMaxLevel(int level) {
-        this.currentlevel = level;
+    /**
+     * The Setter method for the Maximum Game level
+     * @param max, The Maximum Level
+     */
+    public void setMaxLevel(int max) {
+        this.currentlevel = max;
     }
 
-    public int getMoney(){return this.sunMoney;}
-
-    public void setMoney(int money){this.sunMoney = money; }
-
-    public String toXML() {
+    /**
+     * The Method is used to convert the Game Level Data to XML Format
+     * @return XML Format of the Game Levels
+     */
+    private String toXML() {
         String output = "";
         output += "<GameLevels>" + "\n";
         output += "\t" + "<Level>" + currentlevel + "</Level>" + "\n";
@@ -104,7 +196,9 @@ public class GameLevels {
         return output;
     }
 
-
+    /**
+     * The Method used to save the current Game Level Data
+     */
     public void saveLevels(){
         BufferedWriter out = null;
         try {
@@ -122,7 +216,10 @@ public class GameLevels {
 
     }
 
-
+    /**
+     * The Method is used to Load the Game Level Data
+     * @return The Game Level that is to be loaded back
+     */
     public GameLevels loadLevels(){
         GameLevels loadGame = new GameLevels();
         try {
@@ -142,9 +239,10 @@ public class GameLevels {
         return loadGame;
     }
 
-    public void printData(){
-        System.out.println("Level: "+this.getLevel()+"zombies: "+this.currentZombies+"\n"+
-        "SunMoney: "+ this.sunMoney);
+    private void printData(){
+        System.out.println("Level: "+this.getLevel() + "\n"
+                    + "zombies: "+ this.currentZombies+ "\n"+
+                        "SunMoney: "+ this.sunMoney);
     }
 
 

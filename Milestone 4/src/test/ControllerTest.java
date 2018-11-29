@@ -237,7 +237,6 @@ public class ControllerTest {
         assertTrue("The Game Piece was displayable",testController.getBoard()[column][row].isOccupied());
         assertEquals("The Game Piece is placed",new Peashooter(),testController.getBoard()[column][row].getPiece());
         assertNotNull("The Game Piece placed using Random",testController.getBoard()[column][row].getPiece());
-        assertEquals("The Logging confirms click","Added Piece: PEASHOOTER @ Coordinates: ("+column+","+row+")",guiView.getTextArea().getText().trim());
     }
 
     /**

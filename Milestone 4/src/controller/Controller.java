@@ -82,8 +82,8 @@ public class Controller implements Serializable{
         this.board = new Square[BOARD_LENGTH][BOARD_HEIGHT];
         this.view = view;
         this.levels = new GameLevels();
-        this.moneyPouch = 500;
-        this.levels.setSunMoney(moneyPouch);
+        //this.moneyPouch = 500;
+        //this.levels.setSunMoney(500);
         this.zombies = 10;
         for (int c = 0; c < board.length; c++)
             for (int r = 0; r < board[0].length; r++)
@@ -243,8 +243,8 @@ public class Controller implements Serializable{
         getLogging();
         view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         System.out.println(toString());
-        levels.setSunMoney(moneyPouch);
-        if(levels.checkAllZombiesDead()){this.moneyPouch=levels.getMoney();}
+        //levels.setSunMoney(moneyPouch);
+        levels.checkAllZombiesDead();//{this.moneyPouch=levels.getMoney();}
     }
 
     /** Adding pieces around the generated gameBoard. Will use the addPiece()
@@ -392,15 +392,17 @@ public class Controller implements Serializable{
             for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getShortName() == 'S') {
-                        moneyPouch += 5;
+                        levels.earnedMoney(5);//moneyPouch += 5;
                         loggingList.add( "Model.Sunflower Model.Piece added 5 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
                     }
                     if (board[col][row].getPiece().getShortName() == '2') {
-                        moneyPouch += 10;
+                        levels.earnedMoney(10);
+                        //moneyPouch += 10;
                         loggingList.add( "Model.TwinSunflower Model.Piece added 10 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
                     }
                     if (board[col][row].getPiece().getShortName() == 'G') {
-                        moneyPouch += 15;
+                        levels.earnedMoney(15);
+                        //moneyPouch += 15;
                         loggingList.add( "Model.GiantSunflower Model.Piece added 15 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
                     }
                 }
@@ -414,9 +416,9 @@ public class Controller implements Serializable{
      *  @return The ability to purchase a piece.
      */
     public boolean purchasePiece(Piece piece){
-        if(moneyPouch < piece.getCost())
+        if(levels.getMoney() < piece.getCost())
             return false;
-        moneyPouch -= piece.getCost();
+        levels.buyPiece(piece.getCost()); //-= piece.getCost();
         return true;
     }
 
