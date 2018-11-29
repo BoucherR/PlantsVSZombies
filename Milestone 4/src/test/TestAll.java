@@ -15,7 +15,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({BucketZombieTest.class, ConeheadZombieTest.class, ZombieTest.class,
                 ControllerTest.class, CoordinateTest.class, GiantSunflowerTest.class,
-                PeashooterTest.class, PieceTest.class, RepeaterTest.class,
+                PeashooterTest.class, PieceTest.class, RepeaterTest.class, GameLevelsTest.class,
                 SquareTest.class, SunflowerTest.class, ThreepeaterTest.class,
                 TwinSunflowerTest.class, ViewTest.class, WallnutTest.class})
 
