@@ -84,6 +84,13 @@ public class GameLevels {
     }
 
     /**
+     * The Setter method for getting the current level zombie Limit
+     */
+    public void setZombieLimit(int number){
+        zombieLimit = number;
+    }
+
+    /**
      * The Getter method for the current level number
      * @return Current Level, The current level number
      */
@@ -109,6 +116,12 @@ public class GameLevels {
         zombieLimit +=5;
         sunMoney+=100;
         currentZombies = zombieLimit;
+        if(maxLevel())
+        {
+            currentZombies = 0;
+            zombieLimit = 0;
+        }
+
     }
 
     /**
@@ -133,9 +146,14 @@ public class GameLevels {
     public boolean checkAllZombiesDead(){
         if(this.currentZombies==0)
         {
-            nextLevel();
-            System.out.println( "Level No: " +currentlevel + " Next Level reached " + sunMoney);
-            return true;
+            if(maxLevel()){
+                System.out.println("The Maximum Level Ended, User Won!");
+                return true;
+            }
+                currentZombies = 0;
+                nextLevel();
+                System.out.println( "Level No: " +currentlevel + " Next Level reached " + sunMoney);
+                return true;
         }
         System.out.println("Zombies: "+currentZombies+" Next Level not reached " + sunMoney);
         return false;
@@ -163,7 +181,7 @@ public class GameLevels {
      * @return True, if the user has played all the levels
      */
     public boolean maxLevel(){
-        return (this.currentlevel >= this.maxlevel);
+        return (this.currentlevel > this.maxlevel);
     }
 
     /**
@@ -191,6 +209,7 @@ public class GameLevels {
         output += "<GameLevels>" + "\n";
         output += "\t" + "<Level>" + currentlevel + "</Level>" + "\n";
         output += "\t" + "<ZombieCount>" + currentZombies + "</ZombieCount>" + "\n";
+        output += "\t" + "<ZombieLimit>" + zombieLimit + "</ZombieLimit>" + "\n";
         output += "\t" + "<SunMoney>" + sunMoney + "</SunMoney>" + "\n";
         output += "\t" + "<MaxLevel>" + maxlevel + "</MaxLevel>" + "\n";
         output += "</GameLevels>";

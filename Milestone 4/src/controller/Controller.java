@@ -84,11 +84,12 @@ public class Controller implements Serializable{
         this.levels = new GameLevels();
         //this.moneyPouch = 500;
         //this.levels.setSunMoney(500);
-        this.zombies = 10;
+        //this.zombies = 10;
         for (int c = 0; c < board.length; c++)
             for (int r = 0; r < board[0].length; r++)
                 board[c][r] = new Square(new Coordinate (c,r));
         reset();
+        undoBoard.push(board);
     }
 
     /**
@@ -213,7 +214,7 @@ public class Controller implements Serializable{
 
             @Override
             public void run() {
-                if (seconds < MAX_SECONDS) {
+                if (!(levels.maxLevel() && levels.checkLimit(zombies))) {
                     runTime();
                     System.out.println("Seconds = " + seconds);
                     seconds ++;
@@ -224,7 +225,7 @@ public class Controller implements Serializable{
             }
 
         };
-        timer.schedule(task, 0, 5000);
+        timer.schedule(task, 0, 3000);
     }
 
     /**
@@ -456,6 +457,7 @@ public class Controller implements Serializable{
             JOptionPane.showMessageDialog(null, "Game successfully loaded.");
             temp = levels.loadLevels();
             levels = temp;
+            view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: Game save was not found");
         }
@@ -541,14 +543,15 @@ public class Controller implements Serializable{
      *  alive then the game keeps going. If all are killed, then the game ends.
      */
     public void gameWon(){
-        if(levels.getCurrentZombies() == 0 && levels.maxLevel()){
+        /*if(levels.getCurrentZombies() == 0 && levels.maxLevel()){
             for (int row = 0; row < board[0].length; row++) {
                 for (int col = 0; col < board.length; col++) {
                     if (board[col][row].isZombie()) {
                         return;
                     }
                 }
-            }
+            }*/
+        if (levels.maxLevel() && levels.checkLimit(zombies)){
             JOptionPane.showMessageDialog(null, "You have won the game! Thank you for playing.");
             System.exit(0);
         }
