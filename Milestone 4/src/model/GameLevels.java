@@ -46,6 +46,7 @@ public class GameLevels {
         maxlevel = 5;
         zombieLimit = 5;
         currentZombies = 5;
+        sunMoney = 500;
     }
 
     /**
@@ -162,7 +163,7 @@ public class GameLevels {
      * @return True, if the user has played all the levels
      */
     public boolean maxLevel(){
-        return (this.currentlevel > this.maxlevel);
+        return (this.currentlevel >= this.maxlevel);
     }
 
     /**
@@ -178,7 +179,7 @@ public class GameLevels {
      * @param max, The Maximum Level
      */
     public void setMaxLevel(int max) {
-        this.currentlevel = max;
+        this.maxlevel = max;
     }
 
     /**
@@ -239,8 +240,9 @@ public class GameLevels {
         return loadGame;
     }
 
-    private void printData(){
-        System.out.println("Level: "+this.getLevel() + "\n"
+    @Override
+    public String toString(){
+        return ("Level: "+this.getLevel() + "\n"
                     + "zombies: "+ this.currentZombies+ "\n"+
                         "SunMoney: "+ this.sunMoney);
     }
@@ -254,7 +256,7 @@ public class GameLevels {
         test.setLevel(4);
         test.saveLevels();
         GameLevels input = test.loadLevels();
-        input.printData();
+        input.toString();
 
     }
 }
