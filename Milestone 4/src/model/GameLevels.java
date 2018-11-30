@@ -116,11 +116,6 @@ public class GameLevels {
         zombieLimit +=5;
         sunMoney+=100;
         currentZombies = zombieLimit;
-        if(maxLevel())
-        {
-            currentZombies = 0;
-            zombieLimit = 0;
-        }
 
     }
 
@@ -148,12 +143,11 @@ public class GameLevels {
         {
             if(maxLevel()){
                 System.out.println("The Maximum Level Ended, User Won!");
-                return true;
             }
-                currentZombies = 0;
-                nextLevel();
-                System.out.println( "Level No: " +currentlevel + " Next Level reached " + sunMoney);
-                return true;
+            currentZombies = 0;
+            nextLevel();
+            System.out.println( "Level No: " +currentlevel + " Next Level reached " + sunMoney);
+            return true;
         }
         System.out.println("Zombies: "+currentZombies+" Next Level not reached " + sunMoney);
         return false;

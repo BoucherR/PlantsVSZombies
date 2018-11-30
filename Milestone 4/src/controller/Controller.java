@@ -84,7 +84,7 @@ public class Controller implements Serializable{
         this.levels = new GameLevels();
         //this.moneyPouch = 500;
         //this.levels.setSunMoney(500);
-        //this.zombies = 10;
+        this.zombies = 0;
         for (int c = 0; c < board.length; c++)
             for (int r = 0; r < board[0].length; r++)
                 board[c][r] = new Square(new Coordinate (c,r));
@@ -225,7 +225,7 @@ public class Controller implements Serializable{
             }
 
         };
-        timer.schedule(task, 0, 3000);
+        timer.schedule(task, 0, 5000);
     }
 
     /**
