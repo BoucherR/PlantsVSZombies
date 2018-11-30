@@ -235,8 +235,12 @@ public class Controller implements Serializable{
     public void runTime(){
         undoBoard.push(copyBoard());
         movingZombie();
-        addingZombie();
         removeUpdate();
+        if(levels.checkAllZombiesDead()){
+            System.out.println("All Dead");
+            JOptionPane.showMessageDialog(null, "Next Level Reached");
+            zombies =0;}
+        addingZombie();
         hitUpdate();
         sunflowerMoney();
         gameOver();
@@ -244,8 +248,6 @@ public class Controller implements Serializable{
         getLogging();
         view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         System.out.println(toString());
-        //levels.setSunMoney(moneyPouch);
-        levels.checkAllZombiesDead();//{this.moneyPouch=levels.getMoney();}
     }
 
     /** Adding pieces around the generated gameBoard. Will use the addPiece()
@@ -343,10 +345,8 @@ public class Controller implements Serializable{
 	        } else if (t == 6) {
 	        	add(new Coordinate(7, y), new BucketZombie());
 	        }
-            zombies--;
-        }
-        else if(levels.checkAllZombiesDead()){
-            zombies =0;
+            zombies++;
+            System.out.println(zombies);
         }
     }
 
@@ -457,6 +457,7 @@ public class Controller implements Serializable{
             JOptionPane.showMessageDialog(null, "Game successfully loaded.");
             temp = levels.loadLevels();
             levels = temp;
+            zombies = 0;
             view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: Game save was not found");
@@ -542,16 +543,8 @@ public class Controller implements Serializable{
      *  in the board; To see if any zombies are "alive". If there are zombies still
      *  alive then the game keeps going. If all are killed, then the game ends.
      */
-    public void gameWon(){
-        /*if(levels.getCurrentZombies() == 0 && levels.maxLevel()){
-            for (int row = 0; row < board[0].length; row++) {
-                for (int col = 0; col < board.length; col++) {
-                    if (board[col][row].isZombie()) {
-                        return;
-                    }
-                }
-            }*/
-        if (levels.maxLevel() && levels.checkLimit(zombies)){
+    private void gameWon(){
+        if (levels.checkAllZombiesDead()&& levels.maxLevel()){
             JOptionPane.showMessageDialog(null, "You have won the game! Thank you for playing.");
             System.exit(0);
         }
@@ -560,7 +553,7 @@ public class Controller implements Serializable{
     /**
      *  Will end the game, if any zombies have reached at the end of the gameboard.
      */
-    public void gameOver(){
+    private void gameOver(){
         for (int row = 0; row < board[0].length; row++) {
             if (board[0][row].isZombie()) {
                 JOptionPane.showMessageDialog(null,"You have lost. Thank you for playing.");

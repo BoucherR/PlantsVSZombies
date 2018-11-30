@@ -1,5 +1,7 @@
 package model;
 import org.xml.sax.InputSource;
+
+import javax.swing.*;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.*;
@@ -112,11 +114,17 @@ public class GameLevels {
      * grant the money to the user
      */
     private void nextLevel(){
-        currentlevel++;
-        zombieLimit +=5;
-        sunMoney+=100;
-        currentZombies = zombieLimit;
-
+        if(currentlevel<= maxlevel){
+            currentlevel++;
+            zombieLimit +=5;
+            sunMoney+=100;
+            currentZombies = zombieLimit;
+        }
+        else
+        {
+            currentZombies = 0;
+            zombieLimit = 0;
+        }
     }
 
     /**
@@ -143,6 +151,7 @@ public class GameLevels {
         {
             if(maxLevel()){
                 System.out.println("The Maximum Level Ended, User Won!");
+                return true;
             }
             currentZombies = 0;
             nextLevel();
@@ -175,7 +184,7 @@ public class GameLevels {
      * @return True, if the user has played all the levels
      */
     public boolean maxLevel(){
-        return (this.currentlevel > this.maxlevel);
+        return (this.currentlevel >= this.maxlevel);
     }
 
     /**
@@ -203,7 +212,7 @@ public class GameLevels {
         output += "<GameLevels>" + "\n";
         output += "\t" + "<Level>" + currentlevel + "</Level>" + "\n";
         output += "\t" + "<ZombieCount>" + currentZombies + "</ZombieCount>" + "\n";
-        output += "\t" + "<ZombieLimit>" + zombieLimit + "</ZombieLimit>" + "\n";
+        output += "\t" + "<ZombieLimit>" + (zombieLimit - currentZombies) + "</ZombieLimit>" + "\n";
         output += "\t" + "<SunMoney>" + sunMoney + "</SunMoney>" + "\n";
         output += "\t" + "<MaxLevel>" + maxlevel + "</MaxLevel>" + "\n";
         output += "</GameLevels>";

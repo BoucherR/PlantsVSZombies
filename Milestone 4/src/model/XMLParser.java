@@ -88,7 +88,7 @@ public class XMLParser extends DefaultHandler {
             level = true;
         } else if (qName.equalsIgnoreCase("ZombieCount")) {
             zombieCount = true;
-        } else if (qName.equalsIgnoreCase("ZombieCount")) {
+        } else if (qName.equalsIgnoreCase("ZombieLimit")) {
             zombieCount = true;
         }else if (qName.equalsIgnoreCase("SunMoney")) {
             sunMoney = true;

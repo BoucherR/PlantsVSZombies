@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -312,6 +313,7 @@ public class ControllerTest {
         assertFalse("The Game Piece is not present",testController.getBoard()[4][1].isOccupied());
         assertNotEquals("The Game is RESET, no Game Piece",new Threepeater(),testController.getBoard()[3][1]);
     }
+
 
     /**
      * Default JUnit Test runner keeps GUI VIEW and CONTROLLER Object references for Tests. Tear Down Used to clear
