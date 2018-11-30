@@ -33,6 +33,10 @@ public class GameLevels {
      */
     private int maxlevel;
 
+    private int zombiesSpawned;
+
+    private int[] levelData={0,5,10,15,20,25};
+
     /**
      * The Money that the player holds
      */
@@ -47,7 +51,8 @@ public class GameLevels {
         currentlevel = 1;
         maxlevel = 5;
         zombieLimit = 5;
-        currentZombies = 5;
+        zombiesSpawned = zombieLimit;
+        currentZombies = zombieLimit;
         sunMoney = 500;
     }
 
@@ -59,6 +64,8 @@ public class GameLevels {
         maxlevel = 5;
         zombieLimit = 5;
         sunMoney = 500;
+        currentZombies = zombieLimit;
+        zombiesSpawned = zombieLimit;
     }
 
     /**
@@ -67,6 +74,14 @@ public class GameLevels {
      */
     public void setSunMoney(int money) {
         this.sunMoney = money;
+    }
+
+    public void setZombiesLeft(int num){
+        zombiesSpawned =num;
+    }
+
+    public int getZombiesLeft(){
+        return zombiesSpawned;
     }
 
     /**
@@ -114,11 +129,12 @@ public class GameLevels {
      * grant the money to the user
      */
     private void nextLevel(){
-        if(currentlevel<= maxlevel){
-            currentlevel++;
+        currentlevel++;
+        if(currentlevel <= maxlevel){
             zombieLimit +=5;
             sunMoney+=100;
             currentZombies = zombieLimit;
+            JOptionPane.showMessageDialog(null, "Next Level Reached");
         }
         else
         {
@@ -150,7 +166,7 @@ public class GameLevels {
         if(this.currentZombies==0)
         {
             if(maxLevel()){
-                System.out.println("The Maximum Level Ended, User Won!");
+                JOptionPane.showMessageDialog(null, "All Zombies Defeated");
                 return true;
             }
             currentZombies = 0;
@@ -212,7 +228,8 @@ public class GameLevels {
         output += "<GameLevels>" + "\n";
         output += "\t" + "<Level>" + currentlevel + "</Level>" + "\n";
         output += "\t" + "<ZombieCount>" + currentZombies + "</ZombieCount>" + "\n";
-        output += "\t" + "<ZombieLimit>" + (zombieLimit - currentZombies) + "</ZombieLimit>" + "\n";
+        output += "\t" + "<ZombieLimit>" + zombieLimit  + "</ZombieLimit>" + "\n";
+        output += "\t" + "<ZombiesSpawned>" + (zombieLimit - currentZombies) + "</ZombiesSpawned>" + "\n";
         output += "\t" + "<SunMoney>" + sunMoney + "</SunMoney>" + "\n";
         output += "\t" + "<MaxLevel>" + maxlevel + "</MaxLevel>" + "\n";
         output += "</GameLevels>";

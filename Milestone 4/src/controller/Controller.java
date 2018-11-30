@@ -238,8 +238,8 @@ public class Controller implements Serializable{
         removeUpdate();
         if(levels.checkAllZombiesDead()){
             System.out.println("All Dead");
-            JOptionPane.showMessageDialog(null, "Next Level Reached");
-            zombies =0;}
+            zombies =0;
+        }
         addingZombie();
         hitUpdate();
         sunflowerMoney();
@@ -334,19 +334,21 @@ public class Controller implements Serializable{
      *  Adding zombies randomly at the end of the board.
      */
     public void addingZombie(){
-        if (!levels.checkLimit(zombies)) {
-            Random ran = new Random();
-            int y = ran.nextInt(5);
-            int t = ran.nextInt(7);
-            if (t == 0 || t == 1 || t == 2 || t == 3) {
-	            add(new Coordinate(7, y), new Zombie());
-	        } else if (t == 4 || t == 5) {
-	        	add(new Coordinate(7, y), new ConeheadZombie());
-	        } else if (t == 6) {
-	        	add(new Coordinate(7, y), new BucketZombie());
-	        }
-            zombies++;
-            System.out.println(zombies);
+        if(!levels.maxLevel()){
+            if (!levels.checkLimit(zombies)) {
+                Random ran = new Random();
+                int y = ran.nextInt(5);
+                int t = ran.nextInt(7);
+                if (t == 0 || t == 1 || t == 2 || t == 3) {
+                    add(new Coordinate(7, y), new Zombie());
+                } else if (t == 4 || t == 5) {
+                    add(new Coordinate(7, y), new ConeheadZombie());
+                } else if (t == 6) {
+                    add(new Coordinate(7, y), new BucketZombie());
+                }
+                zombies++;
+                System.out.println(zombies);
+            }
         }
     }
 
@@ -457,7 +459,7 @@ public class Controller implements Serializable{
             JOptionPane.showMessageDialog(null, "Game successfully loaded.");
             temp = levels.loadLevels();
             levels = temp;
-            zombies = 0;
+            zombies = levels.getZombiesLeft();
             view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: Game save was not found");
@@ -544,7 +546,7 @@ public class Controller implements Serializable{
      *  alive then the game keeps going. If all are killed, then the game ends.
      */
     private void gameWon(){
-        if (levels.checkAllZombiesDead()&& levels.maxLevel()){
+        if (levels.maxLevel()){
             JOptionPane.showMessageDialog(null, "You have won the game! Thank you for playing.");
             System.exit(0);
         }
@@ -600,9 +602,6 @@ public class Controller implements Serializable{
             s += "\n";
         }
         s += "Money Pouch: " + levels.getMoney() + "\n";
-        if(levels.checkAllZombiesDead()){
-            s+="Next Level is reached: "+levels.getLevel()+"Received $100"+levels.getMoney()+ "\n";
-        }
         // s += logging;
         return s;
     }

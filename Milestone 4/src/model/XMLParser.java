@@ -35,6 +35,7 @@ public class XMLParser extends DefaultHandler {
     private boolean sunMoney = false;
     private boolean maxLevel = false;
     private boolean zombieLimit = false;
+    private boolean zombieRemaing = false;
 
     /**
      * The Getter Method for the constructed Game Level
@@ -90,10 +91,11 @@ public class XMLParser extends DefaultHandler {
             zombieCount = true;
         } else if (qName.equalsIgnoreCase("ZombieLimit")) {
             zombieCount = true;
+        }else if (qName.equalsIgnoreCase("ZombiesSpawned")) {
+            zombieRemaing = true;
         }else if (qName.equalsIgnoreCase("SunMoney")) {
             sunMoney = true;
-        }
-        else if (qName.equalsIgnoreCase("MaxLevel")) {
+        }else if (qName.equalsIgnoreCase("MaxLevel")) {
             maxLevel = true;
         }
     }
@@ -136,6 +138,9 @@ public class XMLParser extends DefaultHandler {
         }else if("ZombieLimit".equals(currentElement())) {
             //GameLevels level = gameObjects.peek();
             outputLoad.setZombieLimit(Integer.valueOf(value));
+        }else if("ZombiesSpawned".equals(currentElement())) {
+            //GameLevels level = gameObjects.peek();
+            outputLoad.setZombiesLeft(Integer.valueOf(value));
         }else if("SunMoney".equals(currentElement())){
             //GameLevels level = gameObjects.peek();
             outputLoad.setSunMoney(Integer.valueOf(value));
@@ -153,6 +158,9 @@ public class XMLParser extends DefaultHandler {
         }else if (zombieLimit) {
             System.out.println("Zombie Limit: " + new String(ch, start, length));
             zombieLimit = false;
+        }else if (zombieRemaing) {
+            System.out.println("Zombies Remaining: " + new String(ch, start, length));
+            zombieRemaing = false;
         }else if (sunMoney) {
             System.out.println("SunMoney: $" + new String(ch, start, length));
             sunMoney = false;
