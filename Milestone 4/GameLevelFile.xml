@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameLevels>
-	<Level>2</Level>
-	<ZombieCount>9</ZombieCount>
-	<SunMoney>40</SunMoney>
+	<Level>1</Level>
+	<ZombieCount>5</ZombieCount>
+	<SunMoney>500</SunMoney>
 	<MaxLevel>5</MaxLevel>
 </GameLevels>
