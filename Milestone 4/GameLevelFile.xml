@@ -2,6 +2,8 @@
 <GameLevels>
 	<Level>1</Level>
 	<ZombieCount>5</ZombieCount>
+	<ZombieLimit>5</ZombieLimit>
+	<ZombiesSpawned>0</ZombiesSpawned>
 	<SunMoney>500</SunMoney>
 	<MaxLevel>5</MaxLevel>
 </GameLevels>
