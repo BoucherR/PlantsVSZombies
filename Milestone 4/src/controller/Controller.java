@@ -82,8 +82,6 @@ public class Controller implements Serializable{
         this.board = new Square[BOARD_LENGTH][BOARD_HEIGHT];
         this.view = view;
         this.levels = new GameLevels();
-        //this.moneyPouch = 500;
-        //this.levels.setSunMoney(500);
         this.zombies = 0;
         for (int c = 0; c < board.length; c++)
             for (int r = 0; r < board[0].length; r++)
@@ -334,6 +332,7 @@ public class Controller implements Serializable{
      *  Adding zombies randomly at the end of the board.
      */
     public void addingZombie(){
+        System.out.println(levels.maxLevel());
         if(!levels.maxLevel()){
             if (!levels.checkLimit(zombies)) {
                 Random ran = new Random();
@@ -459,7 +458,7 @@ public class Controller implements Serializable{
             JOptionPane.showMessageDialog(null, "Game successfully loaded.");
             temp = levels.loadLevels();
             levels = temp;
-            zombies = levels.getZombiesLeft();
+            zombies = levels.getZombiesSpawned();
             view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: Game save was not found");
@@ -546,7 +545,7 @@ public class Controller implements Serializable{
      *  alive then the game keeps going. If all are killed, then the game ends.
      */
     private void gameWon(){
-        if (levels.maxLevel()){
+        if (levels.maxLevel() && levels.checkAllZombiesDead()){
             JOptionPane.showMessageDialog(null, "You have won the game! Thank you for playing.");
             System.exit(0);
         }

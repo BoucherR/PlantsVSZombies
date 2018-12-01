@@ -83,8 +83,8 @@ public class XMLParser extends DefaultHandler {
         childElements.push(qName);
         System.out.println("Start Element: " + qName);
         if (qName.equalsIgnoreCase("GameLevels")) {
-            GameLevels budTemp = new GameLevels();
-            gameObjects.push(budTemp);
+            GameLevels temp = new GameLevels();
+            gameObjects.push(temp);
         } else if (qName.equalsIgnoreCase("Level")) {
             level = true;
         } else if (qName.equalsIgnoreCase("ZombieCount")) {
@@ -130,24 +130,20 @@ public class XMLParser extends DefaultHandler {
             return;
         }
         if("Level".equals(currentElement())){
-            //GameLevels level = gameObjects.peek();
             outputLoad.setLevel(Integer.valueOf(value));
         }else if("ZombieCount".equals(currentElement())){
-            //GameLevels level = gameObjects.peek();
             outputLoad.setCurrentZombies(Integer.valueOf(value));
         }else if("ZombieLimit".equals(currentElement())) {
-            //GameLevels level = gameObjects.peek();
             outputLoad.setZombieLimit(Integer.valueOf(value));
         }else if("ZombiesSpawned".equals(currentElement())) {
-            //GameLevels level = gameObjects.peek();
-            outputLoad.setZombiesLeft(Integer.valueOf(value));
+            outputLoad.setZombiesSpawned(Integer.valueOf(value));
         }else if("SunMoney".equals(currentElement())){
-            //GameLevels level = gameObjects.peek();
             outputLoad.setSunMoney(Integer.valueOf(value));
         }else if("MaxLevel".equals(currentElement())){
-            //GameLevels level = gameObjects.peek();
             outputLoad.setMaxLevel(Integer.valueOf(value));
         }
+
+        /*Used to Print the Loaded Data*/
         if (level) {
             System.out.println("Level: "
                     + new String(ch, start, length));
@@ -159,7 +155,7 @@ public class XMLParser extends DefaultHandler {
             System.out.println("Zombie Limit: " + new String(ch, start, length));
             zombieLimit = false;
         }else if (zombieRemaing) {
-            System.out.println("Zombies Remaining: " + new String(ch, start, length));
+            System.out.println("Zombies Spawned: " + new String(ch, start, length));
             zombieRemaing = false;
         }else if (sunMoney) {
             System.out.println("SunMoney: $" + new String(ch, start, length));

@@ -33,9 +33,11 @@ public class GameLevels {
      */
     private int maxlevel;
 
+    /**
+     * The is used to keep track of the zombies that had been spawned prior to save command (For Load/Save Functionality)
+     */
     private int zombiesSpawned;
 
-    private int[] levelData={0,5,10,15,20,25};
 
     /**
      * The Money that the player holds
@@ -51,7 +53,7 @@ public class GameLevels {
         currentlevel = 1;
         maxlevel = 5;
         zombieLimit = 5;
-        zombiesSpawned = zombieLimit;
+        zombiesSpawned = 0;
         currentZombies = zombieLimit;
         sunMoney = 500;
     }
@@ -65,7 +67,7 @@ public class GameLevels {
         zombieLimit = 5;
         sunMoney = 500;
         currentZombies = zombieLimit;
-        zombiesSpawned = zombieLimit;
+        zombiesSpawned = 0;
     }
 
     /**
@@ -76,11 +78,19 @@ public class GameLevels {
         this.sunMoney = money;
     }
 
-    public void setZombiesLeft(int num){
+    /**
+     * The Method is used for loading the most recent value of zombies spawned
+     * @param num, The zombies spawn count
+     */
+    public void setZombiesSpawned(int num){
         zombiesSpawned =num;
     }
 
-    public int getZombiesLeft(){
+    /**
+     * The Number of zombies that were spawned before the save operation
+     * @return zombiesSpawned,  The Zombies Spawn count
+     */
+    public int getZombiesSpawned(){
         return zombiesSpawned;
     }
 
@@ -171,10 +181,10 @@ public class GameLevels {
             }
             currentZombies = 0;
             nextLevel();
-            System.out.println( "Level No: " +currentlevel + " Next Level reached " + sunMoney);
+            System.out.println( "Level No: " +currentlevel + " Next Level reached. User Money: " + sunMoney);
             return true;
         }
-        System.out.println("Zombies: "+currentZombies+" Next Level not reached " + sunMoney);
+        System.out.println("Zombies: "+currentZombies+" Next Level not reached. User Money: " + sunMoney);
         return false;
     }
 
@@ -200,7 +210,7 @@ public class GameLevels {
      * @return True, if the user has played all the levels
      */
     public boolean maxLevel(){
-        return (this.currentlevel >= this.maxlevel);
+        return (this.currentlevel > this.maxlevel);
     }
 
     /**
