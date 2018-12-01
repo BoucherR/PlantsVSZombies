@@ -17,6 +17,7 @@ import java.util.Timer;
 /**
  * @author Youssef Saghbini
  * @author Ryan Boucher
+ * @author Muneeb Nasir - Level Builder
  * @version 1.5
  */
 
@@ -31,13 +32,9 @@ public class Controller implements Serializable{
      */
     private Square board[][];
 
-    /**
-     *  User's money pouch during the game.
-     */
-    private int moneyPouch;
 
     /**
-     *  The amount of zombies to be spawned within the board.
+     *  To Track the Number of Zombies currently on the board
      */
     private int zombies;
 
@@ -389,22 +386,20 @@ public class Controller implements Serializable{
      *  Whenever there is a sunflower spawned in the game, it will
      *  add money into the user's money pouch.
      */
-    public void sunflowerMoney(){
+    private void sunflowerMoney(){
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getShortName() == 'S') {
-                        levels.earnedMoney(5);//moneyPouch += 5;
+                        levels.earnedMoney(5);
                         loggingList.add( "Model.Sunflower Model.Piece added 5 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
                     }
                     if (board[col][row].getPiece().getShortName() == '2') {
                         levels.earnedMoney(10);
-                        //moneyPouch += 10;
                         loggingList.add( "Model.TwinSunflower Model.Piece added 10 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
                     }
                     if (board[col][row].getPiece().getShortName() == 'G') {
                         levels.earnedMoney(15);
-                        //moneyPouch += 15;
                         loggingList.add( "Model.GiantSunflower Model.Piece added 15 to your pouch @ Coordinates: " + board[col][row].getCoordinate() + "\n");
                     }
                 }
