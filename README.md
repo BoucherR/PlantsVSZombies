@@ -44,13 +44,18 @@ Zombies have landed onto your planet and want to take over the whole world. The 
 ### Know Issues
 - Nothing happens when all squares are filled
 - If no more sun points then game can not be continued
+- When plant is added on the last column on the right, zombie can't be spawned
+- Undos is up to n-1
+- Undo/Redos does not affect money
 
 ### Future Plans 
 - Implement Save/Load Functionality
 - Apply Real-Time
-- Fix bugs
+- Fix bugs and known issues 
 - Add title page to the game
 - Update documents
+
+
 
 
 

@@ -1,13 +1,15 @@
 package model;
 
 
+import java.io.Serializable;
+
 /**
  * Square Class stores information of the Pieces and Coordinates
  * @author Muneeb Nasir
  * @version  1.0
  */
 
-public class Square{
+public class Square implements Serializable {
 
     /**
      * The Coordinates of the square object

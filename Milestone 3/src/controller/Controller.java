@@ -9,6 +9,7 @@ import javax.swing.event.MenuListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.*;
 import java.util.List;
 
@@ -18,7 +19,7 @@ import java.util.List;
  * @version 1.5
  */
 
-public class Controller {
+public class Controller implements Serializable{
 
     /**
      *  Dual-array gameboard to be played on.
@@ -50,13 +51,8 @@ public class Controller {
      */
     private List<String> loggingList;
 
-    /**
-     *
-     */
     private Stack<Square[][]> undoBoard;
     private Stack<Square[][]> redoBoard;
-
-
     private static final int BOARD_LENGTH = 8;
     private static final int BOARD_HEIGHT = 5;
 
@@ -90,6 +86,14 @@ public class Controller {
      * Currently supports the placing of peashooters and sunflowers.
      */
     public void actionListener(){
+
+        view.getSaveButton().addActionListener((e) -> {
+            save("GameSave.txt");
+        });
+
+        view.getLoadButton().addActionListener((e) -> {
+            load("GameSave.txt");
+        });
 
         /**
          * When a plant is removed from the board, the user will be able to add it with this function
@@ -216,6 +220,42 @@ public class Controller {
         return boardCopy;
     }
 
+    /**
+     * Import Serial file to receive AddressBook
+     * @param file
+     */
+    public void load(String file){
+        try{
+            ObjectInputStream oStream = new ObjectInputStream(new FileInputStream(file));
+            Square[][] tempBoard = (Square[][]) oStream.readObject();
+            oStream.close();
+            for (int row = 0; row < board[0].length; row++) {
+                for (int col = 0; col < board.length; col++) {
+                    board[col][row] = tempBoard[col][row];
+                }
+            }
+            board2GUI(board);
+            JOptionPane.showMessageDialog(null, "Game successfully loaded.");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error: Game save was not found");
+        }
+    }
+
+    /**
+     * Export AddressBook into Serialize Format
+     * @param file
+     */
+    public void save(String file){
+        try{
+            ObjectOutputStream oStream = new ObjectOutputStream(new FileOutputStream(file));
+            oStream.writeObject(copyBoard());
+            oStream.close();
+            JOptionPane.showMessageDialog(null, "Game successfully saved.");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error: Game save unsuccessful.");
+        }
+    }
+
     public void undo() {
         if (undoBoard.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No possible undos.");
@@ -223,7 +263,7 @@ public class Controller {
         }
         redoBoard.push(board);
         board = undoBoard.pop();
-        board2GUI();
+        board2GUI(board);
     }
 
     public void redo() {
@@ -233,20 +273,19 @@ public class Controller {
         }
         undoBoard.push(board);
         board = redoBoard.pop();
-        board2GUI();
+        board2GUI(board);
     }
 
-    public void board2GUI(){
+    public void board2GUI(Square[][] board){
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
                 if(board[col][row].getPiece() != null) {
                     view.getGameButtons()[col][row].setDisabledIcon(board[col][row].getPiece().getImage());
                     view.getGameButtons()[col][row].setIcon(board[col][row].getPiece().getImage());
                     view.getGameButtons()[col][row].setEnabled(false);
-
                 } else {
-                    view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
-                    view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
+                    view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
+                    view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
                     view.getGameButtons()[col][row].setEnabled(true);
                 }
             }
@@ -389,7 +428,7 @@ public class Controller {
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
                 if (board[col][row].isZombie()) {
-                    view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
+                    view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
                     view.getGameButtons()[col][row].setEnabled(true);
                     if(move(new Coordinate(col, row), new Coordinate(col-1, row))) {
                         view.getGameButtons()[col - 1][row].setEnabled(false);
@@ -411,8 +450,8 @@ public class Controller {
                 if (board[col][row].getPiece() != null) {
                     if (board[col][row].getPiece().getHealth() <= 0) {
                         view.getGameButtons()[col][row].setEnabled(true);
-                        view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
-                        view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
+                        view.getGameButtons()[col][row].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
+                        view.getGameButtons()[col][row].setDisabledIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
                         board[col][row].deletePiece();
                     }
                 }
@@ -466,10 +505,10 @@ public class Controller {
         for (int rowsBoard = 0; rowsBoard < board[0].length; rowsBoard++) {
             for (int columnsBoard = 0; columnsBoard < board.length; columnsBoard++) {
                 board[columnsBoard][rowsBoard] = new Square(new Coordinate(columnsBoard, rowsBoard));
-                view.getGameButtons()[columnsBoard][rowsBoard].setIcon(new ImageIcon(getClass().getResource("/Images/Grass.png")));
+                view.getGameButtons()[columnsBoard][rowsBoard].setIcon(new ImageIcon(getClass().getResource("/Images/grass.png")));
                 view.getGameButtons()[columnsBoard][rowsBoard].setContentAreaFilled(false);
                 view.getGameButtons()[columnsBoard][rowsBoard].setRolloverEnabled(true);
-                view.getGameButtons()[columnsBoard][rowsBoard].setRolloverIcon(new ImageIcon(getClass().getResource("/Images/GrassHighlighted.png")));
+                view.getGameButtons()[columnsBoard][rowsBoard].setRolloverIcon(new ImageIcon(getClass().getResource("/Images/grasshighlighted.png")));
             }
         }
     }
