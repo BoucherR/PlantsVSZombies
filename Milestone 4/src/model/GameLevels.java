@@ -289,6 +289,10 @@ public class GameLevels {
         return loadGame;
     }
 
+    /**
+     * To String Method for the Game Level Class
+     * @return String, The Game Level Data in a String Format
+     */
     @Override
     public String toString(){
         return ("Level: "+this.getLevel() + "\n"
@@ -305,7 +309,6 @@ public class GameLevels {
         test.setLevel(4);
         test.saveLevels();
         GameLevels input = test.loadLevels();
-        input.toString();
 
     }
 }
