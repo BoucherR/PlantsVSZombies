@@ -6,9 +6,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.Random;
 
 import static org.junit.Assert.*;
@@ -312,6 +314,53 @@ public class ControllerTest {
         assertNull("The Game is Reset, No Pieces",testController.getBoard()[2][1].getPiece());
         assertFalse("The Game Piece is not present",testController.getBoard()[4][1].isOccupied());
         assertNotEquals("The Game is RESET, no Game Piece",new Threepeater(),testController.getBoard()[3][1]);
+    }
+
+    /**
+     * The Method is used to check the Save Game Functionality
+     */
+    @Test
+    public void testGameSave(){
+        testController.add(new Coordinate(3,3),new Peashooter());
+        testController.add(new Coordinate(1,1),new Threepeater());
+        testController.add(new Coordinate(4,4),new Repeater());
+        assertEquals("The Game Piece is added properly",new Threepeater(),testController.getBoard()[1][1].getPiece());
+        assertEquals("The Game Piece is added properly",new Repeater(),testController.getBoard()[4][4].getPiece());
+        assertNotNull("The BucketZombie placed",testController.getBoard()[3][3].getPiece());
+        testController.save("GameTestFile.txt");
+    }
+
+    /**
+     * The Test is used to check the Load functionality of the Game
+     */
+    @Test
+    public void testLoadGame(){
+        testController.load("GameTestFile.txt");
+        assertEquals("The Game Piece is added properly",new Threepeater(),testController.getBoard()[1][1].getPiece());
+        assertEquals("The Game Piece is added properly",new Repeater(),testController.getBoard()[4][4].getPiece());
+        assertNotNull("The Game is fully loaded",testController.getBoard()[4][4].getPiece());
+        assertNotNull("The Game is fully loaded",testController.getBoard()[3][3].getPiece());
+        assertEquals("The Game is fully loaded with correct piece Location",new Square(new Coordinate(4,4),new Repeater()),testController.getBoard()[4][4]);
+        testController.add(new Coordinate(2,1),new Sunflower());
+        assertEquals("The Load operation didn't affect Game Functionality",new Sunflower(),testController.getBoard()[2][1].getPiece());
+    }
+
+    /**
+     * The Test is used to check the Copy Board Functionality of the Game Playground
+     */
+    @Test
+    public void testCopyBoard(){
+        testController.add(new Coordinate(3,3),new Sunflower());
+        testController.add(new Coordinate(1,1),new Peashooter());
+        testController.add(new Coordinate(4,4),new Threepeater());
+        testController.add(new Coordinate(6,4),new Zombie());
+        assertEquals("The Game Piece is added properly",new Sunflower(),testController.getBoard()[3][3].getPiece());
+        assertEquals("The Game Piece is added properly",new Peashooter(),testController.getBoard()[1][1].getPiece());
+        assertNotNull("The Game Board installation",testController.getBoard()[6][4].getPiece());
+        Square[][] testCopy = testController.copyBoard();
+        assertEquals("Copy Properly Not Done, The Game Piece is not at same location",new Sunflower(),testCopy[3][3].getPiece());
+        assertEquals("Copy Properly Not Done, The Game Piece is not at same location",new Peashooter(),testCopy[1][1].getPiece());
+        assertNotNull("Copy Board doesn't give same results",testCopy[6][4].getPiece());
     }
 
 

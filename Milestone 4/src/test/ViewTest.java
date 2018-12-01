@@ -144,7 +144,7 @@ public class ViewTest {
     @Test
     public void testGetUndoButton(){
         assertTrue("The Undo Menu Item is functional command",testFrame.getUndoButton().isEnabled());
-        assertEquals("The Redo Menu Item is functional menu item","Undo",testFrame.getUndoButton().getText());
+        assertEquals("The Undo Menu Item is functional menu item","Undo",testFrame.getUndoButton().getText());
         assertNotEquals("The game option is Undo","Exit",testFrame.getUndoButton().getText());
     }
 
@@ -204,6 +204,26 @@ public class ViewTest {
         assertEquals("Giant Sunflower has no SUB-MENU Items",0,testFrame.getGiantSunflower().getComponentCount());
         assertNotNull("The Giant Sunflower Image Label Icon is set",testFrame.getGiantSunflower().getIcon());
         assertEquals("The Image Icon properly placed",new ImageIcon(getClass().getResource("/Icons/GiantSunflowerSmall.png")).toString(),testFrame.getGiantSunflower().getIcon().toString());
+    }
+
+    /**
+     * The Test is used to check the Getter Method for the Save Button
+     */
+    @Test
+    public void testGetSaveButton(){
+        assertTrue("The Save Menu Item is functional command",testFrame.getSaveButton().isEnabled());
+        assertEquals("The Save Menu Item is functional menu item","Save",testFrame.getSaveButton().getText());
+        assertNotEquals("The game option is Save","Exit",testFrame.getSaveButton().getText());
+    }
+
+    /**
+     * The Test is used to check the Getter Method for the Load Button
+     */
+    @Test
+    public void testGetLoadButton(){
+        assertTrue("The Load Menu Item is functional command",testFrame.getLoadButton().isEnabled());
+        assertEquals("The Load Menu Item is functional menu item","Load",testFrame.getLoadButton().getText());
+        assertNotEquals("The game option is Load","Exit",testFrame.getLoadButton().getText());
     }
 
     /**
