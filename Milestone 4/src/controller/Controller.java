@@ -229,12 +229,13 @@ public class Controller implements Serializable{
      */
     public void runTime(){
         undoBoard.push(copyBoard());
-        movingZombie();
-        removeUpdate();
         if(levels.checkAllZombiesDead()){
             System.out.println("All Dead");
             zombies =0;
         }
+        //System.out.println("Zombies: "+ levels.getCurrentZombies() +" Next Level not reached. User Money: " + levels.getMoney());
+        movingZombie();
+        removeUpdate();
         addingZombie();
         hitUpdate();
         sunflowerMoney();
@@ -359,6 +360,7 @@ public class Controller implements Serializable{
                     {
                         levels.zombieKilled();
                     }
+                    System.out.println("Zombies: "+ levels.getCurrentZombies() +" Next Level not reached. User Money: " + levels.getMoney());
                     if(move(new Coordinate(col, row), new Coordinate(col-1, row)))
                         board2GUI(board);
                 }
@@ -473,6 +475,7 @@ public class Controller implements Serializable{
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: Game save unsuccessful.");
         }
+        levels.setZombiesSpawned(zombies);
         levels.saveLevels();
     }
 
@@ -483,6 +486,7 @@ public class Controller implements Serializable{
         }
         redoBoard.push(board);
         board = undoBoard.pop();
+        zombies --;
         board2GUI(board);
     }
 
@@ -493,6 +497,7 @@ public class Controller implements Serializable{
         }
         undoBoard.push(board);
         board = redoBoard.pop();
+        zombies ++;
         board2GUI(board);
     }
 
