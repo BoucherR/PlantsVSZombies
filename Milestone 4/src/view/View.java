@@ -3,24 +3,18 @@ package view;
 
 /**
  * @author Youssef Saghbini
+ * @author Ryan Gaudreault - Implemented JMenus for new classes
  * @version 1.0
  */
 
 
-import controller.Controller;
 import model.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class View extends JFrame {
 
-    /**
-     *  A JFrame for the main menu start up.
-     */
-    private JFrame mainMenu;
     /**
      *  A JPanel for the buttons to be presented on the GUI
      */
@@ -125,7 +119,7 @@ public class View extends JFrame {
     /**
      *  Setting up the GUI using the fields that were chosen
      */
-    public View initView(){
+    public View(){
 
         /*
             Initializing JScroll, JPanel, JMenu and JTextArea
@@ -209,27 +203,8 @@ public class View extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        return this;
     }
 
-    public View() {
-        mainMenu = new JFrame("Plants VS. Zombies");
-        mainMenu.setSize(1500, 900);
-
-        JButton startButton = new JButton( new ImageIcon(getClass().getResource("/Images/StartPage(2).jpg")));
-        mainMenu.add(startButton);
-        mainMenu.setVisible(true);
-
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainMenu.dispose();
-                View view = initView();
-                Controller controller = new Controller(view);
-                controller.actionListener();
-            }
-        });
-    }
     /**
      *  Getter for the JPanel filled with JButtons
      *  @return JPanel filled with JButtons

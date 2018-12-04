@@ -17,7 +17,7 @@ import org.junit.runners.Suite.SuiteClasses;
                 ControllerTest.class, CoordinateTest.class, GiantSunflowerTest.class,
                 PeashooterTest.class, PieceTest.class, RepeaterTest.class, GameLevelsTest.class,
                 SquareTest.class, SunflowerTest.class, ThreepeaterTest.class,
-                TwinSunflowerTest.class, ViewTest.class, WallnutTest.class})
+                TwinSunflowerTest.class, ViewTest.class, MainMenuTest.class, WallnutTest.class})
 
 
 public class TestAll {
