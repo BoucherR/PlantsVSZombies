@@ -1,3 +1,4 @@
+
 package view;
 
 /**
@@ -6,12 +7,20 @@ package view;
  */
 
 
+import controller.Controller;
 import model.*;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class View extends JFrame {
 
+    /**
+     *  A JFrame for the main menu start up.
+     */
+    private JFrame mainMenu;
     /**
      *  A JPanel for the buttons to be presented on the GUI
      */
@@ -112,16 +121,23 @@ public class View extends JFrame {
      */
     private JMenuItem loadButton;
 
+    /**
+     * A boolean that if true starts the game.
+     */
+    //private boolean startgame;
+
+    private Thread threadObject;
+
 
     /**
      *  Setting up the GUI using the fields that were chosen
      */
-    public View(){
+    public View initView(){
 
         /*
             Initializing JScroll, JPanel, JMenu and JTextArea
          */
-        textArea = new JTextArea(15,50);
+        textArea = new JTextArea(15, 50);
         topPanel = new JPanel();
         bottomPanel = new JPanel();
         jScrollPane = new JScrollPane(textArea);
@@ -138,9 +154,9 @@ public class View extends JFrame {
             JScrollPane and JPanels will be placed on the JFrame,
             adding JMenu with JMenuItems
          */
-        setSize(1366,768);
+        setSize(1366, 768);
         setTitle("Plants VS. Zombies");
-        topPanel.setLayout(new GridLayout(5,8));
+        topPanel.setLayout(new GridLayout(5, 8));
         bottomPanel.setLayout(new FlowLayout());
         add(topPanel, BorderLayout.CENTER);
         sunPicture.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -161,9 +177,9 @@ public class View extends JFrame {
             to the JPanel and enabling them.
          */
         gameButtons = new JButton[8][5];
-        for(int i = 0; i < 5;i++){
-            for(int j = 0; j < 8;j++){
-                gameButtons[j][i] = new JButton(new Coordinate(j,i).name(), new ImageIcon(getClass().getResource("/Images/grass.png")));
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 8; j++) {
+                gameButtons[j][i] = new JButton(new Coordinate(j, i).name(), new ImageIcon(getClass().getResource("/Images/grass.png")));
                 gameButtons[j][i].setBorderPainted(false);
                 topPanel.add(gameButtons[j][i]);
 
@@ -177,14 +193,14 @@ public class View extends JFrame {
          */
         textArea.setEditable(false);
         popupMenu = new JPopupMenu("Select Plant");
-        popupMenu.setPopupSize(150,250);
+        popupMenu.setPopupSize(150, 250);
         sunflower = new JMenuItem("Sunflower", new ImageIcon(getClass().getResource("/Icons/SunflowerSmall.png")));
         peashooter = new JMenuItem("Peashooter", new ImageIcon(getClass().getResource("/Icons/PeashooterSmall.png")));
         repeater = new JMenuItem("Repeater", new ImageIcon(getClass().getResource("/Icons/RepeaterSmall.png")));
         threepeater = new JMenuItem("Threepeater", new ImageIcon(getClass().getResource("/Icons/ThreepeaterSmall.png")));
         giantsunflower = new JMenuItem("Giant Sunflower", new ImageIcon(getClass().getResource("/Icons/GiantSunflowerSmall.png")));
-       	wallnut = new JMenuItem("Wallnut", new ImageIcon(getClass().getResource("/Icons/WallnutSmall.png")));
-       	twinsunflower = new JMenuItem("Twin Sunflower", new ImageIcon(getClass().getResource("/Icons/TwinSunflowerSmall.png")));
+        wallnut = new JMenuItem("Wallnut", new ImageIcon(getClass().getResource("/Icons/WallnutSmall.png")));
+        twinsunflower = new JMenuItem("Twin Sunflower", new ImageIcon(getClass().getResource("/Icons/TwinSunflowerSmall.png")));
         popupMenu.add(sunflower);
         popupMenu.add(peashooter);
         popupMenu.add(repeater);
@@ -200,8 +216,27 @@ public class View extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+        return this;
     }
 
+    public View() {
+        mainMenu = new JFrame("Plants VS. Zombies");
+        mainMenu.setSize(1500, 900);
+
+        JButton startButton = new JButton( new ImageIcon(getClass().getResource("/Images/StartPage(2).jpg")));
+        mainMenu.add(startButton);
+        mainMenu.setVisible(true);
+
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainMenu.dispose();
+                View view = initView();
+                Controller controller = new Controller(view);
+                controller.actionListener();
+            }
+        });
+    }
     /**
      *  Getter for the JPanel filled with JButtons
      *  @return JPanel filled with JButtons
@@ -314,11 +349,20 @@ public class View extends JFrame {
         return undoButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JMenuItem getSaveButton() {
         return saveButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JMenuItem getLoadButton() {
         return loadButton;
     }
+
 }
