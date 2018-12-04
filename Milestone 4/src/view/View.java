@@ -121,13 +121,6 @@ public class View extends JFrame {
      */
     private JMenuItem loadButton;
 
-    /**
-     * A boolean that if true starts the game.
-     */
-    //private boolean startgame;
-
-    private Thread threadObject;
-
 
     /**
      *  Setting up the GUI using the fields that were chosen
@@ -350,16 +343,16 @@ public class View extends JFrame {
     }
 
     /**
-     *
-     * @return
+     * Getting the JMenu for the Save button on the JMenubar
+     * @return JMenu for Save
      */
     public JMenuItem getSaveButton() {
         return saveButton;
     }
 
     /**
-     *
-     * @return
+     * Getting the JMenu for the Load button on the JMenubar
+     * @return JMenu for Load
      */
     public JMenuItem getLoadButton() {
         return loadButton;
