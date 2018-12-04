@@ -80,37 +80,37 @@ public class View extends JFrame {
     /**
      *  To display a JLabel logo of the Sun, representing the money of the user
      */
-    JLabel sunPicture;
+    private JLabel sunPicture;
 
     /**
      *  JLabel String of the user's money pouch
      */
-    JLabel sunMoney;
+    private JLabel sunMoney;
 
     /**
      *  JMenu Title to redo an user-command
      */
-    JMenuItem redoButton;
+    private JMenuItem redoButton;
 
     /**
      *  JMenu Title to undo an user-command
      */
-    JMenuItem undoButton;
+    private JMenuItem undoButton;
 
     /**
      *  MenuBar for the MenuItems to be placed
      */
-    JMenuBar menuBar;
+    private JMenuBar menuBar;
 
     /**
      *  JMenu Title to save a players game state into a text file.
      */
-    JMenuItem saveButton;
+    private JMenuItem saveButton;
 
     /**
      *  JMenu Title to load a players game state from a text file.
      */
-    JMenuItem loadButton;
+    private JMenuItem loadButton;
 
 
     /**
