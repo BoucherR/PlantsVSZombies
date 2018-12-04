@@ -8,7 +8,8 @@ import static org.junit.Assert.*;
 /**
  * The TEST Class for the Piece
  * @author Muneeb Nasir
- * @version 3.0
+ * @author Ryan Gaudreault
+ * @version 4.0
  */
 
 public class PieceTest {
@@ -20,6 +21,12 @@ public class PieceTest {
     private Piece testPiece2;
     private Piece testPiece3;
     private Piece testPiece4;
+    private Piece testPiece5;
+    private Piece testPiece6;
+    private Piece testPiece7;
+    private Piece testPiece8;
+    private Piece testPiece9;
+    private Piece testPiece10;
 
     /**
      * The method is used to establish the Piece Objects that is to be used in the Test cases
@@ -30,6 +37,12 @@ public class PieceTest {
         testPiece2 = new Repeater();
         testPiece3 = new Peashooter();
         testPiece4 = new Zombie();
+        testPiece5 = new TwinSunflower();
+        testPiece6 = new Threepeater();
+        testPiece7 = new Wallnut();
+        testPiece8 = new GiantSunflower();
+        testPiece9 = new ConeheadZombie();
+        testPiece10 = new BucketZombie();
     }
 
     /**
@@ -41,6 +54,12 @@ public class PieceTest {
         assertNotNull("The Game Piece is REPEATER",testPiece2);
         assertNotNull("The Game Piece is PEASHOOTER",testPiece3);
         assertNotNull("The Game Piece is ZOMBIE",testPiece4);
+        assertNotNull("The Game Piece is TWINSUNFLOWER",testPiece5);
+        assertNotNull("The Game Piece is THREEPEATER",testPiece6);
+        assertNotNull("The Game Piece is WALLNUT",testPiece7);
+        assertNotNull("The Game Piece is GIANTSUNFLOWER",testPiece8);
+        assertNotNull("The Game Piece is CONEHEADZOMBIE",testPiece9);
+        assertNotNull("The Game Piece is BUCKETZOMBIE",testPiece10);
 
         assertEquals("The Game Piece is SUNFLOWER","SUNFLOWER",testPiece1.getName());
         assertNotEquals("The Game Piece is SUNFLOWER Capitalised","sunflower",testPiece1.getName());
