@@ -7,8 +7,7 @@ package model;
  * create a new object and passes it's designated parameters. 
  * 
  * A ConeheadZombie doubles the health and attack damage of a typical zombie. 
- * @author RG
- * @author Ryan Boucher
+ * @author Ryan Gaudreault
  * @version 4.0
  *
  */

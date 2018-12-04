@@ -7,8 +7,7 @@ package model;
  * create a new object and passes it's designated parameters. 
  * 
  * A Threepeater triples the attack damage and cost of a typical peashooter while doubling health. 
- * @author RG
- * @author Ryan Boucher
+ * @author Ryan Gaudreault
  * @version 4.0
  */
 public class Threepeater extends Piece {

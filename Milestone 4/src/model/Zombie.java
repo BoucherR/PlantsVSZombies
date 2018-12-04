@@ -6,8 +6,7 @@ package model;
  * constructor and simplifies the Piece class code. It uses its super class Piece to 
  * create a new object and passes it's designated parameters. 
  * 
- * @author RG
- * @author Ryan Boucher
+ * @author Ryan Gaudreault
  * @version 4.0
  */
 public class Zombie extends Piece {

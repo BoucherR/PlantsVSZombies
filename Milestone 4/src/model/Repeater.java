@@ -7,8 +7,7 @@ package model;
  * create a new object and passes it's designated parameters. 
  * 
  * A Repeater plant doubles the attack damage and cost of a normal peashooter. 
- * @author RG
- * @author Ryan Boucher
+ * @author Ryan Gaudreault
  * @version 4.0
  */
 public class Repeater extends Piece{

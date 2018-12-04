@@ -8,8 +8,7 @@ package model;
  * 
  * The GiantSunflower triples the amount of a signle sunflower piece and triples the health. 
  * 
- * @author RG
- * @author Ryan Boucher
+ * @author Ryan Gaudreault
  * @version 4.0
  *
  */

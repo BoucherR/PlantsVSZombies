@@ -7,8 +7,7 @@ package model;
  * create a new object and passes it's designated parameters.
  * 
  * The Wallnut class doesn't attack but has alot of health. Essentially to slow down hostiles.
- * @author RG
- * @author Ryan Boucher
+ * @author Ryan Gaudreault
  * @version 4.0
  * 
  */

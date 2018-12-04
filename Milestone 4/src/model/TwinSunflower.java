@@ -7,8 +7,7 @@ package model;
  * create a new object and passes it's designated parameters. 
  * 
  * A TwinSunFlower doubles the health and sun output of a sunflower while tripling its price. 
- * @author RG
- * @author Ryan Boucher
+ * @author Ryan Gaudreault
  * @version 4.0
  *
  */
