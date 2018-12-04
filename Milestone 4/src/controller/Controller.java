@@ -344,12 +344,22 @@ public class Controller implements Serializable{
                 Random ran = new Random();
                 int y = ran.nextInt(5);
                 int t = ran.nextInt(7);
-                if (t == 0 || t == 1 || t == 2 || t == 3) {
-                    add(new Coordinate(7, y), new Zombie());
-                } else if (t == 4 || t == 5) {
-                    add(new Coordinate(7, y), new ConeheadZombie());
-                } else if (t == 6) {
-                    add(new Coordinate(7, y), new BucketZombie());
+                if (levels.getLevel() < 3) { //Easy mode before level 3.
+                    if (t == 0 || t == 1 || t == 2 || t == 3) {
+                        add(new Coordinate(7, y), new Zombie());
+                    } else if (t == 4 || t == 5) {
+                        add(new Coordinate(7, y), new ConeheadZombie());
+                    } else if (t == 6) {
+                        add(new Coordinate(7, y), new BucketZombie());
+                    }
+                } else { // Amped up difficulty passed level 3.
+                    if (t == 0) {
+                        add(new Coordinate(7, y), new Zombie("ZOMBIE",'Z',55,25,0));
+                    } else if (t == 1 || t == 2 || t == 3 ) {
+                        add(new Coordinate(7, y), new ConeheadZombie("CONEHEADZOMBIE", 'C', 65, 35, 0));
+                    } else if ( t == 4 || t == 5 || t == 6) {
+                        add(new Coordinate(7, y), new BucketZombie("BUCKETZOMBIE", 'B', 75, 45, 0));
+                    }
                 }
                 zombies++;
                 System.out.println(zombies);

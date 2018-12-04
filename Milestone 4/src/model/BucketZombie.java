@@ -15,7 +15,7 @@ package model;
  */
 public class BucketZombie extends Piece{
 
-	private BucketZombie(String name, char shortName, int health, int attack, int cost)
+	public BucketZombie(String name, char shortName, int health, int attack, int cost)
 	{
 		super(name, shortName, health, attack, cost);
 	}

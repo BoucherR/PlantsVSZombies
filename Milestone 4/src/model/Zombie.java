@@ -19,7 +19,7 @@ public class Zombie extends Piece {
         super("ZOMBIE",'Z',5,2,0);
     }
 
-    private Zombie(String name, char shortName, int health, int attack, int cost)
+    public Zombie(String name, char shortName, int health, int attack, int cost)
     {
         super(name, shortName, health, attack, cost);
     }
