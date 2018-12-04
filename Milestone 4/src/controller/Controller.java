@@ -98,7 +98,7 @@ public class Controller implements Serializable{
      */
     public void actionListener(){
 
-        /**
+        /*
          * Placing Action listeners on each square of the board
          */
         for(int i = 0; i < board[0].length;i++) {
@@ -112,7 +112,7 @@ public class Controller implements Serializable{
             }
         }
 
-        /**
+        /*
          * Using pop-ups on the board, generated on the click-location, to handle the placing of sunflowers.
          */
         view.getSunflower().addActionListener(new ActionListener() {
@@ -122,7 +122,7 @@ public class Controller implements Serializable{
             }
         });
 
-        /**
+        /*
          * Using pop-ups on the board, generated on the click-location, to handle the placing of a peashooter.
          */
         view.getPeashooter().addActionListener(new ActionListener() {
@@ -132,7 +132,7 @@ public class Controller implements Serializable{
             }
         });
         
-        /**
+        /*
          * Using pop-ups on the board, generated on the click-location, to handle the placing of a repeater.
          */
         view.getRepeater().addActionListener(new ActionListener() {
@@ -142,7 +142,7 @@ public class Controller implements Serializable{
             }
         });
         
-        /**
+        /*
          * Using pop-ups on the board, generated on the click-location, to handle the placing of a threepeater.
          */
         view.getThreepeater().addActionListener(new ActionListener() {
@@ -152,7 +152,7 @@ public class Controller implements Serializable{
             }
         });
         
-        /**
+        /*
          * Using pop-ups on the board, generated on the click-location, to handle the placing of a threepeater.
          */
         view.getWallnut().addActionListener(new ActionListener() {
@@ -162,8 +162,8 @@ public class Controller implements Serializable{
             }
         });
         
-        /**
-         * Using pop-ups on the board, generated on the click-location, to handle the placing of sunflowers.
+        /*
+         * Using pop-ups on the board, generated on the click-location, to handle the placing of twinsunflowers.
          */
         view.getTwinSunflower().addActionListener(new ActionListener() {
             @Override
@@ -171,7 +171,10 @@ public class Controller implements Serializable{
                 add(clickedButtonLocation, new TwinSunflower());
             }
         });
-        
+
+        /*
+         * Using pop-ups on the board, generated on the click-location, to handle the placing of giantsunflowers.
+         */
         view.getGiantSunflower().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -179,16 +182,21 @@ public class Controller implements Serializable{
             }
         });
 
-
+        /*
+         * Using JMenuItem on the board, to save the game state in a text file.
+         */
         view.getSaveButton().addActionListener((e) -> {
             save("GameSave.txt");
         });
 
+        /*
+         * Using JMenuItem on the board, to load the game state in a text file.
+         */
         view.getLoadButton().addActionListener((e) -> {
             load("GameSave.txt");
         });
 
-        /**
+        /*
          * When a plant is removed from the board, the user will be able to add it with this function
          */
         view.getRedoButton().addActionListener((e) -> {
@@ -196,7 +204,7 @@ public class Controller implements Serializable{
             loggingList.add("Redo Clicked! \n");
         });
 
-        /**
+        /*
          * When a plant is placed on the board, the user will be able to remove it with this function
          */
         view.getUndoButton().addActionListener((e) -> {
