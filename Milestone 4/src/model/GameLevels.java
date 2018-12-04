@@ -184,7 +184,6 @@ public class GameLevels {
             System.out.println( "Level No: " +currentlevel + " Next Level reached. User Money: " + sunMoney);
             return true;
         }
-        System.out.println("Zombies: "+currentZombies+" Next Level not reached. User Money: " + sunMoney);
         return false;
     }
 
@@ -239,7 +238,7 @@ public class GameLevels {
         output += "\t" + "<Level>" + currentlevel + "</Level>" + "\n";
         output += "\t" + "<ZombieCount>" + currentZombies + "</ZombieCount>" + "\n";
         output += "\t" + "<ZombieLimit>" + zombieLimit  + "</ZombieLimit>" + "\n";
-        output += "\t" + "<ZombiesSpawned>" + (zombieLimit - currentZombies) + "</ZombiesSpawned>" + "\n";
+        output += "\t" + "<ZombiesSpawned>" + zombiesSpawned + "</ZombiesSpawned>" + "\n";
         output += "\t" + "<SunMoney>" + sunMoney + "</SunMoney>" + "\n";
         output += "\t" + "<MaxLevel>" + maxlevel + "</MaxLevel>" + "\n";
         output += "</GameLevels>";

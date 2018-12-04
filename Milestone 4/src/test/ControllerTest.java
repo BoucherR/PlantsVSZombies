@@ -247,17 +247,14 @@ public class ControllerTest {
      */
     @Test
     public void testUndoCommand(){
-        testController.actionListener();
+        //testController.actionListener();
         testController.runTime();
         testController.add(new Coordinate(3,3),new Peashooter());
         assertTrue("The Game Piece was displayable",testController.getBoard()[3][3].isOccupied());
         assertEquals("The Game Piece is placed",new Peashooter(),testController.getBoard()[3][3].getPiece());
-        guiView.getUndoButton().doClick();
-        testController.getLogging();
-        String[] textDisplay = guiView.getTextArea().getText().split("\\n");
+        testController.undo();
         assertNull("The Piece has been removed after UNDO Command",testController.getBoard()[3][3].getPiece());
         assertFalse("The Game Piece was removed after Undo",testController.getBoard()[3][3].isOccupied());
-        assertEquals("The logging confirms removal of Plant after Undo Operation","Undo Clicked!",textDisplay[textDisplay.length-1].trim());
     }
 
     /**
@@ -265,7 +262,7 @@ public class ControllerTest {
      */
     @Test
     public void testRedoCommand(){
-        testController.actionListener();
+       // testController.actionListener();
         testController.runTime();
         testController.add(new Coordinate(3,3),new Peashooter());
         assertTrue("The Game Piece was displayable",testController.getBoard()[3][3].isOccupied());
@@ -277,7 +274,7 @@ public class ControllerTest {
         assertTrue("The Game Piece was displayable",guiView.getGameButtons()[4][2].isDisplayable());
         assertEquals("The Game Piece is placed",new Threepeater(),testController.getBoard()[4][2].getPiece());
 
-        guiView.getUndoButton().doClick();
+        testController.undo();
 
         assertNull("The Game Piece is removed after the Undo Command",testController.getBoard()[3][3].getPiece());
         assertNotEquals("The Game Piece is not removed",new Peashooter(),testController.getBoard()[3][3].getPiece());
@@ -285,17 +282,12 @@ public class ControllerTest {
         assertNull("The most recent game piece i.e. Threepeater addition is removed",testController.getBoard()[4][2].getPiece());
         assertFalse("The Game Piece was removed after Undo",testController.getBoard()[4][2].isOccupied());
         assertNotEquals("The most recent piece addition is UNDONE",new Threepeater(),testController.getBoard()[4][2].getPiece());
-        guiView.getRedoButton().doClick();
+        testController.redo();
 
         assertNotNull("The most recent game piece i.e. Threepeater added again after REDO",testController.getBoard()[4][2].getPiece());
         assertTrue("The Game Piece was added again after Redo command",testController.getBoard()[4][2].isOccupied());
         assertEquals("The most recent piece REMOVAL is UNDONE",new Threepeater(),testController.getBoard()[4][2].getPiece());
 
-        testController.getLogging();
-
-        String[] logText = guiView.getTextArea().getText().split("\\n");
-        assertEquals("The logging confirms UNDO command selection","Undo Clicked!",logText[logText.length-2].trim());
-        assertEquals("The logging confirms REDO command selection","Redo Clicked!",logText[logText.length-1].trim());
     }
 
     /**
