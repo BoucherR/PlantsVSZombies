@@ -214,7 +214,6 @@ public class Controller implements Serializable{
 
         TimerTask task;
         task = new TimerTask() {
-            private final int MAX_SECONDS = 10;
 
             @Override
             public void run() {
@@ -473,7 +472,7 @@ public class Controller implements Serializable{
 
     /**
      * Export AddressBook into Serialize Format
-     * @param file
+     * @param file A string for the text file location.
      */
     public void save(String file){
         try{
@@ -488,6 +487,9 @@ public class Controller implements Serializable{
         levels.saveLevels();
     }
 
+    /**
+     * Undo's a user move on the board. When a plant is placed on the board, the user will be able to remove it with this function.
+     */
     public void undo() {
         if (undoBoard.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No possible undos.");
@@ -499,6 +501,9 @@ public class Controller implements Serializable{
         board2GUI(board);
     }
 
+    /**
+     * Redo's a user move on the board. When a plant is removed from the board, the user will be able to add it back with this function.
+     */
     public void redo() {
         if (redoBoard.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No possible redos.");
@@ -510,6 +515,10 @@ public class Controller implements Serializable{
         board2GUI(board);
     }
 
+    /**
+     * This function assigns the GUI board in the View with accordance to the Square[][] Board.
+     * @param board A Square[][] Board used to map out the GUI board.
+     */
     public void board2GUI(Square[][] board){
         for (int row = 0; row < board[0].length; row++) {
             for (int col = 0; col < board.length; col++) {
