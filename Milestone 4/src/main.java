@@ -1,4 +1,3 @@
-import controller.*;
 import view.*;
 
 public class main {
