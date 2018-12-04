@@ -42,4 +42,10 @@ public class MainMenu extends JFrame{
             }
         });
     }
+
+    /**
+     * Getting the JButton for starting the game in MainMenu
+     * @return JButton for start
+     */
+    public JButton getStartButton(){ return startButton; }
 }

@@ -1,7 +1,10 @@
 package test;
-import org.junit.After;
 import view.MainMenu;
+
+import org.junit.After;
+import org.junit.Test;
 import org.junit.Before;
+import static org.junit.Assert.*;
 
 
 /**
@@ -21,6 +24,15 @@ public class MainMenuTest {
     @Before
     public void setUp(){
         testFrame = new MainMenu();
+    }
+
+    /**
+     * The Test is used to check the Getter Method for the Save Button
+     */
+    @Test
+    public void testGetStartButton(){
+        assertTrue("The Save Menu Item is functional command",testFrame.getStartButton().isEnabled());
+
     }
 
     @After
