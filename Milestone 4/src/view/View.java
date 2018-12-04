@@ -102,7 +102,14 @@ public class View extends JFrame {
      */
     JMenuBar menuBar;
 
+    /**
+     *  JMenu Title to save a players game state into a text file.
+     */
     JMenuItem saveButton;
+
+    /**
+     *  JMenu Title to load a players game state from a text file.
+     */
     JMenuItem loadButton;
 
 
