@@ -3,24 +3,18 @@ package view;
 
 /**
  * @author Youssef Saghbini
+ * @author Ryan Gaudreault - Implemented JMenus for new classes
  * @version 1.0
  */
 
 
-import controller.Controller;
 import model.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class View extends JFrame {
 
-    /**
-     *  A JFrame for the main menu start up.
-     */
-    private JFrame mainMenu;
     /**
      *  A JPanel for the buttons to be presented on the GUI
      */

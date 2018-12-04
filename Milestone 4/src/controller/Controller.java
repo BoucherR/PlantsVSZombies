@@ -17,6 +17,7 @@ import java.util.Timer;
 /**
  * @author Youssef Saghbini
  * @author Ryan Boucher
+ * @author Ryan Gaudreault - Implemented new classes
  * @author Muneeb Nasir - Level Builder
  * @version 1.5
  */
