@@ -8,6 +8,7 @@ package model;
  * 
  * The Wallnut class doesn't attack but has alot of health. Essentially to slow down hostiles.
  * @author Ryan Gaudreault
+ * @author Ryan Boucher
  * @version 4.0
  * 
  */

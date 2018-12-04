@@ -8,6 +8,7 @@ package model;
  * 
  * A ConeheadZombie doubles the health and attack damage of a typical zombie. 
  * @author Ryan Gaudreault
+ * @author Ryan Boucher
  * @version 4.0
  *
  */

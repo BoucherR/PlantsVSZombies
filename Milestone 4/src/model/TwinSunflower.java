@@ -8,6 +8,7 @@ package model;
  * 
  * A TwinSunFlower doubles the health and sun output of a sunflower while tripling its price. 
  * @author Ryan Gaudreault
+ * @author Ryan Boucher
  * @version 4.0
  *
  */

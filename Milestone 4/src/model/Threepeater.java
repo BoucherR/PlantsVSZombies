@@ -8,6 +8,7 @@ package model;
  * 
  * A Threepeater triples the attack damage and cost of a typical peashooter while doubling health. 
  * @author Ryan Gaudreault
+ * @author Ryan Boucher
  * @version 4.0
  */
 public class Threepeater extends Piece {

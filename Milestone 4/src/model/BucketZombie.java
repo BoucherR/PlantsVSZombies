@@ -9,6 +9,7 @@ package model;
  * 
  * A BucketZombie has 5x the health of a typical zombie and 5x its attack damage. 
  * @author Ryan Gaudreault
+ * @author Ryan Boucher
  * @version 4.0
  *
  */

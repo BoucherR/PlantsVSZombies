@@ -8,6 +8,7 @@ package model;
  * create a new object and passes it's designated parameters. 
  * 
  * @author Ryan Gaudreault
+ * @author Ryan Boucher
  * @version 4.0
  */
 public class Peashooter extends Piece {

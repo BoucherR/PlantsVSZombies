@@ -8,6 +8,7 @@ package model;
  * 
  * A Repeater plant doubles the attack damage and cost of a normal peashooter. 
  * @author Ryan Gaudreault
+ * @author Ryan Boucher
  * @version 4.0
  */
 public class Repeater extends Piece{
