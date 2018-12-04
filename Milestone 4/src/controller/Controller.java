@@ -61,6 +61,8 @@ public class Controller implements Serializable{
 
     private Stack<Square[][]> undoBoard;
     private Stack<Square[][]> redoBoard;
+    private Stack<Integer> undoMoney;
+    private Stack<Integer> redoMoney;
     private static final int BOARD_LENGTH = 8;
     private static final int BOARD_HEIGHT = 5;
 
@@ -77,6 +79,8 @@ public class Controller implements Serializable{
         this.loggingList = new ArrayList<>();
         undoBoard = new Stack<>();
         redoBoard = new Stack<>();
+        undoMoney = new Stack<>();
+        redoMoney = new Stack<>();
         this.board = new Square[BOARD_LENGTH][BOARD_HEIGHT];
         this.view = view;
         this.levels = new GameLevels();
@@ -86,6 +90,7 @@ public class Controller implements Serializable{
                 board[c][r] = new Square(new Coordinate (c,r));
         reset();
         undoBoard.push(board);
+        undoMoney.push(this.levels.getMoney());
     }
 
     /**
@@ -237,6 +242,7 @@ public class Controller implements Serializable{
      */
     public void runTime(){
         undoBoard.push(copyBoard());
+        undoMoney.push(levels.getMoney());
         if(levels.checkAllZombiesDead()){
             System.out.println("All Dead");
             zombies =0;
@@ -506,8 +512,11 @@ public class Controller implements Serializable{
             return;
         }
         redoBoard.push(board);
+        redoMoney.push(levels.getMoney());
         board = undoBoard.pop();
+        levels.setSunMoney(undoMoney.pop());
         zombies --;
+        view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         board2GUI(board);
     }
 
@@ -520,8 +529,11 @@ public class Controller implements Serializable{
             return;
         }
         undoBoard.push(board);
+        undoMoney.push(levels.getMoney());
         board = redoBoard.pop();
+        levels.setSunMoney(redoMoney.pop());
         zombies ++;
+        view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         board2GUI(board);
     }
 
