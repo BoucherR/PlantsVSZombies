@@ -72,6 +72,11 @@ public class PieceTest {
 
         assertEquals("The Game Piece is ZOMBIE","ZOMBIE",testPiece4.getName());
 
+        assertEquals("The Game Piece is TWINSUNFLOWER","TWINSUNFLOWER",testPiece5.getName());
+
+        assertEquals("The Game Piece is THREEPEATER","THREEPEATER",testPiece6.getName());
+
+        assertEquals("The Game Piece is WALLNUT","WALLNUT",testPiece7.getName());
     }
 
     /**

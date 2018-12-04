@@ -37,6 +37,10 @@ public class MainMenuTest {
         assertEquals("The Image Icon properly placed", new ImageIcon(getClass().getResource("/Images/StartPage.jpg")).toString(),testFrame.getStartButton().getIcon().toString());
     }
 
+    /**
+     * Default JUnit Test runner keeps GUI MainMenu Object references for Tests. Tear Down Used to clear
+     * the objects after completion of tests
+     */
     @After
     public void tearDown() {
         if (this.testFrame != null) {
