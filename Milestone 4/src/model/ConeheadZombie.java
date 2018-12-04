@@ -14,7 +14,7 @@ package model;
  */
 public class ConeheadZombie extends Piece{
 
-	public ConeheadZombie(String name, char shortName, int health, int attack, int cost)
+	private ConeheadZombie(String name, char shortName, int health, int attack, int cost)
 	{
 		super(name, shortName, health, attack, cost);
 	}
