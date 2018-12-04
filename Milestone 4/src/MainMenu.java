@@ -12,17 +12,17 @@ import java.awt.event.ActionListener;
 public class MainMenu {
 
     /**
-     *
+     * A JFrame for the main menu screen to be presented.
      */
     private JFrame mainMenu;
 
     /**
-     *
+     * A JButton that makes up the main menu, starts game when pressed.
      */
     private JButton startButton;
 
     /**
-     *
+     * Creates a main menu GUI that presents a button that once pressed starts the game.
      */
     public MainMenu() {
         mainMenu = new JFrame("Plants VS. Zombies");
@@ -32,6 +32,9 @@ public class MainMenu {
         mainMenu.add(startButton);
         mainMenu.setVisible(true);
 
+        /*
+        Creates the game once the button is clicked.
+         */
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
