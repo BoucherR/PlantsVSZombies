@@ -276,8 +276,8 @@ public class ControllerTest {
 
         testController.undo();
 
-        //assertNull("The Game Piece is removed after the Undo Command",testController.getBoard()[3][3].getPiece());
-        //assertNotEquals("The Game Piece is not removed",new Peashooter(),testController.getBoard()[3][3].getPiece());
+        assertNull("The Game Piece is removed after the Undo Command",testController.getBoard()[3][3].getPiece());
+        assertNotEquals("The Game Piece is not removed",new Peashooter(),testController.getBoard()[3][3].getPiece());
 
         assertNull("The most recent game piece i.e. Threepeater addition is removed",testController.getBoard()[4][2].getPiece());
         assertFalse("The Game Piece was removed after Undo",testController.getBoard()[4][2].isOccupied());
