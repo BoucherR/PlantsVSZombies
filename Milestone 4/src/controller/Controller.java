@@ -221,7 +221,7 @@ public class Controller implements Serializable{
             }
 
         };
-        timer.schedule(task, 0, 5000);
+        timer.schedule(task, 0, 2000);
     }
 
     /**

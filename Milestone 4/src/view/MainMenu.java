@@ -23,7 +23,7 @@ public class MainMenu extends JFrame{
      */
     public MainMenu() {
         setTitle("Plants VS. Zombies");
-        setSize(1600, 970);
+        setSize(1580, 970);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         startButton = new JButton( new ImageIcon(getClass().getResource("/Images/StartPage.jpg")));
         add(startButton);
