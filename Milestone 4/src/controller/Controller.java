@@ -77,10 +77,10 @@ public class Controller implements Serializable{
         timer = new Timer();
         seconds = 0;
         this.loggingList = new ArrayList<>();
-        undoBoard = new Stack<>();
-        redoBoard = new Stack<>();
-        undoMoney = new Stack<>();
-        redoMoney = new Stack<>();
+        undoBoard = new Stack<>(); // stack containing copies of the board for undo feature
+        redoBoard = new Stack<>(); // stack containing copies of the board for redo feature
+        undoMoney = new Stack<>(); // stacking containing amount of sunpoints for undo feature
+        redoMoney = new Stack<>(); // stacking containing amount of sunpoints for redo feature
         this.board = new Square[BOARD_LENGTH][BOARD_HEIGHT];
         this.view = view;
         this.levels = new GameLevels();
@@ -89,8 +89,6 @@ public class Controller implements Serializable{
             for (int r = 0; r < board[0].length; r++)
                 board[c][r] = new Square(new Coordinate (c,r));
         reset();
-        undoBoard.push(board);
-        undoMoney.push(this.levels.getMoney());
     }
 
     /**
