@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f19f3746-bdb1-43a9-8185-fa57b1604136" name="Default Changelist" comment="The Game Level Builder and XML Parser">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Errors.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameLevelFile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GameLevelFile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameSave.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GameSave.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/model/GameLevels.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/model/GameLevels.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/model/XMLParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/model/XMLParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/test/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/test/ControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Milestone 4/test/GameLevelsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Milestone 4/test/GameLevelsTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ViewTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="f19f3746-bdb1-43a9-8185-fa57b1604136" name="Default Changelist" comment="The Game Level Builder and XML Parser" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,251 +82,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="212" selection-start-line="212" selection-end-line="212" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MileStone4.uml">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement />
-              <nodes>
-                <node x="3253.5" y="11.5">model.XMLParser</node>
-                <node x="2182.0" y="929.5">model.Wallnut</node>
-                <node x="1914.0" y="929.5">model.Sunflower</node>
-                <node x="277.0" y="731.0">model.Square</node>
-                <node x="478.3749999999999" y="2445.0">main</node>
-                <node x="1524.7525664251207" y="0.0">model.Piece</node>
-                <node x="2438.0" y="929.5">model.ConeheadZombie</node>
-                <node x="949.7416968599036" y="1550.0">controller.Controller</node>
-                <node x="514.9999999999999" y="929.5">model.TwinSunflower</node>
-                <node x="0.0" y="555.0">view.View</node>
-                <node x="1636.0" y="929.5">model.Threepeater</node>
-                <node x="806.9999999999999" y="929.5">model.Peashooter</node>
-                <node x="3300.0" y="621.0">model.GameLevels</node>
-                <node x="3044.0" y="929.5">model.Zombie</node>
-                <node x="156.11669685990364" y="88.0">model.Coordinate</node>
-                <node x="1345.0" y="929.5">model.BucketZombie</node>
-                <node x="1083.0" y="929.5">model.Repeater</node>
-                <node x="2748.0" y="929.5">model.GiantSunflower</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="model.TwinSunflower" target="model.Piece">
-                  <point x="68.0" y="-48.0" />
-                  <point x="718.9999999999999" y="465.0" />
-                  <point x="1558.5351751207731" y="465.0" />
-                  <point x="-77.21739130434776" y="202.5" />
-                </edge>
-                <edge source="controller.Controller" target="model.Repeater">
-                  <point x="11.956521739130494" y="-422.5" />
-                  <point x="1099.1982185990341" y="1430.0" />
-                  <point x="1204.0" y="1430.0" />
-                  <point x="0.0" y="48.0" />
-                </edge>
-                <edge source="controller.Controller" target="model.Wallnut">
-                  <point x="59.78260869565224" y="-422.5" />
-                  <point x="1147.0243055555559" y="1470.0" />
-                  <point x="2300.0" y="1470.0" />
-                  <point x="0.0" y="48.0" />
-                </edge>
-                <edge source="controller.Controller" target="model.GiantSunflower">
-                  <point x="83.695652173913" y="-422.5" />
-                  <point x="1170.9373490338166" y="1490.0" />
-                  <point x="2886.0" y="1490.0" />
-                  <point x="0.0" y="48.0" />
-                </edge>
-                <edge source="model.Square" target="model.Coordinate">
-                  <point x="-81.75" y="-246.5" />
-                  <point x="304.25" y="535.0" />
-                  <point x="300.86669685990364" y="535.0" />
-                  <point x="48.25" y="114.5" />
-                </edge>
-                <edge source="model.Sunflower" target="model.Piece">
-                  <point x="-62.0" y="-48.0" />
-                  <point x="1976.0" y="515.0" />
-                  <point x="1655.0569142512077" y="515.0" />
-                  <point x="19.30434782608677" y="202.5" />
-                </edge>
-                <edge source="controller.Controller" target="model.Threepeater">
-                  <point x="35.869565217391255" y="-422.5" />
-                  <point x="1123.111262077295" y="1450.0" />
-                  <point x="1765.0" y="1450.0" />
-                  <point x="0.0" y="48.0" />
-                </edge>
-                <edge source="controller.Controller" target="view.View">
-                  <point x="-131.52173913043475" y="-422.5" />
-                  <point x="955.7199577294689" y="1530.0" />
-                  <point x="146.25" y="1530.0" />
-                  <point x="29.25" y="422.5" />
-                </edge>
-                <edge source="model.GameLevels" target="model.XMLParser">
-                  <point x="-47.59999999999991" y="-356.5" />
-                  <point x="3371.4" y="535.0" />
-                  <point x="3352.8" y="535.0" />
-                  <point x="-66.19999999999982" y="191.0" />
-                </edge>
-                <edge source="model.XMLParser" target="model.GameLevels">
-                  <point x="0.0" y="191.0" />
-                  <point x="0.0" y="-356.5" />
-                </edge>
-                <edge source="controller.Controller" target="model.Peashooter">
-                  <point x="-11.956521739130494" y="-422.5" />
-                  <point x="1075.2851751207731" y="1430.0" />
-                  <point x="934.4999999999999" y="1430.0" />
-                  <point x="0.0" y="48.0" />
-                </edge>
-                <edge source="controller.Controller" target="model.ConeheadZombie">
-                  <point x="71.73913043478274" y="-422.5" />
-                  <point x="1158.9808272946864" y="1480.0" />
-                  <point x="2583.0" y="1480.0" />
-                  <point x="0.0" y="48.0" />
-                </edge>
-                <edge source="controller.Controller" target="model.Zombie">
-                  <point x="95.6521739130435" y="-422.5" />
-                  <point x="1182.8938707729471" y="1500.0" />
-                  <point x="3162.0" y="1500.0" />
-                  <point x="0.0" y="48.0" />
-                </edge>
-                <edge source="controller.Controller" target="model.Coordinate">
-                  <point x="-95.6521739130435" y="-422.5" />
-                  <point x="991.5895229468601" y="1500.0" />
-                  <point x="255.5" y="1500.0" />
-                  <point x="255.5" y="525.0" />
-                  <point x="236.53336352657038" y="525.0" />
-                  <point x="-16.083333333333258" y="114.5" />
-                </edge>
-                <edge source="model.Square" target="model.Piece">
-                  <point x="27.25" y="-246.5" />
-                  <point x="413.25" y="435.0" />
-                  <point x="1529.5786533816427" y="435.0" />
-                  <point x="-106.17391304347825" y="202.5" />
-                </edge>
-                <edge source="model.GiantSunflower" target="model.Piece">
-                  <point x="-69.0" y="-48.0" />
-                  <point x="2817.0" y="455.0" />
-                  <point x="1712.9699577294687" y="455.0" />
-                  <point x="77.21739130434776" y="202.5" />
-                </edge>
-                <edge source="controller.Controller" target="model.TwinSunflower">
-                  <point x="-23.913043478260875" y="-422.5" />
-                  <point x="1063.3286533816427" y="1440.0" />
-                  <point x="650.9999999999999" y="1440.0" />
-                  <point x="0.0" y="48.0" />
-                </edge>
-                <edge source="controller.Controller" target="model.GameLevels">
-                  <point x="131.52173913043475" y="-422.5" />
-                  <point x="1218.7634359903384" y="1530.0" />
-                  <point x="3498.3333333333335" y="1530.0" />
-                  <point x="79.33333333333348" y="356.5" />
-                </edge>
-                <edge source="model.Peashooter" target="model.Piece">
-                  <point x="-63.75" y="-48.0" />
-                  <point x="870.7499999999999" y="475.0" />
-                  <point x="1568.1873490338166" y="475.0" />
-                  <point x="-67.56521739130426" y="202.5" />
-                </edge>
-                <edge source="controller.Controller" target="model.BucketZombie">
-                  <point x="23.913043478260875" y="-422.5" />
-                  <point x="1111.1547403381644" y="1440.0" />
-                  <point x="1480.5" y="1440.0" />
-                  <point x="0.0" y="48.0" />
-                </edge>
-                <edge source="model.ConeheadZombie" target="model.Piece">
-                  <point x="72.5" y="-48.0" />
-                  <point x="2655.5" y="465.0" />
-                  <point x="1703.3177838164252" y="465.0" />
-                  <point x="67.56521739130426" y="202.5" />
-                </edge>
-                <edge source="model.Wallnut" target="model.Piece">
-                  <point x="-59.0" y="-48.0" />
-                  <point x="2241.0" y="495.0" />
-                  <point x="1674.3612620772947" y="495.0" />
-                  <point x="38.608695652173765" y="202.5" />
-                </edge>
-                <edge source="view.View" target="model.Coordinate">
-                  <point x="0.0" y="-422.5" />
-                  <point x="117.0" y="535.0" />
-                  <point x="172.2000301932369" y="535.0" />
-                  <point x="-80.41666666666666" y="114.5" />
-                </edge>
-                <edge source="model.Repeater" target="model.Piece">
-                  <point x="-60.5" y="-48.0" />
-                  <point x="1143.5" y="505.0" />
-                  <point x="1597.1438707729467" y="505.0" />
-                  <point x="-38.60869565217399" y="202.5" />
-                </edge>
-                <edge source="controller.Controller" target="model.Sunflower">
-                  <point x="47.82608695652175" y="-422.5" />
-                  <point x="1135.0677838164254" y="1460.0" />
-                  <point x="2038.0" y="1460.0" />
-                  <point x="0.0" y="48.0" />
-                </edge>
-                <edge source="model.Threepeater" target="model.Piece">
-                  <point x="-64.5" y="-48.0" />
-                  <point x="1700.5" y="535.0" />
-                  <point x="1635.7525664251207" y="535.0" />
-                  <point x="0.0" y="202.5" />
-                </edge>
-                <edge source="main" target="controller.Controller">
-                  <point x="61.875" y="-37.0" />
-                  <point x="622.7499999999999" y="2425.0" />
-                  <point x="1155.9916968599036" y="2425.0" />
-                  <point x="68.75" y="422.5" />
-                </edge>
-                <edge source="model.BucketZombie" target="model.Piece">
-                  <point x="-67.75" y="-48.0" />
-                  <point x="1412.75" y="525.0" />
-                  <point x="1616.4482185990337" y="525.0" />
-                  <point x="-19.304347826086996" y="202.5" />
-                </edge>
-                <edge source="controller.Controller" target="model.Piece">
-                  <point x="0.0" y="-422.5" />
-                  <point x="1087.2416968599036" y="1420.0" />
-                  <point x="1072.5" y="1420.0" />
-                  <point x="1072.5" y="495.0" />
-                  <point x="1587.4916968599032" y="495.0" />
-                  <point x="-48.26086956521749" y="202.5" />
-                </edge>
-                <edge source="controller.Controller" target="model.Square">
-                  <point x="-71.73913043478262" y="-422.5" />
-                  <point x="1015.5025664251209" y="1480.0" />
-                  <point x="304.25" y="1480.0" />
-                  <point x="-81.75" y="246.5" />
-                </edge>
-                <edge source="model.Zombie" target="model.Piece">
-                  <point x="-59.0" y="-48.0" />
-                  <point x="3103.0" y="435.0" />
-                  <point x="1732.2743055555557" y="435.0" />
-                  <point x="96.52173913043475" y="202.5" />
-                </edge>
-                <edge source="main" target="view.View">
-                  <point x="-20.625" y="-37.0" />
-                  <point x="540.2499999999999" y="2415.0" />
-                  <point x="78.74169685990364" y="2415.0" />
-                  <point x="78.74169685990364" y="1530.0" />
-                  <point x="87.75" y="1530.0" />
-                  <point x="-29.25" y="422.5" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="1.0" x="220.0" y="1516.0" />
-              <SelectedNodes>
-                <node>controller.Controller</node>
-              </SelectedNodes>
-              <Categories>
-                <Category>Fields</Category>
-                <Category>Constructors</Category>
-                <Category>Methods</Category>
-              </Categories>
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
+            <state relative-caret-position="227">
+              <caret line="233" column="8" selection-start-line="233" selection-start-column="8" selection-end-line="233" selection-end-column="8" />
+              <folding>
+                <element signature="e#4192#4193#0" expanded="true" />
+                <element signature="e#4267#4268#0" expanded="true" />
+                <element signature="e#4563#4564#0" expanded="true" />
+                <element signature="e#4639#4640#0" expanded="true" />
+                <element signature="e#4939#4940#0" expanded="true" />
+                <element signature="e#5013#5014#0" expanded="true" />
+                <element signature="e#5319#5320#0" expanded="true" />
+                <element signature="e#5396#5397#0" expanded="true" />
+                <element signature="e#5698#5699#0" expanded="true" />
+                <element signature="e#5771#5772#0" expanded="true" />
+                <element signature="e#6080#6081#0" expanded="true" />
+                <element signature="e#6159#6160#0" expanded="true" />
+                <element signature="e#6462#6463#0" expanded="true" />
+                <element signature="e#6542#6543#0" expanded="true" />
+                <element signature="e#7534#7921#0" expanded="true" />
+                <element signature="e#7920#7921#0" expanded="true" />
+                <element signature="e#24068#24069#0" expanded="true" />
+                <element signature="e#24135#24136#0" expanded="true" />
+                <element signature="e#25303#25304#0" expanded="true" />
+                <element signature="e#25331#25332#0" expanded="true" />
+                <element signature="e#25537#25538#0" expanded="true" />
+                <element signature="e#25581#25582#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -354,47 +118,99 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/GameLevels.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
+            <state relative-caret-position="5346">
               <caret line="278" column="57" selection-start-line="278" selection-start-column="38" selection-end-line="278" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/GiantSunflower.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Square.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4356">
+              <caret line="213" selection-start-line="213" selection-end-line="213" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Zombie.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-155" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5157">
-              <caret line="193" column="46" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/ControllerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="362" column="88" selection-start-line="362" selection-start-column="88" selection-end-line="362" selection-end-column="88" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/TestAll.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+            <state relative-caret-position="4532">
+              <caret line="206" selection-start-line="206" selection-end-line="206" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#7228#7229#0" expanded="true" />
+                <element signature="e#7259#7260#0" expanded="true" />
+                <element signature="e#7469#7470#0" expanded="true" />
+                <element signature="e#7503#7504#0" expanded="true" />
+                <element signature="e#7645#7646#0" expanded="true" />
+                <element signature="e#7677#7678#0" expanded="true" />
+                <element signature="e#7862#7863#0" expanded="true" />
+                <element signature="e#7894#7895#0" expanded="true" />
+                <element signature="e#8082#8083#0" expanded="true" />
+                <element signature="e#8115#8116#0" expanded="true" />
+                <element signature="e#8301#8302#0" expanded="true" />
+                <element signature="e#8332#8333#0" expanded="true" />
+                <element signature="e#8527#8528#0" expanded="true" />
+                <element signature="e#8561#8562#0" expanded="true" />
+                <element signature="e#8740#8741#0" expanded="true" />
+                <element signature="e#8770#8771#0" expanded="true" />
+                <element signature="e#8971#8972#0" expanded="true" />
+                <element signature="e#9007#9008#0" expanded="true" />
+                <element signature="e#9211#9212#0" expanded="true" />
+                <element signature="e#9248#9249#0" expanded="true" />
+                <element signature="e#9394#9395#0" expanded="true" />
+                <element signature="e#9425#9426#0" expanded="true" />
+                <element signature="e#9569#9570#0" expanded="true" />
+                <element signature="e#9600#9601#0" expanded="true" />
+                <element signature="e#9749#9750#0" expanded="true" />
+                <element signature="e#9782#9783#0" expanded="true" />
+                <element signature="e#9931#9932#0" expanded="true" />
+                <element signature="e#9964#9965#0" expanded="true" />
+                <element signature="e#10111#10112#0" expanded="true" />
+                <element signature="e#10144#10145#0" expanded="true" />
+                <element signature="e#10291#10292#0" expanded="true" />
+                <element signature="e#10324#10325#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/ViewTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="224" column="8" selection-start-line="224" selection-start-column="8" selection-end-line="224" selection-end-column="8" />
+            <state relative-caret-position="154">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="e#80#81#0" expanded="true" />
+                <element signature="e#110#111#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/model/XMLParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2294">
+              <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -402,29 +218,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Coordinate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
+            <state relative-caret-position="726">
               <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Peashooter.java">
+        <entry file="file://$PROJECT_DIR$/src/view/MainMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/XMLParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2627">
-              <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
-              <folding>
-                <element signature="e#860#872#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-352">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -508,11 +312,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1302" />
-    <option name="height" value="1551" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -520,6 +324,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -548,20 +354,12 @@
               <item name="Milestone 4" type="b2602c69:ProjectViewProjectNode" />
               <item name="Milestone 4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Milestone 4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Milestone 4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -574,9 +372,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -857,13 +655,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46217000" />
+    <option name="totallyTimeSpent" value="46306000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1721" height="1041" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15412402" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15884861" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -873,7 +670,7 @@
       <window_info id="simpleUML" order="7" weight="0.32920793" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38215858" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38177875" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -947,7 +744,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Square.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
+        <state relative-caret-position="4356">
           <caret line="213" selection-start-line="213" selection-end-line="213" />
         </state>
       </provider>
@@ -963,8 +760,12 @@
     <entry file="file://$PROJECT_DIR$/src/model/GameLevelsTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="154">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#80#81#0" expanded="true" />
+            <element signature="e#110#111#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1246,17 +1047,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/XMLParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2627">
+        <state relative-caret-position="-2294">
           <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
-          <folding>
-            <element signature="e#860#872#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Coordinate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="726">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
@@ -1270,15 +1068,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/GameLevels.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
+        <state relative-caret-position="5346">
           <caret line="278" column="57" selection-start-line="278" selection-start-column="38" selection-end-line="278" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5157">
-          <caret line="193" column="46" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="46" />
+        <state relative-caret-position="4532">
+          <caret line="206" selection-start-line="206" selection-end-line="206" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7228#7229#0" expanded="true" />
+            <element signature="e#7259#7260#0" expanded="true" />
+            <element signature="e#7469#7470#0" expanded="true" />
+            <element signature="e#7503#7504#0" expanded="true" />
+            <element signature="e#7645#7646#0" expanded="true" />
+            <element signature="e#7677#7678#0" expanded="true" />
+            <element signature="e#7862#7863#0" expanded="true" />
+            <element signature="e#7894#7895#0" expanded="true" />
+            <element signature="e#8082#8083#0" expanded="true" />
+            <element signature="e#8115#8116#0" expanded="true" />
+            <element signature="e#8301#8302#0" expanded="true" />
+            <element signature="e#8332#8333#0" expanded="true" />
+            <element signature="e#8527#8528#0" expanded="true" />
+            <element signature="e#8561#8562#0" expanded="true" />
+            <element signature="e#8740#8741#0" expanded="true" />
+            <element signature="e#8770#8771#0" expanded="true" />
+            <element signature="e#8971#8972#0" expanded="true" />
+            <element signature="e#9007#9008#0" expanded="true" />
+            <element signature="e#9211#9212#0" expanded="true" />
+            <element signature="e#9248#9249#0" expanded="true" />
+            <element signature="e#9394#9395#0" expanded="true" />
+            <element signature="e#9425#9426#0" expanded="true" />
+            <element signature="e#9569#9570#0" expanded="true" />
+            <element signature="e#9600#9601#0" expanded="true" />
+            <element signature="e#9749#9750#0" expanded="true" />
+            <element signature="e#9782#9783#0" expanded="true" />
+            <element signature="e#9931#9932#0" expanded="true" />
+            <element signature="e#9964#9965#0" expanded="true" />
+            <element signature="e#10111#10112#0" expanded="true" />
+            <element signature="e#10144#10145#0" expanded="true" />
+            <element signature="e#10291#10292#0" expanded="true" />
+            <element signature="e#10324#10325#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1301,8 +1134,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="212" selection-start-line="212" selection-end-line="212" />
+        <state relative-caret-position="227">
+          <caret line="233" column="8" selection-start-line="233" selection-start-column="8" selection-end-line="233" selection-end-column="8" />
+          <folding>
+            <element signature="e#4192#4193#0" expanded="true" />
+            <element signature="e#4267#4268#0" expanded="true" />
+            <element signature="e#4563#4564#0" expanded="true" />
+            <element signature="e#4639#4640#0" expanded="true" />
+            <element signature="e#4939#4940#0" expanded="true" />
+            <element signature="e#5013#5014#0" expanded="true" />
+            <element signature="e#5319#5320#0" expanded="true" />
+            <element signature="e#5396#5397#0" expanded="true" />
+            <element signature="e#5698#5699#0" expanded="true" />
+            <element signature="e#5771#5772#0" expanded="true" />
+            <element signature="e#6080#6081#0" expanded="true" />
+            <element signature="e#6159#6160#0" expanded="true" />
+            <element signature="e#6462#6463#0" expanded="true" />
+            <element signature="e#6542#6543#0" expanded="true" />
+            <element signature="e#7534#7921#0" expanded="true" />
+            <element signature="e#7920#7921#0" expanded="true" />
+            <element signature="e#24068#24069#0" expanded="true" />
+            <element signature="e#24135#24136#0" expanded="true" />
+            <element signature="e#25303#25304#0" expanded="true" />
+            <element signature="e#25331#25332#0" expanded="true" />
+            <element signature="e#25537#25538#0" expanded="true" />
+            <element signature="e#25581#25582#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
