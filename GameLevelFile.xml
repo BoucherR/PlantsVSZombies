@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<GameLevels>
-	<Level>5</Level>
-	<ZombieCount>22</ZombieCount>
-	<ZombieLimit>25</ZombieLimit>
-	<ZombiesSpawned>3</ZombiesSpawned>
-	<SunMoney>920</SunMoney>
-	<MaxLevel>5</MaxLevel>
-</GameLevels>
