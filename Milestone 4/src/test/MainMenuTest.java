@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 /**
  * The Test Class for the Main menu Class (Responsible for starting the game)
  * @author Ryan Gaudreault
+ * @author Muneeb Nasir
  * @version 4.0
  */
 public class MainMenuTest {

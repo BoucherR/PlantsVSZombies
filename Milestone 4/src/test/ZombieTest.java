@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 /**
  * The Test Class for ZOMBIE (Piece SubClass)
  * @author Muneeb Nasir
- * @version 3.0
+ * @version 4.0
  */
 
 public class ZombieTest {

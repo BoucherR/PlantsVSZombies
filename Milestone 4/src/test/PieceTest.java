@@ -273,18 +273,5 @@ public class PieceTest {
         assertNotEquals("The Object should not be Game Piece",true,new BucketZombie().equals(testPiece4));
     }
 
-    /**
-     * The Test Case to check the Getter method for the Image Icon of the Game Pieces
-     */
-//    @Test
-//    public void testGetImage(){
-//        assertNotEquals("The Image Path is complete",getClass().getResource("/Images/"),testPiece1.getImage());
-//        assertEquals("The Image Path is complete",getClass().getResource("/Images/sunflower.png").toString(),testPiece1.getImage().toString());
-//        assertNotNull("The Image File Path is correct",testPiece2.getImage());
-//        assertEquals("The Image Path is complete",getClass().getResource("/Images/repeater.png").toString(),testPiece2.getImage().toString());
-//        assertEquals("The Image Path is complete",getClass().getResource("/Images/peashooter.png").toString(),testPiece3.getImage().toString());
-//        assertNotEquals("The Image Path is complete",getClass().getResource("/peashooter.png"),testPiece3.getImage().toString());
-//        assertEquals("The Image Path is complete",getClass().getResource("/Images/zombie.png").toString(),testPiece4.getImage().toString());
-//        assertNotEquals("The Image Path is complete",getClass().getResource("/zombie"),testPiece4.getImage().toString());
-//    }
+
 }

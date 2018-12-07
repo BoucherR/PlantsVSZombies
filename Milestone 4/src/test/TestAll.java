@@ -16,7 +16,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({BucketZombieTest.class, ConeheadZombieTest.class, ZombieTest.class,
                 ControllerTest.class, CoordinateTest.class, GiantSunflowerTest.class,
                 PeashooterTest.class, PieceTest.class, RepeaterTest.class, GameLevelsTest.class,
-                SquareTest.class, SunflowerTest.class, ThreepeaterTest.class,
+                SquareTest.class, SunflowerTest.class, ThreepeaterTest.class,GameLevelBuilderViewTest.class,
                 TwinSunflowerTest.class, ViewTest.class, MainMenuTest.class, WallnutTest.class})
 
 

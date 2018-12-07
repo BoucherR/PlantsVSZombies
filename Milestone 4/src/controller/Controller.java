@@ -359,7 +359,7 @@ public class Controller implements Serializable{
      *  Adding zombies randomly at the end of the board.
      */
     public void addingZombie(){
-        if(levels.getMode()){
+        if(levels.getMode() && !levels.maxLevel()){
             Random rand = new Random();
             ArrayList<Piece> listOfZombies = levels.placeSelectedZombies();
 
@@ -394,7 +394,7 @@ public class Controller implements Serializable{
                 //System.out.println(zombies);
             }
         }
-        //System.out.println(zombies);
+        System.out.println(zombies);
     }
 
     /**

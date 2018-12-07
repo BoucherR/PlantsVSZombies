@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 /**
  * The Test Class for GiantSunflower (Piece SubClass)
  * @author Ryan Gaudreault
- * @version 3.0
+ * @version 4.0
  */
 
 public class GiantSunflowerTest {
