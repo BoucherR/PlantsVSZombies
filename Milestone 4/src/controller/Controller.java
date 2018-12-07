@@ -371,19 +371,16 @@ public class Controller implements Serializable{
         if(levels.getMode()){
             Random rand = new Random();
             if (!levels.checkLimit(zombies)) {
-                //Piece randomElement = listOfZombies.get(rand.nextInt(listOfZombies.size()));
                 int y = rand.nextInt(5);
-                int t = rand.nextInt(7);
-                if ((t == 0 || t == 1 || t == 2 || t == 3) && levels.getSimpleZombiePiece() ) {
+                if (levels.getSimpleZombiePiece() ) {
                     add(new Coordinate(7, y), new Zombie());
-                } else if ((t == 4 || t == 5) && levels.getConeHeadPiece()) {
+                } else if (levels.getConeHeadPiece()) {
                     add(new Coordinate(7, y), new ConeheadZombie());
-                } else if (t == 6 && levels.getBucketZombiePiece()) {
+                } else if (levels.getBucketZombiePiece()) {
                     add(new Coordinate(7, y), new BucketZombie());
                 }
                 zombies++;
             }
-
         } else if(!levels.maxLevel() && !(levels.getMode())){
             if (!levels.checkLimit(zombies)) {
                 Random ran = new Random();
@@ -617,6 +614,7 @@ public class Controller implements Serializable{
      *  alive then the game keeps going. If all are killed, then the game ends.
      */
     private void gameWon(){
+        System.out.println(levels.maxLevel() + " " + levels.checkAllZombiesDead());
         if (levels.maxLevel() && levels.checkAllZombiesDead()){
             JOptionPane.showMessageDialog(null, "You have won the game! Thank you for playing.");
             System.exit(0);
