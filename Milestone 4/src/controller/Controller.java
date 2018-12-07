@@ -238,15 +238,7 @@ public class Controller implements Serializable{
 
         };
 
-        if((levels.getMode()) && !(levels.placeSelectedZombies().isEmpty()))
-        //if(levels.getUserSelection())
-        {
             timer.schedule(task, 0, 3500);
-            System.out.println(levels.getMode());
-        }
-        if(!(levels.getMode())){
-            timer.schedule(task, 0, 3500);
-        }
 
     }
 
@@ -365,15 +357,15 @@ public class Controller implements Serializable{
 
             //Piece randomElement = listOfZombies.get(rand.nextInt(listOfZombies.size()));
             if (!levels.checkLimit(zombies)) {
-                Piece randomElement = listOfZombies.get(rand.nextInt(listOfZombies.size()));
+                //Piece randomElement = listOfZombies.get(rand.nextInt(listOfZombies.size()));
                 int y = rand.nextInt(5);
                 int t = rand.nextInt(7);
-                if (t == 0 || t == 1 || t == 2 || t == 3) {
-                    add(new Coordinate(7, y), randomElement);
-                } else if (t == 4 || t == 5) {
-                    add(new Coordinate(7, y), randomElement);
-                } else if (t == 6) {
-                    add(new Coordinate(7, y), randomElement);
+                if ((t == 0 || t == 1 || t == 2 || t == 3) && levels.getSimpleZombiePiece() ) {
+                    add(new Coordinate(7, y), new Zombie());
+                } else if ((t == 4 || t == 5) && levels.getConeHeadPiece()) {
+                    add(new Coordinate(7, y), new ConeheadZombie());
+                } else if (t == 6 && levels.getBucketZombiePiece()) {
+                    add(new Coordinate(7, y), new BucketZombie());
                 }
                 zombies++;
             }
@@ -406,6 +398,7 @@ public class Controller implements Serializable{
                 if (board[col][row].isZombie()) {
                     if(board[col][row].getPiece().getHealth() <= 0)
                     {
+                        System.out.println("Zombies: "+ levels.getCurrentZombies() +" Killed. User Money: " + levels.getMoney());
                         levels.zombieKilled();
                     }
                     System.out.println("Zombies: "+ levels.getCurrentZombies() +" Next Level not reached. User Money: " + levels.getMoney());
@@ -505,6 +498,7 @@ public class Controller implements Serializable{
             levels = temp;
             zombies = levels.getZombiesSpawned();
             view.getSunMoney().setText(Integer.toString(levels.getMoney()));
+            System.out.println(levels.toXML());
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: Game save was not found");
         }
@@ -539,6 +533,7 @@ public class Controller implements Serializable{
         redoMoney.push(levels.getMoney());
         board = undoBoard.pop();
         levels.setSunMoney(undoMoney.pop());
+        levels.undoCurrentZombies();
         zombies --;
         view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         board2GUI(board);
@@ -556,6 +551,7 @@ public class Controller implements Serializable{
         undoMoney.push(levels.getMoney());
         board = redoBoard.pop();
         levels.setSunMoney(redoMoney.pop());
+        levels.redoCurrentZombies();
         zombies ++;
         view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         board2GUI(board);

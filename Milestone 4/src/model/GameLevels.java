@@ -15,11 +15,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
  * The Game Level class. Used to keep track of game levels, Save and Load the Game Levels when the Game is SAVED/LOADED
@@ -60,17 +56,26 @@ public class GameLevels implements Serializable{
      */
      private boolean builderSelection;
 
-     private ArrayList<Piece> data;
-
+    /**
+     * The Simple Zombie boolean to keep track of the zombie selection
+     */
     private boolean simpleZombiePiece;
 
+    /**
+     * The Cone Head Zombie boolean to keep track of the Cone Head zombie selection
+     */
      private boolean coneHeadPiece;
 
+    /**
+     * The Bucket Zombie boolean to keep track of the Bucket zombie selection
+     */
      private boolean bucketZombiePiece;
 
      private boolean userSelection;
 
-    private String gameMode;
+     private String gameMode;
+
+    private ArrayList<Piece> data;
 
 
     /**
@@ -84,7 +89,7 @@ public class GameLevels implements Serializable{
      */
     public GameLevels(GameBuilderView selection){
         builderView = selection;
-
+        gameMode = "";
         builderSelection = false;
 
 
@@ -97,7 +102,7 @@ public class GameLevels implements Serializable{
             simpleZombiePiece = false;
             coneHeadPiece = false;
             bucketZombiePiece = false;
-            gameMode = "Developer Mode";
+            gameMode = "Developer";
             addListener();
             GameLevelBuilder();
             //MaximumLevelBuild();
@@ -108,15 +113,20 @@ public class GameLevels implements Serializable{
             zombieLimit = 5;
             zombiesSpawned = 0;
             currentZombies = zombieLimit;
-            gameMode = "Campaign Mode";
+            gameMode = "Campaign";
             sunMoney = 500;
             JOptionPane.showMessageDialog(null,"Developer Mode not selected, Default Game Level Settings installed");
-            //System.out.println(builderSelection);
         }
 
     }
 
-
+    /**
+     * The constructor with initial default values
+     * @param level, The starting level of the game
+     * @param maxWave, The Maximum Level Wave set for the Game Level
+     * @param initialBank, The initial amount given to the user
+     * @param limit, The Initial Zombie Limit for the game
+     */
     public GameLevels(int level, int maxWave, int initialBank, int limit){
         currentlevel = level;
         maxLevelWave = maxWave;
@@ -127,7 +137,9 @@ public class GameLevels implements Serializable{
         builderSelection = false;
     }
 
-
+    /**
+     * The Game Builder that prompts user for the selection of Zombie Limit for the Game Level
+     */
     private void GameLevelBuilder(){
         boolean correct = false;
         String optionLevelZombie = JOptionPane.showInputDialog("Enter Zombie Limit for the Wave");
@@ -138,7 +150,7 @@ public class GameLevels implements Serializable{
                     correct = true;
                     zombieLimit = Character.getNumericValue(optionLevelZombie.charAt(0));
                     currentZombies = zombieLimit;
-                    System.out.println(currentZombies);
+                    //System.out.println(currentZombies);
 
                 } else if (optionLevelZombie.length() == 2 &&
                         Character.getNumericValue(optionLevelZombie.charAt(0)) > 0 &&
@@ -147,7 +159,7 @@ public class GameLevels implements Serializable{
                     correct = true;
                     zombieLimit = Integer.valueOf(optionLevelZombie);
                     currentZombies = zombieLimit;
-                    System.out.println(currentZombies);
+                    //System.out.println(currentZombies);
 
                 } else {
                     String optionZombiesCorrect = JOptionPane.showInputDialog("Invalid Entry, Zombie Limit must be between 1-50: ");
@@ -159,6 +171,9 @@ public class GameLevels implements Serializable{
 
     }
 
+    /**
+     * The command prompt that shows the user for specifying the maximum limit of the zombies
+     */
     private void MaximumLevelBuild() {
         boolean inputCorrect = false;
         String optionMaxLevel = JOptionPane.showInputDialog("Enter Maximum Level Limit for the Game");
@@ -180,6 +195,9 @@ public class GameLevels implements Serializable{
         }
     }
 
+    /**
+     * The Action Listener method for the Zombie Panel Selection
+     */
     private void addListener(){
         builderView.addselectionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -188,10 +206,13 @@ public class GameLevels implements Serializable{
                 action_M = event.getSource();
                 if (action_M instanceof JButton) {
                     if (action_M == builderView.getZombie()) {
+                        simpleZombiePiece = true;
                         data.add(new Zombie());
                     } else if (action_M == builderView.getBucketHeadZombie()) {
+                        bucketZombiePiece = true;
                         data.add(new BucketZombie());
                     } else if (action_M == builderView.getConeHeadZombie()) {
+                        coneHeadPiece = true;
                         data.add((new ConeheadZombie()));
                     } else if(action_M == builderView.getSubmit()){
                         if(data.isEmpty())
@@ -209,7 +230,10 @@ public class GameLevels implements Serializable{
 
     }
 
-    public void callGame(){
+    /**
+     * The Method is used to invoke the controller upon selection by the user
+     */
+    private void callGame(){
         View view = new View();
         Controller controller = new Controller(view,this);
         controller.actionListener();
@@ -234,9 +258,6 @@ public class GameLevels implements Serializable{
             currentZombies = zombieLimit;
             zombiesSpawned = 0;
         }
-        System.out.println(builderSelection);
-        System.out.println(currentZombies+"\n");
-        System.out.println(zombieLimit+"\n");
     }
 
     /**
@@ -294,6 +315,10 @@ public class GameLevels implements Serializable{
         return currentlevel;
     }
 
+    /**
+     * The Method is used to check for the current mode of the Game
+     * @return True, If the current mode selected is the Developer Mode, else False
+     */
     public boolean getMode(){
         return builderSelection;
     }
@@ -383,6 +408,9 @@ public class GameLevels implements Serializable{
         this.currentZombies = zombiesAlive;
     }
 
+    public void redoCurrentZombies(){if(currentZombies!=zombieLimit){this.currentZombies++;}}
+    public void undoCurrentZombies(){if(currentZombies!=zombieLimit){this.currentZombies--;}}
+
     /**
      * The method is used to check if the user has finished the maximum level
      * @return True, if the user has played all the levels
@@ -408,23 +436,61 @@ public class GameLevels implements Serializable{
     }
 
 
+    /**
+     * The Setter Method for the Boolean specifying selection of zombie, Used for exporting from the XML
+     * @param simpleZombiePiece, The selection command True/False for Simple Zombie
+     */
     public void setSimpleZombiePiece(boolean simpleZombiePiece) {
         this.simpleZombiePiece = simpleZombiePiece;
     }
 
+    /**
+     * The Setter Method for the Boolean specifying selection of zombie, Used for exporting from the XML
+     * @param coneHeadPiece, The selection command True/False for Cone Head Zombie
+     */
     public void setConeHeadPiece(boolean coneHeadPiece) {
         this.coneHeadPiece = coneHeadPiece;
     }
 
+    /**
+     * The Setter Method for the Boolean specifying selection of zombie, Used for exporting from the XML
+     * @param bucketZombiePiece, The selection command True/False for Bucket Head Zombie
+     */
     public void setBucketZombiePiece(boolean bucketZombiePiece) {
         this.bucketZombiePiece = bucketZombiePiece;
     }
 
     /**
+     * The Setter Method for the Boolean specifying selection of zombie, Used for exporting from the XML
+     * @return  simpleZombiePiece, The selection command True/False for Simple Zombie
+     */
+    public boolean getSimpleZombiePiece() {
+        return this.simpleZombiePiece;
+    }
+
+    /**
+     * The Setter Method for the Boolean specifying selection of zombie, Used for exporting from the XML
+     * @return  coneHeadPiece, The selection command True/False for Cone Head Zombie
+     */
+    public boolean getConeHeadPiece() {
+        return this.coneHeadPiece;
+    }
+
+    /**
+     * The Getter Method for the Boolean specifying selection of zombie, Used for exporting from the XML
+     * @return bucketZombiePiece, The selection command True/False for Bucket Head Zombie
+     */
+    public boolean getBucketZombiePiece() {
+        return this.bucketZombiePiece;
+    }
+
+    public void setBuilderSelection(boolean loadedvalue){this.builderSelection = loadedvalue;}
+
+    /**
      * The Method is used to convert the Game Level Data to XML Format
      * @return XML Format of the Game Levels
      */
-    private String toXML() {
+    public String toXML() {
         String output = "";
         output += "<GameLevels>" + "\n";
         output += "\t" + "<Level>" + currentlevel + "</Level>" + "\n";
@@ -435,7 +501,7 @@ public class GameLevels implements Serializable{
         output += "\t" + "<BucketZombie>" + bucketZombiePiece + "</BucketZombie>" + "\n";
         output += "\t" + "<ConeHeadZombie>" + coneHeadPiece + "</ConeHeadZombie>" + "\n";
         output += "\t" + "<SunMoney>" + sunMoney + "</SunMoney>" + "\n";
-        output += "\t" + "<Mode>" + gameMode + "</Mode>" + "\n";
+        output += "\t" + "<DeveloperMode>" + builderSelection + "</DeveloperMode>" + "\n";
         output += "\t" + "<MaxLevel>" + maxLevelWave + "</MaxLevel>" + "\n";
         output += "</GameLevels>";
         return output;
@@ -478,11 +544,16 @@ public class GameLevels implements Serializable{
             inSource.setEncoding("UTF-8");
             saxParser.parse(inSource, userhandler);
             loadGame = userhandler.getGameFile();
+            System.out.println(builderSelection+"\n");
+            System.out.println(simpleZombiePiece+"\n");
+            System.out.println(bucketZombiePiece+"\n");
+            System.out.println(coneHeadPiece+"\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
         return loadGame;
     }
+
 
     /**
      * To String Method for the Game Level Class
@@ -494,16 +565,5 @@ public class GameLevels implements Serializable{
                     + "zombies: "+ this.currentZombies+ "\n"+
                         "SunMoney: "+ this.sunMoney);
     }
-
-
-
-
-
-    public static void main(String[] args) {
-        //GameLevels test = new GameLevels();
-        //System.out.println(test.toXML());
-
-    }
-
 
 }

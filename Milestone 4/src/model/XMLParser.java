@@ -2,6 +2,8 @@ package model;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -28,7 +30,8 @@ public class XMLParser extends DefaultHandler {
     private Stack<GameLevels> gameObjects = new Stack<GameLevels>();
 
     /**
-     * Booleans are used to keep track of the data influx from the XML File and output accordingly
+     * Booleans are used to keep track of the data influx from the XML File and output accordingly.
+     * Booleans used for the proper Import of Data
      */
     private boolean level = false;
     private boolean zombieCount = false;
@@ -39,6 +42,7 @@ public class XMLParser extends DefaultHandler {
     private boolean zombieType1 = false;
     private boolean zombieType2 = false;
     private boolean zombieType3 = false;
+    private boolean gameMode = false;
 
     /**
      * The Getter Method for the constructed Game Level
@@ -47,6 +51,7 @@ public class XMLParser extends DefaultHandler {
     public GameLevels getGameFile(){
         return outputLoad;
     }
+
 
     /**
      * The Getter Method for the current element values in the Stack
@@ -102,6 +107,8 @@ public class XMLParser extends DefaultHandler {
             zombieType3 = true;
         }  else if (qName.equalsIgnoreCase("SunMoney")) {
             sunMoney = true;
+        }  else if (qName.equalsIgnoreCase("DeveloperMode")) {
+            gameMode = true;
         }else if (qName.equalsIgnoreCase("MaxLevel")) {
             maxLevel = true;
         }
@@ -145,13 +152,15 @@ public class XMLParser extends DefaultHandler {
         }else if("ZombiesSpawned".equals(currentElement())) {
             outputLoad.setZombiesSpawned(Integer.valueOf(value));
         }else if(("SimpleZombie").equals(currentElement())){
-            outputLoad.setSimpleZombiePiece(Boolean.valueOf(value));
+            outputLoad.setSimpleZombiePiece(Boolean.parseBoolean(value));
         }else if(("BucketZombie").equals(currentElement())){
-            outputLoad.setBucketZombiePiece(Boolean.valueOf(value));
+            outputLoad.setBucketZombiePiece(Boolean.parseBoolean(value));
         }else if(("ConeHeadZombie").equals(currentElement())){
-            outputLoad.setConeHeadPiece(Boolean.valueOf(value));
+            outputLoad.setConeHeadPiece(Boolean.parseBoolean(value));
         } else if("SunMoney".equals(currentElement())){
             outputLoad.setSunMoney(Integer.valueOf(value));
+        }else if("DeveloperMode".equals(currentElement())){
+            outputLoad.setBuilderSelection(Boolean.parseBoolean(value));
         }else if("MaxLevel".equals(currentElement())){
             outputLoad.setMaxLevel(Integer.valueOf(value));
         }
@@ -182,6 +191,9 @@ public class XMLParser extends DefaultHandler {
         } else if (sunMoney) {
             System.out.println("SunMoney: $" + new String(ch, start, length));
             sunMoney = false;
+        }else if(gameMode){
+            System.out.println("Developer Mode: " + new String(ch, start, length));
+            gameMode = false;
         } else if (maxLevel) {
             System.out.println("Game Max Level: " + new String(ch, start, length));
             maxLevel = false;
