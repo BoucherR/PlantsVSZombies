@@ -4,6 +4,10 @@
 	<ZombieCount>5</ZombieCount>
 	<ZombieLimit>5</ZombieLimit>
 	<ZombiesSpawned>0</ZombiesSpawned>
+	<SimpleZombie>false</SimpleZombie>
+	<BucketZombie>false</BucketZombie>
+	<ConeHeadZombie>false</ConeHeadZombie>
 	<SunMoney>500</SunMoney>
+	<DeveloperMode>false</DeveloperMode>
 	<MaxLevel>5</MaxLevel>
 </GameLevels>
