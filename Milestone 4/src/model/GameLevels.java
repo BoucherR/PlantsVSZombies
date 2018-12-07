@@ -73,7 +73,6 @@ public class GameLevels implements Serializable{
 
      private boolean userSelection;
 
-     private String gameMode;
 
     private ArrayList<Piece> data;
 
@@ -89,7 +88,6 @@ public class GameLevels implements Serializable{
      */
     public GameLevels(GameBuilderView selection){
         builderView = selection;
-        gameMode = "";
         builderSelection = false;
         data = new ArrayList<Piece>();
 
@@ -103,7 +101,6 @@ public class GameLevels implements Serializable{
             simpleZombiePiece = false;
             coneHeadPiece = false;
             bucketZombiePiece = false;
-            gameMode = "Developer";
             addListener();
             GameLevelBuilder();
             //MaximumLevelBuild();
@@ -114,7 +111,6 @@ public class GameLevels implements Serializable{
             zombieLimit = 5;
             zombiesSpawned = 0;
             currentZombies = zombieLimit;
-            gameMode = "Campaign";
             sunMoney = 500;
             JOptionPane.showMessageDialog(null,"Developer Mode not selected, Default Game Level Settings installed");
         }
@@ -386,6 +382,10 @@ public class GameLevels implements Serializable{
         return false;
     }
 
+    /**
+     * Getter Method for teh User Selection
+     * @return userSelection
+     */
     public boolean getUserSelection(){
         return userSelection;
     }
