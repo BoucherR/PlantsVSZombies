@@ -1,12 +1,9 @@
 package test;
 
-import controller.*;
-import model.*;
 import view.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import javax.swing.*;
 import java.awt.*;
 import static org.junit.Assert.*;
@@ -35,6 +32,9 @@ public class GameLevelBuilderViewTest {
     }
 
 
+    /**
+     * The Test is used to check the Constructor for the GUI Frame
+     */
     @Test
     public void testGameLevelBuilderView(){
         assertNotNull("The Game Builder Frame is properly established",testLevelView1);
@@ -45,6 +45,9 @@ public class GameLevelBuilderViewTest {
     }
 
 
+    /**
+     * The Test is used to check the Getter method for the Zombie Selection JButton
+     */
     @Test
     public void testGetZombie(){
         assertNotNull("The Zombie Selection Button is functional",testLevelView1.getZombie());
@@ -56,6 +59,9 @@ public class GameLevelBuilderViewTest {
     }
 
 
+    /**
+     * The Test is used to check the Getter method for the ConeHead Zombie Selection JButton
+     */
     @Test
     public void testGetConeHeadZombie(){
         assertNotNull("The Cone Head Zombie Selection Button is functional",testLevelView1.getConeHeadZombie());
@@ -66,6 +72,9 @@ public class GameLevelBuilderViewTest {
         assertEquals("Zombie Buttons has no sub-components",0,testLevelView1.getConeHeadZombie().getComponentCount());
     }
 
+    /**
+     * The Test is used to check the Getter method for the Submit JButton
+     */
     @Test
     public void testGetSubmit(){
         assertEquals("The Command is placed correctly","Complete Build",testLevelView1.getSubmit().getText());
@@ -76,6 +85,9 @@ public class GameLevelBuilderViewTest {
 
     }
 
+    /**
+     * The Test is used to check the Getter method for the Bucket Head Zombie Selection JButton
+     */
     @Test
     public void testGetBucketHeadZombie(){
         assertNotNull("The Bucket Head Zombie Selection Button is functional",testLevelView1.getBucketHeadZombie());

@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * Main Menu Title Page
  * @author Ryan Gaudreault
  * @version 4.0
  */
