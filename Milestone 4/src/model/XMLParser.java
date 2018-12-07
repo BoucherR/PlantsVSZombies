@@ -30,6 +30,11 @@ public class XMLParser extends DefaultHandler {
     private Stack<GameLevels> gameObjects = new Stack<GameLevels>();
 
     /**
+     * The Object stack is used to keep track of the elements stored inside the XML File
+     */
+    private ArrayList<Piece> pieces = new ArrayList<Piece>();
+
+    /**
      * Booleans are used to keep track of the data influx from the XML File and output accordingly.
      * Booleans used for the proper Import of Data
      */
@@ -52,7 +57,9 @@ public class XMLParser extends DefaultHandler {
         return outputLoad;
     }
 
-
+    public ArrayList<Piece> getPieces(){
+        return pieces;
+    }
     /**
      * The Getter Method for the current element values in the Stack
      * @return
@@ -153,10 +160,19 @@ public class XMLParser extends DefaultHandler {
             outputLoad.setZombiesSpawned(Integer.valueOf(value));
         }else if(("SimpleZombie").equals(currentElement())){
             outputLoad.setSimpleZombiePiece(Boolean.parseBoolean(value));
+            if(Boolean.parseBoolean(value)){
+                pieces.add(new Zombie());
+            }
         }else if(("BucketZombie").equals(currentElement())){
             outputLoad.setBucketZombiePiece(Boolean.parseBoolean(value));
+            if(Boolean.parseBoolean(value)){
+                pieces.add(new BucketZombie());
+            }
         }else if(("ConeHeadZombie").equals(currentElement())){
             outputLoad.setConeHeadPiece(Boolean.parseBoolean(value));
+            if(Boolean.parseBoolean(value)){
+                pieces.add(new ConeheadZombie());
+            }
         } else if("SunMoney".equals(currentElement())){
             outputLoad.setSunMoney(Integer.valueOf(value));
         }else if("DeveloperMode".equals(currentElement())){

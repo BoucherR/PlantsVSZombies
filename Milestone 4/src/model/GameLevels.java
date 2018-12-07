@@ -91,12 +91,13 @@ public class GameLevels implements Serializable{
         builderView = selection;
         gameMode = "";
         builderSelection = false;
+        data = new ArrayList<Piece>();
 
 
         if(selection.getModeSelection() == JOptionPane.YES_OPTION){
             currentlevel = 1;
             maxLevelWave = 1;
-            data = new ArrayList<Piece>();
+            //data = new ArrayList<Piece>();
             sunMoney = 500;
             builderSelection = true;
             simpleZombiePiece = false;
@@ -493,7 +494,7 @@ public class GameLevels implements Serializable{
      * The Method is used to convert the Game Level Data to XML Format
      * @return XML Format of the Game Levels
      */
-    public String toXML() {
+    private String toXML() {
         String output = "";
         output += "<GameLevels>" + "\n";
         output += "\t" + "<Level>" + currentlevel + "</Level>" + "\n";
@@ -530,6 +531,25 @@ public class GameLevels implements Serializable{
 
     }
 
+    public void addSimplePiece(GameLevels input){
+        if(simpleZombiePiece){
+            input.placeSelectedZombies().add(new Zombie());
+            this.data = input.placeSelectedZombies();
+        }
+    }
+    public void addConeHeadPiece(GameLevels input){
+        if(coneHeadPiece){
+            input.placeSelectedZombies().add(new ConeheadZombie());
+            this.data = input.placeSelectedZombies();
+        }
+    }
+    public void addBucketPiece(GameLevels input){
+        if(simpleZombiePiece){
+            input.placeSelectedZombies().add(new BucketZombie());
+            this.data = input.placeSelectedZombies();
+        }
+    }
+
     /**
      * The Method is used to Load the Game Level Data
      * @return The Game Level that is to be loaded back
@@ -547,6 +567,7 @@ public class GameLevels implements Serializable{
             inSource.setEncoding("UTF-8");
             saxParser.parse(inSource, userhandler);
             loadGame = userhandler.getGameFile();
+            loadGame.data = userhandler.getPieces();
         } catch (Exception e) {
             e.printStackTrace();
         }
