@@ -13,6 +13,7 @@ import java.io.*;
 import java.util.*;
 import java.util.List;
 import java.util.Timer;
+import java.util.logging.Level;
 
 /**
  * @author Youssef Saghbini
@@ -59,6 +60,11 @@ public class Controller implements Serializable{
      */
     private List<String> loggingList;
 
+    /**
+     * The Timer
+     */
+    private TimerTask task;
+
     private Stack<Square[][]> undoBoard;
     private Stack<Square[][]> redoBoard;
     private Stack<Integer> undoMoney;
@@ -73,7 +79,7 @@ public class Controller implements Serializable{
      *  Money pouch is the amount of money the player will have. ZombieLimit is the
      *  amount of zombies allowed to be spawned into the board.
      */
-    public Controller(View view){
+    public Controller(View view, GameLevels levelSettings){
         timer = new Timer();
         seconds = 0;
         this.loggingList = new ArrayList<>();
@@ -83,7 +89,7 @@ public class Controller implements Serializable{
         redoMoney = new Stack<>(); // stacking containing amount of sunpoints for redo feature
         this.board = new Square[BOARD_LENGTH][BOARD_HEIGHT];
         this.view = view;
-        this.levels = new GameLevels();
+        this.levels = levelSettings;
         this.zombies = 0;
         for (int c = 0; c < board.length; c++)
             for (int r = 0; r < board[0].length; r++)
@@ -215,7 +221,7 @@ public class Controller implements Serializable{
             loggingList.add("Undo Clicked! \n");
         });
 
-        TimerTask task;
+
         task = new TimerTask() {
 
             @Override
@@ -231,8 +237,19 @@ public class Controller implements Serializable{
             }
 
         };
-        timer.schedule(task, 0, 3500);
+
+        if((levels.getMode()) && !(levels.placeSelectedZombies().isEmpty()))
+        //if(levels.getUserSelection())
+        {
+            timer.schedule(task, 0, 3500);
+            System.out.println(levels.getMode());
+        }
+        if(!(levels.getMode())){
+            timer.schedule(task, 0, 3500);
+        }
+
     }
+
 
     /**
      * This method is used to call the other methods required to finish a turn, after the player has placed his/her
@@ -342,8 +359,26 @@ public class Controller implements Serializable{
      *  Adding zombies randomly at the end of the board.
      */
     public void addingZombie(){
-        System.out.println(levels.maxLevel());
-        if(!levels.maxLevel()){
+        if(levels.getMode()){
+            Random rand = new Random();
+            ArrayList<Piece> listOfZombies = levels.placeSelectedZombies();
+
+            //Piece randomElement = listOfZombies.get(rand.nextInt(listOfZombies.size()));
+            if (!levels.checkLimit(zombies)) {
+                Piece randomElement = listOfZombies.get(rand.nextInt(listOfZombies.size()));
+                int y = rand.nextInt(5);
+                int t = rand.nextInt(7);
+                if (t == 0 || t == 1 || t == 2 || t == 3) {
+                    add(new Coordinate(7, y), randomElement);
+                } else if (t == 4 || t == 5) {
+                    add(new Coordinate(7, y), randomElement);
+                } else if (t == 6) {
+                    add(new Coordinate(7, y), randomElement);
+                }
+                zombies++;
+            }
+
+        } else if(!levels.maxLevel() && !(levels.getMode())){
             if (!levels.checkLimit(zombies)) {
                 Random ran = new Random();
                 int y = ran.nextInt(5);
@@ -356,9 +391,10 @@ public class Controller implements Serializable{
                     add(new Coordinate(7, y), new BucketZombie());
                 }
                 zombies++;
-                System.out.println(zombies);
+                //System.out.println(zombies);
             }
         }
+        //System.out.println(zombies);
     }
 
     /**

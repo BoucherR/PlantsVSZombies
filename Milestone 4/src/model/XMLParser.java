@@ -15,7 +15,7 @@ public class XMLParser extends DefaultHandler {
     /**
      * The GameLevels XML is created during the import of the Data from the file
      */
-    private GameLevels outputLoad = new GameLevels();
+    private GameLevels outputLoad = new GameLevels(0,0,0,0);
 
     /**
      * The Stack is used to keep track of the child elements values of the XML File
@@ -36,6 +36,9 @@ public class XMLParser extends DefaultHandler {
     private boolean maxLevel = false;
     private boolean zombieLimit = false;
     private boolean zombieRemaining = false;
+    private boolean zombieType1 = false;
+    private boolean zombieType2 = false;
+    private boolean zombieType3 = false;
 
     /**
      * The Getter Method for the constructed Game Level
@@ -91,7 +94,13 @@ public class XMLParser extends DefaultHandler {
             zombieLimit = true;
         }else if (qName.equalsIgnoreCase("ZombiesSpawned")) {
             zombieRemaining = true;
-        }else if (qName.equalsIgnoreCase("SunMoney")) {
+        }else if (qName.equalsIgnoreCase("SimpleZombie")) {
+            zombieType1 = true;
+        }else if (qName.equalsIgnoreCase("BucketZombie")) {
+            zombieType2 = true;
+        }else if (qName.equalsIgnoreCase("ConeHeadZombie")) {
+            zombieType3 = true;
+        }  else if (qName.equalsIgnoreCase("SunMoney")) {
             sunMoney = true;
         }else if (qName.equalsIgnoreCase("MaxLevel")) {
             maxLevel = true;
@@ -135,7 +144,13 @@ public class XMLParser extends DefaultHandler {
             outputLoad.setZombieLimit(Integer.valueOf(value));
         }else if("ZombiesSpawned".equals(currentElement())) {
             outputLoad.setZombiesSpawned(Integer.valueOf(value));
-        }else if("SunMoney".equals(currentElement())){
+        }else if(("SimpleZombie").equals(currentElement())){
+            outputLoad.setSimpleZombiePiece(Boolean.valueOf(value));
+        }else if(("BucketZombie").equals(currentElement())){
+            outputLoad.setBucketZombiePiece(Boolean.valueOf(value));
+        }else if(("ConeHeadZombie").equals(currentElement())){
+            outputLoad.setConeHeadPiece(Boolean.valueOf(value));
+        } else if("SunMoney".equals(currentElement())){
             outputLoad.setSunMoney(Integer.valueOf(value));
         }else if("MaxLevel".equals(currentElement())){
             outputLoad.setMaxLevel(Integer.valueOf(value));
@@ -155,7 +170,16 @@ public class XMLParser extends DefaultHandler {
         }else if (zombieRemaining) {
             System.out.println("Zombies Spawned: " + new String(ch, start, length));
             zombieRemaining = false;
-        }else if (sunMoney) {
+        }else if(zombieType1){
+            System.out.println("Simple Zombie: " + new String(ch, start, length));
+            zombieType1 = false;
+        }else if(zombieType2){
+            System.out.println("Bucket Zombie: " + new String(ch, start, length));
+            zombieType2 = false;
+        }else if(zombieType3){
+            System.out.println("Cone Head Zombie: " + new String(ch, start, length));
+            zombieType3 = false;
+        } else if (sunMoney) {
             System.out.println("SunMoney: $" + new String(ch, start, length));
             sunMoney = false;
         } else if (maxLevel) {

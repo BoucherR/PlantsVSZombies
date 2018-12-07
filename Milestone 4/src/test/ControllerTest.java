@@ -32,6 +32,11 @@ public class ControllerTest {
      */
     private Controller testController;
 
+    /**
+     * The GUI Game Level Object that is used for the TEST CASES
+     */
+    private GameLevels controllerLevels;
+
 
     /**
      * Used to initialize and establish the GUI VIEW and CONTROLLER Object for Testing
@@ -39,7 +44,8 @@ public class ControllerTest {
     @Before
     public void setUp(){
         guiView = new View();
-        testController = new Controller(guiView);
+        controllerLevels = new GameLevels(1,5,500,5);
+        testController = new Controller(guiView,controllerLevels);
     }
 
     /**
@@ -48,15 +54,15 @@ public class ControllerTest {
     @Test
     public void testController(){
         assertNotNull("The controller is established",testController);
-        testController.add(new Coordinate(2,0),new Peashooter());
+        testController.add(new Coordinate(2,0),new Threepeater());
         assertTrue("The Piece located is Peashooter",testController.getBoard()[2][0].isOccupied());
         assertNotNull("The Peashooter Piece correctly placed",guiView.getGameButtons()[2][0]);
         assertNotEquals("The Game Piece Location is 2,0","(0,2)",testController.getBoard()[2][0].getCoordinate());
 
         testController.add(new Coordinate(1,1),new Sunflower());
-        testController.add(new Coordinate(2,1),new Peashooter());
+        testController.add(new Coordinate(2,1),new Threepeater());
         assertEquals("The Piece placed is Sunflower",getClass().getResource("/Images/sunflower.png").toString(),guiView.getGameButtons()[1][1].getIcon().toString());
-        assertEquals("The Piece image is of Peashooter",getClass().getResource("/Images/peashooter.png").toString(),guiView.getGameButtons()[2][1].getIcon().toString());
+        assertEquals("The Piece image is of Peashooter",getClass().getResource("/Images/threepeater.png").toString(),guiView.getGameButtons()[2][1].getIcon().toString());
         assertNotEquals("The Game Piece Location is 1,1","0,0",guiView.getGameButtons()[1][1].getLocation());
 
         testController.add(new Coordinate(1,2),new TwinSunflower());
@@ -73,11 +79,11 @@ public class ControllerTest {
         assertNotNull("The Game Piece Location is for a Wallnut",testController.getBoard()[2][3].getCoordinate());
         assertEquals("The Game Piece placed is Repeater",new Repeater(),testController.getBoard()[2][3].getPiece());
 
-        testController.add(new Coordinate(2,4),new Peashooter());
+        testController.add(new Coordinate(2,4),new Threepeater());
         assertNotNull("The Game Piece Location is for a (2,4)",testController.getBoard()[2][4].getPiece());
-        assertEquals("The Game Piece Located is Peashooter",new Peashooter(),testController.getBoard()[2][4].getPiece());
+        assertEquals("The Game Piece Located is Peashooter",new Threepeater(),testController.getBoard()[2][4].getPiece());
         assertEquals("The Game Piece placed is Repeater",new Coordinate(2,4),testController.getBoard()[2][4].getCoordinate());
-        for(int i = 0; i < testController.getBoard()[0].length;i++)
+        for(int i = 0; i < testController.getBoard()[0].length - 2;i++)
         {
             testController.movingZombie();
             testController.runTime();
@@ -183,10 +189,10 @@ public class ControllerTest {
        assertEquals("The Game Piece Located is Threepeater",new Threepeater(),testController.getBoard()[2][1].getPiece());
        assertEquals("The Game Piece Located is Zombie",new Zombie(),testController.getBoard()[7][1].getPiece());
 
-       testController.add(new Coordinate(2,2),new Peashooter());
+       testController.add(new Coordinate(2,2),new Threepeater());
        testController.add(new Coordinate(3,2),new BucketZombie());
        assertNotNull("The Peashooter Placed properly on board",testController.getBoard()[2][2].getImage());
-       assertEquals("The Game Piece Located is Peashooter",new Peashooter(),testController.getBoard()[2][2].getPiece());
+       assertEquals("The Game Piece Located is Peashooter",new Threepeater(),testController.getBoard()[2][2].getPiece());
        assertEquals("The Game Piece Located is Zombie",new BucketZombie(),testController.getBoard()[3][2].getPiece());
 
        for(int i = 0; i < testController.getBoard().length; i++)

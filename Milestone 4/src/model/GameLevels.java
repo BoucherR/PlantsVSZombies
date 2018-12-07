@@ -1,17 +1,32 @@
 package model;
+import controller.Controller;
 import org.xml.sax.InputSource;
+import model.Coordinate;
+import view.GameBuilderView;
+import view.View;
 
 import javax.swing.*;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
  * The Game Level class. Used to keep track of game levels, Save and Load the Game Levels when the Game is SAVED/LOADED
  * @author Muneeb Nasir
  * @version 4.0
  */
-public class GameLevels {
+public class GameLevels implements Serializable{
 
     /**
      * The Maximum numbers of the zombies for a given level
@@ -31,12 +46,31 @@ public class GameLevels {
     /**
      * The Maximum Level for the entire game
      */
-    private int maxlevel;
+    private int maxLevelWave;
 
     /**
      * The is used to keep track of the zombies that had been spawned prior to save command (For Load/Save Functionality)
      */
     private int zombiesSpawned;
+
+    private GameBuilderView builderView;
+
+    /**
+     * The Game Level Builder option selection
+     */
+     private boolean builderSelection;
+
+     private ArrayList<Piece> data;
+
+    private boolean simpleZombiePiece;
+
+     private boolean coneHeadPiece;
+
+     private boolean bucketZombiePiece;
+
+     private boolean userSelection;
+
+    private String gameMode;
 
 
     /**
@@ -44,30 +78,165 @@ public class GameLevels {
      */
     private int sunMoney;
 
-    public GameLevels(int level,int max,int zlimit,int money){ }
 
     /**
      * The Game Level Default Constructor
      */
-    public GameLevels(){
-        currentlevel = 1;
-        maxlevel = 5;
-        zombieLimit = 5;
+    public GameLevels(GameBuilderView selection){
+        builderView = selection;
+
+        builderSelection = false;
+
+
+        if(selection.getModeSelection() == JOptionPane.YES_OPTION){
+            currentlevel = 1;
+            maxLevelWave = 1;
+            data = new ArrayList<Piece>();
+            sunMoney = 500;
+            builderSelection = true;
+            simpleZombiePiece = false;
+            coneHeadPiece = false;
+            bucketZombiePiece = false;
+            gameMode = "Developer Mode";
+            addListener();
+            GameLevelBuilder();
+            //MaximumLevelBuild();
+        }
+        else if(selection.getModeSelection() == JOptionPane.NO_OPTION) {
+            currentlevel = 1;
+            maxLevelWave = 5;
+            zombieLimit = 5;
+            zombiesSpawned = 0;
+            currentZombies = zombieLimit;
+            gameMode = "Campaign Mode";
+            sunMoney = 500;
+            JOptionPane.showMessageDialog(null,"Developer Mode not selected, Default Game Level Settings installed");
+            //System.out.println(builderSelection);
+        }
+
+    }
+
+
+    public GameLevels(int level, int maxWave, int initialBank, int limit){
+        currentlevel = level;
+        maxLevelWave = maxWave;
+        zombieLimit = limit;
         zombiesSpawned = 0;
         currentZombies = zombieLimit;
-        sunMoney = 500;
+        sunMoney = initialBank;
+        builderSelection = false;
     }
+
+
+    private void GameLevelBuilder(){
+        boolean correct = false;
+        String optionLevelZombie = JOptionPane.showInputDialog("Enter Zombie Limit for the Wave");
+        if(!(optionLevelZombie == null)) {
+            while (!correct) {
+                if (optionLevelZombie.length() == 1 && Character.getNumericValue(optionLevelZombie.charAt(0)) > 0) {
+                    zombiesSpawned = 0;
+                    correct = true;
+                    zombieLimit = Character.getNumericValue(optionLevelZombie.charAt(0));
+                    currentZombies = zombieLimit;
+                    System.out.println(currentZombies);
+
+                } else if (optionLevelZombie.length() == 2 &&
+                        Character.getNumericValue(optionLevelZombie.charAt(0)) > 0 &&
+                        (Integer.valueOf(String.valueOf(optionLevelZombie.charAt(0)) + String.valueOf(optionLevelZombie.charAt(1)))) < 50) {
+                    zombiesSpawned = 0;
+                    correct = true;
+                    zombieLimit = Integer.valueOf(optionLevelZombie);
+                    currentZombies = zombieLimit;
+                    System.out.println(currentZombies);
+
+                } else {
+                    String optionZombiesCorrect = JOptionPane.showInputDialog("Invalid Entry, Zombie Limit must be between 1-50: ");
+                    correct = false;
+                    optionLevelZombie = optionZombiesCorrect;
+                }
+            }
+        }
+
+    }
+
+    private void MaximumLevelBuild() {
+        boolean inputCorrect = false;
+        String optionMaxLevel = JOptionPane.showInputDialog("Enter Maximum Level Limit for the Game");
+        if (!(optionMaxLevel == null)) {
+            while (!inputCorrect) {
+                if (optionMaxLevel.length() == 1 && Character.getNumericValue(optionMaxLevel.charAt(0)) > 0
+                        && Character.getNumericValue(optionMaxLevel.charAt(0)) < 5) {
+                    inputCorrect = true;
+                    maxLevelWave = Character.getNumericValue(optionMaxLevel.charAt(0));
+                } else {
+                    String optionZombiesCorrect = JOptionPane.showInputDialog("Invalid Entry, Level Limit must be between 1-5: ");
+                    inputCorrect = false;
+                    optionMaxLevel = optionZombiesCorrect;
+                }
+            }
+        }else {
+            JOptionPane.showMessageDialog(null,"No Selection Made, Developer Mode Turned Off");
+            builderView.dispose();
+        }
+    }
+
+    private void addListener(){
+        builderView.addselectionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+
+                Object action_M;
+                action_M = event.getSource();
+                if (action_M instanceof JButton) {
+                    if (action_M == builderView.getZombie()) {
+                        data.add(new Zombie());
+                    } else if (action_M == builderView.getBucketHeadZombie()) {
+                        data.add(new BucketZombie());
+                    } else if (action_M == builderView.getConeHeadZombie()) {
+                        data.add((new ConeheadZombie()));
+                    } else if(action_M == builderView.getSubmit()){
+                        if(data.isEmpty())
+                        {
+                            JOptionPane.showMessageDialog(null,"No Selection Made. Please Select Zombies");
+                        }
+                        else{
+                            builderView.dispose();
+                            callGame();
+                        }
+                    }
+                }
+            }
+        });
+
+    }
+
+    public void callGame(){
+        View view = new View();
+        Controller controller = new Controller(view,this);
+        controller.actionListener();
+    }
+
+
+    public ArrayList<Piece> placeSelectedZombies() {
+            return data;
+    }
+
 
     /**
      * The method is used to restart the levels during the game reset
      */
     public void restartLevels(){
-        currentlevel = 1;
-        maxlevel = 5;
-        zombieLimit = 5;
-        sunMoney = 500;
-        currentZombies = zombieLimit;
-        zombiesSpawned = 0;
+        if(!builderSelection)
+        {
+            currentlevel = 1;
+            maxLevelWave = 5;
+            zombieLimit = 5;
+            sunMoney = 500;
+            currentZombies = zombieLimit;
+            zombiesSpawned = 0;
+        }
+        System.out.println(builderSelection);
+        System.out.println(currentZombies+"\n");
+        System.out.println(zombieLimit+"\n");
     }
 
     /**
@@ -125,6 +294,9 @@ public class GameLevels {
         return currentlevel;
     }
 
+    public boolean getMode(){
+        return builderSelection;
+    }
 
     /**
      * The Method is used to add the money earned by the player
@@ -140,16 +312,18 @@ public class GameLevels {
      */
     private void nextLevel(){
         currentlevel++;
-        if(currentlevel <= maxlevel){
-            zombieLimit +=5;
-            sunMoney+=100;
-            currentZombies = zombieLimit;
-            JOptionPane.showMessageDialog(null, "Next Level Reached");
-        }
-        else
-        {
-            currentZombies = 0;
-            zombieLimit = 0;
+        if(!builderSelection){
+            if(currentlevel <= maxLevelWave){
+                zombieLimit +=5;
+                sunMoney+=100;
+                currentZombies = zombieLimit;
+                JOptionPane.showMessageDialog(null, "Next Level Reached");
+            }
+            else
+            {
+                currentZombies = 0;
+                zombieLimit = 0;
+            }
         }
     }
 
@@ -187,12 +361,17 @@ public class GameLevels {
         return false;
     }
 
+    public boolean getUserSelection(){
+        return userSelection;
+    }
+
     /**
      * The Method is used check the zombies added with respect to zombies limit for a given level
      * @param count, The current count of the zombies added on the Board
      * @return True, if the count equals the limit for the zombies
      */
     public boolean checkLimit(int count){
+        System.out.println(zombieLimit);
         return (zombieLimit == count);
     }
 
@@ -209,7 +388,7 @@ public class GameLevels {
      * @return True, if the user has played all the levels
      */
     public boolean maxLevel(){
-        return (this.currentlevel > this.maxlevel);
+        return (this.currentlevel > this.maxLevelWave);
     }
 
     /**
@@ -225,7 +404,20 @@ public class GameLevels {
      * @param max, The Maximum Level
      */
     public void setMaxLevel(int max) {
-        this.maxlevel = max;
+        this.maxLevelWave = max;
+    }
+
+
+    public void setSimpleZombiePiece(boolean simpleZombiePiece) {
+        this.simpleZombiePiece = simpleZombiePiece;
+    }
+
+    public void setConeHeadPiece(boolean coneHeadPiece) {
+        this.coneHeadPiece = coneHeadPiece;
+    }
+
+    public void setBucketZombiePiece(boolean bucketZombiePiece) {
+        this.bucketZombiePiece = bucketZombiePiece;
     }
 
     /**
@@ -239,8 +431,12 @@ public class GameLevels {
         output += "\t" + "<ZombieCount>" + currentZombies + "</ZombieCount>" + "\n";
         output += "\t" + "<ZombieLimit>" + zombieLimit  + "</ZombieLimit>" + "\n";
         output += "\t" + "<ZombiesSpawned>" + zombiesSpawned + "</ZombiesSpawned>" + "\n";
+        output += "\t" + "<SimpleZombie>" + simpleZombiePiece + "</SimpleZombie>" + "\n";
+        output += "\t" + "<BucketZombie>" + bucketZombiePiece + "</BucketZombie>" + "\n";
+        output += "\t" + "<ConeHeadZombie>" + coneHeadPiece + "</ConeHeadZombie>" + "\n";
         output += "\t" + "<SunMoney>" + sunMoney + "</SunMoney>" + "\n";
-        output += "\t" + "<MaxLevel>" + maxlevel + "</MaxLevel>" + "\n";
+        output += "\t" + "<Mode>" + gameMode + "</Mode>" + "\n";
+        output += "\t" + "<MaxLevel>" + maxLevelWave + "</MaxLevel>" + "\n";
         output += "</GameLevels>";
         return output;
     }
@@ -270,7 +466,7 @@ public class GameLevels {
      * @return The Game Level that is to be loaded back
      */
     public GameLevels loadLevels(){
-        GameLevels loadGame = new GameLevels();
+        GameLevels loadGame = new GameLevels(0,0,0,0);
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
@@ -301,13 +497,13 @@ public class GameLevels {
 
 
 
+
+
     public static void main(String[] args) {
-        GameLevels test = new GameLevels();
-        System.out.println(test.toXML());
-        test.setSunMoney(10);
-        test.setLevel(4);
-        test.saveLevels();
-        GameLevels input = test.loadLevels();
+        //GameLevels test = new GameLevels();
+        //System.out.println(test.toXML());
 
     }
+
+
 }

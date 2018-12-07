@@ -23,8 +23,8 @@ public class GameLevelsTest {
      */
     @Before
     public void setUp(){
-        testLevel1 = new GameLevels();
-        testLevel2 = new GameLevels();
+        testLevel1 = new GameLevels(1,5,500,5);
+        testLevel2 = new GameLevels(1,5,500,5);
     }
 
     /**
