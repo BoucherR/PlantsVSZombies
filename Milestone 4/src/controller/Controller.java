@@ -25,7 +25,14 @@ import java.util.logging.Level;
 
 public class Controller implements Serializable{
 
+    /**
+     * Used for the Real-Time functionality
+     */
     private int seconds;
+
+    /**
+     * Time used for controlling the Real-Time functionality
+     */
     private static Timer timer;
 
 
@@ -65,10 +72,17 @@ public class Controller implements Serializable{
      */
     private TimerTask task;
 
+    /**
+     * The Stacks used to Track the Undo/Redo functionality
+     */
     private Stack<Square[][]> undoBoard;
     private Stack<Square[][]> redoBoard;
     private Stack<Integer> undoMoney;
     private Stack<Integer> redoMoney;
+
+    /**
+     * Static variables used to keep track of the Game Frame
+     */
     private static final int BOARD_LENGTH = 8;
     private static final int BOARD_HEIGHT = 5;
 
@@ -254,7 +268,6 @@ public class Controller implements Serializable{
             System.out.println("All Dead");
             zombies =0;
         }
-        //System.out.println("Zombies: "+ levels.getCurrentZombies() +" Next Level not reached. User Money: " + levels.getMoney());
         movingZombie();
         removeUpdate();
         addingZombie();
@@ -351,11 +364,8 @@ public class Controller implements Serializable{
      *  Adding zombies randomly at the end of the board.
      */
     public void addingZombie(){
-        if(levels.getMode() && !levels.maxLevel()){
+        if(levels.getMode()){
             Random rand = new Random();
-            ArrayList<Piece> listOfZombies = levels.placeSelectedZombies();
-
-            //Piece randomElement = listOfZombies.get(rand.nextInt(listOfZombies.size()));
             if (!levels.checkLimit(zombies)) {
                 //Piece randomElement = listOfZombies.get(rand.nextInt(listOfZombies.size()));
                 int y = rand.nextInt(5);
@@ -383,7 +393,6 @@ public class Controller implements Serializable{
                     add(new Coordinate(7, y), new BucketZombie());
                 }
                 zombies++;
-                //System.out.println(zombies);
             }
         }
         System.out.println(zombies);
@@ -398,7 +407,6 @@ public class Controller implements Serializable{
                 if (board[col][row].isZombie()) {
                     if(board[col][row].getPiece().getHealth() <= 0)
                     {
-                        System.out.println("Zombies: "+ levels.getCurrentZombies() +" Killed. User Money: " + levels.getMoney());
                         levels.zombieKilled();
                     }
                     System.out.println("Zombies: "+ levels.getCurrentZombies() +" Next Level not reached. User Money: " + levels.getMoney());

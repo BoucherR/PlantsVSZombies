@@ -150,8 +150,6 @@ public class GameLevels implements Serializable{
                     correct = true;
                     zombieLimit = Character.getNumericValue(optionLevelZombie.charAt(0));
                     currentZombies = zombieLimit;
-                    //System.out.println(currentZombies);
-
                 } else if (optionLevelZombie.length() == 2 &&
                         Character.getNumericValue(optionLevelZombie.charAt(0)) > 0 &&
                         (Integer.valueOf(String.valueOf(optionLevelZombie.charAt(0)) + String.valueOf(optionLevelZombie.charAt(1)))) < 50) {
@@ -159,8 +157,6 @@ public class GameLevels implements Serializable{
                     correct = true;
                     zombieLimit = Integer.valueOf(optionLevelZombie);
                     currentZombies = zombieLimit;
-                    //System.out.println(currentZombies);
-
                 } else {
                     String optionZombiesCorrect = JOptionPane.showInputDialog("Invalid Entry, Zombie Limit must be between 1-50: ");
                     correct = false;
@@ -349,6 +345,9 @@ public class GameLevels implements Serializable{
                 currentZombies = 0;
                 zombieLimit = 0;
             }
+        }if(builderSelection){
+            currentZombies = 0;
+            zombieLimit = 0;
         }
     }
 
@@ -484,6 +483,10 @@ public class GameLevels implements Serializable{
         return this.bucketZombiePiece;
     }
 
+    /**
+     * The Setter Method for the Game Mode
+     * @param loadedvalue, The Game Mode Saved
+     */
     public void setBuilderSelection(boolean loadedvalue){this.builderSelection = loadedvalue;}
 
     /**
@@ -544,10 +547,6 @@ public class GameLevels implements Serializable{
             inSource.setEncoding("UTF-8");
             saxParser.parse(inSource, userhandler);
             loadGame = userhandler.getGameFile();
-            System.out.println(builderSelection+"\n");
-            System.out.println(simpleZombiePiece+"\n");
-            System.out.println(bucketZombiePiece+"\n");
-            System.out.println(coneHeadPiece+"\n");
         } catch (Exception e) {
             e.printStackTrace();
         }

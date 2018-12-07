@@ -1,26 +1,37 @@
 package view;
 
-import model.BucketZombie;
-import model.ConeheadZombie;
-import model.Zombie;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The Class is used to provide Game Builder Options
+ * @author Muneeb Nasir
+ * @version 4.0
+ */
 public class GameBuilderView extends JFrame{
 
+    /**
+     * The Panel that holds the Game Buttons
+     */
     private JPanel options;
+
+    /**
+     * The Game Buttons that is used for the selection of the zombies
+     */
     private JButton zombie;
     private JButton coneHeadZombie;
     private JButton bucketHeadZombie;
     private JButton submit;
-    private JLabel help;
 
-
+    /**
+     * The Command Selections
+     */
     private int modeSelection;
 
+    /**
+     * The Constructor of the Game Level Builder GUI
+     */
     public GameBuilderView() {
         setTitle("Zombie Selection: Please select desired zombies and click complete build");
         options = new JPanel();
@@ -48,27 +59,50 @@ public class GameBuilderView extends JFrame{
     }
 
 
+    /**
+     * The Getter Method for the
+     * @return
+     */
     public JButton getZombie() {
         return zombie;
     }
 
+    /**
+     * The Getter Method for the Cone Head Zombie
+     * @return JButton, The JButton provided for the selection
+     */
     public JButton getConeHeadZombie() {
         return coneHeadZombie;
     }
 
+    /**
+     * The Getter Method for the Bucket Head Zombie
+     * @return JButton, The JButton provided for the selection
+     */
     public JButton getBucketHeadZombie() {
         return bucketHeadZombie;
     }
 
+    /**
+     * The Getter Method for the Submit Button
+     * @return JButton, The JButton provided for the completing submission
+     */
     public JButton getSubmit() {
         return submit;
     }
 
+    /**
+     * The Getter Method for the Command Selection
+     * @return command, the selection of the Mode
+     */
     public int getModeSelection() {
         return modeSelection;
     }
 
-
+    /**
+     * The method to add Action Listener
+     * @param a_Listener, The Action Listener
+     */
     public void addselectionListener(ActionListener a_Listener) {
 
         zombie.addActionListener(a_Listener);
