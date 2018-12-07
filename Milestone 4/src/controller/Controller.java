@@ -300,6 +300,10 @@ public class Controller implements Serializable{
         srcSquare.addPiece(piece);
         board2GUI(board);
         loggingList.add("Added Piece: " + piece.getName() + " @ Coordinates: " + coordinate.toString() + "\n");
+        if (srcSquare.isPlant()) { // clearing redo if PLAYER makes a move
+            redoBoard.clear();
+            redoMoney.clear();
+        }
         return true;
     }
 
