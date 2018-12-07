@@ -408,8 +408,8 @@ public class GameLevels implements Serializable{
         this.currentZombies = zombiesAlive;
     }
 
-    public void redoCurrentZombies(){if(currentZombies!=zombieLimit){this.currentZombies++;}}
-    public void undoCurrentZombies(){if(currentZombies!=zombieLimit){this.currentZombies--;}}
+    public void redoCurrentZombies(){if(currentZombies!=zombieLimit){this.currentZombies--;}}
+    public void undoCurrentZombies(){if(currentZombies!=zombieLimit){this.currentZombies++;}}
 
     /**
      * The method is used to check if the user has finished the maximum level

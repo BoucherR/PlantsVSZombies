@@ -544,7 +544,6 @@ public class Controller implements Serializable{
         redoMoney.push(levels.getMoney());
         board = undoBoard.pop();
         levels.setSunMoney(undoMoney.pop());
-        levels.undoCurrentZombies();
         zombies --;
         view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         board2GUI(board);
@@ -562,7 +561,6 @@ public class Controller implements Serializable{
         undoMoney.push(levels.getMoney());
         board = redoBoard.pop();
         levels.setSunMoney(redoMoney.pop());
-        levels.redoCurrentZombies();
         zombies ++;
         view.getSunMoney().setText(Integer.toString(levels.getMoney()));
         board2GUI(board);

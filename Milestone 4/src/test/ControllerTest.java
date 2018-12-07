@@ -234,10 +234,10 @@ public class ControllerTest {
         int column = ran.nextInt(7);
         guiView.getGameButtons()[column][row].doClick();
         Coordinate temp = testController.getClickedButtonLocation();
-        testController.add(temp,new Peashooter());
+        testController.add(temp,new Threepeater());
         testController.getLogging();
         assertTrue("The Game Piece was displayable",testController.getBoard()[column][row].isOccupied());
-        assertEquals("The Game Piece is placed",new Peashooter(),testController.getBoard()[column][row].getPiece());
+        assertEquals("The Game Piece is placed",new Threepeater().getName(),testController.getBoard()[column][row].getPiece().getName());
         assertNotNull("The Game Piece placed using Random",testController.getBoard()[column][row].getPiece());
     }
 
