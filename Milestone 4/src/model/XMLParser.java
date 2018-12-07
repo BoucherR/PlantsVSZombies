@@ -57,6 +57,10 @@ public class XMLParser extends DefaultHandler {
         return outputLoad;
     }
 
+    /**
+     * The Getter Method for the Game Pieces extracted from the Loaded File
+     * @return pieces, The Array List Holding the Pieces Data
+     */
     public ArrayList<Piece> getPieces(){
         return pieces;
     }

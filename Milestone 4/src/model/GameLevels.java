@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
+import java.time.temporal.ChronoField;
 import java.util.ArrayList;
 
 
@@ -142,13 +143,13 @@ public class GameLevels implements Serializable{
         String optionLevelZombie = JOptionPane.showInputDialog("Enter Zombie Limit for the Wave");
         if(!(optionLevelZombie == null)) {
             while (!correct) {
-                if (optionLevelZombie.length() == 1 && Character.getNumericValue(optionLevelZombie.charAt(0)) > 0) {
+                if (optionLevelZombie.length() == 1 && Character.isDigit(optionLevelZombie.charAt(0)) && Character.getNumericValue(optionLevelZombie.charAt(0)) > 0 && Character.getNumericValue(optionLevelZombie.charAt(0)) < 10) {
                     zombiesSpawned = 0;
                     correct = true;
                     zombieLimit = Character.getNumericValue(optionLevelZombie.charAt(0));
                     currentZombies = zombieLimit;
                 } else if (optionLevelZombie.length() == 2 &&
-                        Character.getNumericValue(optionLevelZombie.charAt(0)) > 0 &&
+                        Character.getNumericValue(optionLevelZombie.charAt(0)) > 0 && Character.isDigit(optionLevelZombie.charAt(0)) && Character.isDigit(optionLevelZombie.charAt(1)) &&
                         (Integer.valueOf(String.valueOf(optionLevelZombie.charAt(0)) + String.valueOf(optionLevelZombie.charAt(1)))) < 50) {
                     zombiesSpawned = 0;
                     correct = true;
@@ -233,6 +234,10 @@ public class GameLevels implements Serializable{
     }
 
 
+    /**
+     * The Getter Method for the Zombie Pieces selected by the User
+     * @return data, The ArrayList with the stored Zombie Pieces
+     */
     public ArrayList<Piece> placeSelectedZombies() {
             return data;
     }
@@ -408,7 +413,14 @@ public class GameLevels implements Serializable{
         this.currentZombies = zombiesAlive;
     }
 
+    /**
+     * Method to support Redo Functionality
+     */
     public void redoCurrentZombies(){if(currentZombies!=zombieLimit){this.currentZombies--;}}
+
+    /**
+     * Method to support Undo Functionality
+     */
     public void undoCurrentZombies(){if(currentZombies!=zombieLimit){this.currentZombies++;}}
 
     /**
@@ -531,24 +543,6 @@ public class GameLevels implements Serializable{
 
     }
 
-    public void addSimplePiece(GameLevels input){
-        if(simpleZombiePiece){
-            input.placeSelectedZombies().add(new Zombie());
-            this.data = input.placeSelectedZombies();
-        }
-    }
-    public void addConeHeadPiece(GameLevels input){
-        if(coneHeadPiece){
-            input.placeSelectedZombies().add(new ConeheadZombie());
-            this.data = input.placeSelectedZombies();
-        }
-    }
-    public void addBucketPiece(GameLevels input){
-        if(simpleZombiePiece){
-            input.placeSelectedZombies().add(new BucketZombie());
-            this.data = input.placeSelectedZombies();
-        }
-    }
 
     /**
      * The Method is used to Load the Game Level Data

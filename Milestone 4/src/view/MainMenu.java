@@ -19,6 +19,10 @@ public class MainMenu extends JFrame{
      * A JButton that makes up the main menu, starts game when pressed.
      */
     private JButton startButton;
+
+    /**
+     * JMenu Bar and JMenuItem for the Main Menu
+     */
     private JMenuBar option;
     private JMenuItem gameBuilder;
 
