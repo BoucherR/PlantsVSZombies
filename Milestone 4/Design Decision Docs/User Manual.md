@@ -43,7 +43,7 @@ During the game, any event that occurs; will be recorded and displayed, so that 
 How to play the game. Each event will be shown in short video and described for better understanding.
 ## Start of the game 
 Once the game starts, you will see the board and the log all in one frame. You will be greeted with a start up button. 
-![enter image description here](https://lh3.googleusercontent.com/SnUOb7-yl_qU18VXLeM9KrmgPbRW9-4PuzRHdo97w0ivj-ADD9ko7dmb-v0bT2h7j89JUQGby1G3Sg)
+![enter image description here](https://lh3.googleusercontent.com/tIcmio94YcvGCstN7hlUrtiyo6Cl05dAt2LoQShdR9xy5uBJrLvN6CaDszfVQ3IAmO-wll28X5M7qQ)
 
 Once clicked you will see the whole layout, 
 ![enter image description here](https://lh3.googleusercontent.com/CFdmgXtFP5r48iUmdV8I8Zyhli6TSYKHHR2cMA25va-LFCQDkAnutotvd39PLPC4ZkToGA_4vVpQbg)
@@ -98,4 +98,33 @@ The objective of the game is preventing the zombies from reaching to your end of
 
 The objective of the game is to prevent zombies from reaching to your home, aka column 0. The game will check itself, every round, to see if any zombie has reached to the end. If one zombie has reached to column 0, then the user looses the game.
 
+# Game Modes
 
+The Game has been developed to provide the two different game modes. The game modes provide the two unique and different experiences.
+
+The Two Game Mode provided to the user:
+- Campaign Mode
+- Game Developer Mode
+
+## Campaign Mode 
+
+The Campaign mode provides a unique gamer experience. There are total 5 different Zombie Waves, that increase in difficulty as the user progresses to the next level. The user is given access to all the available Plants and initial amount of 500 Sun Points. As the user progresses towards the next level wave the user is given a bonus of 100.
+
+## Developer's Mode
+The Developer Mode provides the user with the option of modifying the Game Level
+
+In the beginning of the game, we have included developer's mode. Where you can adjust the amount of zombies and select which zombies you would like to face.
+![](https://lh3.googleusercontent.com/zJwON8CCjr2-TSGAf38gYCwHPmIrewgXso-PlzMaBOw85a3yMPrjQtvpwOVYm1YVpIps_Ma5NFbe_A)
+
+In the menu title, you would see the text, "Game Developer Mode". Click on it and a way you go!
+
+![enter image description here](https://lh3.googleusercontent.com/BdESqAijZbibNJNSoYMWmgFf0cn-JQPJ4tuTm9RGSIjl_zyYHvxHh6or0tPtVGUJWSCMd6nekF0uAQ)
+
+Once you have clicked on the button, a popup like the one shown above will show up. You must enter the amount of zombies you would like to go against. Once selected within range, another popup will show up like the one below.
+
+
+![enter image description here](https://lh3.googleusercontent.com/24LxVYJUFu5HllCXcL01zvvPcFHKL8aOAQUanjA9PoyLSGHbQYdvyutpFHH_qru0Qf9xJ4nWHKCvYA)
+
+When you see this, you can click on any zombie you would like to see and you have finished decided, click on "Complete Build" and it will start the game with the settings you have given. 
+
+# Enjoy the game
